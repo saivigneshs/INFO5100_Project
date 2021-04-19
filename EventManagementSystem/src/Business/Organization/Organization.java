@@ -26,7 +26,7 @@ public abstract class Organization {
     private Type type;
 
     public enum Type {
-        Admin("Admin Organization"),
+        Host("Host Organization"),
         Location("Location Organization"),
         Infrastructure("Infrastructure Organization"),
         Musician("Musician Organization"),

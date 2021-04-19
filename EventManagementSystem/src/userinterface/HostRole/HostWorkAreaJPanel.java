@@ -160,7 +160,7 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
         jPanel3.add(addEventPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 40));
 
         title.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        title.setText("HOST WORK AREA");
+        title.setText("Event Management Area");
         jPanel3.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         HostProfilePanel.setBackground(new java.awt.Color(204, 204, 255));
