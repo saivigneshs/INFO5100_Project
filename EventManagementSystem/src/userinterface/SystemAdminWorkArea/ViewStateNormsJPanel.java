@@ -61,8 +61,8 @@ private void disableEdit(){
         
         lblStateFlag.setIcon(imIcon);
         txtStateName.setText(network.getName());
-        txtIndoorLimit.setText(String.valueOf(network.getIgLimit()));
-        txtOutdoorLimit.setText(String.valueOf(network.getOgLimit()));
+        txtIndoorLimit.setText(network.getIgLimit());
+        txtOutdoorLimit.setText(network.getOgLimit());
         txtMaskNeeded.setText(network.getMaskMandatory());
 }
     /**
@@ -213,7 +213,10 @@ private void disableEdit(){
         Component component = componentArray[componentArray.length - 1];
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
+<<<<<<< HEAD
        
+=======
+>>>>>>> 4c5219ce56b0298642e92707f357e51b9c6285a7
     }//GEN-LAST:event_btnBack1ActionPerformed
 
 

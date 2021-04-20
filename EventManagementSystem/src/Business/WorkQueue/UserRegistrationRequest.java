@@ -11,7 +11,7 @@ import Business.Organization.Organization;
 
 /**
  *
- * @author Mayank
+ * @author Saivignesh Sridhar
  */
 public class UserRegistrationRequest extends WorkRequest{
     

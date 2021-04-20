@@ -9,6 +9,7 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.WorkQueue.WorkQueue;
+import java.awt.Image;
 
 /**
  *
@@ -29,13 +30,17 @@ public class UserAccount {
     private String Email;
     private String City;
     private String State;
-    private String Charge;
-    private String NationId;
-    private String IdDoc;
-    private boolean isApproved;
     private Enterprise userEnterpriseList;
     private Organization userOrganizationList;
+    private Image userPhoto;
 
+    public Image getUserPhoto() {
+        return userPhoto;
+    }
+
+    public void setUserPhoto(Image userPhoto) {
+        this.userPhoto = userPhoto;
+    }
     public UserAccount() {
         workQueue = new WorkQueue();
     }
@@ -165,37 +170,5 @@ public class UserAccount {
 
     public void setState(String State) {
         this.State = State;
-    }
-
-    public String getCharge() {
-        return Charge;
-    }
-
-    public void setCharge(String Charge) {
-        this.Charge = Charge;
-    }
-
-    public boolean isIsApproved() {
-        return isApproved;
-    }
-
-    public void setIsApproved(boolean isApproved) {
-        this.isApproved = isApproved;
-    }
-
-    public String getNationId() {
-        return NationId;
-    }
-
-    public void setNationId(String NationId) {
-        this.NationId = NationId;
-    }
-
-    public String getIdDoc() {
-        return IdDoc;
-    }
-
-    public void setIdDoc(String IdDoc) {
-        this.IdDoc = IdDoc;
     }
 }

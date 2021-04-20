@@ -25,7 +25,18 @@ public class OrganizationDirectory {
 
     public Organization createOrganization(Type type, String name) {
         Organization organization = null;
-        
+        if (type.getValue().equals(Type.Host.getValue())) {
+            organization = new HostOrganization(name);
+            organizationList.add(organization);
+           
+        } else if (type.getValue().equals(Type.Location.getValue())) {
+            organization = new LocationOrganization(name);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.Infrastructure.getValue())) {
+            organization = new InfraOrganization(name);
+            organizationList.add(organization);
+        }  
+            
         return organization;
     }
 }

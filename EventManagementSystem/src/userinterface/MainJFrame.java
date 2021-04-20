@@ -101,6 +101,7 @@ public class MainJFrame extends javax.swing.JFrame {
         topPanel.setPreferredSize(new java.awt.Dimension(1338, 60));
         topPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnLogoutLabel.setForeground(new java.awt.Color(255, 255, 255));
         btnLogoutLabel.setText("LOGOUT");
         btnLogoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -288,7 +289,7 @@ public class MainJFrame extends javax.swing.JFrame {
         btnRegister.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 229, 180));
         btnRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnRegister.setText("REGISTER AS TEAM");
+        btnRegister.setText("REGISTER AS HOST");
         btnRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(117, 170, 93)));
         btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {

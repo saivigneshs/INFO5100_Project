@@ -14,6 +14,50 @@ import Business.Enterprise.EnterpriseDirectory;
 public class Network {
 
     private String name;
+    private String code;
+    private String imgPath;
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+    private String igLimit;
+
+    public String getIgLimit() {
+        return igLimit;
+    }
+
+    public void setIgLimit(String igLimit) {
+        this.igLimit = igLimit;
+    }
+
+    public String getOgLimit() {
+        return ogLimit;
+    }
+
+    public void setOgLimit(String ogLimit) {
+        this.ogLimit = ogLimit;
+    }
+    private String ogLimit;
+    private String maskMandatory;
+
+    public String getMaskMandatory() {
+        return maskMandatory;
+    }
+
+    public void setMaskMandatory(String maskMandatory) {
+        this.maskMandatory = maskMandatory;
+    }
     private final EnterpriseDirectory enterpriseDirectory;
 
     public Network() {

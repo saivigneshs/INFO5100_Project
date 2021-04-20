@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Business.Organization;
-
 import Business.Role.InfraRole;
 import Business.Role.Role;
 import java.util.ArrayList;

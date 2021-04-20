@@ -61,6 +61,8 @@ public class EcoSystem extends Organization{
         networkList.add(network);
         return network;
     }
+    
+    
 
     @Override
     public ArrayList<Role> getSupportedRole() {
@@ -91,9 +93,31 @@ public class EcoSystem extends Organization{
         this.enterpriseDirectory = enterpriseDirectory;
     }
 
-    public boolean checkIfNetworkIsUnique(String networkName) {
+    public Network fetchNetwork(String networkCode) {
         for (Network n : business.getNetworkList()) {
-            if (n.getName().toLowerCase().equals(networkName.toLowerCase())) {
+            if (n.getCode().toLowerCase().equals(networkCode.toLowerCase())) {
+                System.out.println("Found network");
+              return n;
+            }
+        }
+        return null;
+    }
+    
+public void DeleteNetwork(String networkCode, int index) {
+    try{
+          for (Network n : business.getNetworkList()) {
+             if (n.getName().toLowerCase().equals(networkCode.toLowerCase())) {
+                networkList.remove(index+1);
+            } 
+        }
+    }catch(Exception e){
+    System.out.println("Network does not Exist!");
+    }
+    }
+    
+    public boolean checkIfNetworkIsUnique(String netCode) {
+        for (Network n : business.getNetworkList()) {
+            if (n.getCode().toLowerCase().equals(netCode.toLowerCase())) {
                 return false;
             }
         }
@@ -158,14 +182,6 @@ public class EcoSystem extends Organization{
         return true;
     }
 
-    public boolean checkIfPasswordIsValid(String passwordValue) {
-        Pattern pattern;
-        Matcher matcher;
-        String PASSWORD_PATTERN = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,10}$";
-        pattern = Pattern.compile(PASSWORD_PATTERN);
-        matcher = pattern.matcher(passwordValue);
-        return matcher.matches();
-    }
 
     public boolean checkIfEmailIsUnique(String email, String username) {
         for (Network n : business.getNetworkList()) {
@@ -185,7 +201,7 @@ public class EcoSystem extends Organization{
         return true;
     }
 
-    public Boolean checkValidPhoneFormat(String phoneNo) {
+    public Boolean validateMobileNo(String phoneNo) {
         Pattern pattern;
         Matcher matcher;
         String PHONE_PATTERN = "^[0-9]{10}$";
@@ -199,7 +215,7 @@ public class EcoSystem extends Organization{
         }
     }
 
-    public Boolean checkValidEmailFormat(String email) {
+    public Boolean validateEmailID(String email) {
         Pattern pattern;
         Matcher matcher;
         String EMAIL_PATTERN
@@ -214,7 +230,7 @@ public class EcoSystem extends Organization{
         }
     }
 
-    public Boolean checkValidPasswordFormat(String password) {
+    public Boolean validatePassword(String password) {
         Pattern p1;
         p1 = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()�[{}]:;',?/*~$^+=<>]).{6,15}$");
         Matcher m1 = p1.matcher(password);
@@ -228,17 +244,6 @@ public class EcoSystem extends Organization{
             return false;
         } else {
             return true;
-        }
-    }
-
-    public void setValidationAlert(JLabel lblName, JTextField txtBoxName, String validationMsg, Boolean flag) {
-        if (flag) {
-            lblName.setForeground(Color.red);
-            txtBoxName.setBorder(BorderFactory.createLineBorder(Color.RED));
-            JOptionPane.showMessageDialog(null, validationMsg);
-        } else {
-            lblName.setForeground(Color.BLACK);
-            txtBoxName.setBorder(BorderFactory.createLineBorder(Color.black));
         }
     }
 
