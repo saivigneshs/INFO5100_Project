@@ -26,7 +26,8 @@ public abstract class Enterprise extends Organization {
         GeoInfra("GeoInfra"),
         Catering("Catering"),
         Entertainment("Entertainment"),
-        SecurityER("SecurityER");
+        SecurityER("SecurityER"),
+        Government("Government");
 
         private String value;
 

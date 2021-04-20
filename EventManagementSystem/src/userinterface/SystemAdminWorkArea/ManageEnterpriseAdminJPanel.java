@@ -217,7 +217,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Kindly enter all the fields.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if (!system.checkValidPasswordFormat(password)) {
+        if (!system.validatePassword(password)) {
             return;
         }
         if (!system.checkIfUserIsUnique(username)) {

@@ -48,6 +48,10 @@ public class EnterpriseDirectory {
                     enterprise = new SecurityEREnterprise(name);
                     enterpriseList.add(enterprise);
                     break;
+                case Government:
+                    enterprise = new GovtEnterprise(name);
+                    enterpriseList.add(enterprise);
+                    break;     
                 default:
                     break;
             }

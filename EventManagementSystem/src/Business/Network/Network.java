@@ -31,25 +31,25 @@ public class Network {
     public void setCode(String code) {
         this.code = code;
     }
-    private int igLimit;
-    private int ogLimit;
-    private String maskMandatory;
+    private String igLimit;
 
-    public int getIgLimit() {
+    public String getIgLimit() {
         return igLimit;
     }
 
-    public void setIgLimit(int igLimit) {
+    public void setIgLimit(String igLimit) {
         this.igLimit = igLimit;
     }
 
-    public int getOgLimit() {
+    public String getOgLimit() {
         return ogLimit;
     }
 
-    public void setOgLimit(int ogLimit) {
+    public void setOgLimit(String ogLimit) {
         this.ogLimit = ogLimit;
     }
+    private String ogLimit;
+    private String maskMandatory;
 
     public String getMaskMandatory() {
         return maskMandatory;
