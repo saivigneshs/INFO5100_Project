@@ -29,7 +29,7 @@ public class InfraWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         lblRestName.setText(account.getUsername());
         lblRestAdmin.setText(account.getEmployee().getName()+" 's Admin Page");
-          this.userProcessContainer = userProcessContainer;
+        this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = account;
         this.organization = org;
