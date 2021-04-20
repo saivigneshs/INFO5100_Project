@@ -249,16 +249,16 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Kindly enter all the details to Register!", "Error!", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (!system.checkValidPasswordFormat(password)) {
+        if (!system.validatePassword(password)) {
             return;
         }
         if (!system.checkIfUserIsUnique(username)) {
             return;
         }
-        if (!this.system.checkValidEmailFormat(emailAddress)) {
+        if (!this.system.validateEmailID(emailAddress)) {
             return;
         }
-        if (!this.system.checkValidPhoneFormat(phone)) {
+        if (!this.system.validateMobileNo(phone)) {
             return;
         }
 
