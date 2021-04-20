@@ -26,6 +26,7 @@ public abstract class Role {
         Photo("Photo"),
         Food("Food"),
         Beverages("Beverages"),
+        Delivery("Delivery"),
         ER("ER");
         
         private String value;

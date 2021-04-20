@@ -5,17 +5,39 @@
  */
 package userinterface.FoodRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.Items;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
+import javax.swing.JPanel;
+
 /**
  *
  * @author VIGNESH
  */
 public class OrderplaceJPanel extends javax.swing.JPanel {
-
+    int sum = 0;
+    private JPanel userProcessContainer;
+    private UserAccount userAccount;
+    private EcoSystem business;
+    private Enterprise enterprise;
+    private Organization organization;
+    private Orderingclass order;
+    ArrayList<Items> items = new ArrayList<Items>();
     /**
      * Creates new form OrderplaceJPanel
      */
-    public OrderplaceJPanel() {
+    public OrderplaceJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = account;
+        this.business = business;
+        this.enterprise = enterprise;
+        this.organization = organization;
+        this.order = business.getOrderdirectory().createOrder();
+        populateComboBox();
     }
 
     /**

@@ -5,29 +5,27 @@
  */
 package Business.Organization;
 
-import Business.Role.InfraRole;
+import Business.Role.DeliveryRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
 /**
  *
- * @author Saivignesh Sridhar
+ * @author VIGNESH
  */
-public class InfraOrganization extends Organization{
-
-    public InfraOrganization(String name) {
+public class DeliveryOrganization extends Organization{
+    public DeliveryOrganization(String name) {
         super(name);
     }
     
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new InfraRole());
+        roles.add(new DeliveryRole());
         return roles;
     }
        @Override
     public Organization.Type getType() {
-        return Organization.Type.Infrastructure;
-    } 
-     
+        return Organization.Type.Delivery;
+    }
 }

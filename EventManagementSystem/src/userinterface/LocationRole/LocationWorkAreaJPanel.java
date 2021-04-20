@@ -1,5 +1,3 @@
-0
-
 package userinterface.LocationRole;
 
 

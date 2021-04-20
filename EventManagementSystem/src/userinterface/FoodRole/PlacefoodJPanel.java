@@ -5,17 +5,34 @@
  */
 package userinterface.FoodRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author VIGNESH
  */
 public class PlacefoodJPanel extends javax.swing.JPanel {
-
+    private JPanel userProcessContainer;
+    private UserAccount userAccount;
+    private EcoSystem business;
+    private Enterprise enterprise;
+    private Organization organization;
     /**
      * Creates new form PlacefoodJPanel
      */
-    public PlacefoodJPanel() {
+    public PlacefoodJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = account;
+        this.enterprise=enterprise;
+        this.business=business;
+        this.organization=organization;
+        //populateRequestTable();
     }
 
     /**
@@ -57,6 +74,11 @@ public class PlacefoodJPanel extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton2.setText("Track Orders");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,7 +144,19 @@ public class PlacefoodJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        OrderplaceJPanel orderplacepanel = new OrderplaceJPanel(userProcessContainer, userAccount, organization, enterprise, business);
+        userProcessContainer.add("PlaceFoodOrderJPanel", orderplacepanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        TrackorderJPanel ordertrackpanel = new TrackorderJPanel(userProcessContainer, userAccount, organization, enterprise, business);
+        userProcessContainer.add("CancelOrderJPanel", ordertrackpanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
