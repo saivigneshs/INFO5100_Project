@@ -150,7 +150,7 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
         if (selectedRow >= 0) {
             UserRegistrationRequest request = (UserRegistrationRequest) workRequestJTable.getValueAt(selectedRow, 0);
 
-            if (request.getOrgType() == Organization.Type.Admin) {
+            if (request.getOrgType() == Organization.Type.Location || request.getOrgType() == Organization.Type.Infrastructure) {
                 Organization org = organizationDirectory.createOrganization(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
                 UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new HostRole());

@@ -6,7 +6,13 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.EcoSystem;
 import Business.Network.Network;
+import java.awt.CardLayout;
+import java.io.FileReader;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,15 +22,16 @@ import javax.swing.table.DefaultTableModel;
 public class ManageNetworkJPanel extends javax.swing.JPanel {
 
     private final EcoSystem system;
-
+    JPanel userProcessContainer;
     /**
      *
      * Creates new form ManageNetworkJPanel
      * @param system
      */
-    public ManageNetworkJPanel(EcoSystem system) {
+    public ManageNetworkJPanel(JPanel container, EcoSystem system) {
         initComponents();
         this.system = system;
+        this.userProcessContainer=container; 
         populateNetworkTable();
     }
 
@@ -34,7 +41,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (Network network : system.getNetworkList()) {
             Object[] row = new Object[1];
-            row[0] = network.getName();
+            if(network.getCode()!=null){
+            row[0] = network.getCode();
+            }
+            else row[0] = network.getName();
             model.addRow(row);
         }
     }
@@ -50,10 +60,13 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         networkJTable = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        nameJTextField = new javax.swing.JTextField();
+        lbl_StateView = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        btnSubmit = new javax.swing.JLabel();
+        lblView = new javax.swing.JLabel();
+        lblState = new javax.swing.JLabel();
+        txtnetworkState = new javax.swing.JTextField();
+        lblAdd = new javax.swing.JLabel();
+        lblDelete = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setPreferredSize(new java.awt.Dimension(1058, 840));
@@ -93,16 +106,12 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             networkJTable.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 567, 240));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 480, 240));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(25, 56, 82));
-        jLabel1.setText("Kindly Enter the State Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, 265, 25));
-
-        nameJTextField.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        nameJTextField.setForeground(new java.awt.Color(25, 56, 82));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 296, -1));
+        lbl_StateView.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lbl_StateView.setForeground(new java.awt.Color(25, 56, 82));
+        lbl_StateView.setText("Kindly select a State and Hit View");
+        add(lbl_StateView, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, 310, 20));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -111,49 +120,145 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jLabel6.setText("VIEW STATE DETAILS AND NORMS");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 586, -1));
 
-        btnSubmit.setBackground(new java.awt.Color(255, 255, 255));
-        btnSubmit.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnSubmit.setForeground(new java.awt.Color(25, 56, 82));
-        btnSubmit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnSubmit.setText("Add");
-        btnSubmit.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(25, 56, 82)));
-        btnSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblView.setBackground(new java.awt.Color(255, 255, 255));
+        lblView.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblView.setForeground(new java.awt.Color(25, 56, 82));
+        lblView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblView.setText("View");
+        lblView.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(25, 56, 82)));
+        lblView.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnSubmitMousePressed(evt);
+                lblViewMousePressed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 153, 32));
+        add(lblView, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 80, 30));
+
+        lblState.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        lblState.setForeground(new java.awt.Color(25, 56, 82));
+        lblState.setText("Kindly Enter the State Code");
+        add(lblState, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 260, 20));
+
+        txtnetworkState.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        txtnetworkState.setForeground(new java.awt.Color(25, 56, 82));
+        add(txtnetworkState, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 80, -1));
+
+        lblAdd.setBackground(new java.awt.Color(255, 255, 255));
+        lblAdd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblAdd.setForeground(new java.awt.Color(25, 56, 82));
+        lblAdd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdd.setText("Add");
+        lblAdd.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(25, 56, 82)));
+        lblAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblAddMousePressed(evt);
+            }
+        });
+        add(lblAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 80, 30));
+
+        lblDelete.setBackground(new java.awt.Color(255, 255, 255));
+        lblDelete.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblDelete.setForeground(new java.awt.Color(25, 56, 82));
+        lblDelete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDelete.setText("Delete");
+        lblDelete.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(25, 56, 82)));
+        lblDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblDeleteMousePressed(evt);
+            }
+        });
+        add(lblDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 500, 80, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitButton() {
-        String name = nameJTextField.getText().trim();
-        if (name.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Kindly Enter a Network Name!");
+    private void lblAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMousePressed
+        // TODO add your handling code here:
+               addNetwork();
+    }//GEN-LAST:event_lblAddMousePressed
+
+    private void lblViewMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblViewMousePressed
+        // TODO add your handling code here:
+
+         int selectedRow = networkJTable.getSelectedRow();
+        int count = networkJTable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                String networkCode = (String) networkJTable.getValueAt(selectedRow,0);
+               Network net =  system.fetchNetwork(networkCode);    
+               
+                ViewStateNormsJPanel viewUpdateStateNormsJPanel = new ViewStateNormsJPanel(userProcessContainer, net);
+                    userProcessContainer.add(viewUpdateStateNormsJPanel);
+                layout.next(userProcessContainer);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Select a Row to continue.");
+        }
+    }//GEN-LAST:event_lblViewMousePressed
+
+    private void lblDeleteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDeleteMousePressed
+        // TODO add your handling code here:
+        int selectedRow = networkJTable.getSelectedRow();
+        int count = networkJTable.getSelectedRowCount();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                String networkCode = (String) networkJTable.getValueAt(selectedRow,0);
+                int selectionButton = JOptionPane.YES_NO_OPTION;
+                int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete??", "Warning", selectionButton);
+                if (selectionResult == JOptionPane.YES_OPTION) {
+                    system.DeleteNetwork(networkCode,selectedRow);
+                    populateNetworkTable();
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Select a Row to continue.");
+        }
+    }//GEN-LAST:event_lblDeleteMousePressed
+
+    private void addNetwork() {
+        String stateCode = txtnetworkState.getText().trim();
+        if (stateCode.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Kindly Enter a State Code!");
             return;
         }
-        if (system.checkIfNetworkIsUnique(name)) {
+        if (system.checkIfNetworkIsUnique(stateCode)) {
             Network network = system.createAndAddNetwork();
-            network.setName(name);
+
+            network.setCode(stateCode);
+             try{
+            Properties prop = new Properties();
+            FileReader  reader = new FileReader("src\\StateNorms.properties");
+            prop.load(reader);
+            String stateDets = prop.getProperty(stateCode);
+            System.out.println("`` "+stateDets);
+            String[] res = stateDets.split(",");
+            network.setName(res[0]);
+            network.setIgLimit(res[1]);
+            network.setOgLimit(res[2]);
+            network.setMaskMandatory(res[3]);
+            network.setImgPath(res[4]);
+            }
+            catch(Exception e){
+             Logger.getLogger(ManageNetworkJPanel.class.getName()).log(Level.SEVERE, null, e);
+            }
             JOptionPane.showMessageDialog(null, "Network Created Successfully");
-            nameJTextField.setText("");
+            txtnetworkState.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "Network Already Exists");
         }
         populateNetworkTable();
     }
 
-    private void btnSubmitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMousePressed
-        // TODO add your handling code here:
-        submitButton();
-    }//GEN-LAST:event_btnSubmitMousePressed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnSubmit;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nameJTextField;
+    private javax.swing.JLabel lblAdd;
+    private javax.swing.JLabel lblDelete;
+    private javax.swing.JLabel lblState;
+    private javax.swing.JLabel lblView;
+    private javax.swing.JLabel lbl_StateView;
     private javax.swing.JTable networkJTable;
+    private javax.swing.JTextField txtnetworkState;
     // End of variables declaration//GEN-END:variables
 }
