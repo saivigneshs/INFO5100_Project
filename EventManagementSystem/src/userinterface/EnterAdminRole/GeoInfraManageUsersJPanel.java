@@ -202,7 +202,7 @@ public class GeoInfraManageUsersJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please enter all required fields!");
             return;
         }
-        if (!ecosystem.checkValidPasswordFormat(password)) {
+        if (!ecosystem.validatePassword(password)) {
             return;
         }
         if (!ecosystem.checkIfUserIsUnique(username)) {

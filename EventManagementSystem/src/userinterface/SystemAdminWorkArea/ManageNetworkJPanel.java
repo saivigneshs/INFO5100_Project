@@ -234,8 +234,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             System.out.println("`` "+stateDets);
             String[] res = stateDets.split(",");
             network.setName(res[0]);
-            network.setIgLimit(Integer.parseInt(res[1]));
-            network.setOgLimit(Integer.parseInt(res[2]));
+            network.setIgLimit(res[1]);
+            network.setOgLimit(res[2]);
             network.setMaskMandatory(res[3]);
             network.setImgPath(res[4]);
             }

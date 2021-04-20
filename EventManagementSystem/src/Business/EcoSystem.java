@@ -182,14 +182,6 @@ public void DeleteNetwork(String networkCode, int index) {
         return true;
     }
 
-    public boolean checkIfPasswordIsValid(String passwordValue) {
-        Pattern pattern;
-        Matcher matcher;
-        String PASSWORD_PATTERN = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,10}$";
-        pattern = Pattern.compile(PASSWORD_PATTERN);
-        matcher = pattern.matcher(passwordValue);
-        return matcher.matches();
-    }
 
     public boolean checkIfEmailIsUnique(String email, String username) {
         for (Network n : business.getNetworkList()) {
@@ -209,7 +201,7 @@ public void DeleteNetwork(String networkCode, int index) {
         return true;
     }
 
-    public Boolean checkValidPhoneFormat(String phoneNo) {
+    public Boolean validateMobileNo(String phoneNo) {
         Pattern pattern;
         Matcher matcher;
         String PHONE_PATTERN = "^[0-9]{10}$";
@@ -223,7 +215,7 @@ public void DeleteNetwork(String networkCode, int index) {
         }
     }
 
-    public Boolean checkValidEmailFormat(String email) {
+    public Boolean validateEmailID(String email) {
         Pattern pattern;
         Matcher matcher;
         String EMAIL_PATTERN
@@ -238,7 +230,7 @@ public void DeleteNetwork(String networkCode, int index) {
         }
     }
 
-    public Boolean checkValidPasswordFormat(String password) {
+    public Boolean validatePassword(String password) {
         Pattern p1;
         p1 = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()�[{}]:;',?/*~$^+=<>]).{6,15}$");
         Matcher m1 = p1.matcher(password);

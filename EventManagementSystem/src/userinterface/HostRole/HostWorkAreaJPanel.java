@@ -43,12 +43,18 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(rightHostPanel);
     }
 
-    private void manageBuyers() {
-        
+    private void addEvent() {
+        AddEventJPanel addEventJPanel = new AddEventJPanel(rightHostPanel, account, enterprise, system, network, organization);
+        rightHostPanel.add("addEventJPanel", addEventJPanel);
+        CardLayout layout = (CardLayout) rightHostPanel.getLayout();
+        layout.next(rightHostPanel);
     }
     
-    private void manageProfile() {
-        
+    private void viewHostProfile() {
+        ViewHostProfileJPanel viewHostProfileJPanel = new ViewHostProfileJPanel(rightHostPanel,system, account);
+        rightHostPanel.add("viewHostProfileJPanel", viewHostProfileJPanel);
+        CardLayout layout = (CardLayout) rightHostPanel.getLayout();
+        layout.next(rightHostPanel);
     }
 
     /**
@@ -229,7 +235,7 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbl_addEventMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_addEventMousePressed
-        manageBuyers();
+        addEvent();
 
     }//GEN-LAST:event_lbl_addEventMousePressed
 
@@ -244,18 +250,18 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
 
     private void addEventPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEventPanelMousePressed
         // TODO add your handling code here:
-        manageBuyers();
+        addEvent();
     }//GEN-LAST:event_addEventPanelMousePressed
 
     private void lbl_hostProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_hostProfileMousePressed
         // TODO add your handling code here:
-                manageProfile();
+                viewHostProfile();
 
     }//GEN-LAST:event_lbl_hostProfileMousePressed
 
     private void HostProfilePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HostProfilePanelMousePressed
         // TODO add your handling code here:
-                manageProfile();
+                viewHostProfile();
 
     }//GEN-LAST:event_HostProfilePanelMousePressed
 
