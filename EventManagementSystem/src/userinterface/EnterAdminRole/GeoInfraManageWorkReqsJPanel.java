@@ -10,8 +10,6 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.HostRole;
-import Business.Role.InfraRole;
-import Business.Role.LocationRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.UserRegistrationRequest;
 import Business.WorkQueue.WorkRequest;
@@ -152,14 +150,10 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
         if (selectedRow >= 0) {
             UserRegistrationRequest request = (UserRegistrationRequest) workRequestJTable.getValueAt(selectedRow, 0);
 
-            if (request.getOrgType() == Organization.Type.Location ) {
+            if (request.getOrgType() == Organization.Type.Location || request.getOrgType() == Organization.Type.Infrastructure) {
                 Organization org = organizationDirectory.createOrganization(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new LocationRole());
-            } else if (request.getOrgType() == Organization.Type.Infrastructure ) {
-                Organization org = organizationDirectory.createOrganization(request.getOrgType(), request.getName());
-                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new InfraRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new HostRole());
             }
 
             request.setStatus("Completed");

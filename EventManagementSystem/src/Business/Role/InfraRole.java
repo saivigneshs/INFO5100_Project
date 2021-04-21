@@ -28,7 +28,7 @@ public class InfraRole extends Role {
    
 @Override
     public String toString(){
-        return (Role.RoleType.Infra.getValue());
+        return (Role.RoleType.Host.getValue());
     }
    
 }

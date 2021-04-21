@@ -86,7 +86,7 @@ private void disableEdit(){
         lblStateName = new javax.swing.JLabel();
         txtStateName = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(204, 255, 255));
 
         lblStateFlag.setBackground(new java.awt.Color(204, 255, 255));
         lblStateFlag.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N

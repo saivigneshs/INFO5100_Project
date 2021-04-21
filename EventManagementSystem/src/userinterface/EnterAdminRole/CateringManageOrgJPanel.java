@@ -5,19 +5,49 @@
  */
 package userinterface.EnterAdminRole;
 
+import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author VIGNESH
  */
 public class CateringManageOrgJPanel extends javax.swing.JPanel {
-
+    private final OrganizationDirectory directory;
     /**
      * Creates new form CateringManageOrgJPanel
      */
-    public CateringManageOrgJPanel() {
+    public CateringManageOrgJPanel(OrganizationDirectory directory) {
         initComponents();
+        this.directory = directory;
+        volPopulate();
+        populateOrganizationTypeComboBox();
+    }
+    
+    private void populateOrganizationTypeComboBox() {
+        jComboBox1.removeAllItems();
+        jComboBox1.addItem(Organization.Type.Food.toString());
+        jComboBox1.addItem(Organization.Type.Beverages.toString());
+        jComboBox1.addItem(Organization.Type.Delivery.toString());
     }
 
+    public void volPopulate() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        model.setRowCount(0);
+
+        for (Organization organization : directory.getOrganizationList()) {
+            {
+                Object[] row = new Object[2];
+                row[0] = organization.getType().getValue();
+                row[1] = organization.getName();
+                model.addRow(row);
+            }
+
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,11 +97,14 @@ public class CateringManageOrgJPanel extends javax.swing.JPanel {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton1.setText("Add Organization");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,13 +169,27 @@ public class CateringManageOrgJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(69, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Organization.Type type = (Organization.Type) jComboBox1.getSelectedItem();
+
+        if ("".equals(jTextField1.getText())) {
+            JOptionPane.showMessageDialog(null, "Enter organization name!");
+        } else {
+            Organization organization = directory.createOrganization(type, jTextField1.getText());
+            JOptionPane.showMessageDialog(null, "Organization Successfully Created");
+            jTextField1.setText("");
+            volPopulate();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

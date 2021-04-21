@@ -33,7 +33,6 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         initComponents();
         this.system = system;
         populateNetworkComboBox();
-        populateOrgTypes();
     }
 
     public void populateNetworkComboBox() {
@@ -42,6 +41,8 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
             stateCombo.addItem(network);
         }
     }
+<<<<<<< HEAD
+=======
     public void populateOrgTypes() {
         cbOrg.addItem(Organization.Type.Host);
         cbOrg.addItem(Organization.Type.Beverages);
@@ -55,6 +56,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         cbOrg.addItem(Organization.Type.Musician);
 
     }
+>>>>>>> 61e6eff0dd6fc952adf744803aa28e621684079b
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,8 +84,6 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         btnRegister = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
         pbPwdStr = new javax.swing.JProgressBar();
-        jLabel8 = new javax.swing.JLabel();
-        cbOrg = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(1338, 900));
@@ -117,7 +117,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                 txtNameKeyTyped(evt);
             }
         });
-        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 250, 30));
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 250, 35));
 
         UsrNameLabel.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         UsrNameLabel.setForeground(new java.awt.Color(25, 56, 82));
@@ -134,7 +134,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                 txtUsernameKeyTyped(evt);
             }
         });
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 250, 30));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 250, 35));
 
         passwordLabel.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         passwordLabel.setForeground(new java.awt.Color(25, 56, 82));
@@ -156,7 +156,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                 txtEmailKeyTyped(evt);
             }
         });
-        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 250, 30));
+        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 250, 35));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(25, 56, 82));
@@ -170,7 +170,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                 txtCityKeyTyped(evt);
             }
         });
-        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 250, 30));
+        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 250, 35));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(25, 56, 82));
@@ -200,7 +200,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                 txtContactKeyTyped(evt);
             }
         });
-        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 250, 30));
+        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 250, 35));
 
         stateCombo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         stateCombo.setForeground(new java.awt.Color(25, 56, 82));
@@ -219,7 +219,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                 stateComboKeyReleased(evt);
             }
         });
-        add(stateCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, 250, 30));
+        add(stateCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, 250, 35));
 
         btnRegister.setBackground(new java.awt.Color(255, 255, 255));
         btnRegister.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -245,25 +245,6 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         pbPwdStr.setMinimum(6);
         pbPwdStr.setValue(0);
         add(pbPwdStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 250, 10));
-
-        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(25, 56, 82));
-        jLabel8.setText("Organization");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, 20));
-
-        cbOrg.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        cbOrg.setForeground(new java.awt.Color(25, 56, 82));
-        cbOrg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbOrgActionPerformed(evt);
-            }
-        });
-        cbOrg.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                cbOrgKeyTyped(evt);
-            }
-        });
-        add(cbOrg, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 250, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void stateComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateComboActionPerformed
@@ -273,14 +254,13 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
 
         Network network = (Network) stateCombo.getSelectedItem();
-        Organization.Type type = (Organization.Type) cbOrg.getSelectedItem();
         String emailAddress = txtEmail.getText();
         String username = txtUsername.getText();
         String name = txtName.getText();
         String password = txtPassword.getText();
         String phone = txtContact.getText();
         String city = txtCity.getText();
-        if (network == null || type == null || name.isEmpty() || username.isEmpty() || password.isEmpty() || emailAddress.isEmpty()
+        if (network == null || name.isEmpty() || username.isEmpty() || password.isEmpty() || emailAddress.isEmpty()
                 || city.isEmpty() || phone.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Kindly enter all the details to Register!", "Error!", JOptionPane.ERROR_MESSAGE);
             return;
@@ -326,8 +306,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                 }
             }
         }
-        if (Organization.Type.Host == type) {
-            flag = true;
+
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
              if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.GeoInfra) {
                 Organization org = enterprise.getOrganizationDirectory().createOrganization(Organization.Type.Host, name);
@@ -337,42 +316,12 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                     ua1.setPhone(phone);
                     ua1.setCity(city);
                     String bodyMsg = "Hello " + username + ", \n Your account is activated. You are a Host now!";
-                }
+            } 
             }
-        } else {
-            UserRegistrationRequest registrationRequest = new UserRegistrationRequest();
-            registrationRequest.setName(name);
-            registrationRequest.setUserName(username);
-            registrationRequest.setUserPassword(password);
-            registrationRequest.setUserEmailId(emailAddress);
-            registrationRequest.setNetwork(network);
-            registrationRequest.setUserCity(city);
-            registrationRequest.setOrgType(type);
-            registrationRequest.setStatus("Requested");
-            registrationRequest.setUserContact(phone);
-
-            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                    if (org.getType() == type) {
-                        if (enterprise.getWorkQueue() == null) {
-                            enterprise.setWorkQueue(new WorkQueue());
-                        }
-                        flag = true;
-                    }
-                }
-                if(flag){
-                    enterprise.getWorkQueue().getWorkRequestList().add(registrationRequest);
-                }
-            }
-        }
-        if (flag) {
             String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Your account will be activated within 48 hours. We will keep you posted here.";
-        //    system.sendEmailMessage(emailAddress, bodyMsg);
-          //  HandleSMS sendSMS = new HandleSMS(phone, bodyMsg);
+         //   system.sendEmailMessage(emailAddress, bodyMsg);
+         //   SendSMS sendSMS = new SendSMS(phone, bodyMsg);
             JOptionPane.showMessageDialog(null, "You have been registered succesfully!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Sorry! No such Organization is created by the enterprise");
-        }
         txtName.setText("");
         txtUsername.setText("");
         txtPassword.setText("");
@@ -447,25 +396,15 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         pbPwdStr.setValue(pwSize);// TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordKeyTyped
 
-    private void cbOrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOrgActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbOrgActionPerformed
-
-    private void cbOrgKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cbOrgKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbOrgKeyTyped
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel UsrNameLabel;
     private javax.swing.JButton btnRegister;
-    private javax.swing.JComboBox cbOrg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblPhone;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JProgressBar pbPwdStr;
