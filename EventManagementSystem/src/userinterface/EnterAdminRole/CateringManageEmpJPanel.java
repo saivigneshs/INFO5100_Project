@@ -5,19 +5,51 @@
  */
 package userinterface.EnterAdminRole;
 
+import Business.Employee.Employee;
+import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author VIGNESH
  */
 public class CateringManageEmpJPanel extends javax.swing.JPanel {
 
+    private final OrganizationDirectory organizationDirectory;
     /**
      * Creates new form CateringManageEmpJPanel
      */
-    public CateringManageEmpJPanel() {
+    public CateringManageEmpJPanel(OrganizationDirectory organizationDirectory) {
         initComponents();
+        this.organizationDirectory = organizationDirectory;
+        populateTable();
+        populateOrganizationEmployeeComboBox();
+        populateTable();
     }
 
+    public void populateOrganizationEmployeeComboBox() {
+        jComboBox1.removeAllItems();
+
+        for (Organization organization : organizationDirectory.getOrganizationList()) {
+            jComboBox1.addItem(organization.toString());
+        }
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        for (Organization organization : organizationDirectory.getOrganizationList()) {
+            for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = employee.getId();
+                row[1] = employee.getName();
+                model.addRow(row);
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,11 +97,14 @@ public class CateringManageEmpJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Name:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton1.setText("CREATE TEAM");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -138,9 +173,23 @@ public class CateringManageEmpJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        if (!jTextField1.getText().equals("")) {
+            Organization organization = (Organization) jComboBox1.getSelectedItem();
+            String name = jTextField1.getText();
+            organization.getEmployeeDirectory().createEmployee(name);
+            JOptionPane.showMessageDialog(null, "Employee Added Successfully");
+            populateTable();
+            jTextField1.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please Enter Value", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

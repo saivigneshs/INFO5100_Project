@@ -11,7 +11,6 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.EnterAdminRole.GeoInfraAdminWorkAreaJPanel;
-import userinterface.EnterAdminRole.GovtAdminWorkAreaJPanel;
 
 /**
  *
@@ -21,7 +20,7 @@ public class GovtAdmin extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
-        return new GovtAdminWorkAreaJPanel(userProcessContainer, account, organization, enterprise, network, business);
+        return new GeoInfraAdminWorkAreaJPanel(userProcessContainer, account, organization, enterprise, network, business);
     }
 
 }

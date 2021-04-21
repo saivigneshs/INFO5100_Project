@@ -107,7 +107,7 @@ public void DeleteNetwork(String networkCode, int index) {
     try{
           for (Network n : business.getNetworkList()) {
              if (n.getName().toLowerCase().equals(networkCode.toLowerCase())) {
-                networkList.remove(index);
+                networkList.remove(index+1);
             } 
         }
     }catch(Exception e){

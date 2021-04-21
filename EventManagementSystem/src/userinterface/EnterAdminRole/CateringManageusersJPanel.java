@@ -5,19 +5,72 @@
  */
 package userinterface.EnterAdminRole;
 
+import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.Role.Role;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author VIGNESH
  */
 public class CateringManageusersJPanel extends javax.swing.JPanel {
 
+    private final Enterprise enterprise;
+    private final EcoSystem ecosystem;
+    Organization organization;
     /**
      * Creates new form CateringManageusersJPanel
      */
-    public CateringManageusersJPanel() {
+    public CateringManageusersJPanel(Enterprise enterprise, EcoSystem system, Organization organization) {
         initComponents();
+        this.enterprise = enterprise;
+        this.ecosystem = system;
+        this.organization = organization;
+        populateOrganizationComboBox();
+        populateData();
     }
 
+    public void populateOrganizationComboBox() {
+        jComboBox1.removeAllItems();
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            jComboBox1.addItem(org.toString());
+        }
+    }
+
+    public void populateData() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        model.setRowCount(0);
+
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                Object row[] = new Object[2];
+                row[0] = ua;
+                row[1] = ua.getRole();
+                ((DefaultTableModel) jTable1.getModel()).addRow(row);
+            }
+        }
+    }
+
+    public void populateEmployeeComboBox(Organization organization) {
+        jComboBox2.removeAllItems();
+
+        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
+            jComboBox2.addItem(employee.toString());
+        }
+    }
+
+    private void popRoleComboBox(Organization organization) {
+        jComboBox3.removeAllItems();
+        for (Role role : organization.getSupportedRole()) {
+            jComboBox3.addItem(role.toString());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,17 +117,17 @@ public class CateringManageusersJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Organization:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Employee");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Role:");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("User Name:");
@@ -85,6 +138,11 @@ public class CateringManageusersJPanel extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("CREATE USER");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,11 +221,45 @@ public class CateringManageusersJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        Organization org = (Organization) jComboBox1.getSelectedItem();
+        if (org != null) {
+            populateEmployeeComboBox(org);
+            popRoleComboBox(org);
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String username = jTextField1.getText();
+        String password = jTextField2.getText();
+        if ("".equals(username) || "".equals(password)|| jComboBox1.getSelectedItem() == null
+                || jComboBox2.getSelectedItem() == null || jComboBox3.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Please enter all required fields!");
+            return;
+        }
+        if (!ecosystem.validatePassword(password)) {
+            return;
+        }
+        if (!ecosystem.checkIfUserIsUnique(username)) {
+            return;
+        }
+        Organization org = (Organization) jComboBox1.getSelectedItem();
+        Employee employee = (Employee) jComboBox2.getSelectedItem();
+        Role role = (Role) jComboBox3.getSelectedItem();
+        org.getUserAccountDirectory().createUserAccount(username, password, employee, role);
+        populateData();
+        jTextField1.setText("");
+        jTextField2.setText("");
+        JOptionPane.showMessageDialog(null, "User created successfully");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

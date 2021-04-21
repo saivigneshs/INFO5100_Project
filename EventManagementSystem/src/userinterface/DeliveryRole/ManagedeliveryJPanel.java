@@ -53,7 +53,7 @@ public class ManagedeliveryJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "UserName", "Password"
+                "Delivery Man No", "Name", "User Name", "Contact No", "Email"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

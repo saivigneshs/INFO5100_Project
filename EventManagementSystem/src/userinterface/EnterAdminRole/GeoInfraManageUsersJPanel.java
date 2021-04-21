@@ -233,7 +233,7 @@ public class GeoInfraManageUsersJPanel extends javax.swing.JPanel {
         for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                 Object row[] = new Object[2];
-                row[0] = ua.getUsername();
+                row[0] = ua;
                 row[1] = ua.getRole();
                 ((DefaultTableModel) tblUserDetails.getModel()).addRow(row);
             }

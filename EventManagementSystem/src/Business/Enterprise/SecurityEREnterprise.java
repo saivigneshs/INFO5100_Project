@@ -5,7 +5,6 @@
  */
 package Business.Enterprise;
 
-import Business.Role.ERRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -23,7 +22,7 @@ public class SecurityEREnterprise extends Enterprise {
 
     public ArrayList<Role> getSupportedRole() {
         roles = new ArrayList<Role>();
-        roles.add(new ERRole());
+        //roles.add(new ERRole());
         return roles;
     }
 

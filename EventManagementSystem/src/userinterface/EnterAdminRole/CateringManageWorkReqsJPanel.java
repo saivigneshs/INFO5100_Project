@@ -5,19 +5,56 @@
  */
 package userinterface.EnterAdminRole;
 
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
+import Business.Role.HostRole;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.UserRegistrationRequest;
+import Business.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author VIGNESH
  */
 public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
 
+    private final Enterprise enterprise;
+    private final OrganizationDirectory organizationDirectory;
     /**
      * Creates new form CateringManageWorkReqsJPanel
      */
-    public CateringManageWorkReqsJPanel() {
+    public CateringManageWorkReqsJPanel(Enterprise enterprise) {
         initComponents();
+        this.enterprise = enterprise;
+        this.organizationDirectory = enterprise.getOrganizationDirectory();
+        populateTable();
     }
 
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        model.setRowCount(0);
+
+        for (WorkRequest workRequest : enterprise.getWorkQueue().getWorkRequestList()) {
+            if (workRequest instanceof UserRegistrationRequest) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = workRequest;
+                row[1] = ((UserRegistrationRequest) workRequest).getStatus();
+                row[2] = ((UserRegistrationRequest) workRequest).getUserName();
+                row[3] = ((UserRegistrationRequest) workRequest).getName();
+                row[4] = ((UserRegistrationRequest) workRequest).getUserEmailId();
+                row[5] = ((UserRegistrationRequest) workRequest).getUserCity();
+                row[6] = ((UserRegistrationRequest) workRequest).getOrgType();
+                row[7] = ((UserRegistrationRequest) workRequest).getNetwork();
+                model.addRow(row);
+            }
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,7 +84,7 @@ public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Request#", "Status", "User Name", "Email ID", "City", "Organization Type", "Network"
+                "Request#", "Status", "User Name", "Name", "Email ID", "City", "Organization Type", "Network"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -55,10 +92,20 @@ public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("ACCEPT");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("REJECT");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,6 +157,43 @@ public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
                 .addContainerGap(76, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            UserRegistrationRequest request = (UserRegistrationRequest) jTable1.getValueAt(selectedRow, 0);
+
+            if (request.getOrgType() == Organization.Type.Location || request.getOrgType() == Organization.Type.Infrastructure) {
+                Organization org = organizationDirectory.createOrganization(request.getOrgType(), request.getName());
+                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new HostRole());
+            }
+
+            request.setStatus("Completed");
+            JOptionPane.showMessageDialog(null, "User account has been activated successfully");
+            populateTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            return;
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            UserRegistrationRequest request = (UserRegistrationRequest) jTable1.getValueAt(selectedRow, 0);
+            request.setStatus("Rejected");
+            JOptionPane.showMessageDialog(null, "User request has been removed successfully");
+            populateTable();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            return;
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
