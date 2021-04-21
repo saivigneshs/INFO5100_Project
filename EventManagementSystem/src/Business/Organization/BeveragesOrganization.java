@@ -5,7 +5,7 @@
  */
 package Business.Organization;
 
-import Business.Role.FoodRole;
+import Business.Role.BeveragesRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -13,19 +13,19 @@ import java.util.ArrayList;
  *
  * @author VIGNESH
  */
-public class FoodOrganization extends Organization{
-    public FoodOrganization(String name) {
+public class BeveragesOrganization extends Organization {
+    public BeveragesOrganization(String name) {
         super(name);
     }
     
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new FoodRole());
+        roles.add(new BeveragesRole());
         return roles;
     }
        @Override
     public Organization.Type getType() {
-        return Organization.Type.Food;
+        return Organization.Type.Beverages;
     }
 }
