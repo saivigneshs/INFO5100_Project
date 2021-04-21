@@ -45,12 +45,12 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
         for (WorkRequest workRequest : enterprise.getWorkQueue().getWorkRequestList()) {
             if (workRequest instanceof UserRegistrationRequest) {
                 Object[] row = new Object[model.getColumnCount()];
-                row[0] = ((UserRegistrationRequest) workRequest).getEnterprise().getOrganizationID();
+                row[0] = workRequest;
                 row[1] = ((UserRegistrationRequest) workRequest).getStatus();
                 row[2] = ((UserRegistrationRequest) workRequest).getUserName();
                 row[3] = ((UserRegistrationRequest) workRequest).getName();
                 row[4] = ((UserRegistrationRequest) workRequest).getUserEmailId();
-                row[5] = ((UserRegistrationRequest) workRequest).getUserCity();
+                    row[5] = ((UserRegistrationRequest) workRequest).getUserCity();
                 row[6] = ((UserRegistrationRequest) workRequest).getOrgType();
                 row[7] = ((UserRegistrationRequest) workRequest).getNetwork();
                 model.addRow(row);

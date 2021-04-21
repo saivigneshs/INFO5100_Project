@@ -48,6 +48,12 @@ public class AddEventJPanel extends javax.swing.JPanel {
         cbEventCat.addItem("Indoor Event");
         cbEventCat.addItem("Outdoor Event");
     }
+    private void disableFields(){
+    txtEventName.setEnabled(false);
+    dpEventDate.setEnabled(false);
+    street.setEnabled(false);
+    city.setEnabled(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -350,6 +356,7 @@ public class AddEventJPanel extends javax.swing.JPanel {
                         if (ua.getRole() instanceof AuthRole) {
                             ua.getWorkQueue().getWorkRequestList().add(hostgovtwr);
                             JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
+                            disableFields();
                         }
                     }
                 }
