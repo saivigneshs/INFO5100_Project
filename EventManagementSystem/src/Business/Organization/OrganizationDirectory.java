@@ -27,17 +27,16 @@ public class OrganizationDirectory {
         Organization organization = null;
         if (type.getValue().equals(Type.Host.getValue())) {
             organization = new HostOrganization(name);
-            organizationList.add(organization);    
+            organizationList.add(organization);
+           
         } else if (type.getValue().equals(Type.Location.getValue())) {
             organization = new LocationOrganization(name);
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Infrastructure.getValue())) {
             organization = new InfraOrganization(name);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.GovtAuth.getValue())) {
-            organization = new AuthOrganization(name);
-            organizationList.add(organization);
-        }          
+        }  
+            
         return organization;
     }
 }

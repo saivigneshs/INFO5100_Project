@@ -5,7 +5,6 @@
  */
 package userinterface.EnterAdminRole;
 
-<<<<<<< HEAD
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
@@ -15,15 +14,12 @@ import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-=======
->>>>>>> main
 /**
  *
  * @author VIGNESH
  */
 public class CateringManageusersJPanel extends javax.swing.JPanel {
 
-<<<<<<< HEAD
     private final Enterprise enterprise;
     private final EcoSystem ecosystem;
     Organization organization;
@@ -75,15 +71,6 @@ public class CateringManageusersJPanel extends javax.swing.JPanel {
             jComboBox3.addItem(role.toString());
         }
     }
-=======
-    /**
-     * Creates new form CateringManageusersJPanel
-     */
-    public CateringManageusersJPanel() {
-        initComponents();
-    }
-
->>>>>>> main
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -130,32 +117,18 @@ public class CateringManageusersJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Organization:");
 
-<<<<<<< HEAD
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-=======
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
->>>>>>> main
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Employee");
 
-<<<<<<< HEAD
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Role:");
 
-=======
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel4.setText("Role:");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
->>>>>>> main
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("User Name:");
 
@@ -165,14 +138,11 @@ public class CateringManageusersJPanel extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("CREATE USER");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-<<<<<<< HEAD
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-=======
->>>>>>> main
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -251,7 +221,6 @@ public class CateringManageusersJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -292,14 +261,6 @@ public class CateringManageusersJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "User created successfully");
     }//GEN-LAST:event_jButton1ActionPerformed
 
-=======
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-    }// </editor-fold>//GEN-END:initComponents
-
->>>>>>> main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

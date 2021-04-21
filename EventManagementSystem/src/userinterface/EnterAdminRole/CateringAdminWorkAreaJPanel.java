@@ -5,7 +5,6 @@
  */
 package userinterface.EnterAdminRole;
 
-<<<<<<< HEAD
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
@@ -14,15 +13,12 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
-=======
->>>>>>> main
 /**
  *
  * @author VIGNESH
  */
 public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
 
-<<<<<<< HEAD
     JPanel userProcessContainer;
     Enterprise enterprise;
     EcoSystem system;
@@ -70,15 +66,6 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) jPanel4.getLayout();
         layout.next(jPanel4);
     }
-=======
-    /**
-     * Creates new form CateringAdminWorkAreaJPanel
-     */
-    public CateringAdminWorkAreaJPanel() {
-        initComponents();
-    }
-
->>>>>>> main
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,7 +78,6 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-<<<<<<< HEAD
         manageOrgPanel = new javax.swing.JPanel();
         manageOrganization = new javax.swing.JLabel();
         manageEmp = new javax.swing.JPanel();
@@ -100,12 +86,6 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageUserAccountLabel = new javax.swing.JLabel();
         manageRequestPanel = new javax.swing.JPanel();
         manageRequestLabel = new javax.swing.JLabel();
-=======
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
->>>>>>> main
         jPanel4 = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(220);
@@ -116,7 +96,6 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1.setText("Catering Enterprise");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-<<<<<<< HEAD
         manageOrgPanel.setBackground(new java.awt.Color(204, 204, 255));
         manageOrgPanel.setToolTipText("");
         manageOrgPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -246,30 +225,12 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(manageRequestLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-=======
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jButton1.setText("Manage Organization");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jButton2.setText("Manage Team");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jButton3.setText("Manage Users");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jButton4.setText("Manage Request");
-        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
->>>>>>> main
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1)
                 .addContainerGap(66, Short.MAX_VALUE))
@@ -288,31 +249,11 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
-=======
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton2)
-                                .addComponent(jButton3)
-                                .addComponent(jButton4)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4});
-
->>>>>>> main
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-<<<<<<< HEAD
                 .addGap(43, 43, 43)
                 .addComponent(manageOrgPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -324,21 +265,6 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap(437, Short.MAX_VALUE))
         );
 
-=======
-                .addGap(61, 61, 61)
-                .addComponent(jButton1)
-                .addGap(57, 57, 57)
-                .addComponent(jButton2)
-                .addGap(57, 57, 57)
-                .addComponent(jButton3)
-                .addGap(56, 56, 56)
-                .addComponent(jButton4)
-                .addContainerGap(343, Short.MAX_VALUE))
-        );
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4});
-
->>>>>>> main
         jSplitPane1.setLeftComponent(jPanel3);
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
@@ -347,19 +273,11 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
             .addGap(0, 740, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 768, Short.MAX_VALUE)
-=======
-            .addGap(0, 801, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 753, Short.MAX_VALUE)
->>>>>>> main
         );
 
         jSplitPane1.setRightComponent(jPanel4);
@@ -368,11 +286,7 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
             .addComponent(jSplitPane1)
-=======
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1027, Short.MAX_VALUE)
->>>>>>> main
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,7 +294,6 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
     private void manageOrganizationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrganizationMousePressed
         manageOrganization();
     }//GEN-LAST:event_manageOrganizationMousePressed
@@ -409,19 +322,10 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageRequestPanelMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-=======
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
->>>>>>> main
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSplitPane jSplitPane1;
-<<<<<<< HEAD
     private javax.swing.JPanel manageEmp;
     private javax.swing.JLabel manageEmployeeLabel;
     private javax.swing.JPanel manageOrgPanel;
@@ -430,7 +334,5 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel manageRequestPanel;
     private javax.swing.JPanel manageUserAcc;
     private javax.swing.JLabel manageUserAccountLabel;
-=======
->>>>>>> main
     // End of variables declaration//GEN-END:variables
 }

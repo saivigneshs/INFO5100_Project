@@ -109,18 +109,11 @@
             <Component class="javax.swing.JTable" name="jTable1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-<<<<<<< HEAD
                   <Table columnCount="8" rowCount="0">
                     <Column editable="true" title="Request#" type="java.lang.Object"/>
                     <Column editable="true" title="Status" type="java.lang.Object"/>
                     <Column editable="true" title="User Name" type="java.lang.Object"/>
                     <Column editable="true" title="Name" type="java.lang.Object"/>
-=======
-                  <Table columnCount="7" rowCount="0">
-                    <Column editable="true" title="Request#" type="java.lang.Object"/>
-                    <Column editable="true" title="Status" type="java.lang.Object"/>
-                    <Column editable="true" title="User Name" type="java.lang.Object"/>
->>>>>>> main
                     <Column editable="true" title="Email ID" type="java.lang.Object"/>
                     <Column editable="true" title="City" type="java.lang.Object"/>
                     <Column editable="true" title="Organization Type" type="java.lang.Object"/>
@@ -164,14 +157,11 @@
                       <Editor/>
                       <Renderer/>
                     </Column>
-<<<<<<< HEAD
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-=======
->>>>>>> main
                   </TableColumnModel>
                 </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
@@ -193,12 +183,9 @@
               </Border>
             </Property>
           </Properties>
-<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
-=======
->>>>>>> main
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
@@ -212,12 +199,9 @@
               </Border>
             </Property>
           </Properties>
-<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
           </Events>
-=======
->>>>>>> main
         </Component>
       </SubComponents>
     </Container>

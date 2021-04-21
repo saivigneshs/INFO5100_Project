@@ -5,7 +5,6 @@
  */
 package userinterface.EnterAdminRole;
 
-<<<<<<< HEAD
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
@@ -17,15 +16,12 @@ import Business.WorkQueue.WorkRequest;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-=======
->>>>>>> main
 /**
  *
  * @author VIGNESH
  */
 public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
 
-<<<<<<< HEAD
     private final Enterprise enterprise;
     private final OrganizationDirectory organizationDirectory;
     /**
@@ -59,15 +55,6 @@ public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
         }
 
     }
-=======
-    /**
-     * Creates new form CateringManageWorkReqsJPanel
-     */
-    public CateringManageWorkReqsJPanel() {
-        initComponents();
-    }
-
->>>>>>> main
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,11 +84,7 @@ public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-<<<<<<< HEAD
                 "Request#", "Status", "User Name", "Name", "Email ID", "City", "Organization Type", "Network"
-=======
-                "Request#", "Status", "User Name", "Email ID", "City", "Organization Type", "Network"
->>>>>>> main
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -109,26 +92,20 @@ public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("ACCEPT");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-<<<<<<< HEAD
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-=======
->>>>>>> main
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("REJECT");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-<<<<<<< HEAD
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-=======
->>>>>>> main
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,7 +158,6 @@ public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
@@ -219,8 +195,6 @@ public class CateringManageWorkReqsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-=======
->>>>>>> main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

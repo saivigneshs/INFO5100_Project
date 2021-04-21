@@ -19,7 +19,7 @@ public abstract class Role {
     
     public enum RoleType{
         Admin("Admin"),
-        GovtAuth("GovtAuth"),
+        GovtOfficial("GovtOfficial"),
         Host("Host"),
         Infra("Infra"),
         Location("Location"),
