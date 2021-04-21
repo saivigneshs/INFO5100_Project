@@ -41,6 +41,22 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
             stateCombo.addItem(network);
         }
     }
+<<<<<<< HEAD
+=======
+    public void populateOrgTypes() {
+        cbOrg.addItem(Organization.Type.Host);
+        cbOrg.addItem(Organization.Type.Beverages);
+        cbOrg.addItem(Organization.Type.Delivery);
+        cbOrg.addItem(Organization.Type.ER);
+        cbOrg.addItem(Organization.Type.Food);
+        cbOrg.addItem(Organization.Type.Photographer);
+        cbOrg.addItem(Organization.Type.GovtAuth);
+        cbOrg.addItem(Organization.Type.Infrastructure);
+        cbOrg.addItem(Organization.Type.Location);
+        cbOrg.addItem(Organization.Type.Musician);
+
+    }
+>>>>>>> 61e6eff0dd6fc952adf744803aa28e621684079b
 
     /**
      * This method is called from within the constructor to initialize the form.
