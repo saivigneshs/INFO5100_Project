@@ -26,10 +26,9 @@ public class AuthOrganization extends Organization{
         ArrayList<Role> roles = new ArrayList();
         roles.add(new AuthRole());
         return roles;
-    }
+    }git 
        @Override
     public Organization.Type getType() {
         return Organization.Type.GovtAuth;
     } 
      
-}
