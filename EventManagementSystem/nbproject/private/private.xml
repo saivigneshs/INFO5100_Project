@@ -2,9 +2,33 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
         <group>
             <file>file:/C:/Users/Haribalakrishnan/Desktop/AED_Proj/INFO5100_Project/EventManagementSystem/src/Business/Organization/FoodOrganization.java</file>
         </group>
+=======
+<<<<<<< HEAD
+=======
+        <group>
+            <file>file:/F:/Classes/AED/git/INFO5100_Project/EventManagementSystem/src/userinterface/MainJFrame.java</file>
+            <file>file:/F:/Classes/AED/git/INFO5100_Project/EventManagementSystem/src/Business/Role/EntertainmentAdmin.java</file>
+            <file>file:/F:/Classes/AED/git/INFO5100_Project/EventManagementSystem/src/Business/Enterprise/EntertainmentEnterprise.java</file>
+        </group>
+
+>>>>>>> 61e6eff0dd6fc952adf744803aa28e621684079b
+        <group>
+            <file>file:/C:/Users/Haribalakrishnan/Desktop/AED_Proj/INFO5100_Project/EventManagementSystem/src/Business/Organization/FoodOrganization.java</file>
+        </group>
+        <group>
+            <file>file:/C:/Users/Haribalakrishnan/Desktop/AED_Proj/INFO5100_Project/EventManagementSystem/src/userinterface/FoodRole/RestWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Haribalakrishnan/Desktop/AED_Proj/INFO5100_Project/EventManagementSystem/src/userinterface/FoodRole/FoodRequestJPanel.java</file>
+            <file>file:/C:/Users/Haribalakrishnan/Desktop/AED_Proj/INFO5100_Project/EventManagementSystem/src/userinterface/FoodRole/OrderviewAreaJPanel.java</file>
+            <file>file:/C:/Users/Haribalakrishnan/Desktop/AED_Proj/INFO5100_Project/EventManagementSystem/src/userinterface/FoodRole/ViewFoodOrderJPanel.java</file>
+            <file>file:/C:/Users/Haribalakrishnan/Desktop/AED_Proj/INFO5100_Project/EventManagementSystem/src/userinterface/FoodRole/ManageordersJPanel.java</file>
+            <file>file:/C:/Users/Haribalakrishnan/Desktop/AED_Proj/INFO5100_Project/EventManagementSystem/src/userinterface/FoodRole/FoodWorkAreaJPanel.java</file>
+            <file>file:/C:/Users/Haribalakrishnan/Desktop/AED_Proj/INFO5100_Project/EventManagementSystem/src/userinterface/FoodRole/CreateFoodMenuJPanel.java</file>
+        </group>
+>>>>>>> main
     </open-files>
 </project-private>
