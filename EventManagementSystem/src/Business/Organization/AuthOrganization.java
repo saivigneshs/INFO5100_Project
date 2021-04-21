@@ -5,12 +5,9 @@
  */
 package Business.Organization;
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> main
-import Business.Role.InfraRole;
+import Business.Role.AuthRole;
+import Business.Role.GovtAdmin;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -18,21 +15,21 @@ import java.util.ArrayList;
  *
  * @author Saivignesh Sridhar
  */
-public class InfraOrganization extends Organization{
+public class AuthOrganization extends Organization{
 
-    public InfraOrganization(String name) {
+    public AuthOrganization(String name) {
         super(name);
     }
     
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new InfraRole());
+        roles.add(new AuthRole());
         return roles;
     }
        @Override
     public Organization.Type getType() {
-        return Organization.Type.Infrastructure;
+        return Organization.Type.GovtAuth;
     } 
      
 }

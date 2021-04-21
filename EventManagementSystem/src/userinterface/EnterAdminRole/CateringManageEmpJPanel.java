@@ -5,18 +5,22 @@
  */
 package userinterface.EnterAdminRole;
 
+<<<<<<< HEAD
 import Business.Employee.Employee;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+=======
+>>>>>>> main
 /**
  *
  * @author VIGNESH
  */
 public class CateringManageEmpJPanel extends javax.swing.JPanel {
 
+<<<<<<< HEAD
     private final OrganizationDirectory organizationDirectory;
     /**
      * Creates new form CateringManageEmpJPanel
@@ -50,6 +54,15 @@ public class CateringManageEmpJPanel extends javax.swing.JPanel {
             }
         }
     }
+=======
+    /**
+     * Creates new form CateringManageEmpJPanel
+     */
+    public CateringManageEmpJPanel() {
+        initComponents();
+    }
+
+>>>>>>> main
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,6 +110,7 @@ public class CateringManageEmpJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Name:");
 
+<<<<<<< HEAD
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton1.setText("CREATE TEAM");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -105,6 +119,13 @@ public class CateringManageEmpJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+=======
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jButton1.setText("CREATE TEAM");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+>>>>>>> main
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,6 +194,7 @@ public class CateringManageEmpJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(81, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -191,6 +213,12 @@ public class CateringManageEmpJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+=======
+                .addContainerGap(82, Short.MAX_VALUE))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+>>>>>>> main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

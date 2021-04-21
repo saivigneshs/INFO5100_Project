@@ -12,6 +12,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.GovtAuthRole.GovtAuthWorkAreaJPanel;
 import userinterface.LocationRole.LocationWorkAreaJPanel;
 
 
@@ -19,16 +20,16 @@ import userinterface.LocationRole.LocationWorkAreaJPanel;
  *
  * @author Saivignesh Sridhar
  */
-public class LocationRole extends Role {
+public class AuthRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
-        return new LocationWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
+        return new GovtAuthWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
     }
    
 @Override
     public String toString(){
-        return (Role.RoleType.Location.getValue());
+        return (Role.RoleType.GovtAuth.getValue());
     }
    
 }

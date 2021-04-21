@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Saivignesh Sridhar
  */
-public class GeoInfraManageUsersJPanel extends javax.swing.JPanel {
+public class GovtManageUsersJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form VoluntaryOperatingUnitManageUserJPanel
@@ -27,7 +27,7 @@ public class GeoInfraManageUsersJPanel extends javax.swing.JPanel {
     private final EcoSystem ecosystem;
     Organization organization;
 
-    public GeoInfraManageUsersJPanel(Enterprise enterprise, EcoSystem system, Organization organization) {
+    public GovtManageUsersJPanel(Enterprise enterprise, EcoSystem system, Organization organization) {
 
         initComponents();
         this.enterprise = enterprise;
@@ -69,7 +69,7 @@ public class GeoInfraManageUsersJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(25, 56, 82));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("MANAGE GEO INFRA TEAM MEMBERS");
+        jLabel5.setText("MANAGE GOVT AUTHORITY OFFICIALS");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 638, -1));
 
         jScrollPane1.setForeground(new java.awt.Color(0, 102, 255));

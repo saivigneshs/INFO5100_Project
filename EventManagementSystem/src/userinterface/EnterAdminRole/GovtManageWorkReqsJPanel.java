@@ -10,8 +10,6 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.HostRole;
-import Business.Role.InfraRole;
-import Business.Role.LocationRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.UserRegistrationRequest;
 import Business.WorkQueue.WorkRequest;
@@ -22,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Saivignesh Sridhar
  */
-public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
+public class GovtManageWorkReqsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form GeoInfraManageWorkReqsJPanel
@@ -30,7 +28,7 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
     private final Enterprise enterprise;
     private final OrganizationDirectory organizationDirectory;
 
-    public GeoInfraManageWorkReqsJPanel(Enterprise enterprise) {
+    public GovtManageWorkReqsJPanel(Enterprise enterprise) {
         initComponents();
         this.enterprise = enterprise;
         this.organizationDirectory = enterprise.getOrganizationDirectory();
@@ -45,7 +43,7 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
         for (WorkRequest workRequest : enterprise.getWorkQueue().getWorkRequestList()) {
             if (workRequest instanceof UserRegistrationRequest) {
                 Object[] row = new Object[model.getColumnCount()];
-                row[0] = ((UserRegistrationRequest) workRequest).getEnterprise().getOrganizationID();
+                row[0] = workRequest;
                 row[1] = ((UserRegistrationRequest) workRequest).getStatus();
                 row[2] = ((UserRegistrationRequest) workRequest).getUserName();
                 row[3] = ((UserRegistrationRequest) workRequest).getName();
@@ -141,7 +139,7 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(25, 56, 82));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MANAGE GEO INFRA TEAM MEMBER REQUEST");
+        jLabel1.setText("MANAGE GOVT OFFICIAL MEMBER REQUEST");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 460, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -152,14 +150,10 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
         if (selectedRow >= 0) {
             UserRegistrationRequest request = (UserRegistrationRequest) workRequestJTable.getValueAt(selectedRow, 0);
 
-            if (request.getOrgType() == Organization.Type.Location ) {
+            if (request.getOrgType() == Organization.Type.Location || request.getOrgType() == Organization.Type.Infrastructure) {
                 Organization org = organizationDirectory.createOrganization(request.getOrgType(), request.getName());
                 Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new LocationRole());
-            } else if (request.getOrgType() == Organization.Type.Infrastructure ) {
-                Organization org = organizationDirectory.createOrganization(request.getOrgType(), request.getName());
-                Employee emp = org.getEmployeeDirectory().createEmployee(request.getName());
-                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new InfraRole());
+                UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getUserPassword(), emp, new HostRole());
             }
 
             request.setStatus("Completed");
