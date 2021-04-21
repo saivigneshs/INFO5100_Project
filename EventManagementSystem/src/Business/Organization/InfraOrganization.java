@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package Business.Organization;
-<<<<<<< HEAD
-=======
 
-import Business.Role.HostRole;
->>>>>>> 4c5219ce56b0298642e92707f357e51b9c6285a7
+
+
 import Business.Role.InfraRole;
 import Business.Role.Role;
 import java.util.ArrayList;

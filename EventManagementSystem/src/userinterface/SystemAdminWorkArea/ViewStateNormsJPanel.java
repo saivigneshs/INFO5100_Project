@@ -213,13 +213,6 @@ private void disableEdit(){
         Component component = componentArray[componentArray.length - 1];
         CardLayout layout = (CardLayout) container.getLayout();
         layout.previous(container);
-<<<<<<< HEAD
-<<<<<<< HEAD
-       
-=======
->>>>>>> 4c5219ce56b0298642e92707f357e51b9c6285a7
-=======
->>>>>>> 4c5219ce56b0298642e92707f357e51b9c6285a7
     }//GEN-LAST:event_btnBack1ActionPerformed
 
 
