@@ -19,7 +19,7 @@ public class APIforSMS {
      public static void main(String[] args) {
          Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
     Message message = Message.creator(
-                new PhoneNumber("+1253365683"),
+                new PhoneNumber("+19253365683"),
                 new PhoneNumber(fromNum),
                 "Where's Wallace?")
             .create();

@@ -12,6 +12,7 @@ import Business.Role.SecurityERAdmin;
 import Business.Role.EntertainmentAdmin;
 import Business.Role.GeoInfraAdmin;
 import Business.Role.CateringAdmin;
+import Business.Role.GovtAdmin;
 import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -240,6 +241,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 case SecurityER:
                     account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new SecurityERAdmin());
                     break;
+                case Government:
+                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new GovtAdmin());
+                    break;    
                 default:
                     break;
             }

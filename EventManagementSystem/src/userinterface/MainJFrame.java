@@ -101,7 +101,9 @@ public class MainJFrame extends javax.swing.JFrame {
         topPanel.setPreferredSize(new java.awt.Dimension(1338, 60));
         topPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnLogoutLabel.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogoutLabel.setBackground(new java.awt.Color(204, 204, 255));
+        btnLogoutLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLogoutLabel.setForeground(new java.awt.Color(204, 204, 255));
         btnLogoutLabel.setText("LOGOUT");
         btnLogoutLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -115,6 +117,9 @@ public class MainJFrame extends javax.swing.JFrame {
         lbl_Greetings.setForeground(new java.awt.Color(255, 255, 255));
         topPanel.add(lbl_Greetings, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 690, 60));
 
+        btnBackLabel.setBackground(new java.awt.Color(204, 204, 255));
+        btnBackLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnBackLabel.setForeground(new java.awt.Color(204, 204, 255));
         btnBackLabel.setText("CLOSE");
         btnBackLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -125,22 +130,17 @@ public class MainJFrame extends javax.swing.JFrame {
 
         getContentPane().add(topPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, -1));
 
-        container.setBackground(new java.awt.Color(255, 80, 0));
+        container.setBackground(new java.awt.Color(204, 204, 255));
         container.setForeground(new java.awt.Color(31, 50, 97));
         container.setPreferredSize(new java.awt.Dimension(1338, 840));
         container.setLayout(new java.awt.CardLayout());
         getContentPane().add(container, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 61, 1390, 1050));
 
-        loginJPanel.setBackground(new java.awt.Color(255, 80, 0));
+        loginJPanel.setBackground(new java.awt.Color(90, 90, 146));
         loginJPanel.setPreferredSize(new java.awt.Dimension(1338, 900));
 
-<<<<<<< HEAD
-        jPanel2.setBackground(new java.awt.Color(117, 170, 93));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
-=======
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
->>>>>>> 61e6eff0dd6fc952adf744803aa28e621684079b
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         jPanel2.setPreferredSize(new java.awt.Dimension(554, 840));
 
         lbl_logo.setBackground(new java.awt.Color(255, 213, 90));
@@ -148,15 +148,15 @@ public class MainJFrame extends javax.swing.JFrame {
         lbl_logo.setPreferredSize(new java.awt.Dimension(600, 840));
 
         lbl_content1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        lbl_content1.setForeground(new java.awt.Color(41, 50, 80));
+        lbl_content1.setForeground(new java.awt.Color(204, 204, 255));
         lbl_content1.setText("Any event to be hosted?");
 
         lbl_heading.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        lbl_heading.setForeground(new java.awt.Color(41, 50, 80));
-        lbl_heading.setText("EVENT MANAGEMENT SYSTEM");
+        lbl_heading.setForeground(new java.awt.Color(204, 204, 255));
+        lbl_heading.setText("Eventura Solutions");
 
         lbl_content2.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        lbl_content2.setForeground(new java.awt.Color(41, 50, 80));
+        lbl_content2.setForeground(new java.awt.Color(204, 204, 255));
         lbl_content2.setText("You are at the right place!");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -172,7 +172,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addComponent(lbl_content1)))
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(311, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lbl_content2)
@@ -192,7 +192,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lbl_uName.setBackground(new java.awt.Color(255, 80, 0));
+        lbl_uName.setBackground(new java.awt.Color(90, 90, 146));
         lbl_uName.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(117, 170, 93)));
         lbl_uName.setPreferredSize(new java.awt.Dimension(302, 34));
 
@@ -200,7 +200,7 @@ public class MainJFrame extends javax.swing.JFrame {
         un_img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         un_img.setText("Add img");
 
-        userNameJTextField.setBackground(new java.awt.Color(255, 80, 0));
+        userNameJTextField.setBackground(new java.awt.Color(90, 90, 146));
         userNameJTextField.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         userNameJTextField.setForeground(new java.awt.Color(255, 255, 255));
         userNameJTextField.setToolTipText("");
@@ -233,7 +233,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        lbl_pwd.setBackground(new java.awt.Color(255, 80, 0));
+        lbl_pwd.setBackground(new java.awt.Color(90, 90, 146));
         lbl_pwd.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(117, 170, 93)));
         lbl_pwd.setPreferredSize(new java.awt.Dimension(302, 34));
 
@@ -241,7 +241,7 @@ public class MainJFrame extends javax.swing.JFrame {
         pwd_img.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pwd_img.setText("Add Img");
 
-        passwordField.setBackground(new java.awt.Color(255, 80, 0));
+        passwordField.setBackground(new java.awt.Color(90, 90, 146));
         passwordField.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         passwordField.setForeground(new java.awt.Color(255, 255, 255));
         passwordField.setBorder(null);
@@ -279,8 +279,6 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cancelButton.setForeground(new java.awt.Color(204, 204, 255));
         cancelButton.setText("BACK");
         cancelButton.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(127, 170, 93)));
         cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -312,22 +310,20 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_uName, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_pwd, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(2186, 2186, 2186))
+                        .addGap(219, 219, 219))
                     .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(loginJPanelLayout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(lbl_logo2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(loginJPanelLayout.createSequentialGroup()
-                                .addGap(510, 510, 510)
-                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(516, 516, 516)
+                        .addComponent(cancelButton))
+                    .addGroup(loginJPanelLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(lbl_logo2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(1967, 1967, 1967))
         );
         loginJPanelLayout.setVerticalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
