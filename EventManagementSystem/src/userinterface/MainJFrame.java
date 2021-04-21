@@ -140,7 +140,7 @@ public class MainJFrame extends javax.swing.JFrame {
         loginJPanel.setPreferredSize(new java.awt.Dimension(1338, 900));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel2.setPreferredSize(new java.awt.Dimension(554, 840));
 
         lbl_logo.setBackground(new java.awt.Color(255, 213, 90));
@@ -279,6 +279,8 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        cancelButton.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cancelButton.setForeground(new java.awt.Color(204, 204, 255));
         cancelButton.setText("BACK");
         cancelButton.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(127, 170, 93)));
         cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -310,20 +312,22 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                         .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_uName, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl_pwd, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(219, 219, 219))
+                        .addGap(2186, 2186, 2186))
                     .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addGap(516, 516, 516)
-                        .addComponent(cancelButton))
-                    .addGroup(loginJPanelLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(lbl_logo2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(1967, 1967, 1967))
+                        .addGroup(loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(loginJPanelLayout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(lbl_logo2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(loginJPanelLayout.createSequentialGroup()
+                                .addGap(510, 510, 510)
+                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         loginJPanelLayout.setVerticalGroup(
             loginJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
