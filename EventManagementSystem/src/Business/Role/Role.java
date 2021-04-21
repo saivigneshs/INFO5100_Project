@@ -23,6 +23,7 @@ public abstract class Role {
         Host("Host"),
         Infra("Infra"),
         Location("Location"),
+        Music("Music"),
         Photo("Photo"),
         Food("Food"),
         Beverages("Beverages"),
