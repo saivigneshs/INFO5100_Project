@@ -9,8 +9,11 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Role.AuthRole;
+import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HostGovtWorkRequest;
+import Business.WorkQueue.WorkQueue;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -316,13 +319,14 @@ public class AddEventJPanel extends javax.swing.JPanel {
                
                Date eventDate = dpEventDate.getDate();
                Date sysDate = new Date();
-               long diff = sysDate.getTime() - eventDate.getTime();
+               long diff = (eventDate.getTime() - sysDate.getTime())/(1000 * 60 * 60 * 24);
+               System.out.println((int)diff);
                
         if (dpEventDate.getDate() == null || street.getText().isEmpty()
                 || txtEventName.getText().isEmpty() || city.getText().isEmpty() ) {
             JOptionPane.showMessageDialog(null, "Kindly enter all the fields");
         }
-        else if (diff > 0) {
+        else if (diff < 0) {
                     JOptionPane.showMessageDialog(null, "Cannot enter a previous date");
         }
         else if (diff <=6) {
@@ -336,14 +340,31 @@ public class AddEventJPanel extends javax.swing.JPanel {
         hostgovtwr.setAttendance(slAttendance.getValue());
         hostgovtwr.setMessage("Request sent to Govt");
         hostgovtwr.setEventName(txtEventName.getText());
-        hostgovtwr.setEvenCat(TOOL_TIP_TEXT_KEY);
-        hostgovtwr.setPlannedDate(eventDate);
-         for (UserAccount user : enterprise.getUserAccountDirectory().getUserAccountList()) {
-           if ((enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Government)) {
-        user.getWorkQueue().getWorkRequestList().add(hostgovtwr);
-        JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
-           }
-         }
+        hostgovtwr.setEvenCat(String.valueOf(cbEventCat.getSelectedItem()));
+        hostgovtwr.setPlannedDate(eventDate); 
+        
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                        if (ua.getRole() instanceof AuthRole) {
+                            ua.getWorkQueue().getWorkRequestList().add(hostgovtwr);
+                            JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
+                        }
+                    }
+                }
+            }   
+        }
+        
+        
+//        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+//        for (UserAccount user : enterprise.getUserAccountDirectory().getUserAccountList()) {
+//           if ( Enterprise.EnterpriseType.Government  == enterprise.getEnterpriseType()) {
+//        user.getWorkQueue().getWorkRequestList().add(hostgovtwr);
+//        JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
+//           }
+//         }
+//        }
         }
     }//GEN-LAST:event_btnHostActionPerformed
 
