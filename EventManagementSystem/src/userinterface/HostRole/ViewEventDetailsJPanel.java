@@ -132,6 +132,13 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             }
         }
     }
+    private void disableInfo(){
+    btnHireLoc.setEnabled(false);
+   addnInfoLoc.setVisible(false);
+   addnInfoLoc.setText("");
+   lblAddnInfo.setVisible(false);
+   locPanel.setVisible(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -143,7 +150,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         tabPane = new javax.swing.JTabbedPane();
         locPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblAddnInfo = new javax.swing.JLabel();
         addnInfoLoc = new javax.swing.JTextField();
         btnHireLoc = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -180,9 +187,9 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         locPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(41, 50, 80));
-        jLabel1.setText("Additional Info:");
+        lblAddnInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblAddnInfo.setForeground(new java.awt.Color(41, 50, 80));
+        lblAddnInfo.setText("Additional Info:");
 
         addnInfoLoc.setForeground(new java.awt.Color(41, 50, 80));
 
@@ -221,17 +228,17 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         locPanelLayout.setHorizontalGroup(
             locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE)
+                .addComponent(lblAddnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addnInfoLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(125, 125, 125)
                 .addComponent(btnHireLoc)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locPanelLayout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60))
+                .addGap(68, 68, 68))
         );
         locPanelLayout.setVerticalGroup(
             locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +250,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     .addGroup(locPanelLayout.createSequentialGroup()
                         .addGroup(locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(addnInfoLoc, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblAddnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(61, 61, 61))
                     .addGroup(locPanelLayout.createSequentialGroup()
                         .addComponent(btnHireLoc)
@@ -403,24 +410,24 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(413, 413, 413)
-                        .addComponent(enterpriseLabel2))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(330, 330, 330)
                         .addComponent(lblEventName)
                         .addGap(124, 124, 124)
                         .addComponent(lblEventDate))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(94, 94, 94)
-                        .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(415, 415, 415)
+                        .addComponent(enterpriseLabel2)))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(53, 53, 53)
                 .addComponent(enterpriseLabel2)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEventName)
                     .addComponent(lblEventDate))
@@ -454,7 +461,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     locRequest.setHost(userAccount);
                                     locRequest.setLocation(locTeam);
                                     locRequest.setStatus("Pending");
-                                    if (comment.isEmpty()) locRequest.setLocNote(comment);
+                                    if (comment.isEmpty()) locRequest.setMessage(comment);
                                     locRequest.setAttendance(request.getAttendance());
                                     locRequest.setEventName(request.getEventName());
                                     locRequest.setEvenCat(request.getEvenCat());
@@ -465,7 +472,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     e.getWorkQueue().getWorkRequestList().add(locRequest);
                                     System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Location Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(locTeam.getPhone(), "Hello "+locTeam.getName()+",  A Host likes to book your Location. Kindly login for more details.");
+                                    APIforSMS sms = new APIforSMS(locTeam.getPhone(), "Hello "+locTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
                                     //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
                                 }
                             }
@@ -473,6 +480,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     }
                 }
             }
+            disableInfo();
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
 
@@ -544,12 +552,12 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnHireMusic;
     private javax.swing.JLabel enterpriseLabel2;
     private javax.swing.JPanel infraPanel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblAddnInfo;
     private javax.swing.JLabel lblEventDate;
     private javax.swing.JLabel lblEventName;
     private javax.swing.JPanel locPanel;

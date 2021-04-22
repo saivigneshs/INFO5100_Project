@@ -1,6 +1,8 @@
 package userinterface.HostRole;
 
 import Business.EcoSystem;
+import Business.Network.Network;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -28,17 +30,21 @@ import javax.swing.JPanel;
 public class ViewHostProfileJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem system;
+    private Network network;
+    private Organization org;
     private UserAccount userAccount;
     private String currentPhoneNo;
     private String currentMailID;
     /**
      * Creates new form ViewHostProfileJPanel
      */
-    public ViewHostProfileJPanel(JPanel userProcess, EcoSystem system, UserAccount userAccount) {
+    public ViewHostProfileJPanel(JPanel userProcess, EcoSystem system, UserAccount userAccount, Network network, Organization org) {
         initComponents();
         
         this.userProcessContainer = userProcess;
         this.system = system;
+        this.org = org;
+        this.network = network;
         this.userAccount = userAccount;
         this.currentMailID = userAccount.getEmail();
         this.currentPhoneNo = userAccount.getPhone(); 
@@ -48,11 +54,9 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
  public void populateFields() {
         txtName.setText(userAccount.getName());
         txtCity.setText(userAccount.getCity());
-        txtZipcode.setText(userAccount.getZipcode());
-        txtStreet.setText(userAccount.getStreet());
         txtEmail.setText(userAccount.getEmail());
         txtPhone.setText(userAccount.getPhone());
-        txtState.setText(userAccount.getState());
+        txtState.setText(network.getName());
         Image imPhoto = userAccount.getUserPhoto();
         if(imPhoto!=null){
         ImageIcon imIcon = new ImageIcon(imPhoto);
@@ -62,8 +66,6 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
  private void disableEdit(){
     txtName.setEditable(false);
     txtCity.setEditable(false);
-    txtZipcode.setEditable(false);
-    txtStreet.setEditable(false);
     txtEmail.setEditable(false);
     txtPhone.setEditable(false);
     txtState.setEditable(false);
@@ -79,14 +81,10 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
 
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtStreet = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtPhone = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        txtZipcode = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         txtState = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -109,10 +107,6 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel3.setText("Street");
-
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 51));
         jLabel6.setText("Phone:");
@@ -126,10 +120,6 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 51));
         jLabel7.setText("Email:");
-
-        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel8.setText("Zipcode:");
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 51));
@@ -193,111 +183,84 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(433, 433, 433)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(47, 47, 47)
-                        .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(47, 47, 47)
                                 .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(204, 204, 204)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(409, 409, 409))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(22, 22, 22)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76)
+                                .addComponent(jLabel6))
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCustPhoto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)))))
-                .addGap(80, 80, 80))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(373, 373, 373))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70)))
+                .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(433, 433, 433)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(jLabel1)
-                                .addGap(55, 55, 55)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtStreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(147, 147, 147)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel6)
-                                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(54, 54, 54)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel8)
-                                            .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(73, 73, 73))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(144, 144, 144)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel7)
-                                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(34, 34, 34)
+                        .addGap(147, 147, 147)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel1)
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCustPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addComponent(btnCustPhotoUpload, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(153, 153, 153))
+                .addGap(207, 207, 207))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -321,12 +284,10 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
         String city = txtCity.getText();
         String email = txtEmail.getText();
         String state = txtState.getText();
-        String zipcode = txtZipcode.getText();
-        String street = txtStreet.getText();
         
         boolean allSet = true;
 
-        if( name.isEmpty() || phone.isEmpty() || city.isEmpty() || email.isEmpty() || state.isEmpty() || zipcode.isEmpty() || street.isEmpty() ) {
+        if( name.isEmpty() || phone.isEmpty() || city.isEmpty() || email.isEmpty() || state.isEmpty() ) {
             allSet = false;
             JOptionPane.showMessageDialog(null, "Kindly Enter all the required fields!");
         }   else if (!system.validateMobileNo(phone)) {
@@ -351,8 +312,6 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
         if(allSet == true){
         userAccount.setName(txtName.getText());
         userAccount.setCity(txtCity.getText());
-        userAccount.setZipcode(txtZipcode.getText());
-        userAccount.setStreet(txtStreet.getText());
         userAccount.setEmail(txtEmail.getText());
         userAccount.setPhone(txtPhone.getText());
         userAccount.setState(txtState.getText());
@@ -365,8 +324,6 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
          txtName.setEditable(true);
          txtCity.setEditable(true);
-         txtZipcode.setEditable(true);
-         txtStreet.setEditable(true);
          txtEmail.setEditable(true);
          txtPhone.setEditable(true);
          txtState.setEditable(true);
@@ -399,19 +356,15 @@ public class ViewHostProfileJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSaveChanges;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblCustPhoto;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtState;
-    private javax.swing.JTextField txtStreet;
-    private javax.swing.JTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
 }

@@ -42,7 +42,11 @@ public class GeoInfraManageOrgJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for (Organization organization : directory.getOrganizationList()) {
-            {
+            if(organization.getType().equals(Type.Host))
+            { 
+                continue;
+            }
+            else {
                 Object[] row = new Object[2];
                 row[0] = organization.getType().getValue();
                 row[1] = organization.getName();
