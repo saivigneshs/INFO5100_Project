@@ -12,6 +12,7 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.InfraRole.InfraWorkAreaJPanel;
+import userinterface.Photographerrole.PhotographerWorkAreaJPanel;
 
 /**
  *
@@ -20,7 +21,7 @@ import userinterface.InfraRole.InfraWorkAreaJPanel;
 public class PhotographerRole extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
-        return new InfraWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
+        return new PhotographerWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
     }
    
 @Override
