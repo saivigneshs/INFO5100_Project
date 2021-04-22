@@ -31,8 +31,8 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
     
        private void populateOrganizationTypeComboBox() {
         orgtypecombobox.removeAllItems();
-        orgtypecombobox.addItem(Organization.Type.Musician.toString());
-        orgtypecombobox.addItem(Organization.Type.Photographer.toString());
+        orgtypecombobox.addItem(Organization.Type.Musician);
+        orgtypecombobox.addItem(Organization.Type.Photographer);
     }
        
        public void volPopulate() {
@@ -66,7 +66,7 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
         txt_entorgname = new javax.swing.JTextField();
         manageentorg = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        orgtypecombobox = new javax.swing.JComboBox<>();
+        orgtypecombobox = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -108,7 +108,7 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Organisation Name:");
 
-        orgtypecombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        orgtypecombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -182,7 +182,7 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel manageentorg;
     private javax.swing.JLabel orgtype_lbl;
-    private javax.swing.JComboBox<String> orgtypecombobox;
+    private javax.swing.JComboBox orgtypecombobox;
     private javax.swing.JTextField txt_entorgname;
     // End of variables declaration//GEN-END:variables
 }

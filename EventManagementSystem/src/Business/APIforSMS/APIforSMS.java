@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package Business.APIforSMS;
+import com.db4o.cs.internal.messages.Message;
 import com.twilio.Twilio;
-import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 /**
  *
