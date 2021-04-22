@@ -12,14 +12,16 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.InfraRole.InfraWorkAreaJPanel;
+import userinterface.MusicianRole.MusicWorkAreaJPanel;
+import Business.Entertainment.MusicianDirectory;
 /**
  *
  * @author gowth
  */
 public class MusicianRole extends Role{
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
-        return new InfraWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business,MusicianDirectory musicianDirectory) {
+        return new MusicWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business,musicianDirectory);
     }
    
 @Override
