@@ -28,7 +28,7 @@ public class LocationRole extends Role {
    
 @Override
     public String toString(){
-        return (Role.RoleType.Host.getValue());
+        return (Role.RoleType.Location.getValue());
     }
    
 }
