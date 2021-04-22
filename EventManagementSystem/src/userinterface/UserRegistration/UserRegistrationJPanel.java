@@ -41,8 +41,6 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
             stateCombo.addItem(network);
         }
     }
-<<<<<<< HEAD
-=======
     public void populateOrgTypes() {
         cbOrg.addItem(Organization.Type.Host);
         cbOrg.addItem(Organization.Type.Beverages);
@@ -56,7 +54,6 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         cbOrg.addItem(Organization.Type.Musician);
 
     }
->>>>>>> 61e6eff0dd6fc952adf744803aa28e621684079b
 
     /**
      * This method is called from within the constructor to initialize the form.
