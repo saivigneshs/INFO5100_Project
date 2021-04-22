@@ -33,7 +33,27 @@ public class UserAccount {
     private Enterprise userEnterpriseList;
     private Organization userOrganizationList;
     private Image userPhoto;
+    private Image package1Photo;
+    private Image package2Photo;
 
+    public Image getPackage1Photo() {
+        return package1Photo;
+    }
+
+    public void setPackage1Photo(Image package1Photo) {
+        this.package1Photo = package1Photo;
+    }
+
+    public Image getPackage2Photo() {
+        return package2Photo;
+    }
+
+    public void setPackage2Photo(Image package2Photo) {
+        this.package2Photo = package2Photo;
+    }
+    
+    
+    
     public Image getUserPhoto() {
         return userPhoto;
     }

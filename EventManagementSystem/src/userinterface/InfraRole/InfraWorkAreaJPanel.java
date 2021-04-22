@@ -50,7 +50,6 @@ public class InfraWorkAreaJPanel extends javax.swing.JPanel {
 
         lblRestAdmin = new javax.swing.JLabel();
         btnRestInfo = new javax.swing.JButton();
-        btnMenu = new javax.swing.JButton();
         btnOrders = new javax.swing.JButton();
         lblRestName = new javax.swing.JLabel();
 
@@ -68,24 +67,13 @@ public class InfraWorkAreaJPanel extends javax.swing.JPanel {
         btnRestInfo.setBackground(new java.awt.Color(204, 255, 255));
         btnRestInfo.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnRestInfo.setForeground(new java.awt.Color(0, 51, 51));
-        btnRestInfo.setText("Manage Organization Info");
+        btnRestInfo.setText("Package Details");
         btnRestInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestInfoActionPerformed(evt);
             }
         });
         add(btnRestInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 210, -1));
-
-        btnMenu.setBackground(new java.awt.Color(204, 255, 255));
-        btnMenu.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        btnMenu.setForeground(new java.awt.Color(0, 51, 51));
-        btnMenu.setText("Manage Equipment");
-        btnMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuActionPerformed(evt);
-            }
-        });
-        add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 210, -1));
 
         btnOrders.setBackground(new java.awt.Color(204, 204, 255));
         btnOrders.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
@@ -110,18 +98,12 @@ public class InfraWorkAreaJPanel extends javax.swing.JPanel {
     
     }//GEN-LAST:event_btnRestInfoActionPerformed
 
-    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-       
-    
-    }//GEN-LAST:event_btnMenuActionPerformed
-
     private void btnOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdersActionPerformed
 
     }//GEN-LAST:event_btnOrdersActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnOrders;
     private javax.swing.JButton btnRestInfo;
     private javax.swing.JLabel lblRestAdmin;
