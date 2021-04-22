@@ -12,6 +12,8 @@ import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.EnterAdminRole.EntertainAdminWorkAreaJPanel;
 
+import userinterface.EnterAdminRole.GeoInfraAdminWorkAreaJPanel;
+
 
 /**
  *

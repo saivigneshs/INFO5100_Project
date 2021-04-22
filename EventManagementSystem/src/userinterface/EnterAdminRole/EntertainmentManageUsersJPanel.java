@@ -69,7 +69,7 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(25, 56, 82));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Manage Entertainment Team Members");
+        jLabel5.setText("MANAGE GEO INFRA TEAM MEMBERS");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 638, -1));
 
         jScrollPane1.setForeground(new java.awt.Color(0, 102, 255));
@@ -82,14 +82,14 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "User Name", "Role", "Username"
+                "User Name", "Role"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, true
+                true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -235,7 +235,6 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
                 Object row[] = new Object[2];
                 row[0] = ua;
                 row[1] = ua.getRole();
-                row[2] = ua.getUsername();
                 ((DefaultTableModel) tblUserDetails.getModel()).addRow(row);
             }
         }
