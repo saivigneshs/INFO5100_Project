@@ -50,22 +50,22 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     private void manageEmployee() {
-        GeoInfraManageEmpJPanel geoInfraManageEmpJPanel = new GeoInfraManageEmpJPanel(enterprise.getOrganizationDirectory());
-        workAreaPanel.add("GeoInfraManageEmpJPanel", geoInfraManageEmpJPanel);
+        EntertainmentManageEmpJPanel entertainmentManageEmpJPanel = new EntertainmentManageEmpJPanel(enterprise.getOrganizationDirectory());
+        workAreaPanel.add("EntertainmentManageEmpJPanel", entertainmentManageEmpJPanel);
         CardLayout layout = (CardLayout) workAreaPanel.getLayout();
         layout.next(workAreaPanel);
     }
 
     private void manageUsers() {
-        GeoInfraManageUsersJPanel geoInfraManageUsersJPanel = new GeoInfraManageUsersJPanel(enterprise, system, organization);
-        workAreaPanel.add("GeoInfraManageUsersJPanel", geoInfraManageUsersJPanel);
+        EntertainmentManageUsersJPanel entertainmentManageUsersJPanel = new EntertainmentManageUsersJPanel(enterprise, system, organization);
+        workAreaPanel.add("EntertainmentManageUsersJPanel", entertainmentManageUsersJPanel);
         CardLayout layout = (CardLayout) workAreaPanel.getLayout();
         layout.next(workAreaPanel);
     }
 
     private void manageRequests() {
-        GeoInfraManageWorkReqsJPanel geoInfraManageWorkReqsJPanel = new GeoInfraManageWorkReqsJPanel(enterprise);
-        workAreaPanel.add("GeoInfraManageWorkReqsJPanel", geoInfraManageWorkReqsJPanel);
+        EntertainmentManageWorkReqsJPanel entertainmentManageWorkReqsJPanel = new EntertainmentManageWorkReqsJPanel(enterprise);
+        workAreaPanel.add("EntertainmentManageWorkReqsJPanel", entertainmentManageWorkReqsJPanel);
         CardLayout layout = (CardLayout) workAreaPanel.getLayout();
         layout.next(workAreaPanel);
     }
@@ -166,9 +166,9 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEmp.setLayout(manageEmpLayout);
         manageEmpLayout.setHorizontalGroup(
             manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageEmpLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageEmpLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         manageEmpLayout.setVerticalGroup(
@@ -198,9 +198,9 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageUserAcc.setLayout(manageUserAccLayout);
         manageUserAccLayout.setHorizontalGroup(
             manageUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageUserAccLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageUserAccLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         manageUserAccLayout.setVerticalGroup(
@@ -214,8 +214,8 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
         menuPanel.add(manageUserAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, 40));
 
         lblHeading.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblHeading.setText("Geographical Infrastructure Enterprise");
-        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        lblHeading.setText("Entertainment Enterprise");
+        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 210, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
@@ -240,16 +240,15 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageRequestPanelLayout.setHorizontalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageRequestPanelLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(36, 36, 36)
+                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         manageRequestPanelLayout.setVerticalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageRequestPanelLayout.createSequentialGroup()
+            .addGroup(manageRequestPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(manageRequestLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(manageRequestLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
         );
 
         menuPanel.add(manageRequestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 40));
