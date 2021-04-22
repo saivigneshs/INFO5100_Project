@@ -32,7 +32,8 @@ public class LocationOrgInfoJPanel extends javax.swing.JPanel {
          this.container = container;
          this.system = system;
          
-         lblTitle.setText(account.getName()+ "'s Details");
+         lblTitle.setText(account.getUsername()+ "'s Details");
+         txtLocName.setText(account.getName());
          txtLocContact.setText(account.getPhone());
          txtLocEmail.setText(account.getEmail());
          
