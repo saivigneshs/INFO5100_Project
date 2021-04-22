@@ -99,38 +99,26 @@ public class FoodWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
         //ManageOrgInfoJPanel manageorgeinfoJPanel = new ManageOrgInfoJPanel(userProcessContainer, system);
         //userProcessContainer.add("ManageOrgInfoJPanel", manageorgeinfoJPanel);
         //CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         //layout.next(userProcessContainer);
-=======
-        
->>>>>>> 720926982fabdd2b6cc543b2300a6874eddba65c
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
         //FoodRequestJPanel foodrequestJPanel = new FoodRequestJPanel(userProcessContainer, system);
         //userProcessContainer.add("FoodRequestJPanel", foodrequestJPanel);
         //CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         //layout.next(userProcessContainer);
-=======
-        
->>>>>>> 720926982fabdd2b6cc543b2300a6874eddba65c
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
         //CreateFoodMenuJPanel createfoodmenuJPanel = new CreateFoodMenuJPanel(userProcessContainer, system);
         //userProcessContainer.add("CreateFoodMenuJPanel", createfoodmenuJPanel);
         //CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         //layout.next(userProcessContainer);
-=======
-        
->>>>>>> 720926982fabdd2b6cc543b2300a6874eddba65c
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
