@@ -84,6 +84,7 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
         HostPanel.setPreferredSize(new java.awt.Dimension(1338, 840));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setMinimumSize(new java.awt.Dimension(280, 840));
         jPanel3.setPreferredSize(new java.awt.Dimension(280, 840));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,8 +115,8 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
             ViewEventsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ViewEventsPanelLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(lbl_ViewEvents, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 7, Short.MAX_VALUE))
+                .addComponent(lbl_ViewEvents)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         ViewEventsPanelLayout.setVerticalGroup(
             ViewEventsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +126,7 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel3.add(ViewEventsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, -1));
+        jPanel3.add(ViewEventsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 230, -1));
 
         addEventPanel.setBackground(new java.awt.Color(204, 204, 255));
         addEventPanel.setToolTipText("");
@@ -152,9 +153,9 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
         addEventPanelLayout.setHorizontalGroup(
             addEventPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addEventPanelLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(lbl_addEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(55, 55, 55)
+                .addComponent(lbl_addEvent)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         addEventPanelLayout.setVerticalGroup(
             addEventPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,11 +164,11 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 4, Short.MAX_VALUE))
         );
 
-        jPanel3.add(addEventPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 40));
+        jPanel3.add(addEventPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, 40));
 
-        title.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        title.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         title.setText("Event Management Area");
-        jPanel3.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jPanel3.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 40));
 
         HostProfilePanel.setBackground(new java.awt.Color(204, 204, 255));
         HostProfilePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -192,21 +193,22 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
         HostProfilePanelLayout.setHorizontalGroup(
             HostProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HostProfilePanelLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(lbl_hostProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(lbl_hostProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         HostProfilePanelLayout.setVerticalGroup(
             HostProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HostProfilePanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(19, 19, 19)
                 .addComponent(lbl_hostProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jPanel3.add(HostProfilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 250, 60));
+        jPanel3.add(HostProfilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 220, 60));
 
-        rightHostPanel.setBackground(new java.awt.Color(241, 241, 242));
+        rightHostPanel.setBackground(new java.awt.Color(204, 204, 255));
+        rightHostPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rightHostPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
         rightHostPanel.setLayout(new java.awt.CardLayout());
 
@@ -217,18 +219,12 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(HostPanelLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rightHostPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(rightHostPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1339, Short.MAX_VALUE))
         );
         HostPanelLayout.setVerticalGroup(
             HostPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HostPanelLayout.createSequentialGroup()
-                .addGroup(HostPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(HostPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(rightHostPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addComponent(rightHostPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         add(HostPanel, java.awt.BorderLayout.CENTER);

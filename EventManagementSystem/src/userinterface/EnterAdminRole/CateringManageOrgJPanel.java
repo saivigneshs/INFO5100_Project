@@ -102,9 +102,9 @@ public class CateringManageOrgJPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 255, 102));
-        jLabel3.setText("Team Name:");
+        jLabel3.setText("Organization Name:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(330, 440, 100, 20);
+        jLabel3.setBounds(280, 440, 150, 20);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,10 +112,10 @@ public class CateringManageOrgJPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(440, 390, 178, 20);
+        jTextField1.setBounds(440, 440, 178, 20);
 
         jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(440, 440, 178, 22);
+        jComboBox1.setBounds(440, 390, 178, 22);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jButton1.setText("Add Organization");

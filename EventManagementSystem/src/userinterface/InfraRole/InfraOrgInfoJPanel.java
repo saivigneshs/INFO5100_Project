@@ -9,9 +9,6 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -36,7 +33,7 @@ public class InfraOrgInfoJPanel extends javax.swing.JPanel {
         
     }
 private void disableEdit(){
-    txtMgrName1.setEditable(false);
+    //txtMgrName1.setEditable(false);
     txtRestAddr1.setEditable(false);
     txtRestName1.setEditable(false);
     txtRestContact1.setEditable(false);
@@ -53,84 +50,228 @@ private void disableEdit(){
     private void initComponents() {
 
         jSeparator1 = new javax.swing.JSeparator();
-        txtRestEmail1 = new javax.swing.JTextField();
-        lblRestEmail1 = new javax.swing.JLabel();
-        txtRestName1 = new javax.swing.JTextField();
-        lblRestContact1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         txtRestZip1 = new javax.swing.JTextField();
         lblRestZip1 = new javax.swing.JLabel();
-        lblRestName1 = new javax.swing.JLabel();
-        txtRestAddr1 = new javax.swing.JTextField();
-        lblAddRest1 = new javax.swing.JLabel();
         lblRestAddr1 = new javax.swing.JLabel();
+        txtRestAddr1 = new javax.swing.JTextField();
+        txtRestEmail1 = new javax.swing.JTextField();
+        lblRestEmail1 = new javax.swing.JLabel();
+        lblRestContact1 = new javax.swing.JLabel();
         txtRestContact1 = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
-        txtMgrName1 = new javax.swing.JTextField();
-        lblMgrName1 = new javax.swing.JLabel();
-        txtRestNo = new javax.swing.JTextField();
+        txtRestName1 = new javax.swing.JTextField();
+        lblRestName1 = new javax.swing.JLabel();
         lblRestNo = new javax.swing.JLabel();
+        txtRestNo = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
         btnEnableUpdate = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setForeground(new java.awt.Color(0, 51, 51));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtRestEmail1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtRestEmail1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 227, 127, -1));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setToolTipText("");
 
-        lblRestEmail1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestEmail1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblRestEmail1.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestEmail1.setText(" Email ID :");
-        add(lblRestEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 230, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setText("Package Detials");
 
-        txtRestName1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtRestName1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 121, 127, -1));
-
-        lblRestContact1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestContact1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblRestContact1.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestContact1.setText("Contact No :");
-        add(lblRestContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 201, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         txtRestZip1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtRestZip1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestZip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 285, 127, -1));
 
         lblRestZip1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestZip1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestZip1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
         lblRestZip1.setForeground(new java.awt.Color(0, 51, 51));
         lblRestZip1.setText("Zip Code :");
-        add(lblRestZip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 288, -1, -1));
 
-        lblRestName1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestName1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblRestName1.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestName1.setText("Organization Name :");
-        add(lblRestName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 124, -1, -1));
+        lblRestAddr1.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestAddr1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblRestAddr1.setForeground(new java.awt.Color(0, 51, 51));
+        lblRestAddr1.setText("Street Address :");
 
         txtRestAddr1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtRestAddr1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestAddr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 256, 127, -1));
 
-        lblAddRest1.setBackground(new java.awt.Color(204, 255, 255));
-        lblAddRest1.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
-        lblAddRest1.setForeground(new java.awt.Color(0, 51, 51));
-        lblAddRest1.setText("Organization Details");
-        add(lblAddRest1, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 33, -1, -1));
+        txtRestEmail1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtRestEmail1.setForeground(new java.awt.Color(0, 51, 51));
 
-        lblRestAddr1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestAddr1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblRestAddr1.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestAddr1.setText("Street Address :");
-        add(lblRestAddr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 259, -1, -1));
+        lblRestEmail1.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestEmail1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblRestEmail1.setForeground(new java.awt.Color(0, 51, 51));
+        lblRestEmail1.setText(" Email ID :");
+
+        lblRestContact1.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestContact1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblRestContact1.setForeground(new java.awt.Color(0, 51, 51));
+        lblRestContact1.setText("Contact No :");
 
         txtRestContact1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtRestContact1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 198, 127, -1));
+
+        txtRestName1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtRestName1.setForeground(new java.awt.Color(0, 51, 51));
+
+        lblRestName1.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestName1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblRestName1.setForeground(new java.awt.Color(0, 51, 51));
+        lblRestName1.setText("Organization Name :");
+
+        lblRestNo.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestNo.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        lblRestNo.setForeground(new java.awt.Color(0, 51, 51));
+        lblRestNo.setText("Organization No :");
+
+        txtRestNo.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtRestNo.setForeground(new java.awt.Color(0, 51, 51));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblRestNo)
+                    .addComponent(lblRestContact1)
+                    .addComponent(lblRestEmail1)
+                    .addComponent(lblRestZip1)
+                    .addComponent(lblRestName1)
+                    .addComponent(lblRestAddr1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtRestAddr1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRestZip1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRestEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRestContact1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRestName1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRestNo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtRestAddr1, txtRestContact1, txtRestEmail1, txtRestName1, txtRestNo, txtRestZip1});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRestNo)
+                    .addComponent(txtRestNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRestName1)
+                    .addComponent(txtRestName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRestContact1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRestContact1))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRestEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRestEmail1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRestAddr1)
+                    .addComponent(txtRestAddr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRestZip1)
+                    .addComponent(txtRestZip1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel9.setText("Infra Specialities:");
+
+        jLabel8.setText("1)");
+
+        jLabel12.setText("2)");
+
+        jLabel13.setText("3)");
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel11.setText("Price:");
+
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel9)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel12)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel13)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel10.setText("Click here to update----------->");
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -142,51 +283,116 @@ private void disableEdit(){
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 372, 48, -1));
 
-        txtMgrName1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtMgrName1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtMgrName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 314, 127, -1));
-
-        lblMgrName1.setBackground(new java.awt.Color(204, 255, 255));
-        lblMgrName1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblMgrName1.setForeground(new java.awt.Color(0, 51, 51));
-        lblMgrName1.setText("Manager's Name :");
-        add(lblMgrName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 314, -1, -1));
-
-        txtRestNo.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtRestNo.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 92, 127, -1));
-
-        lblRestNo.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestNo.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        lblRestNo.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestNo.setText("Organization No :");
-        add(lblRestNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 95, -1, -1));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnEnableUpdate.setBackground(new java.awt.Color(204, 255, 255));
-        btnEnableUpdate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnEnableUpdate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnEnableUpdate.setForeground(new java.awt.Color(0, 51, 51));
-        btnEnableUpdate.setText("Enable Update");
+        btnEnableUpdate.setText("UPDATE");
         btnEnableUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEnableUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEnableUpdateActionPerformed(evt);
             }
         });
-        add(btnEnableUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 354, 106, -1));
 
         btnSaveChanges.setBackground(new java.awt.Color(204, 255, 255));
-        btnSaveChanges.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnSaveChanges.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSaveChanges.setForeground(new java.awt.Color(0, 51, 51));
-        btnSaveChanges.setText("Save Changes");
+        btnSaveChanges.setText("SAVE");
         btnSaveChanges.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSaveChanges.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveChangesActionPerformed(evt);
             }
         });
-        add(btnSaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 383, 106, -1));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(335, 335, 335))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBack)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel1)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jLabel10)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(68, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -202,7 +408,7 @@ private void disableEdit(){
 
     private void btnEnableUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnableUpdateActionPerformed
         // TODO add your handling code here:
-        txtMgrName1.setEditable(true);
+        //txtMgrName1.setEditable(true);
         txtRestAddr1.setEditable(true);
         txtRestContact1.setEditable(true);
         txtRestEmail1.setEditable(true);
@@ -217,21 +423,37 @@ private void disableEdit(){
         
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEnableUpdate;
     private javax.swing.JButton btnSaveChanges;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblAddRest1;
-    private javax.swing.JLabel lblMgrName1;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblRestAddr1;
     private javax.swing.JLabel lblRestContact1;
     private javax.swing.JLabel lblRestEmail1;
     private javax.swing.JLabel lblRestName1;
     private javax.swing.JLabel lblRestNo;
     private javax.swing.JLabel lblRestZip1;
-    private javax.swing.JTextField txtMgrName1;
     private javax.swing.JTextField txtRestAddr1;
     private javax.swing.JTextField txtRestContact1;
     private javax.swing.JTextField txtRestEmail1;
