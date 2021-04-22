@@ -49,7 +49,7 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
             if (request instanceof HostGovtWorkRequest) {
-            if (request.getStatus().equals("Awaiting Govt Approval")) {
+          //  if (request.getStatus().equals("Awaiting Govt Approval")) {
                 Object[] row = new Object[8];
                 row[0] = request;
                 row[1] = ((HostGovtWorkRequest) request).getEventName();
@@ -61,7 +61,7 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
                 row[7] = request.getMessage();
 
                 model.addRow(row);
-            }
+            //}
             }
         }
     }
@@ -176,14 +176,18 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
                 return;
             }
-            if (!"Completed".equals(request.getStatus())) {
-                request.setStatus("Completed");
+            if (request.getStatus().equals("Awaiting Govt Approval")) {
+            if (!"Event Authorized".equals(request.getStatus())) {
+                request.setStatus("Event Authorized");
                 request.setMessage(message);
-                JOptionPane.showMessageDialog(null, "Event is Approved!");
+                JOptionPane.showMessageDialog(null, "Event is Authorized!");
                     userAccount.setStatus("Available");
                 populateTable();
             } else {
-                JOptionPane.showMessageDialog(null, "Event is already Approved!");
+                JOptionPane.showMessageDialog(null, "Event is already Authorized!");
+            }
+            } else {
+                JOptionPane.showMessageDialog(null, "Select an appropriate Event!");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");

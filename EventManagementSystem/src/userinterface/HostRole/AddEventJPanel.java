@@ -356,6 +356,7 @@ public class AddEventJPanel extends javax.swing.JPanel {
                         if (ua.getRole() instanceof AuthRole) {
                             ua.getWorkQueue().getWorkRequestList().add(hostgovtwr);
                             JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
+                            disableFields();
                         }
                     }
                 }
