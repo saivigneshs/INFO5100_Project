@@ -25,6 +25,6 @@ public class PhotographerRole extends Role {
    
 @Override
     public String toString(){
-        return (Role.RoleType.Photo.getValue());
+        return (Role.RoleType.Host.getValue());
     }
 }
