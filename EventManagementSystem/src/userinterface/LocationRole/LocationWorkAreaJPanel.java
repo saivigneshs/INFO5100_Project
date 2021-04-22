@@ -66,6 +66,8 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         ManageRequestPanel = new javax.swing.JPanel();
         lblManageRequest = new javax.swing.JLabel();
         title2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
         rightPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(204, 204, 255));
@@ -77,9 +79,9 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         LocPanel.setMinimumSize(new java.awt.Dimension(1338, 840));
 
         menuPanel.setBackground(new java.awt.Color(204, 204, 255));
+        menuPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuPanel.setMinimumSize(new java.awt.Dimension(280, 840));
         menuPanel.setPreferredSize(new java.awt.Dimension(280, 840));
-        menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TeamDetailsPanel.setBackground(new java.awt.Color(204, 204, 255));
         TeamDetailsPanel.setToolTipText("");
@@ -91,7 +93,7 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         lbl_TeamDetails.setBackground(new java.awt.Color(204, 204, 255));
-        lbl_TeamDetails.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lbl_TeamDetails.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
         lbl_TeamDetails.setText("Package Details");
         lbl_TeamDetails.setAutoscrolls(true);
         lbl_TeamDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -105,10 +107,10 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         TeamDetailsPanel.setLayout(TeamDetailsPanelLayout);
         TeamDetailsPanelLayout.setHorizontalGroup(
             TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TeamDetailsPanelLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(lbl_TeamDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TeamDetailsPanelLayout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(lbl_TeamDetails)
+                .addGap(21, 21, 21))
         );
         TeamDetailsPanelLayout.setVerticalGroup(
             TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,11 +120,8 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        menuPanel.add(TeamDetailsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 270, -1));
-
-        admin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        admin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         admin.setText("Admin Page");
-        menuPanel.add(admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         ManageRequestPanel.setBackground(new java.awt.Color(204, 204, 255));
         ManageRequestPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -133,7 +132,7 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         lblManageRequest.setBackground(new java.awt.Color(255, 213, 90));
-        lblManageRequest.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblManageRequest.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
         lblManageRequest.setText("Manage Requests");
         lblManageRequest.setPreferredSize(new java.awt.Dimension(115, 16));
         lblManageRequest.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -146,10 +145,10 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         ManageRequestPanel.setLayout(ManageRequestPanelLayout);
         ManageRequestPanelLayout.setHorizontalGroup(
             ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ManageRequestPanelLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageRequestPanelLayout.createSequentialGroup()
+                .addContainerGap(73, Short.MAX_VALUE)
+                .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         ManageRequestPanelLayout.setVerticalGroup(
             ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,32 +158,75 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        menuPanel.add(ManageRequestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 250, 60));
-
-        title2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        title2.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
         title2.setText("Location Team Details");
-        menuPanel.add(title2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
-        rightPanel.setBackground(new java.awt.Color(241, 241, 242));
+        javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
+        menuPanel.setLayout(menuPanelLayout);
+        menuPanelLayout.setHorizontalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(title2))
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(admin))
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TeamDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ManageRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+            .addComponent(jSeparator3)
+        );
+        menuPanelLayout.setVerticalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(title2)
+                .addGap(4, 4, 4)
+                .addComponent(admin)
+                .addGap(19, 19, 19)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(TeamDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(ManageRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        rightPanel.setBackground(new java.awt.Color(204, 204, 255));
+        rightPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rightPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
-        rightPanel.setLayout(new java.awt.CardLayout());
+
+        javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
+        rightPanel.setLayout(rightPanelLayout);
+        rightPanelLayout.setHorizontalGroup(
+            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1036, Short.MAX_VALUE)
+        );
+        rightPanelLayout.setVerticalGroup(
+            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 836, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout LocPanelLayout = new javax.swing.GroupLayout(LocPanel);
         LocPanel.setLayout(LocPanelLayout);
         LocPanelLayout.setHorizontalGroup(
             LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LocPanelLayout.createSequentialGroup()
-                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
                 .addContainerGap())
         );
         LocPanelLayout.setVerticalGroup(
             LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LocPanelLayout.createSequentialGroup()
-                .addGroup(LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LocPanelLayout.createSequentialGroup()
+                .addGroup(LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -217,6 +259,8 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel ManageRequestPanel;
     private javax.swing.JPanel TeamDetailsPanel;
     private javax.swing.JLabel admin;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblManageRequest;
     private javax.swing.JLabel lbl_TeamDetails;
     private javax.swing.JPanel menuPanel;
