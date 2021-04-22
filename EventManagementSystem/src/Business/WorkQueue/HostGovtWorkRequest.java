@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package Business.WorkQueue;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.util.Date;
 /**
@@ -16,6 +20,132 @@ public class HostGovtWorkRequest extends WorkRequest {
     private String evenCat;
     private int attendance;
     private Date plannedDate;
+
+    public UserAccount getHost() {
+        return host;
+    }
+
+    public void setHost(UserAccount host) {
+        this.host = host;
+    }
+
+    public UserAccount getLocation() {
+        return location;
+    }
+
+    public void setLocation(UserAccount location) {
+        this.location = location;
+    }
+
+    public String getLocNote() {
+        return locNote;
+    }
+
+    public void setLocNote(String locNote) {
+        this.locNote = locNote;
+    }
+
+    public UserAccount getInfra() {
+        return infra;
+    }
+
+    public void setInfra(UserAccount infra) {
+        this.infra = infra;
+    }
+
+    public String getInfraNote() {
+        return infraNote;
+    }
+
+    public void setInfraNote(String infraNote) {
+        this.infraNote = infraNote;
+    }
+
+    public UserAccount getMusic() {
+        return music;
+    }
+
+    public void setMusic(UserAccount music) {
+        this.music = music;
+    }
+
+    public String getMusicNote() {
+        return musicNote;
+    }
+
+    public void setMusicNote(String musicNote) {
+        this.musicNote = musicNote;
+    }
+
+    public UserAccount getFood() {
+        return food;
+    }
+
+    public void setFood(UserAccount food) {
+        this.food = food;
+    }
+
+    public String getFoodNote() {
+        return foodNote;
+    }
+
+    public void setFoodNote(String foodNote) {
+        this.foodNote = foodNote;
+    }
+
+    public UserAccount getDrinks() {
+        return drinks;
+    }
+
+    public void setDrinks(UserAccount drinks) {
+        this.drinks = drinks;
+    }
+
+    public String getDrinksNote() {
+        return drinksNote;
+    }
+
+    public void setDrinksNote(String drinksNote) {
+        this.drinksNote = drinksNote;
+    }
+
+    public Network getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(Network network) {
+        this.network = network;
+    }
+
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+    }
+
+    public Organization.Type getOrgType() {
+        return orgType;
+    }
+
+    public void setOrgType(Organization.Type orgType) {
+        this.orgType = orgType;
+    }
+    private UserAccount host;
+    private UserAccount location;
+    private String locNote;
+    private UserAccount infra;
+    private String infraNote;
+    private UserAccount music;
+    private String musicNote;
+    private UserAccount food;
+    private String foodNote;
+    private UserAccount drinks;
+    private String drinksNote;
+    private Network network;
+    private Enterprise enterprise;
+    private Organization.Type orgType;
 
     public String getEventName() {
         return eventName;

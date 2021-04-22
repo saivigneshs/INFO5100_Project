@@ -34,7 +34,9 @@ public class GeoInfraManageEmpJPanel extends javax.swing.JPanel {
         organizationEmpJComboBox.removeAllItems();
 
         for (Organization organization : organizationDirectory.getOrganizationList()) {
+             if(!organization.getType().equals(Organization.Type.Host)){
             organizationEmpJComboBox.addItem(organization);
+             }
         }
     }
 
@@ -43,12 +45,14 @@ public class GeoInfraManageEmpJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for (Organization organization : organizationDirectory.getOrganizationList()) {
+             if(! organization.getType().equals(Organization.Type.Host)){
             for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
                 Object[] row = new Object[model.getColumnCount()];
                 row[0] = employee.getId();
                 row[1] = employee.getName();
                 model.addRow(row);
             }
+             }
         }
     }
 

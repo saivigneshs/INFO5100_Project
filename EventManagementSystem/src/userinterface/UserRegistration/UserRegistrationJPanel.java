@@ -5,6 +5,7 @@
  */
 package userinterface.UserRegistration;
 
+import Business.APIforSMS.APIforSMS;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
@@ -337,7 +338,8 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                     ua1.setPhone(phone);
                     ua1.setCity(city);
                     String bodyMsg = "Hello " + username + ", \n Your account is activated. You are a Host now!";
-                }
+                 APIforSMS sendSMS = new APIforSMS(phone, bodyMsg);   
+             }
             }
         } else {
             UserRegistrationRequest registrationRequest = new UserRegistrationRequest();
@@ -366,12 +368,12 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
             }
         }
         if (flag) {
-            String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Your account will be activated within 48 hours. We will keep you posted here.";
+            String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Feel free to login to your account after the next 2 hours.";
         //    system.sendEmailMessage(emailAddress, bodyMsg);
-          //  HandleSMS sendSMS = new HandleSMS(phone, bodyMsg);
+                APIforSMS sendSMS = new APIforSMS(phone, bodyMsg);
             JOptionPane.showMessageDialog(null, "You have been registered succesfully!");
         } else {
-            JOptionPane.showMessageDialog(null, "Sorry! No such Organization is created by the enterprise");
+            JOptionPane.showMessageDialog(null, "No such Organization exists in our Enterprise");
         }
         txtName.setText("");
         txtUsername.setText("");

@@ -53,6 +53,8 @@ public class AddEventJPanel extends javax.swing.JPanel {
     dpEventDate.setEnabled(false);
     street.setEnabled(false);
     city.setEnabled(false);
+    state.setEnabled(false);
+    btnHost.setEnabled(false);
     }
 
     /**
@@ -348,6 +350,7 @@ public class AddEventJPanel extends javax.swing.JPanel {
         hostgovtwr.setEventName(txtEventName.getText());
         hostgovtwr.setEvenCat(String.valueOf(cbEventCat.getSelectedItem()));
         hostgovtwr.setPlannedDate(eventDate); 
+        hostgovtwr.setHost(userAccount);
         
         for (Network n : system.getNetworkList()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {

@@ -61,9 +61,8 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
                             row[5] = ((HostLocWorkRequest) workRequest).getHost();
                             row[6] = ((HostLocWorkRequest) workRequest).getHost().getCity();
                             row[7] = ((HostLocWorkRequest) workRequest).getStatus();
-                            row[8] = ((HostLocWorkRequest) workRequest).getBuyerNote();
-                            row[9] = ((HostLocWorkRequest) workRequest).getInspectorNote();
-                            row[10] = ((HostLocWorkRequest) workRequest).getQuote();
+                            row[8] = ((HostLocWorkRequest) workRequest).getMessage();
+                            row[9] = ((HostLocWorkRequest) workRequest).getLocNote();
                             model.addRow(row);
                         }
                     }
@@ -79,8 +78,9 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
         scrollOrderList = new javax.swing.JScrollPane();
         tblLocRequests = new javax.swing.JTable();
         btnReject = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
         btnApprove = new javax.swing.JButton();
+        blAddMessage = new javax.swing.JLabel();
+        txtAddMsg = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setForeground(new java.awt.Color(0, 51, 51));
@@ -97,20 +97,20 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
         tblLocRequests.setForeground(new java.awt.Color(0, 51, 51));
         tblLocRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order No", "Org Name", "Equipment Name", "Quantity", "Order Status", "Deliver To", "Location Team Messageg", "Order By", "Total Cost"
+                "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Host", "Host City", "Status", "Message from Host", "Loc Team Reply"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -135,19 +135,7 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
                 btnRejectActionPerformed(evt);
             }
         });
-        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 110, 30));
-
-        btnBack.setBackground(new java.awt.Color(204, 255, 255));
-        btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(0, 51, 51));
-        btnBack.setText("Back");
-        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 50, 30));
+        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 110, 30));
 
         btnApprove.setBackground(new java.awt.Color(204, 255, 255));
         btnApprove.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -159,29 +147,77 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
                 btnApproveActionPerformed(evt);
             }
         });
-        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 110, 30));
+        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 110, 30));
+
+        blAddMessage.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        blAddMessage.setForeground(new java.awt.Color(41, 50, 80));
+        blAddMessage.setText("Additional Message:");
+        add(blAddMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
+
+        txtAddMsg.setBackground(new java.awt.Color(204, 204, 255));
+        add(txtAddMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 200, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
+         int selectedRow = tblLocRequests.getSelectedRow();
+        if (selectedRow >= 0) {
+            HostLocWorkRequest request = (HostLocWorkRequest) tblLocRequests.getValueAt(selectedRow, 0);
+            String message = txtAddMsg.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
+                return;
+            }
+            if (!"Completed".equals(request.getStatus()) && !"In Progress".equals(request.getStatus())) {
+                request.setStatus("Rejected");
+                request.setMessage(message);
+                JOptionPane.showMessageDialog(null, "Event Rejected!");
+                    account.setStatus("Available");
+                populateLocRequests();
+            } else {
+                JOptionPane.showMessageDialog(null, "Event is already " + request.getStatus());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Kindly select a row.");
+        }
     }//GEN-LAST:event_btnRejectActionPerformed
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-     
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblLocRequests.getSelectedRow();
+        if (selectedRow >= 0) {
+            HostLocWorkRequest request = (HostLocWorkRequest) tblLocRequests.getValueAt(selectedRow, 0);
+            String message = txtAddMsg.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
+                return;
+            }
+            if (!request.getStatus().equals("Awaiting Govt Approval")) {
+            if (!"Event Authorized".equals(request.getStatus())) {
+                request.setStatus("Location Authorized");
+                request.setMessage(message);
+                JOptionPane.showMessageDialog(null, "Location is Authorized!");
+                    account.setStatus("Booked");
+                populateLocRequests();
+            } else {
+                JOptionPane.showMessageDialog(null, "Event is already Authorized!");
+            }
+            } else {
+                JOptionPane.showMessageDialog(null, "Select an appropriate Event!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_btnApproveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel blAddMessage;
     private javax.swing.JButton btnApprove;
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnReject;
     private javax.swing.JLabel lblRestWorkList;
     private javax.swing.JScrollPane scrollOrderList;
     private javax.swing.JTable tblLocRequests;
+    private javax.swing.JTextField txtAddMsg;
     // End of variables declaration//GEN-END:variables
 }
