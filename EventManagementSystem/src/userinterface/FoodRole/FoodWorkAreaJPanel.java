@@ -5,18 +5,40 @@
  */
 package userinterface.FoodRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author VIGNESH
  */
 public class FoodWorkAreaJPanel extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organization organization;
     
     /**
      * Creates new form FoodWorkAreaJPanel
      */
-    public FoodWorkAreaJPanel() {
+    public FoodWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem system) {
         initComponents();
+        jLabel1.setText(account.getUsername());
+        jLabel2.setText(account.getEmployee().getName()+" 's Admin Page");
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
         
     }
 
@@ -32,7 +54,6 @@ public class FoodWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -59,21 +80,10 @@ public class FoodWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(210, 70, 150, 40);
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton2.setText("Create Food Order");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(210, 120, 153, 40);
+        jButton1.setBounds(210, 90, 150, 40);
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jButton3.setText("Manage Org Info");
+        jButton3.setText("Package Details");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +91,7 @@ public class FoodWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(210, 170, 150, 40);
+        jButton3.setBounds(210, 150, 150, 40);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 51));
@@ -99,23 +109,23 @@ public class FoodWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+        ManageorginfoJPanel manageorgeinfoJPanel = new ManageorginfoJPanel(userProcessContainer, account, organization, enterprise, network, system);
+        userProcessContainer.add("ManageOrgInfoJPanel", manageorgeinfoJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        FoodRequestJPanel foodrequestJPanel = new FoodRequestJPanel(userProcessContainer, account, organization, enterprise, network,system);
+        userProcessContainer.add("FoodRequestJPanel", foodrequestJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

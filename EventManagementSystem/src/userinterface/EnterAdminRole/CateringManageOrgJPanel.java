@@ -102,9 +102,9 @@ public class CateringManageOrgJPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 255, 102));
-        jLabel3.setText("Organization Name:");
+        jLabel3.setText("Team Name:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(270, 440, 150, 20);
+        jLabel3.setBounds(330, 440, 100, 20);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
