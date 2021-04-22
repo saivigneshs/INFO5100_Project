@@ -18,15 +18,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Saivignesh Sridhar
  */
-public class InfraRequestJPanel extends javax.swing.JPanel {
+public class LocationRequestJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form InfraRequestJPanel
+     * Creates new form LocationRequestJPanel
      */
     private final JPanel userProcessContainer;
     private final UserAccount account;
     private final EcoSystem business;
-    public InfraRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+    public LocationRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.business = business;
@@ -63,7 +63,7 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
         lblRestWorkList.setBackground(new java.awt.Color(204, 255, 255));
         lblRestWorkList.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestWorkList.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestWorkList.setText("Event Equipment Requests");
+        lblRestWorkList.setText("Location Requests");
         add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 24, -1, -1));
 
         tblOrderList.setBackground(new java.awt.Color(204, 204, 255));
