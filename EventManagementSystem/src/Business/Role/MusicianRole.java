@@ -20,8 +20,8 @@ import Business.Entertainment.MusicianDirectory;
  */
 public class MusicianRole extends Role{
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business,MusicianDirectory musicianDirectory) {
-        return new MusicWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business,musicianDirectory);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
+        return new MusicWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
     }
    
 @Override

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.MusicianRole;
+package userinterface.Photographerrole;
 
+import userinterface.MusicianRole.*;
 import userinterface.InfraRole.*;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
@@ -20,7 +21,7 @@ import Business.Entertainment.MusicianDirectory;
  *
  * @author gowtham
  */
-public class MusicEquipJPanel extends javax.swing.JPanel {
+public class PhotoEquipJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form InfraEquipJPanel
@@ -32,33 +33,22 @@ public class MusicEquipJPanel extends javax.swing.JPanel {
 //    private final MusicianDirectory musicianDirectory;
 
 //    public MusicEquipJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system,MusicianDirectory musicianDirectory) {
-    public MusicEquipJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public PhotoEquipJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
         this.container = userProcessContainer;
         this.system = system;
         this.account = account;
 //        this.musicianDirectory = musicianDirectory;
-        populatemusicband();
+        populatephotographerband();
     }
 //    public void populateMenuTable() {
 //        DefaultTableModel model = (DefaultTableModel) tblResMenu.getModel();
 //        model.setRowCount(0);
 //    }
     
-    public void populatemusicband() {
-          DefaultTableModel model = (DefaultTableModel) tblmusicdetails.getModel();
+    public void populatephotographerband() {
+         DefaultTableModel model = (DefaultTableModel) tblphotographerdetails.getModel();
         model.setRowCount(0);
-        for (Musician  band: system.getmusicianDirectory().getMusicianDirectory()) {
-            if (band.getMusicianno().equalsIgnoreCase(account.getEmployee().getName())) {
-                Object[] row = new Object[4];
-                row[0] = band.getMusicianno();
-                row[1] = band.getMusicPlan();
-                row[2] = band.getCost();
-                row[3] = band.getNumofpeople();
-                row[4] = band.getDescr();
-                model.addRow(row);
-            }
-        }
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     /**
@@ -72,7 +62,7 @@ public class MusicEquipJPanel extends javax.swing.JPanel {
 
         lblRestaurantMenu = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblmusicdetails = new javax.swing.JTable();
+        tblphotographerdetails = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
         btnAddItem = new javax.swing.JButton();
         btnEditItem = new javax.swing.JButton();
@@ -84,13 +74,13 @@ public class MusicEquipJPanel extends javax.swing.JPanel {
         lblRestaurantMenu.setBackground(new java.awt.Color(204, 255, 255));
         lblRestaurantMenu.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestaurantMenu.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestaurantMenu.setText("Music Package Details");
+        lblRestaurantMenu.setText("Photography Package Details");
         add(lblRestaurantMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
 
-        tblmusicdetails.setBackground(new java.awt.Color(204, 204, 255));
-        tblmusicdetails.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        tblmusicdetails.setForeground(new java.awt.Color(0, 51, 51));
-        tblmusicdetails.setModel(new javax.swing.table.DefaultTableModel(
+        tblphotographerdetails.setBackground(new java.awt.Color(204, 204, 255));
+        tblphotographerdetails.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        tblphotographerdetails.setForeground(new java.awt.Color(0, 51, 51));
+        tblphotographerdetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -98,7 +88,7 @@ public class MusicEquipJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Band ID", "Music Plan", "Cost", "No of  People", "Description"
+                "Photographer ID", "Photography Plan", "Cost", "No of  People", "Description"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -109,7 +99,7 @@ public class MusicEquipJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblmusicdetails);
+        jScrollPane1.setViewportView(tblphotographerdetails);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 77, 570, 150));
 
@@ -197,7 +187,7 @@ public class MusicEquipJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnEditItem;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblRestaurantMenu;
-    private javax.swing.JTable tblmusicdetails;
+    private javax.swing.JTable tblphotographerdetails;
     // End of variables declaration//GEN-END:variables
 
     
