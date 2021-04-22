@@ -17,16 +17,16 @@ import javax.swing.JPanel;
  *
  * @author Saivignesh Sridhar
  */
-public class AddInfraEquipJPanel extends javax.swing.JPanel {
+public class AddLocationJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form AddInfraEquipJPanel
+     * Creates new form AddLocationJPanel
      */
     private final JPanel userProcessContainer;
     private final EcoSystem system;
 
     private final UserAccount account;
-    public AddInfraEquipJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public AddLocationJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -59,7 +59,7 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
         lblAddItem.setBackground(new java.awt.Color(204, 255, 255));
         lblAddItem.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblAddItem.setForeground(new java.awt.Color(0, 51, 51));
-        lblAddItem.setText("Add Equipment");
+        lblAddItem.setText("Add Location");
 
         lblItemName.setBackground(new java.awt.Color(204, 255, 255));
         lblItemName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -69,7 +69,7 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
         lblIngredients.setBackground(new java.awt.Color(204, 255, 255));
         lblIngredients.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         lblIngredients.setForeground(new java.awt.Color(0, 51, 51));
-        lblIngredients.setText("Ingredients Added :");
+        lblIngredients.setText("Permitted Attendance:");
 
         lblPrice.setBackground(new java.awt.Color(204, 255, 255));
         lblPrice.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -149,7 +149,7 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(189, 189, 189)
                         .addComponent(lblAddItem)))
-                .addGap(0, 91, Short.MAX_VALUE))
+                .addGap(0, 72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
