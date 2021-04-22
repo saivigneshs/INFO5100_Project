@@ -50,15 +50,15 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     private void manageEmployee() {
-        GeoInfraManageEmpJPanel geoInfraManageEmpJPanel = new GeoInfraManageEmpJPanel(enterprise.getOrganizationDirectory());
-        workAreaPanel.add("GeoInfraManageEmpJPanel", geoInfraManageEmpJPanel);
+        EntertainmentManageEmpJPanel entertainmentManageEmpJPanel = new EntertainmentManageEmpJPanel(enterprise.getOrganizationDirectory());
+        workAreaPanel.add("EntertainmentManageEmpJPanel", entertainmentManageEmpJPanel);
         CardLayout layout = (CardLayout) workAreaPanel.getLayout();
         layout.next(workAreaPanel);
     }
 
     private void manageUsers() {
-        GeoInfraManageUsersJPanel geoInfraManageUsersJPanel = new GeoInfraManageUsersJPanel(enterprise, system, organization);
-        workAreaPanel.add("GeoInfraManageUsersJPanel", geoInfraManageUsersJPanel);
+        EntertainmentManageUsersJPanel entertainmentManageUsersJPanel = new EntertainmentManageUsersJPanel(enterprise, system, organization);
+        workAreaPanel.add("EntertainmentManageUsersJPanel", entertainmentManageUsersJPanel);
         CardLayout layout = (CardLayout) workAreaPanel.getLayout();
         layout.next(workAreaPanel);
     }
