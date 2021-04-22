@@ -10,6 +10,20 @@ import Business.Organization.Organization.Type;
 import Business.Organization.OrganizationDirectory;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+ 
+import java.io.FileOutputStream;
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Font;
+
 /**
  *
  * @author gowth
@@ -67,6 +81,7 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
         manageentorg = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         orgtypecombobox = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -110,6 +125,13 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
 
         orgtypecombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButton1.setText("generate PDF");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,7 +155,9 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
                             .addComponent(orgtypecombobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
-                        .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -152,7 +176,9 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
                     .addComponent(txt_entorgname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
-                .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -174,9 +200,81 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
     
     }//GEN-LAST:event_manageentorgMousePressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+Document document = new Document();
+		try
+		{
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("C:/Users/gowth/Downloads/JavaiTextPDFExamples/vignesh.pdf"));
+			                 System.out.println("Hello");
+                        document.open();
+
+                            Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,Font.BOLD);
+                           Paragraph preface = new Paragraph();
+                          
+        // We add one empty line
+        
+        // Lets write a big header
+        preface.add(new Paragraph("Title of the document", catFont));
+        document.add(preface);
+                        
+			PdfPTable table = new PdfPTable(3); // 3 columns.
+			table.setWidthPercentage(100); //Width 100%
+			table.setSpacingBefore(10f); //Space before table
+			table.setSpacingAfter(10f); //Space after table
+
+			//Set Column widths
+			float[] columnWidths = {1f, 1f, 1f};
+			table.setWidths(columnWidths);
+
+                     
+
+        for (Organization organization : directory.getOrganizationList()) {
+           
+
+        
+			PdfPCell cell1 = new PdfPCell(new Paragraph(organization.getType().getValue()));
+			cell1.setBorderColor(BaseColor.BLUE);
+			cell1.setPaddingLeft(10);
+			cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+			PdfPCell cell2 = new PdfPCell(new Paragraph(organization.getName()));
+			cell2.setBorderColor(BaseColor.GREEN);
+			cell2.setPaddingLeft(10);
+			cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+			cell2.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+			PdfPCell cell3 = new PdfPCell(new Paragraph("Cell 3"));
+			cell3.setBorderColor(BaseColor.RED);
+			cell3.setPaddingLeft(10);
+			cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+			cell3.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        
+			//To avoid having the cell border and the content overlap, if you are having thick cell borders
+			//cell1.setUserBorderPadding(true);
+			//cell2.setUserBorderPadding(true);
+			//cell3.setUserBorderPadding(true);
+
+			table.addCell(cell1);
+			table.addCell(cell2);
+			table.addCell(cell3);
+
+			
+}
+                        document.add(table);
+			document.close();
+			writer.close();
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}// TODO add your handling code here:
+                volPopulate();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ManageEntertainmenttbl;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;

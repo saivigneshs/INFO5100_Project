@@ -54,44 +54,36 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblRestAdmin = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         btnRestInfo = new javax.swing.JButton();
-        btnmanagemusicians = new javax.swing.JButton();
         btnmanagerequests = new javax.swing.JButton();
         lblRestName = new javax.swing.JLabel();
+        lblRestAdmin = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setForeground(new java.awt.Color(0, 51, 51));
         setToolTipText("");
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblRestAdmin.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestAdmin.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
-        lblRestAdmin.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestAdmin.setText("Music  Administration Page");
-        add(lblRestAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnRestInfo.setBackground(new java.awt.Color(204, 255, 255));
         btnRestInfo.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnRestInfo.setForeground(new java.awt.Color(0, 51, 51));
-        btnRestInfo.setText("Manage Musician Info");
+        btnRestInfo.setText("Package Details");
         btnRestInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRestInfoActionPerformed(evt);
             }
         });
-        add(btnRestInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 210, -1));
-
-        btnmanagemusicians.setBackground(new java.awt.Color(204, 255, 255));
-        btnmanagemusicians.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        btnmanagemusicians.setForeground(new java.awt.Color(0, 51, 51));
-        btnmanagemusicians.setText("Manage Photography");
-        btnmanagemusicians.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmanagemusiciansActionPerformed(evt);
-            }
-        });
-        add(btnmanagemusicians, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 210, -1));
 
         btnmanagerequests.setBackground(new java.awt.Color(204, 204, 255));
         btnmanagerequests.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
@@ -102,28 +94,146 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
                 btnmanagerequestsActionPerformed(evt);
             }
         });
-        add(btnmanagerequests, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 210, -1));
 
         lblRestName.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestName.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        lblRestName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblRestName.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestName.setText("Music Org Name");
-        add(lblRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 150, 30));
+        lblRestName.setText("Photographer Admin");
+
+        lblRestAdmin.setBackground(new java.awt.Color(204, 255, 255));
+        lblRestAdmin.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
+        lblRestAdmin.setForeground(new java.awt.Color(0, 51, 51));
+        lblRestAdmin.setText("Photographer Administration Page");
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        jLabel1.setText("Package Details");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        jLabel2.setText("Manage Requests");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jSeparator1.setForeground(new java.awt.Color(255, 0, 102));
+
+        jSeparator2.setForeground(new java.awt.Color(255, 0, 102));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnmanagerequests, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRestInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblRestAdmin))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(lblRestName)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jSeparator1)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jSeparator2)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lblRestAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblRestName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(283, 283, 283)
+                .addComponent(btnmanagerequests)
+                .addGap(53, 53, 53)
+                .addComponent(btnRestInfo)
+                .addContainerGap(90, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRestInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestInfoActionPerformed
         // TODO add your handling code here:
     
     }//GEN-LAST:event_btnRestInfoActionPerformed
-
-    private void btnmanagemusiciansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmanagemusiciansActionPerformed
-//        MusicEquipJPanel managemusiciansInfoJPanel = new MusicEquipJPanel(userProcessContainer,userAccount,EcoSystem.getInstance(),musicianDirectory);
-        PhotoEquipJPanel managephotographersInfoJPanel = new PhotoEquipJPanel(userProcessContainer,userAccount,EcoSystem.getInstance());
-        userProcessContainer.add("PhotoEquipJPanel", managephotographersInfoJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);   
-    
-    }//GEN-LAST:event_btnmanagemusiciansActionPerformed
 
     private void btnmanagerequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmanagerequestsActionPerformed
         PhotographerRequestJPanel managephotographerrequestInfoJPanel = new PhotographerRequestJPanel(userProcessContainer,userAccount,EcoSystem.getInstance());
@@ -135,8 +245,16 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRestInfo;
-    private javax.swing.JButton btnmanagemusicians;
     private javax.swing.JButton btnmanagerequests;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblRestAdmin;
     private javax.swing.JLabel lblRestName;
     // End of variables declaration//GEN-END:variables
