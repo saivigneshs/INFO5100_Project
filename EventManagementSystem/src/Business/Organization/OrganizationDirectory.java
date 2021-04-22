@@ -48,14 +48,20 @@ public class OrganizationDirectory {
         } else if (type.getValue().equals(Type.Delivery.getValue())) {
             organization = new DeliveryOrganization(name);
             organizationList.add(organization);
-        }  
+
+        }    
         else if (type.getValue().equals(Type.Musician.getValue())) {
+
             organization = new MusicianOrganization(name);
             organizationList.add(organization);
         } else if (type.getValue().equals(Type.Photographer.getValue())) {
             organization = new PhotographerOrganization(name);
             organizationList.add(organization);
-        }  
+
+        }
+
+      
+
         return organization;
     }
 }
