@@ -221,6 +221,10 @@ public class GeoInfraManageUsersJPanel extends javax.swing.JPanel {
     public void populateOrganizationComboBox() {
         selectOrganization.removeAllItems();
         for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if(org.getType().equals(Organization.Type.Host))
+            { 
+                continue;
+            }else
             selectOrganization.addItem(org);
         }
     }
@@ -231,11 +235,13 @@ public class GeoInfraManageUsersJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
-            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+            if(! org.getType().equals(Organization.Type.Host)){
+             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                 Object row[] = new Object[2];
                 row[0] = ua;
                 row[1] = ua.getRole();
                 ((DefaultTableModel) tblUserDetails.getModel()).addRow(row);
+             }
             }
         }
     }

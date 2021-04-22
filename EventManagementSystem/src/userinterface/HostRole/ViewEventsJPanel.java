@@ -54,6 +54,7 @@ public class ViewEventsJPanel extends javax.swing.JPanel {
                         if (ua.getRole() instanceof AuthRole) {
                             for(WorkRequest request : ua.getWorkQueue().getWorkRequestList()){
                              if ( request instanceof HostGovtWorkRequest) {
+                                 if(((HostGovtWorkRequest) request).getHost().equals(userAccount)){
                 Object[] row = new Object[8];
                 row[0] = ((HostGovtWorkRequest) request).getEventName();
                 row[1] = ((HostGovtWorkRequest) request).getEvenCat();
@@ -63,6 +64,7 @@ public class ViewEventsJPanel extends javax.swing.JPanel {
                 row[5] = request.getStatus();
 
                 model.addRow(row);
+                                 }
                                 }
                             }
                         }
@@ -232,10 +234,18 @@ public class ViewEventsJPanel extends javax.swing.JPanel {
             if (selectedRow >= 0) {
                 
                 HostGovtWorkRequest request = (HostGovtWorkRequest) tblEvents.getValueAt(selectedRow,2);
+                if(request.getStatus().equals("Awaiting Govt Approval")){
+                JOptionPane.showMessageDialog(null, "Waiting for Government Authority to Approve.");
+                }
+                else if (request.getStatus().equals("Rejected")){
+                JOptionPane.showMessageDialog(null, "Event Rejected. Kindly select an different Event.");
+                }
+                else{
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 ViewEventDetailsJPanel viewEventDetailsJPanel = new ViewEventDetailsJPanel(userProcessContainer, userAccount, system, network, request);
                 userProcessContainer.add(viewEventDetailsJPanel);
                 layout.next(userProcessContainer);
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null, "Select a Row to continue.");
