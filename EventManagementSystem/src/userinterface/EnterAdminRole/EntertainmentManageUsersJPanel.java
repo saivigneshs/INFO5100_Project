@@ -82,14 +82,14 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "User Name", "Role"
+                "User Name", "Role", "Username"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false
+                true, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -235,6 +235,7 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
                 Object row[] = new Object[2];
                 row[0] = ua;
                 row[1] = ua.getRole();
+                row[2] = ua.getUsername();
                 ((DefaultTableModel) tblUserDetails.getModel()).addRow(row);
             }
         }

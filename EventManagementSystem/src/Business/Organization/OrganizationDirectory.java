@@ -35,7 +35,8 @@ public class OrganizationDirectory {
         } else if (type.getValue().equals(Type.Infrastructure.getValue())) {
             organization = new InfraOrganization(name);
             organizationList.add(organization);
-        } else if (type.getValue().equals(Type.GovtAuth.getValue())) {
+        }  
+          else if (type.getValue().equals(Type.GovtAuth.getValue())) {
             organization = new AuthOrganization(name);
             organizationList.add(organization);          
         } else if (type.getValue().equals(Type.Food.getValue())) {
@@ -47,7 +48,14 @@ public class OrganizationDirectory {
         } else if (type.getValue().equals(Type.Delivery.getValue())) {
             organization = new DeliveryOrganization(name);
             organizationList.add(organization);
-        }            
+        }  
+        else if (type.getValue().equals(Type.Musician.getValue())) {
+            organization = new MusicianOrganization(name);
+            organizationList.add(organization);
+        } else if (type.getValue().equals(Type.Photographer.getValue())) {
+            organization = new PhotographerOrganization(name);
+            organizationList.add(organization);
+        }  
         return organization;
     }
 }
