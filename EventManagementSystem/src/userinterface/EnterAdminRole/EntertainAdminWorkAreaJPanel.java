@@ -50,15 +50,15 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     private void manageEmployee() {
-        GeoInfraManageEmpJPanel geoInfraManageEmpJPanel = new GeoInfraManageEmpJPanel(enterprise.getOrganizationDirectory());
-        workAreaPanel.add("GeoInfraManageEmpJPanel", geoInfraManageEmpJPanel);
+        EntertainmentManageEmpJPanel entertainmentManageEmpJPanel = new EntertainmentManageEmpJPanel(enterprise.getOrganizationDirectory());
+        workAreaPanel.add("EntertainmentManageEmpJPanel", entertainmentManageEmpJPanel);
         CardLayout layout = (CardLayout) workAreaPanel.getLayout();
         layout.next(workAreaPanel);
     }
 
     private void manageUsers() {
-        GeoInfraManageUsersJPanel geoInfraManageUsersJPanel = new GeoInfraManageUsersJPanel(enterprise, system, organization);
-        workAreaPanel.add("GeoInfraManageUsersJPanel", geoInfraManageUsersJPanel);
+        EntertainmentManageUsersJPanel entertainmentManageUsersJPanel = new EntertainmentManageUsersJPanel(enterprise, system, organization);
+        workAreaPanel.add("EntertainmentManageUsersJPanel", entertainmentManageUsersJPanel);
         CardLayout layout = (CardLayout) workAreaPanel.getLayout();
         layout.next(workAreaPanel);
     }
@@ -166,9 +166,9 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEmp.setLayout(manageEmpLayout);
         manageEmpLayout.setHorizontalGroup(
             manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageEmpLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageEmpLayout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         manageEmpLayout.setVerticalGroup(
@@ -198,9 +198,9 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageUserAcc.setLayout(manageUserAccLayout);
         manageUserAccLayout.setHorizontalGroup(
             manageUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageUserAccLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageUserAccLayout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         manageUserAccLayout.setVerticalGroup(
@@ -240,9 +240,9 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageRequestPanelLayout.setHorizontalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageRequestPanelLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(39, 39, 39)
+                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         manageRequestPanelLayout.setVerticalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

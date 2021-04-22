@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.LocationRole;
+package userinterface.MusicianRole;
 
 import userinterface.InfraRole.*;
 import Business.EcoSystem;
@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  *
  * @author Saivignesh Sridhar
  */
-public class AddInfraEquipJPanel extends javax.swing.JPanel {
+public class AddMusicJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AddInfraEquipJPanel
@@ -26,7 +26,7 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
     private final EcoSystem system;
 
     private final UserAccount account;
-    public AddInfraEquipJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public AddMusicJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -46,8 +46,8 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
         lblItemName = new javax.swing.JLabel();
         lblIngredients = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
-        txtItemPrice = new javax.swing.JTextField();
         txtIngredients = new javax.swing.JTextField();
+        txtItemPrice = new javax.swing.JTextField();
         txtItemName = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -59,28 +59,28 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
         lblAddItem.setBackground(new java.awt.Color(204, 255, 255));
         lblAddItem.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblAddItem.setForeground(new java.awt.Color(0, 51, 51));
-        lblAddItem.setText("Add Equipment");
+        lblAddItem.setText("Add Band Information");
 
         lblItemName.setBackground(new java.awt.Color(204, 255, 255));
         lblItemName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         lblItemName.setForeground(new java.awt.Color(0, 51, 51));
-        lblItemName.setText("Item Name :");
+        lblItemName.setText("Music Plan:");
 
         lblIngredients.setBackground(new java.awt.Color(204, 255, 255));
         lblIngredients.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         lblIngredients.setForeground(new java.awt.Color(0, 51, 51));
-        lblIngredients.setText("Ingredients Added :");
+        lblIngredients.setText("Cost:");
 
         lblPrice.setBackground(new java.awt.Color(204, 255, 255));
         lblPrice.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(0, 51, 51));
-        lblPrice.setText("Price :");
-
-        txtItemPrice.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        txtItemPrice.setForeground(new java.awt.Color(0, 51, 51));
+        lblPrice.setText("Description:");
 
         txtIngredients.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtIngredients.setForeground(new java.awt.Color(0, 51, 51));
+
+        txtItemPrice.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        txtItemPrice.setForeground(new java.awt.Color(0, 51, 51));
 
         txtItemName.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtItemName.setForeground(new java.awt.Color(0, 51, 51));
@@ -110,10 +110,15 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
         lblCategory.setBackground(new java.awt.Color(204, 255, 255));
         lblCategory.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         lblCategory.setForeground(new java.awt.Color(0, 51, 51));
-        lblCategory.setText("Category :");
+        lblCategory.setText("No of People:");
 
         txtCategory.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtCategory.setForeground(new java.awt.Color(0, 51, 51));
+        txtCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCategoryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -123,7 +128,7 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblIngredients)
@@ -131,7 +136,7 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
                                 .addGap(38, 38, 38)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIngredients, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblPrice)
@@ -139,17 +144,15 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
                                 .addGap(38, 38, 38)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtIngredients, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20))))
+                                .addGap(116, 116, 116)
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
+                        .addGap(131, 131, 131)
                         .addComponent(lblAddItem)))
-                .addGap(0, 91, Short.MAX_VALUE))
+                .addGap(0, 126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +166,7 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIngredients)
-                    .addComponent(txtIngredients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCategory)
@@ -171,7 +174,7 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPrice)
-                    .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIngredients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
@@ -183,21 +186,21 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         String itemName = txtItemName.getText();
-        String contents = txtIngredients.getText();
-        String category = txtCategory.getText();
+        String contents = txtItemPrice.getText();
+        int category = Integer.parseInt(txtCategory.getText());
         double price = 0;
         try {
-            price = Double.parseDouble(txtItemPrice.getText());
+            price = Double.parseDouble(txtIngredients.getText());
         } catch (NumberFormatException exception) {
             System.out.println(exception);
             JOptionPane.showMessageDialog(null, "Please enter valid price!");
         }
-        if (itemName.isEmpty() || contents.isEmpty() || price == 0 || category.isEmpty()) {
+        if (itemName.isEmpty() || contents.isEmpty() || price == 0 || category == 0) {
             JOptionPane.showMessageDialog(null, "Please fill all the fields.");
         } else {
             String restaurantNo = account.getEmployee().getName();
             //String restaurantId, String name, double price, String contents, String category
-            JOptionPane.showMessageDialog(null, "Item added sucessfully!");
+            JOptionPane.showMessageDialog(null, "Band added sucessfully!");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -206,10 +209,13 @@ public class AddInfraEquipJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCategoryActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

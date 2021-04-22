@@ -1,8 +1,9 @@
 
 
-package userinterface.MusicianRole;
+package userinterface.Photographerrole;
 
 
+import userinterface.MusicianRole.*;
 import userinterface.InfraRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
@@ -17,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author  Saivignesh Sridhar
  */
-public class MusicWorkAreaJPanel extends javax.swing.JPanel {
+public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
     
     private final JPanel userProcessContainer;
     private final EcoSystem system;
@@ -29,7 +30,7 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
     
     /** Creates new form AdminWorkAreaJPanel */
 //    public MusicWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization org, Enterprise ent, Network net, EcoSystem system,MusicianDirectory musicianDirectory) {
-    public MusicWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization org, Enterprise ent, Network net, EcoSystem system) {
+    public PhotographerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization org, Enterprise ent, Network net, EcoSystem system) {
         initComponents();
         lblRestName.setText(account.getUsername());
         lblRestAdmin.setText(account.getEmployee().getName()+" 's Admin Page");
@@ -84,7 +85,7 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
         btnmanagemusicians.setBackground(new java.awt.Color(204, 255, 255));
         btnmanagemusicians.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
         btnmanagemusicians.setForeground(new java.awt.Color(0, 51, 51));
-        btnmanagemusicians.setText("Manage Musicians");
+        btnmanagemusicians.setText("Manage Photography");
         btnmanagemusicians.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmanagemusiciansActionPerformed(evt);
@@ -117,16 +118,16 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnmanagemusiciansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmanagemusiciansActionPerformed
 //        MusicEquipJPanel managemusiciansInfoJPanel = new MusicEquipJPanel(userProcessContainer,userAccount,EcoSystem.getInstance(),musicianDirectory);
-        MusicEquipJPanel managemusiciansInfoJPanel = new MusicEquipJPanel(userProcessContainer,userAccount,EcoSystem.getInstance());
-        userProcessContainer.add("MusicEquipJPanel", managemusiciansInfoJPanel);
+        PhotoEquipJPanel managephotographersInfoJPanel = new PhotoEquipJPanel(userProcessContainer,userAccount,EcoSystem.getInstance());
+        userProcessContainer.add("PhotoEquipJPanel", managephotographersInfoJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);   
     
     }//GEN-LAST:event_btnmanagemusiciansActionPerformed
 
     private void btnmanagerequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmanagerequestsActionPerformed
-        MusicRequestJPanel managemusicrequestInfoJPanel = new MusicRequestJPanel(userProcessContainer,userAccount,EcoSystem.getInstance());
-        userProcessContainer.add("MusicRequestJPanel", managemusicrequestInfoJPanel);
+        PhotographerRequestJPanel managephotographerrequestInfoJPanel = new PhotographerRequestJPanel(userProcessContainer,userAccount,EcoSystem.getInstance());
+        userProcessContainer.add("PhotographerRequestJPanel", managephotographerrequestInfoJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnmanagerequestsActionPerformed

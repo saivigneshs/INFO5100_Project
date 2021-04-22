@@ -205,11 +205,10 @@ public class ViewEventsJPanel extends javax.swing.JPanel {
         int count = tblEvents.getSelectedRowCount();
         if (count == 1) {
             if (selectedRow >= 0) {
+                
+                HostGovtWorkRequest request = (HostGovtWorkRequest) tblEvents.getValueAt(selectedRow,2);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-                String networkCode = (String) tblEvents.getValueAt(selectedRow,0);
-                Network net =  system.fetchNetwork(networkCode);
-
-                ViewEventDetailsJPanel viewEventDetailsJPanel = new ViewEventDetailsJPanel(userProcessContainer, userAccount, enterprise, system, network, organization);
+                ViewEventDetailsJPanel viewEventDetailsJPanel = new ViewEventDetailsJPanel(userProcessContainer, userAccount, system, network, request);
                 userProcessContainer.add(viewEventDetailsJPanel);
                 layout.next(userProcessContainer);
             }

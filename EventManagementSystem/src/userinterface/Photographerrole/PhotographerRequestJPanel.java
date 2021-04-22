@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.LocationRole;
+package userinterface.Photographerrole;
 
+import userinterface.MusicianRole.*;
 import userinterface.InfraRole.*;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
@@ -18,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Saivignesh Sridhar
  */
-public class InfraRequestJPanel extends javax.swing.JPanel {
+public class PhotographerRequestJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form InfraRequestJPanel
@@ -26,7 +27,7 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
     private final JPanel userProcessContainer;
     private final UserAccount account;
     private final EcoSystem business;
-    public InfraRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+    public PhotographerRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.business = business;
@@ -63,28 +64,28 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
         lblRestWorkList.setBackground(new java.awt.Color(204, 255, 255));
         lblRestWorkList.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestWorkList.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestWorkList.setText("Event Equipment Requests");
-        add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 24, -1, -1));
+        lblRestWorkList.setText("Event Music Requests");
+        add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
         tblOrderList.setBackground(new java.awt.Color(204, 204, 255));
         tblOrderList.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         tblOrderList.setForeground(new java.awt.Color(0, 51, 51));
         tblOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order No", "Org Name", "Equipment Name", "Quantity", "Order Status", "Deliver To", "Location Team Messageg", "Order By", "Total Cost"
+                "Order No", "Customer Name", "Customer Contact No", "Customer Location", "Customer Zipcode", "Event Date", "Music Plan", "Order Cost"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -109,7 +110,7 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
                 brnConfirmOrderActionPerformed(evt);
             }
         });
-        add(brnConfirmOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 110, 30));
+        add(brnConfirmOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 120, 30));
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -121,7 +122,7 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 50, 30));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 100, 30));
 
         brnConfirmOrder1.setBackground(new java.awt.Color(204, 255, 255));
         brnConfirmOrder1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -133,7 +134,7 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
                 brnConfirmOrder1ActionPerformed(evt);
             }
         });
-        add(brnConfirmOrder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 110, 30));
+        add(brnConfirmOrder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 120, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void brnConfirmOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnConfirmOrderActionPerformed

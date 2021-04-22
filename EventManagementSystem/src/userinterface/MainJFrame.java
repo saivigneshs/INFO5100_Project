@@ -40,7 +40,7 @@ public class MainJFrame extends javax.swing.JFrame {
         loginJPanel.setVisible(true);
         container.setVisible(false);
         topPanel.setVisible(false);
-        getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+        getRootPane().setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.cyan));
     }
 
     private void shiftPanel(UserAccount userAccount) {

@@ -25,7 +25,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="lblIngredients" min="-2" max="-2" attributes="0"/>
@@ -34,7 +34,7 @@
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="txtItemName" min="-2" pref="179" max="-2" attributes="0"/>
-                                  <Component id="txtIngredients" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Component id="txtItemPrice" min="-2" pref="179" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -45,24 +45,22 @@
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="txtCategory" min="-2" pref="179" max="-2" attributes="0"/>
-                                  <Component id="txtItemPrice" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Component id="txtIngredients" min="-2" pref="179" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                              <Component id="btnSave" min="-2" pref="54" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnBack" min="-2" pref="52" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                              <Component id="btnSave" min="-2" pref="54" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                       <Component id="lblAddItem" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="91" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="126" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,7 +77,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblIngredients" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtIngredients" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtItemPrice" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -89,7 +87,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblPrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtItemPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIngredients" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -113,7 +111,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Add Equipment"/>
+        <Property name="text" type="java.lang.String" value="Add Band Information"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblItemName">
@@ -127,7 +125,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Item Name :"/>
+        <Property name="text" type="java.lang.String" value="Music Plan:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblIngredients">
@@ -141,7 +139,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ingredients Added :"/>
+        <Property name="text" type="java.lang.String" value="Cost:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPrice">
@@ -155,10 +153,10 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Price :"/>
+        <Property name="text" type="java.lang.String" value="Description:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtItemPrice">
+    <Component class="javax.swing.JTextField" name="txtIngredients">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ebrima" size="12" style="1"/>
@@ -168,7 +166,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtIngredients">
+    <Component class="javax.swing.JTextField" name="txtItemPrice">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ebrima" size="12" style="1"/>
@@ -243,7 +241,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Category :"/>
+        <Property name="text" type="java.lang.String" value="No of People:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCategory">
@@ -255,6 +253,9 @@
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCategoryActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

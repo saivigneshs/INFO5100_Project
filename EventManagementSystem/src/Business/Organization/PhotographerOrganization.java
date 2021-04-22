@@ -6,6 +6,7 @@
 package Business.Organization;
 
 import Business.Role.InfraRole;
+import Business.Role.PhotographerRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class PhotographerOrganization extends Organization{
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new InfraRole());
+        roles.add(new PhotographerRole());
         return roles;
     }
        @Override
