@@ -31,4 +31,8 @@ public class AuthOrganization extends Organization{
     public Organization.Type getType() {
         return Organization.Type.GovtAuth;
     } 
+<<<<<<< HEAD
+} 
+=======
 }
+>>>>>>> 8f23407dd71aaea0a5c7986d1dbba7c8d3161568
