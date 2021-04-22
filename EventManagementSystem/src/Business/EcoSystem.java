@@ -13,6 +13,7 @@ import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.Entertainment.MusicianDirectory;
 import java.util.ArrayList;
 import Business.UserAccount.UserAccount;
 import java.awt.Color;
@@ -33,6 +34,7 @@ public class EcoSystem extends Organization{
     private static EcoSystem business;
     private EnterpriseDirectory enterpriseDirectory;
     private OrganizationDirectory organizationDirectory;
+    private MusicianDirectory musicianDirectory;
    
 
     private ArrayList<Network> networkList;
@@ -91,6 +93,10 @@ public class EcoSystem extends Organization{
 
     public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
         this.enterpriseDirectory = enterpriseDirectory;
+    }
+    
+    public MusicianDirectory getmusicianDirectory() {
+        return musicianDirectory;
     }
 
     public Network fetchNetwork(String networkCode) {
