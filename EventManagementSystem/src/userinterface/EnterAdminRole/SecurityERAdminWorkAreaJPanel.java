@@ -88,7 +88,7 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageUserAccountLabel = new javax.swing.JLabel();
         lblHeading = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        manageRequestPanel = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
         workAreaPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(241, 241, 242));
@@ -100,6 +100,7 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
         systemAdminPanel.setPreferredSize(new java.awt.Dimension(1338, 840));
 
         menuPanel.setBackground(new java.awt.Color(204, 204, 255));
+        menuPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuPanel.setMinimumSize(new java.awt.Dimension(280, 840));
         menuPanel.setPreferredSize(new java.awt.Dimension(280, 840));
         menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -126,10 +127,10 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageOrgPanel.setLayout(manageOrgPanelLayout);
         manageOrgPanelLayout.setHorizontalGroup(
             manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrgPanelLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(manageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(manageOrgPanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(manageOrganization)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         manageOrgPanelLayout.setVerticalGroup(
             manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +140,7 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        menuPanel.add(manageOrgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 40));
+        menuPanel.add(manageOrgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 240, 40));
 
         manageEmp.setBackground(new java.awt.Color(204, 204, 255));
         manageEmp.setToolTipText("");
@@ -165,10 +166,10 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEmp.setLayout(manageEmpLayout);
         manageEmpLayout.setHorizontalGroup(
             manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageEmpLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(manageEmpLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(manageEmployeeLabel)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         manageEmpLayout.setVerticalGroup(
             manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +178,7 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        menuPanel.add(manageEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 280, 40));
+        menuPanel.add(manageEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 240, 40));
 
         manageUserAcc.setBackground(new java.awt.Color(204, 204, 255));
         manageUserAcc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -197,20 +198,17 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageUserAcc.setLayout(manageUserAccLayout);
         manageUserAccLayout.setHorizontalGroup(
             manageUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageUserAccLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(manageUserAccLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         manageUserAccLayout.setVerticalGroup(
             manageUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageUserAccLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        menuPanel.add(manageUserAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, 40));
+        menuPanel.add(manageUserAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 250, 40));
 
         lblHeading.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblHeading.setText("Security ER Enterprise");
@@ -219,29 +217,10 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         menuPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 280, 10));
-
-        manageRequestPanel.setBackground(new java.awt.Color(204, 204, 255));
-        manageRequestPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manageRequestPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageRequestPanelMousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout manageRequestPanelLayout = new javax.swing.GroupLayout(manageRequestPanel);
-        manageRequestPanel.setLayout(manageRequestPanelLayout);
-        manageRequestPanelLayout.setHorizontalGroup(
-            manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
-        );
-        manageRequestPanelLayout.setVerticalGroup(
-            manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        menuPanel.add(manageRequestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 40));
+        menuPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 280, 10));
 
         workAreaPanel.setBackground(new java.awt.Color(204, 204, 255));
+        workAreaPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         workAreaPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
         workAreaPanel.setLayout(new java.awt.CardLayout());
 
@@ -252,14 +231,15 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(systemAdminPanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(workAreaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(workAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1052, Short.MAX_VALUE))
         );
         systemAdminPanelLayout.setVerticalGroup(
             systemAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(workAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(systemAdminPanelLayout.createSequentialGroup()
-                .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, systemAdminPanelLayout.createSequentialGroup()
+                .addGroup(systemAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(workAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -288,20 +268,15 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageUsers();
     }//GEN-LAST:event_manageUserAccMousePressed
 
-    private void manageRequestPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRequestPanelMousePressed
-        // TODO add your handling code here:
-        manageRequests();
-    }//GEN-LAST:event_manageRequestPanelMousePressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JPanel manageEmp;
     private javax.swing.JLabel manageEmployeeLabel;
     private javax.swing.JPanel manageOrgPanel;
     private javax.swing.JLabel manageOrganization;
-    private javax.swing.JPanel manageRequestPanel;
     private javax.swing.JPanel manageUserAcc;
     private javax.swing.JLabel manageUserAccountLabel;
     private javax.swing.JPanel menuPanel;

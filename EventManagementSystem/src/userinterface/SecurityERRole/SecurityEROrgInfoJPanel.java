@@ -49,15 +49,15 @@ public class SecurityEROrgInfoJPanel extends javax.swing.JPanel {
         
     }
 private void disableEdit(){
-       txtLocContact.setEditable(true);
-        txtLocEmail.setEditable(true);
-        txtLocName.setEditable(true);
-        txtCity.setEditable(true);
-        txtState.setEditable(true);
-        txtPrice.setEditable(true);
-        txtSpec1.setEditable(true);
-        txtSpec2.setEditable(true);
-        txtSpec3.setEditable(true);
+       txtLocContact.setEditable(false);
+        txtLocEmail.setEditable(false);
+        txtLocName.setEditable(false);
+        txtCity.setEditable(false);
+        txtState.setEditable(false);
+        txtPrice.setEditable(false);
+        txtSpec1.setEditable(false);
+        txtSpec2.setEditable(false);
+        txtSpec3.setEditable(false);
 
 }
     /**
@@ -326,17 +326,17 @@ private void disableEdit(){
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(79, 79, 79)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(93, 93, 93))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGap(79, 79, 79))
         );
     }// </editor-fold>//GEN-END:initComponents
 

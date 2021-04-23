@@ -93,7 +93,7 @@ public class PhotoRequestJPanel extends javax.swing.JPanel {
         lblRestWorkList.setBackground(new java.awt.Color(204, 255, 255));
         lblRestWorkList.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestWorkList.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestWorkList.setText("Music  Requests");
+        lblRestWorkList.setText("Photopragher Requests");
         add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
 
         tblphotoRequests.setBackground(new java.awt.Color(204, 204, 255));
@@ -168,6 +168,7 @@ public class PhotoRequestJPanel extends javax.swing.JPanel {
         if (selectedRow >= 0) {
             HostPhotoWorkRequest request = (HostPhotoWorkRequest) tblphotoRequests.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
+            account.setMessage(message);
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
                 return;
@@ -192,6 +193,7 @@ public class PhotoRequestJPanel extends javax.swing.JPanel {
         if (selectedRow >= 0) {
             HostPhotoWorkRequest request = (HostPhotoWorkRequest) tblphotoRequests.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
+            account.setMessage(message);
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
                 return;

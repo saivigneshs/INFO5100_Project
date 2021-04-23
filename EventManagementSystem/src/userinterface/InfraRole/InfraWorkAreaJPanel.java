@@ -107,7 +107,7 @@ public class InfraWorkAreaJPanel extends javax.swing.JPanel {
         TeamDetailsPanelLayout.setHorizontalGroup(
             TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TeamDetailsPanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(48, 48, 48)
                 .addComponent(lbl_TeamDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
         );
@@ -145,9 +145,9 @@ public class InfraWorkAreaJPanel extends javax.swing.JPanel {
         ManageRequestPanelLayout.setHorizontalGroup(
             ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ManageRequestPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         ManageRequestPanelLayout.setVerticalGroup(
             ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,13 +172,13 @@ public class InfraWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(40, 40, 40)
                         .addComponent(title2))
                     .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(admin))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TeamDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ManageRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(admin)))
+                            .addComponent(ManageRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
@@ -210,8 +210,7 @@ public class InfraWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(LocPanelLayout.createSequentialGroup()
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE))
         );
         LocPanelLayout.setVerticalGroup(
             LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

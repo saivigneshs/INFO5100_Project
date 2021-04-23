@@ -34,7 +34,7 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
     /** Creates new form AdminWorkAreaJPanel */
     public SecurityERWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization org, Enterprise ent, Network net, EcoSystem system) {
         initComponents();
-        lblRestName.setText(account.getUsername());
+       
         lblRestAdmin.setText(account.getEmployee().getName()+" 's Admin Page");
           this.userProcessContainer = userProcessContainer;
         this.system = system;
@@ -85,7 +85,6 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblRestAdmin = new javax.swing.JLabel();
-        lblRestName = new javax.swing.JLabel();
         scrollOrderList = new javax.swing.JScrollPane();
         tblEventAuth = new javax.swing.JTable();
         btnApprove = new javax.swing.JButton();
@@ -101,13 +100,7 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
         lblRestAdmin.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestAdmin.setForeground(new java.awt.Color(0, 51, 51));
         lblRestAdmin.setText("Security SOS Area");
-        add(lblRestAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
-
-        lblRestName.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestName.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
-        lblRestName.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestName.setText("Security SOS Name");
-        add(lblRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 180, 30));
+        add(lblRestAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
 
         tblEventAuth.setBackground(new java.awt.Color(204, 204, 255));
         tblEventAuth.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -200,7 +193,6 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel blAddMessage;
     private javax.swing.JButton btnApprove;
     private javax.swing.JLabel lblRestAdmin;
-    private javax.swing.JLabel lblRestName;
     private javax.swing.JScrollPane scrollOrderList;
     private javax.swing.JTable tblEventAuth;
     private javax.swing.JTextField txtAddMsg;

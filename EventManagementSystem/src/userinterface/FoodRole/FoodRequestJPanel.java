@@ -178,7 +178,6 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Manage Food Requests");
 
-        tblFoodRequests.setBackground(new java.awt.Color(51, 255, 51));
         tblFoodRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
