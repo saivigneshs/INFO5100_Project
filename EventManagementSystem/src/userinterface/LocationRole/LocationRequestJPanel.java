@@ -5,11 +5,15 @@
  */
 package userinterface.LocationRole;
 
+import Business.APIforSMS.APIforSMS;
 import userinterface.InfraRole.*;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HostGovtWorkRequest;
+import Business.WorkQueue.LocInfraWorkRequest;
 import Business.WorkQueue.HostLocWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
@@ -69,6 +73,41 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
                 }
             }
         }
+    }
+    
+    public void bookInfra(HostLocWorkRequest request){
+                String comment = txtAddMsg.getText();
+                    for (Network n : business.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                            if(org.getType().equals(Organization.Type.Infrastructure)){
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if ("Available".equals(ua.getStatus()) ) {
+                                    LocInfraWorkRequest infraRequest = new LocInfraWorkRequest();                                                           
+                                    infraRequest.setRequestID();
+                                    infraRequest.setSender(account);
+                                    infraRequest.setHost(account);
+                                    infraRequest.setInfra(ua);
+                                    infraRequest.setStatus("Pending");
+                                    if (!comment.isEmpty()) infraRequest.setMessage(comment);
+                                    infraRequest.setAttendance(request.getAttendance());
+                                    infraRequest.setEventName(request.getEventName());
+                                    infraRequest.setEvenCat(request.getEvenCat());
+                                    infraRequest.setPlannedDate(request.getPlannedDate());
+                                    infraRequest.setOrgType(Organization.Type.Infrastructure);
+                                    
+                                    
+                                    e.getWorkQueue().getWorkRequestList().add(infraRequest);
+                                    System.out.println("Request"+infraRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Infrastructure Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(ua.getPhone(), "Hello "+ua.getName()+", Location Team:"+request.getLocation().getName()+" likes to book Infrastructure package on "+String.valueOf(infraRequest.getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(ua.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                }
+                            }
+                        }
+                        }
+                    }
+                }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -199,6 +238,7 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Location is Authorized!");
                     account.setStatus("Booked");
                 populateLocRequests();
+                bookInfra(request);
             } else {
                 JOptionPane.showMessageDialog(null, "Event is already Authorized!");
             }
