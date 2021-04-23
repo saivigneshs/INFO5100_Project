@@ -37,7 +37,7 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
     public LocationRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
-        this.business = business;
+        this.business = business;   
         initComponents();
         populateLocRequests();
     }
@@ -86,7 +86,7 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
                                     LocInfraWorkRequest infraRequest = new LocInfraWorkRequest();                                                           
                                     infraRequest.setRequestID();
                                     infraRequest.setSender(account);
-                                    infraRequest.setHost(account);
+                                    infraRequest.setLocation(account);
                                     infraRequest.setInfra(ua);
                                     infraRequest.setStatus("Pending");
                                     if (!comment.isEmpty()) infraRequest.setMessage(comment);

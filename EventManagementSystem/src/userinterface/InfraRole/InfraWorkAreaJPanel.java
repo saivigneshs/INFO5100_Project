@@ -37,7 +37,7 @@ public class InfraWorkAreaJPanel extends javax.swing.JPanel {
         //valueLabel.setText();
     }
     private void viewDetails(){
-        InfraOrgInfoJPanel infraOrgInfoJPanel = new InfraOrgInfoJPanel(rightPanel,userAccount,system);
+        InfraOrgInfoJPanel infraOrgInfoJPanel = new InfraOrgInfoJPanel(rightPanel,userAccount,system,network);
         rightPanel.add("infraOrgInfoJPanel",infraOrgInfoJPanel);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);

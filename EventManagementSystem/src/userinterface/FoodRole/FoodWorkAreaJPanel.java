@@ -46,7 +46,7 @@ public class FoodWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     private void viewDetails(){
-        ManageorginfoJPanel foodOrgInfoJPanel = new ManageorginfoJPanel(rightPanel,userAccount,system);
+        ManageorginfoJPanel foodOrgInfoJPanel = new ManageorginfoJPanel(rightPanel,userAccount,system,network);
         rightPanel.add("ManageorginfoJPanel",foodOrgInfoJPanel);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);
