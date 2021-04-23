@@ -8,12 +8,9 @@ package userinterface.DrinksRole;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.HostLocWorkRequest;
+import Business.WorkQueue.HostBeverageWorkRequest;
 import Business.WorkQueue.WorkRequest;
-import java.awt.CardLayout;
-import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -44,25 +41,28 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
         for (Network n : business.getNetworkList()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (WorkRequest workRequest : e.getWorkQueue().getWorkRequestList()) {
-                    if (workRequest instanceof HostLocWorkRequest) {
-                        if (((HostLocWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
+                    if (workRequest instanceof HostBeverageWorkRequest) {
+                       
+                        if(((HostBeverageWorkRequest) workRequest).getLocation()!=null){
+                        if (((HostBeverageWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
                             Object[] row = new Object[model.getColumnCount()];
                             row[0] = workRequest;
-                            row[1] = ((HostLocWorkRequest) workRequest).getEventName();
-                            row[2] = ((HostLocWorkRequest) workRequest).getEvenCat();
-                            row[3] = ((HostLocWorkRequest) workRequest).getAttendance();
-                            row[4] = ((HostLocWorkRequest) workRequest).getPlannedDate();
-                            row[5] = ((HostLocWorkRequest) workRequest).getHost();
-                            row[6] = ((HostLocWorkRequest) workRequest).getHost().getCity();
-                            row[7] = ((HostLocWorkRequest) workRequest).getStatus();
-                            row[8] = ((HostLocWorkRequest) workRequest).getMessage();
-                            row[9] = ((HostLocWorkRequest) workRequest).getLocNote();
+                            row[1] = ((HostBeverageWorkRequest) workRequest).getEventName();
+                            row[2] = ((HostBeverageWorkRequest) workRequest).getEvenCat();
+                            row[3] = ((HostBeverageWorkRequest) workRequest).getAttendance();
+                            row[4] = ((HostBeverageWorkRequest) workRequest).getPlannedDate();
+                            row[5] = ((HostBeverageWorkRequest) workRequest).getHost();
+                            row[6] = ((HostBeverageWorkRequest) workRequest).getHost().getCity();
+                            row[7] = ((HostBeverageWorkRequest) workRequest).getStatus();
+                            row[8] = ((HostBeverageWorkRequest) workRequest).getMessage();
+                            row[9] = ((HostBeverageWorkRequest) workRequest).getLocNote();
                             model.addRow(row);
                         }
                     }
                 }
             }
         }
+    }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,8 +77,8 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbldrinkRequests = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btndrinkapprovereq = new javax.swing.JButton();
+        btndrinkrejectreq = new javax.swing.JButton();
         txtAddMsg = new javax.swing.JTextField();
         blAddMessage = new javax.swing.JLabel();
 
@@ -87,33 +87,33 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("Manage Food Requests");
+        jLabel1.setText("Manage Beverage Requests");
 
         tbldrinkRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Order Id", "Org Name", "Food Name", "Quantity", "Order Status", "Deliver to", "Location Team Message", "Order By", "Total Cost"
+                "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Host", "Host City", "Status", "Message from Host", "Location Team Reply"
             }
         ));
         jScrollPane1.setViewportView(tbldrinkRequests);
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton1.setText("Approve Request");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btndrinkapprovereq.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btndrinkapprovereq.setText("Approve Request");
+        btndrinkapprovereq.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btndrinkapprovereq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btndrinkapprovereqActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton2.setText("Reject Request");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btndrinkrejectreq.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btndrinkrejectreq.setText("Reject Request");
+        btndrinkrejectreq.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btndrinkrejectreq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btndrinkrejectreqActionPerformed(evt);
             }
         });
 
@@ -141,9 +141,9 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(txtAddMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(btndrinkapprovereq)
                         .addGap(54, 54, 54)
-                        .addComponent(jButton2)))
+                        .addComponent(btndrinkrejectreq)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -159,8 +159,8 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
                         .addComponent(blAddMessage)
                         .addComponent(txtAddMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2)))
+                        .addComponent(btndrinkapprovereq)
+                        .addComponent(btndrinkrejectreq)))
                 .addGap(27, 27, 27))
         );
 
@@ -182,39 +182,39 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btndrinkapprovereqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndrinkapprovereqActionPerformed
         // TODO add your handling code here:
         int selectedRow = tbldrinkRequests.getSelectedRow();
         if (selectedRow >= 0) {
-            HostLocWorkRequest request = (HostLocWorkRequest) tbldrinkRequests.getValueAt(selectedRow, 0);
+            HostBeverageWorkRequest request = (HostBeverageWorkRequest) tbldrinkRequests.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
                 return;
             }
             if (!request.getStatus().equals("Awaiting Govt Approval")) {
-            if (!"Event Authorized".equals(request.getStatus())) {
-                request.setStatus("Location Authorized");
+            if (!"Beverage Order Approved".equals(request.getStatus())) {
+                request.setStatus("Beverage Order Approved");
                 request.setMessage(message);
-                JOptionPane.showMessageDialog(null, "Location is Authorized!");
-                    account.setStatus("Booked");
+                JOptionPane.showMessageDialog(null, "Beverage Order is Approved!");
+                    account.setStatus("Beverage Order Approved");
                 populateDrinkRequests();
             } else {
-                JOptionPane.showMessageDialog(null, "Event is already Authorized!");
+                JOptionPane.showMessageDialog(null, "Beverage Order is already Approved!");
             }
             } else {
-                JOptionPane.showMessageDialog(null, "Select an appropriate Event!");
+                JOptionPane.showMessageDialog(null, "Select an appropriate Beverage Order!");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btndrinkapprovereqActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btndrinkrejectreqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndrinkrejectreqActionPerformed
         // TODO add your handling code here:
         int selectedRow = tbldrinkRequests.getSelectedRow();
         if (selectedRow >= 0) {
-            HostLocWorkRequest request = (HostLocWorkRequest) tbldrinkRequests.getValueAt(selectedRow, 0);
+            HostBeverageWorkRequest request = (HostBeverageWorkRequest) tbldrinkRequests.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
@@ -223,22 +223,22 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
             if (!"Completed".equals(request.getStatus()) && !"In Progress".equals(request.getStatus())) {
                 request.setStatus("Rejected");
                 request.setMessage(message);
-                JOptionPane.showMessageDialog(null, "Event Rejected!");
+                JOptionPane.showMessageDialog(null, "Beverage Order Rejected!");
                     account.setStatus("Available");
                 populateDrinkRequests();
             } else {
-                JOptionPane.showMessageDialog(null, "Event is already " + request.getStatus());
+                JOptionPane.showMessageDialog(null, "Beverage Order is already " + request.getStatus());
             }
         } else {
             JOptionPane.showMessageDialog(null, "Kindly select a row.");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btndrinkrejectreqActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel blAddMessage;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btndrinkapprovereq;
+    private javax.swing.JButton btndrinkrejectreq;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
