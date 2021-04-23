@@ -95,11 +95,7 @@ private void disableEdit(){
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-<<<<<<< HEAD:EventManagementSystem/src/userinterface/MusicianRole/ManagemusicorginfoJPanel.java
-        jLabel1.setText("Package Detials");
-=======
         jLabel1.setText("Music Details");
->>>>>>> main:EventManagementSystem/src/userinterface/MusicianRole/MusicOrgInfoJPanel.java
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -294,17 +290,8 @@ private void disableEdit(){
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD:EventManagementSystem/src/userinterface/MusicianRole/ManagemusicorginfoJPanel.java
-                        .addGap(38, 38, 38)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(337, 337, 337)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-=======
                         .addGap(26, 26, 26)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> main:EventManagementSystem/src/userinterface/MusicianRole/MusicOrgInfoJPanel.java
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -326,17 +313,10 @@ private void disableEdit(){
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD:EventManagementSystem/src/userinterface/MusicianRole/ManagemusicorginfoJPanel.java
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-=======
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, Short.MAX_VALUE)
->>>>>>> main:EventManagementSystem/src/userinterface/MusicianRole/MusicOrgInfoJPanel.java
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -372,8 +352,6 @@ private void disableEdit(){
         );
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD:EventManagementSystem/src/userinterface/MusicianRole/ManagemusicorginfoJPanel.java
-=======
     private void btnEnableUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnableUpdateActionPerformed
         // TODO add your handling code here:
        
@@ -390,22 +368,14 @@ private void disableEdit(){
         
     }//GEN-LAST:event_btnSaveChangesActionPerformed
 
->>>>>>> main:EventManagementSystem/src/userinterface/MusicianRole/MusicOrgInfoJPanel.java
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD:EventManagementSystem/src/userinterface/MusicianRole/ManagemusicorginfoJPanel.java
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-=======
     private javax.swing.JButton btnEnableUpdate;
     private javax.swing.JButton btnSaveChanges;
->>>>>>> main:EventManagementSystem/src/userinterface/MusicianRole/MusicOrgInfoJPanel.java
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
