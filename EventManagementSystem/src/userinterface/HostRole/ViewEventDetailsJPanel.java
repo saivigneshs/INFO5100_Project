@@ -16,7 +16,7 @@ import Business.Role.LocationRole;
 import Business.Role.MusicianRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HostGovtWorkRequest;
-import Business.WorkQueue.HostInfraWorkRequest;
+import Business.WorkQueue.LocInfraWorkRequest;
 import Business.WorkQueue.HostLocWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import javax.swing.JOptionPane;
@@ -35,7 +35,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     private HostGovtWorkRequest request;
     
      HostLocWorkRequest locRequest = new HostLocWorkRequest();
-     HostInfraWorkRequest infraRequest = new HostInfraWorkRequest();
+     LocInfraWorkRequest infraRequest = new LocInfraWorkRequest();
   
     /**
      * Creates new form ViewEventDetailsJPanel
@@ -461,7 +461,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     locRequest.setHost(userAccount);
                                     locRequest.setLocation(locTeam);
                                     locRequest.setStatus("Pending");
-                                    if (comment.isEmpty()) locRequest.setMessage(comment);
+                                    if (!comment.isEmpty()) locRequest.setMessage(comment);
                                     locRequest.setAttendance(request.getAttendance());
                                     locRequest.setEventName(request.getEventName());
                                     locRequest.setEvenCat(request.getEvenCat());

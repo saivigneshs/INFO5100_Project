@@ -360,10 +360,9 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                             enterprise.setWorkQueue(new WorkQueue());
                         }
                         flag = true;
+                        enterprise.getWorkQueue().getWorkRequestList().add(registrationRequest);
+                        break;
                     }
-                }
-                if(flag){
-                    enterprise.getWorkQueue().getWorkRequestList().add(registrationRequest);
                 }
             }
         }
@@ -373,7 +372,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
                 APIforSMS sendSMS = new APIforSMS(phone, bodyMsg);
             JOptionPane.showMessageDialog(null, "You have been registered succesfully!");
         } else {
-            JOptionPane.showMessageDialog(null, "No such Organization exists in our Enterprise");
+            JOptionPane.showMessageDialog(null, "This Organization is not yet active in our Enterprise");
         }
         txtName.setText("");
         txtUsername.setText("");
