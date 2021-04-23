@@ -1,6 +1,7 @@
 package userinterface.SecurityERRole;
 
 
+import Business.APIforSMS.APIforSMS;
 import userinterface.GovtAuthRole.*;
 import userinterface.LocationRole.*;
 import userinterface.InfraRole.*;
@@ -9,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HostGovtWorkRequest;
 import Business.WorkQueue.HostSecurityERWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
@@ -57,13 +59,12 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
                             row[0] = workRequest;
                             row[1] = ((HostSecurityERWorkRequest) workRequest).getEventName();
                             row[2] = ((HostSecurityERWorkRequest) workRequest).getEvenCat();
-                            row[3] = ((HostSecurityERWorkRequest) workRequest).getAttendance();
-                            row[4] = ((HostSecurityERWorkRequest) workRequest).getPlannedDate();
-                            row[5] = ((HostSecurityERWorkRequest) workRequest).getHost();
-                            row[6] = ((HostSecurityERWorkRequest) workRequest).getHost().getCity();
-                            row[7] = ((HostSecurityERWorkRequest) workRequest).getStatus();
-                            row[8] = ((HostSecurityERWorkRequest) workRequest).getMessage();
-                            row[9] = ((HostSecurityERWorkRequest) workRequest).getLocNote();
+                            row[3] = ((HostSecurityERWorkRequest) workRequest).getStatus();
+                            row[4] = ((HostSecurityERWorkRequest) workRequest).getHost();
+                            row[5] = ((HostSecurityERWorkRequest) workRequest).getAttendance();
+                            row[6] = ((HostSecurityERWorkRequest) workRequest).getPlannedDate();
+                            row[7] = ((HostSecurityERWorkRequest) workRequest).getLocNote();
+                                                     
                             model.addRow(row);
                         }
                     }
@@ -173,12 +174,14 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
                 return;
             }
-            if (request.getStatus().equals("Awaiting SOS Approval")) {
+            if (request.getStatus().equals("SOS Issued")) {
+                
             if (!"ER Team Dispatched".equals(request.getStatus())) {
                 request.setStatus("ER Team Dispatched");
                 request.setMessage(message);
                 JOptionPane.showMessageDialog(null, "ER Team Dispatched!");
                     userAccount.setStatus("Available");
+               APIforSMS sms = new APIforSMS(request.getHost().getPhone(), "Hello "+request.getHost().getName()+", Don't Worry! Help is on the way to "+request.getLocNote()+". We will be there in 15 minutes.");
                 populateERRequests();
                 disableFields();
             } else {

@@ -245,7 +245,7 @@ public class ViewEventsJPanel extends javax.swing.JPanel {
                                     securityerRequest.setLocation(ua);
                                     
                                     securityerRequest.setLocNote(userAccount.getCity());
-                                    securityerRequest.setStatus("Pending");
+                                    securityerRequest.setStatus("SOS Issued");
 //                                    if (!comment.isEmpty()) locRequest.setMessage(comment);
                                     securityerRequest.setAttendance(request.getAttendance());
                                     securityerRequest.setEventName(request.getEventName());
