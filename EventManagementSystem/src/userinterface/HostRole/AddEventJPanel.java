@@ -329,7 +329,6 @@ public class AddEventJPanel extends javax.swing.JPanel {
                Date sysDate = new Date();
                long diff = (eventDate.getTime() - sysDate.getTime())/(1000 * 60 * 60 * 24);
                System.out.println((int)diff);
-               
         if (dpEventDate.getDate() == null || street.getText().isEmpty()
                 || txtEventName.getText().isEmpty() || city.getText().isEmpty() ) {
             JOptionPane.showMessageDialog(null, "Kindly enter all the fields");
@@ -340,7 +339,7 @@ public class AddEventJPanel extends javax.swing.JPanel {
         else if (diff <=6) {
                     JOptionPane.showMessageDialog(null, "Cannot select a date within a week.");
         }
-        else{
+        else{           
         HostGovtWorkRequest hostgovtwr = new HostGovtWorkRequest();
         hostgovtwr.setRequestID();
         hostgovtwr.setStatus("Awaiting Govt Approval");
