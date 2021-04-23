@@ -340,7 +340,7 @@ private void disableEdit(){
 
     private void btnEnableUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnableUpdateActionPerformed
         // TODO add your handling code here:
-       
+
         txtLocContact.setEditable(true);
         txtLocEmail.setEditable(true);
         txtLocName.setEditable(true);
@@ -350,6 +350,7 @@ private void disableEdit(){
         txtSpec1.setEditable(true);
         txtSpec2.setEditable(true);
         txtSpec3.setEditable(true);
+
         
         btnEnableUpdate.setEnabled(false);
         btnSaveChanges.setEnabled(true);

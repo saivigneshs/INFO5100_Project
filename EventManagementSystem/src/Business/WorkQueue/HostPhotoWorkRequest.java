@@ -28,6 +28,8 @@ public class HostPhotoWorkRequest extends WorkRequest {
     private String infraNote;
     private UserAccount music;
     private String musicNote;
+    private UserAccount photo;
+    private String photoNote;
     private UserAccount food;
     private String foodNote;
     private UserAccount drinks;
@@ -35,6 +37,23 @@ public class HostPhotoWorkRequest extends WorkRequest {
     private Network network;
     private Enterprise enterprise;
     private Organization.Type orgType;
+
+    public UserAccount getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(UserAccount photo) {
+        this.photo = photo;
+    }
+
+    public String getPhotoNote() {
+        return photoNote;
+    }
+
+    public void setPhotoNote(String photoNote) {
+        this.photoNote = photoNote;
+    }
+    
     
     public Network getNetwork() {
         return network;
