@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Role.BeveragesRole;
 import Business.Role.FoodRole;
 import Business.Role.InfraRole;
 import Business.Role.LocationRole;
@@ -68,6 +69,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
          populateFoodTable();
          populateMusicTable();
          populatePhotoTable();
+         populateBeverageTable();
                 
     }
 
@@ -130,7 +132,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                        if (ua.getRole() instanceof PhotographerRole) {
+                        if (ua.getRole() instanceof BeveragesRole) {
                             Object[] row = new Object[8];
                             row[0] = ua.getEmployee().getId();
                             row[1] = ua;
@@ -683,6 +685,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                                 if (photoTeam.getUsername().equals(ua.getUsername())) {
 
+
                                     photoRequest.setRequestID();
                                     photoRequest.setSender(userAccount);
                                     photoRequest.setHost(userAccount);
@@ -699,7 +702,8 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     System.out.println("Request"+photoRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Photo Request Sent Successfully!");
                                     APIforSMS sms = new APIforSMS(photoTeam.getPhone(), "Hello "+photoTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
-                                    //system.sendEmailMessage(photoTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                    //system.sendEmailMessage(photoTeam.getEmail(), "Hello! You have one new work request! Please login to know more!")
+                                break;
                                 }
                             }
                         }
@@ -795,8 +799,8 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
                                     e.getWorkQueue().getWorkRequestList().add(beverageRequest);
                                     System.out.println("Request"+beverageRequest.toString()+"  >> Added to Enterprise "+e);
-                                    JOptionPane.showMessageDialog(null, "Photo Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(beverageTeam.getPhone(), "Hello "+beverageTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    JOptionPane.showMessageDialog(null, "Beverage Order Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(beverageTeam.getPhone(), "Hello "+beverageTeam.getName()+",  A Host likes to book your Beverages package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
                                     //system.sendEmailMessage(beverageTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
                                 }
                             }

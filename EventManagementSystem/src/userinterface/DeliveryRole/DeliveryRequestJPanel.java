@@ -3,67 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.DrinksRole;
-
-import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Network.Network;
-import Business.UserAccount.UserAccount;
-import Business.WorkQueue.HostBeverageWorkRequest;
-import Business.WorkQueue.WorkRequest;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
+package userinterface.DeliveryRole;
 
 /**
  *
  * @author VIGNESH
  */
-public class DrinkRequestJPanel extends javax.swing.JPanel {
+public class DeliveryRequestJPanel extends javax.swing.JPanel {
 
-    private final JPanel userProcessContainer;
-    private final UserAccount account;
-    private final EcoSystem business;
     /**
-     * Creates new form DrinkRequestJPanel
+     * Creates new form DeliveryRequestJPanel
      */
-    public DrinkRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+    public DeliveryRequestJPanel() {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.account = account;
-        this.business = business;
-        populateDrinkRequests();
     }
 
-    public void populateDrinkRequests() {
-        DefaultTableModel model = (DefaultTableModel) tbldrinkRequests.getModel();
-        model.setRowCount(0);
-        for (Network n : business.getNetworkList()) {
-            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
-                for (WorkRequest workRequest : e.getWorkQueue().getWorkRequestList()) {
-                    if (workRequest instanceof HostBeverageWorkRequest) {
-                       
-                        if(((HostBeverageWorkRequest) workRequest).getLocation()!=null){
-                        if (((HostBeverageWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
-                            Object[] row = new Object[model.getColumnCount()];
-                            row[0] = workRequest;
-                            row[1] = ((HostBeverageWorkRequest) workRequest).getEventName();
-                            row[2] = ((HostBeverageWorkRequest) workRequest).getEvenCat();
-                            row[3] = ((HostBeverageWorkRequest) workRequest).getAttendance();
-                            row[4] = ((HostBeverageWorkRequest) workRequest).getPlannedDate();
-                            row[5] = ((HostBeverageWorkRequest) workRequest).getHost();
-                            row[6] = ((HostBeverageWorkRequest) workRequest).getHost().getCity();
-                            row[7] = ((HostBeverageWorkRequest) workRequest).getStatus();
-                            row[8] = ((HostBeverageWorkRequest) workRequest).getMessage();
-                            row[9] = ((HostBeverageWorkRequest) workRequest).getLocNote();
-                            model.addRow(row);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,7 +41,7 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("Manage Beverage Requests");
+        jLabel1.setText("Manage Delivery Requests");
 
         tbldrinkRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,9 +87,6 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(440, 440, 440)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(243, 243, 243)
                         .addComponent(blAddMessage)
                         .addGap(18, 18, 18)
@@ -145,13 +96,17 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
                         .addGap(54, 54, 54)
                         .addComponent(btndrinkrejectreq)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(425, 425, 425))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,70 +123,28 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(185, 185, 185)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(155, 155, 155)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(180, 180, 180))
+                .addGap(210, 210, 210))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(119, 119, 119)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(149, 149, 149))
+                .addGap(169, 169, 169))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btndrinkapprovereqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndrinkapprovereqActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tbldrinkRequests.getSelectedRow();
-        if (selectedRow >= 0) {
-            HostBeverageWorkRequest request = (HostBeverageWorkRequest) tbldrinkRequests.getValueAt(selectedRow, 0);
-            String message = txtAddMsg.getText();
-            if (message.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
-                return;
-            }
-            if (!request.getStatus().equals("Awaiting Govt Approval")) {
-            if (!"Beverage Order Approved".equals(request.getStatus())) {
-                request.setStatus("Beverage Order Approved");
-                request.setMessage(message);
-                JOptionPane.showMessageDialog(null, "Beverage Order is Approved!");
-                    account.setStatus("Beverage Order Approved");
-                populateDrinkRequests();
-            } else {
-                JOptionPane.showMessageDialog(null, "Beverage Order is already Approved!");
-            }
-            } else {
-                JOptionPane.showMessageDialog(null, "Select an appropriate Beverage Order!");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Please select one row!");
-        }
+        
     }//GEN-LAST:event_btndrinkapprovereqActionPerformed
 
     private void btndrinkrejectreqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndrinkrejectreqActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tbldrinkRequests.getSelectedRow();
-        if (selectedRow >= 0) {
-            HostBeverageWorkRequest request = (HostBeverageWorkRequest) tbldrinkRequests.getValueAt(selectedRow, 0);
-            String message = txtAddMsg.getText();
-            if (message.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
-                return;
-            }
-            if (!"Completed".equals(request.getStatus()) && !"In Progress".equals(request.getStatus())) {
-                request.setStatus("Rejected");
-                request.setMessage(message);
-                JOptionPane.showMessageDialog(null, "Beverage Order Rejected!");
-                    account.setStatus("Available");
-                populateDrinkRequests();
-            } else {
-                JOptionPane.showMessageDialog(null, "Beverage Order is already " + request.getStatus());
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Kindly select a row.");
-        }
+        
     }//GEN-LAST:event_btndrinkrejectreqActionPerformed
 
 
