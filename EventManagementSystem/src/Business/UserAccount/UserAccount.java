@@ -6,6 +6,7 @@ package Business.UserAccount;
 
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
+import Business.Host.Attendees;
 import Business.Organization.Organization;
 import Business.Role.Role;
 import Business.WorkQueue.WorkQueue;
@@ -44,7 +45,30 @@ public class UserAccount {
     private double drinkprice;
     private double foodprice;
     private String message;
+    private String approvermesg;
+    private String spec1;
+    private String spec2;
+    private String spec3;
+    private Attendees attendees;
 
+    public Attendees getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(Attendees attendees) {
+        this.attendees = attendees;
+    }
+
+    public String getApprovermesg() {
+        return approvermesg;
+    }
+
+    public void setApprovermesg(String approvermesg) {
+        this.approvermesg = approvermesg;
+    }
+
+    
+    
     public String getMessage() {
         return message;
     }
@@ -76,9 +100,7 @@ public class UserAccount {
     public void setSpec3(String spec3) {
         this.spec3 = spec3;
     }
-    private String spec1;
-    private String spec2;
-    private String spec3;
+   
 
     public String getDrinkitem1() {
         return drinkitem1;
