@@ -682,8 +682,10 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(lblEventName)
                     .addComponent(lblEventDate))
                 .addGap(18, 18, 18)
+
                 .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(209, Short.MAX_VALUE))
+
         );
     }// </editor-fold>//GEN-END:initComponents
 
