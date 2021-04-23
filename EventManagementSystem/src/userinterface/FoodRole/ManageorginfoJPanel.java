@@ -40,11 +40,11 @@ public class ManageorginfoJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageorginfoJPanel
      */
-    public ManageorginfoJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem system) {
+    public ManageorginfoJPanel(JPanel container, UserAccount account, EcoSystem system) {
         initComponents();
         jLabel1.setText(account.getUsername());
         jLabel2.setText(account.getEmployee().getName()+" 's Admin Page");
-        this.container = userProcessContainer;
+        this.container = container;
         this.account = account;
         this.system = system;
         this.network = network;
