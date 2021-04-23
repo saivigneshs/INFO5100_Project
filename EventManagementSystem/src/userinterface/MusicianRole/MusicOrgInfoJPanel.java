@@ -95,11 +95,7 @@ private void disableEdit(){
         jPanel4 = new javax.swing.JPanel();
         btnEnableUpdate = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        
 
         setBackground(new java.awt.Color(204, 204, 255));
         setForeground(new java.awt.Color(0, 51, 51));
@@ -403,43 +399,7 @@ private void disableEdit(){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.showOpenDialog(null);
-        BufferedImage bfImage = null;
-        try {
-            File fileImage = fileChooser.getSelectedFile();
-            bfImage = ImageIO.read(new File(fileImage.getAbsolutePath()));
-        } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(MusicOrgInfoJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        Image imPhoto = bfImage.getScaledInstance(jLabel17.getWidth(), jLabel17.getHeight(),Image.SCALE_SMOOTH);
-        ImageIcon imIcon = new ImageIcon(imPhoto);
-
-        jLabel17.setIcon(imIcon);
-        useraccount.setPackage2Photo(imPhoto);
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.showOpenDialog(null);
-
-        BufferedImage bfImage = null;
-        try {
-            File fileImage = fileChooser.getSelectedFile();
-            bfImage = ImageIO.read(new File(fileImage.getAbsolutePath()));
-        } catch (IOException ex) {
-            java.util.logging.Logger.getLogger(MusicOrgInfoJPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        Image imPhoto = bfImage.getScaledInstance(jLabel16.getWidth(), jLabel16.getHeight(),Image.SCALE_SMOOTH);
-        ImageIcon imIcon = new ImageIcon(imPhoto);
-
-        jLabel16.setIcon(imIcon);
-        useraccount.setPackage1Photo(imPhoto);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnableUpdate;
