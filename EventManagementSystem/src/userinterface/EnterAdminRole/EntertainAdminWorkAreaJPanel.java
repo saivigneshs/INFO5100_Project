@@ -214,8 +214,8 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
         menuPanel.add(manageUserAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, 40));
 
         lblHeading.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblHeading.setText("Geographical Infrastructure Enterprise");
-        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        lblHeading.setText("Entertainment  Enterprise");
+        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 220, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));

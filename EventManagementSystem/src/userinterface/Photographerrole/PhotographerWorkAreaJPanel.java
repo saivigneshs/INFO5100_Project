@@ -276,7 +276,7 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     public void viewDetails() {
-        PhotoOrgInfoJPanel PhotoInfoJPanel = new PhotoOrgInfoJPanel(rightPanel,userAccount,system);
+        PhotoOrgInfoJPanel PhotoInfoJPanel = new PhotoOrgInfoJPanel(rightPanel,userAccount,system,network);
         rightPanel.add("PhotoOrgInfoJPanel",PhotoInfoJPanel);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);//To change body of generated methods, choose Tools | Templates.
