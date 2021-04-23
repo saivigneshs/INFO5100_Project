@@ -59,10 +59,8 @@
                   <Component id="lblEventDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-
               <Component id="tabPane" min="-2" pref="410" max="-2" attributes="0"/>
               <EmptySpace pref="209" max="32767" attributes="0"/>
-
           </Group>
       </Group>
     </DimensionLayout>

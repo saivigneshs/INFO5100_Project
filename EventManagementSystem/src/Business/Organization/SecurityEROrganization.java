@@ -3,28 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Enterprise;
+package Business.Organization;
 
+import Business.Role.BeveragesRole;
 import Business.Role.Role;
 import Business.Role.SecurityERRole;
 import java.util.ArrayList;
 
 /**
  *
- * @author Saivignesh Sridhar
+ * @author gowtham
  */
-public class SecurityEREnterprise extends Enterprise {
-
-    public SecurityEREnterprise(String name) {
-        super(name, EnterpriseType.SecurityER);
+public class SecurityEROrganization extends Organization {
+    public SecurityEROrganization(String name) {
+        super(name);
     }
-
+    
     @Override
-
     public ArrayList<Role> getSupportedRole() {
-        roles = new ArrayList<Role>();
+        ArrayList<Role> roles = new ArrayList();
         roles.add(new SecurityERRole());
         return roles;
     }
-
+       @Override
+    public Organization.Type getType() {
+        return Organization.Type.SecurityER;
+    }
+    
+    
 }

@@ -47,7 +47,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         cbOrg.addItem(Organization.Type.Host);
         cbOrg.addItem(Organization.Type.Beverages);
         cbOrg.addItem(Organization.Type.Delivery);
-        cbOrg.addItem(Organization.Type.ER);
+//        cbOrg.addItem(Organization.Type.ER);
         cbOrg.addItem(Organization.Type.Food);
         cbOrg.addItem(Organization.Type.Photographer);
         cbOrg.addItem(Organization.Type.GovtAuth);

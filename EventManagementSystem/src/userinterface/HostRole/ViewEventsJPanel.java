@@ -4,6 +4,7 @@
  */
 package userinterface.HostRole;
 
+import Business.APIforSMS.APIforSMS;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
@@ -12,6 +13,8 @@ import Business.Role.AuthRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HostGovtWorkRequest;
 import Business.WorkQueue.WorkRequest;
+import Business.WorkQueue.HostSecurityERWorkRequest;
+
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,6 +32,9 @@ public class ViewEventsJPanel extends javax.swing.JPanel {
     private final Organization organization;
     private final Network network;
     private final Enterprise enterprise;
+    private HostGovtWorkRequest request;
+    
+    HostSecurityERWorkRequest securityerRequest = new HostSecurityERWorkRequest();
     /**
      * Creates new form ViewEventsJPanel
      */
@@ -217,8 +223,54 @@ public class ViewEventsJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
+        int selectedRow =tblEvents.getSelectedRow();
+        int count = tblEvents.getSelectedRowCount();
 
-        populateEventsTable();
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount locTeam = (UserAccount) tblEvents.getValueAt(selectedRow, 1);
+//                String comment = addnInfoLoc.getText();
+                
+                if (!locTeam.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Location is already Booked!");
+                    return;
+                }
+                for (Network n : system.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if (locTeam.getUsername().equals(ua.getUsername())) {
+                                                                                                    
+                                    securityerRequest.setRequestID();
+                                    securityerRequest.setSender(userAccount);
+                                    securityerRequest.setHost(userAccount);
+                                    securityerRequest.setLocation(locTeam);
+                                    securityerRequest.setStatus("Pending");
+//                                    if (!comment.isEmpty()) locRequest.setMessage(comment);
+                                    securityerRequest.setAttendance(request.getAttendance());
+                                    securityerRequest.setEventName(request.getEventName());
+                                    securityerRequest.setEvenCat(request.getEvenCat());
+                                    securityerRequest.setPlannedDate(request.getPlannedDate());
+                                    securityerRequest.setOrgType(Organization.Type.Location);
+                                    
+                                    
+                                    e.getWorkQueue().getWorkRequestList().add(securityerRequest);
+                                    System.out.println("Request"+securityerRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Location Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(locTeam.getPhone(), "Hello "+locTeam.getName()+",  A Host likes to notify on emergency request "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+
+        }    
+//        populateEventsTable();
         
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
 

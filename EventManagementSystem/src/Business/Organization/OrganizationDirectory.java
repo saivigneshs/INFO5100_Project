@@ -4,6 +4,7 @@
  */
 package Business.Organization;
 
+import Business.Enterprise.SecurityEREnterprise;
 import Business.Organization.Organization.Type;
 import java.util.ArrayList;
 
@@ -58,8 +59,10 @@ public class OrganizationDirectory {
             organization = new PhotographerOrganization(name);
             organizationList.add(organization);
 
-        }
-
+        } else if (type.getValue().equals(Type.SecurityER.getValue())) {
+            organization = new SecurityEROrganization(name);
+            organizationList.add(organization);
+}
       
 
         return organization;

@@ -23,6 +23,7 @@ import Business.WorkQueue.LocInfraWorkRequest;
 import Business.WorkQueue.HostLocWorkRequest;
 import Business.WorkQueue.HostMusicWorkRequest;
 import Business.WorkQueue.HostPhotoWorkRequest;
+import Business.WorkQueue.HostSecurityERWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -45,6 +46,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
      HostPhotoWorkRequest photoRequest = new HostPhotoWorkRequest();
      HostFoodWorkRequest  foodRequest = new  HostFoodWorkRequest();
      HostBeverageWorkRequest beverageRequest = new HostBeverageWorkRequest();
+     HostSecurityERWorkRequest securityerRequest = new HostSecurityERWorkRequest();
      
      
     

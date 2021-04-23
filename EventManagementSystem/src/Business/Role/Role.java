@@ -28,7 +28,7 @@ public abstract class Role {
         Food("Food"),
         Beverages("Beverages"),
         Delivery("Delivery"),
-        ER("ER");
+        SecurityERRole("SecurityERRole");
         
         private String value;
         private RoleType(String value){
