@@ -644,10 +644,9 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                if (infraTeam.getUsername().equals(ua.getUsername())) {
+                                if (infraTeam.getUsername().equals(ua.getUsername()) && org.getType().equals(Organization.Type.Infrastructure)) {
                                     
-                                   
-                                                                                                    
+                                                                                                                                      
                                     infraRequest.setRequestID();
                                     infraRequest.setSender(userAccount);
                                     infraRequest.setHost(userAccount);
@@ -665,6 +664,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
                                     APIforSMS sms = new APIforSMS(infraTeam.getPhone(), "Hello "+infraTeam.getName()+",  A Location likes to book your Infra Package. Kindly login for more details.");
                                     //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                break;
                                 }
                             }
                         }
