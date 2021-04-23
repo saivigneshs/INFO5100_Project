@@ -12,6 +12,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.BevDeliveryWorkRequest;
+import Business.WorkQueue.FoodDeliveryWorkRequest;
 import Business.WorkQueue.HostBeverageWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import javax.swing.JOptionPane;
@@ -45,6 +46,7 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                             if(org.getType().equals(Organization.Type.Delivery)){
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if(ua.getSpec1()!=null && account.getCity()!=null){
                                 if ( (account.getCity().equals(ua.getSpec1()) || 
                                         account.getCity().equals(ua.getSpec2()) || 
                                         account.getCity().equals(ua.getSpec3()) )&&
@@ -70,6 +72,43 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
                                     //system.sendEmailMessage(ua.getEmail(), "Hello! You have one new work request! Please login to know more!");
                                 } else{
                                 JOptionPane.showMessageDialog(null, "No Delivery Teams Available in Cities : "+ua.getSpec1()+", "+ua.getSpec2()+" and "+ua.getSpec3()+" ");
+                                }
+                                }else{
+                                
+                                    for (Network network : business.getNetworkList()) {
+                                    for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+                                     for (Organization orga : enter.getOrganizationDirectory().getOrganizationList()) {
+                                    if(orga.getType().equals(Organization.Type.Delivery)){
+                                    for (UserAccount uaa : org.getUserAccountDirectory().getUserAccountList()) {
+                                   if ("Available".equals(uaa.getStatus()) ) {
+                                   BevDeliveryWorkRequest bevRequest = new BevDeliveryWorkRequest();                                                          
+                                    bevRequest.setRequestID();
+                                    bevRequest.setSender(account);
+                                    bevRequest.setHost(account);
+                                    bevRequest.setLocation(account);
+                                    bevRequest.setInfra(uaa);
+                                    bevRequest.setStatus("Pending");
+                                    if (!comment.isEmpty()) bevRequest.setMessage(comment);
+                                    bevRequest.setAttendance(request.getAttendance());
+                                    bevRequest.setEventName(request.getEventName());
+                                    bevRequest.setEvenCat(request.getEvenCat());
+                                    bevRequest.setPlannedDate(request.getPlannedDate());
+                                    bevRequest.setOrgType(Organization.Type.Delivery);
+                                    
+                                    
+                                    e.getWorkQueue().getWorkRequestList().add(bevRequest);
+                                    System.out.println("Request"+bevRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Delivery Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(uaa.getPhone(), "Hello "+uaa.getName()+", Beverages Team:"+request.getLocation().getName()+" likes to book a Delivery package on "+String.valueOf(bevRequest.getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(ua.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "No Delivery Teams Available Currently!");
+                                   }
+                            }
+                        }
+                        }
+                    }
+                }
                                 }
                             }
                         }
