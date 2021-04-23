@@ -11,6 +11,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.FoodRole.FoodWorkAreaJPanel;
 import userinterface.InfraRole.InfraWorkAreaJPanel;
 
 /**
@@ -20,7 +21,7 @@ import userinterface.InfraRole.InfraWorkAreaJPanel;
 public class FoodRole extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
-        return new InfraWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
+        return new FoodWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
     }
     @Override
     public String toString(){
