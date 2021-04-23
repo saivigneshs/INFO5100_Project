@@ -5,9 +5,8 @@
  */
 package userinterface.InfraRole;
 
-import userinterface.LocationRole.*;
 import Business.APIforSMS.APIforSMS;
-import userinterface.InfraRole.*;
+
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;

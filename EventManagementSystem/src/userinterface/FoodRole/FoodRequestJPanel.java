@@ -5,11 +5,13 @@
  */
 package userinterface.FoodRole;
 
+import Business.APIforSMS.APIforSMS;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.FoodDeliveryWorkRequest;
 import Business.WorkQueue.HostFoodWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
@@ -37,6 +39,46 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         this.account = account;
         this.business = business;
         populateFoodRequests();
+    }
+    
+   public void goDelivery(HostFoodWorkRequest request){
+                String comment = txtAddMsg.getText();
+                    for (Network n : business.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                            if(org.getType().equals(Organization.Type.Delivery)){
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if ( (account.getCity().equals(ua.getSpec1()) || 
+                                        account.getCity().equals(ua.getSpec2()) || 
+                                        account.getCity().equals(ua.getSpec3()) )&&
+                                        "Available".equals(ua.getStatus()) ) {
+                                    FoodDeliveryWorkRequest foodRequest = new FoodDeliveryWorkRequest();                                                           
+                                    foodRequest.setRequestID();
+                                    foodRequest.setSender(account);
+                                    foodRequest.setLocation(account);
+                                    foodRequest.setInfra(ua);
+                                    foodRequest.setStatus("Pending");
+                                    if (!comment.isEmpty()) foodRequest.setMessage(comment);
+                                    foodRequest.setAttendance(request.getAttendance());
+                                    foodRequest.setEventName(request.getEventName());
+                                    foodRequest.setEvenCat(request.getEvenCat());
+                                    foodRequest.setPlannedDate(request.getPlannedDate());
+                                    foodRequest.setOrgType(Organization.Type.Delivery);
+                                    
+                                    
+                                    e.getWorkQueue().getWorkRequestList().add(foodRequest);
+                                    System.out.println("Request"+foodRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Delivery Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(ua.getPhone(), "Hello "+ua.getName()+", Food Team:"+request.getLocation().getName()+" likes to book a Delivery package on "+String.valueOf(foodRequest.getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(ua.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                } else{
+                                JOptionPane.showMessageDialog(null, "No Delivery Teams Available in Cities : "+ua.getSpec1()+", "+ua.getSpec2()+" and "+ua.getSpec3()+" ");
+                                }
+                            }
+                        }
+                        }
+                    }
+                }
     }
 
     public void populateFoodRequests() {
@@ -195,12 +237,7 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                 .addGap(185, 185, 185))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-        
-    }                                        
-
+                                    
 
     private void btnfoodapprovereqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfoodapprovereqActionPerformed
         // TODO add your handling code here:
@@ -220,6 +257,7 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Food Order is Approved!");
                     account.setStatus("Food Order Approved");
                     populateFoodRequests();
+                    goDelivery(request);
                 } else {
                     JOptionPane.showMessageDialog(null, "Food Order is already Approved!");
                 }

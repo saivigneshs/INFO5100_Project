@@ -5,6 +5,19 @@
  */
 package userinterface.DeliveryRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.BevDeliveryWorkRequest;
+import Business.WorkQueue.FoodDeliveryWorkRequest;
+import Business.WorkQueue.HostLocWorkRequest;
+import Business.WorkQueue.LocInfraWorkRequest;
+import Business.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author VIGNESH
@@ -14,10 +27,62 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DeliveryRequestJPanel
      */
-    public DeliveryRequestJPanel() {
+     private final JPanel userProcessContainer;
+    private final UserAccount account;
+    private final EcoSystem business;
+    public DeliveryRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.business = business;
         initComponents();
+        populateDeliveryRequests();
     }
-
+    public void populateDeliveryRequests() {
+        DefaultTableModel model = (DefaultTableModel) tblDeliveryReq.getModel();
+        model.setRowCount(0);
+        for (Network n : business.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (WorkRequest workRequest : e.getWorkQueue().getWorkRequestList()) {
+                    if (workRequest instanceof FoodDeliveryWorkRequest) {
+                        if (((FoodDeliveryWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((FoodDeliveryWorkRequest) workRequest).getEventName();
+                            row[2] = ((FoodDeliveryWorkRequest) workRequest).getEvenCat();
+                            row[3] = ((FoodDeliveryWorkRequest) workRequest).getAttendance();
+                            row[4] = ((FoodDeliveryWorkRequest) workRequest).getPlannedDate();
+                            row[5] = ((FoodDeliveryWorkRequest) workRequest).getLocation();
+                            if(((FoodDeliveryWorkRequest) workRequest).getHost()!=null){
+                            row[6] = ((FoodDeliveryWorkRequest) workRequest).getHost().getCity();
+                            }
+                            row[7] = ((FoodDeliveryWorkRequest) workRequest).getStatus();
+                            row[8] = ((FoodDeliveryWorkRequest) workRequest).getMessage();
+                            row[9] = ((FoodDeliveryWorkRequest) workRequest).getInfraNote();
+                            model.addRow(row);
+                        }
+                    }
+                    else if (workRequest instanceof BevDeliveryWorkRequest) {
+                        if (((BevDeliveryWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((BevDeliveryWorkRequest) workRequest).getEventName();
+                            row[2] = ((BevDeliveryWorkRequest) workRequest).getEvenCat();
+                            row[3] = ((BevDeliveryWorkRequest) workRequest).getAttendance();
+                            row[4] = ((BevDeliveryWorkRequest) workRequest).getPlannedDate();
+                            row[5] = ((BevDeliveryWorkRequest) workRequest).getLocation();
+                            if(((BevDeliveryWorkRequest) workRequest).getHost()!=null){
+                            row[6] = ((BevDeliveryWorkRequest) workRequest).getHost().getCity();
+                            }
+                            row[7] = ((BevDeliveryWorkRequest) workRequest).getStatus();
+                            row[8] = ((BevDeliveryWorkRequest) workRequest).getMessage();
+                            row[9] = ((BevDeliveryWorkRequest) workRequest).getInfraNote();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,7 +95,7 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbldrinkRequests = new javax.swing.JTable();
+        tblDeliveryReq = new javax.swing.JTable();
         btndrinkapprovereq = new javax.swing.JButton();
         btndrinkrejectreq = new javax.swing.JButton();
         txtAddMsg = new javax.swing.JTextField();
@@ -43,7 +108,7 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Manage Delivery Requests");
 
-        tbldrinkRequests.setModel(new javax.swing.table.DefaultTableModel(
+        tblDeliveryReq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -51,7 +116,7 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
                 "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Host", "Host City", "Status", "Message from Host", "Location Team Reply"
             }
         ));
-        jScrollPane1.setViewportView(tbldrinkRequests);
+        jScrollPane1.setViewportView(tblDeliveryReq);
 
         btndrinkapprovereq.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btndrinkapprovereq.setText("Approve Request");
@@ -139,12 +204,55 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
 
     private void btndrinkapprovereqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndrinkapprovereqActionPerformed
         // TODO add your handling code here:
+         int selectedRow = tblDeliveryReq.getSelectedRow();
+        if (selectedRow >= 0) {
+            LocInfraWorkRequest request = (LocInfraWorkRequest) tblDeliveryReq.getValueAt(selectedRow, 0);
+            String message = txtAddMsg.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
+                return;
+            }
+            if (!request.getStatus().equals("Awaiting Govt Approval")) {
+            if (!"Event Authorized".equals(request.getStatus())) {
+                request.setStatus("Infrastructure Prepared");
+                request.setMessage(message);
+                JOptionPane.showMessageDialog(null, "Infrastructure Package is Prepared!");
+                    account.setStatus("Booked");
+                populateDeliveryRequests();
+            } else {
+                JOptionPane.showMessageDialog(null, "Event is already Authorized!");
+            }
+            } else {
+                JOptionPane.showMessageDialog(null, "Select an appropriate Event!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
         
     }//GEN-LAST:event_btndrinkapprovereqActionPerformed
 
     private void btndrinkrejectreqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndrinkrejectreqActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = tblDeliveryReq.getSelectedRow();
+        if (selectedRow >= 0) {
+            HostLocWorkRequest request = (HostLocWorkRequest) tblDeliveryReq.getValueAt(selectedRow, 0);
+            String message = txtAddMsg.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
+                return;
+            }
+            if (!"Completed".equals(request.getStatus()) && !"In Progress".equals(request.getStatus())) {
+                request.setStatus("Rejected");
+                request.setMessage(message);
+                JOptionPane.showMessageDialog(null, "Delivery Rejected!");
+                    account.setStatus("Available");
+                populateDeliveryRequests();
+            } else {
+                JOptionPane.showMessageDialog(null, " The Delivery is already " + request.getStatus());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Kindly select a row.");
+        }
     }//GEN-LAST:event_btndrinkrejectreqActionPerformed
 
 
@@ -155,7 +263,7 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbldrinkRequests;
+    private javax.swing.JTable tblDeliveryReq;
     private javax.swing.JTextField txtAddMsg;
     // End of variables declaration//GEN-END:variables
 }
