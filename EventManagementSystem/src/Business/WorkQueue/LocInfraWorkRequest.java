@@ -14,7 +14,7 @@ import java.util.Date;
  *
  * @author Saivignesh Sridhar
  */
-public class HostInfraWorkRequest extends WorkRequest {
+public class LocInfraWorkRequest extends WorkRequest {
    
     private String requestID;
     private String eventName;

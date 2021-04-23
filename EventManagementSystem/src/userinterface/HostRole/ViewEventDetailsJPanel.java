@@ -18,7 +18,7 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HostBeverageWorkRequest;
 import Business.WorkQueue.HostFoodWorkRequest;
 import Business.WorkQueue.HostGovtWorkRequest;
-import Business.WorkQueue.HostInfraWorkRequest;
+import Business.WorkQueue.LocInfraWorkRequest;
 import Business.WorkQueue.HostLocWorkRequest;
 import Business.WorkQueue.HostMusicWorkRequest;
 import Business.WorkQueue.HostPhotoWorkRequest;
@@ -39,7 +39,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     private HostGovtWorkRequest request;
     
      HostLocWorkRequest locRequest = new HostLocWorkRequest();
-     HostInfraWorkRequest infraRequest = new HostInfraWorkRequest();
+     LocInfraWorkRequest infraRequest = new LocInfraWorkRequest();
      HostMusicWorkRequest musicRequest = new HostMusicWorkRequest();
      HostPhotoWorkRequest photoRequest = new HostPhotoWorkRequest();
      HostFoodWorkRequest  foodRequest = new  HostFoodWorkRequest();
@@ -478,7 +478,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     locRequest.setHost(userAccount);
                                     locRequest.setLocation(locTeam);
                                     locRequest.setStatus("Pending");
-                                    if (comment.isEmpty()) locRequest.setMessage(comment);
+                                    if (!comment.isEmpty()) locRequest.setMessage(comment);
                                     locRequest.setAttendance(request.getAttendance());
                                     locRequest.setEventName(request.getEventName());
                                     locRequest.setEvenCat(request.getEvenCat());
