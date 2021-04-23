@@ -7,7 +7,7 @@ package Business.Organization;
 
 
 import Business.Role.AuthRole;
-import Business.Role.GovtAdmin;
+
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -32,3 +32,4 @@ public class AuthOrganization extends Organization{
         return Organization.Type.GovtAuth;
     } 
 
+}

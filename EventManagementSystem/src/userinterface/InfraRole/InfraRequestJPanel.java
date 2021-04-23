@@ -50,13 +50,13 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
      */
     
     public void populateInfraRequests() {
-        DefaultTableModel model = (DefaultTableModel) tblLocRequests.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblInfraRequests.getModel();
         model.setRowCount(0);
         for (Network n : business.getNetworkList()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (WorkRequest workRequest : e.getWorkQueue().getWorkRequestList()) {
                     if (workRequest instanceof LocInfraWorkRequest) {
-                        if (((LocInfraWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
+                        if (((LocInfraWorkRequest) workRequest).getInfra().getUsername().equals(account.getUsername())) {
                             Object[] row = new Object[model.getColumnCount()];
                             row[0] = workRequest;
                             row[1] = ((LocInfraWorkRequest) workRequest).getEventName();
@@ -64,7 +64,9 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
                             row[3] = ((LocInfraWorkRequest) workRequest).getAttendance();
                             row[4] = ((LocInfraWorkRequest) workRequest).getPlannedDate();
                             row[5] = ((LocInfraWorkRequest) workRequest).getLocation();
+                            if(((LocInfraWorkRequest) workRequest).getHost()!=null){
                             row[6] = ((LocInfraWorkRequest) workRequest).getHost().getCity();
+                            }
                             row[7] = ((LocInfraWorkRequest) workRequest).getStatus();
                             row[8] = ((LocInfraWorkRequest) workRequest).getMessage();
                             row[9] = ((LocInfraWorkRequest) workRequest).getInfraNote();
@@ -77,7 +79,7 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
     }
     
     public void bookInfra(HostLocWorkRequest request){
-                String comment = txtAddMsg.getText();
+                    String comment = txtAddMsg.getText();
                     for (Network n : business.getNetworkList()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
@@ -116,7 +118,7 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
 
         lblRestWorkList = new javax.swing.JLabel();
         scrollOrderList = new javax.swing.JScrollPane();
-        tblLocRequests = new javax.swing.JTable();
+        tblInfraRequests = new javax.swing.JTable();
         btnReject = new javax.swing.JButton();
         btnApprove = new javax.swing.JButton();
         blAddMessage = new javax.swing.JLabel();
@@ -132,10 +134,10 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
         lblRestWorkList.setText("Infrastructure Requests");
         add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 24, -1, -1));
 
-        tblLocRequests.setBackground(new java.awt.Color(204, 204, 255));
-        tblLocRequests.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        tblLocRequests.setForeground(new java.awt.Color(0, 51, 51));
-        tblLocRequests.setModel(new javax.swing.table.DefaultTableModel(
+        tblInfraRequests.setBackground(new java.awt.Color(204, 204, 255));
+        tblInfraRequests.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        tblInfraRequests.setForeground(new java.awt.Color(0, 51, 51));
+        tblInfraRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -161,7 +163,7 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        scrollOrderList.setViewportView(tblLocRequests);
+        scrollOrderList.setViewportView(tblInfraRequests);
 
         add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 843, 110));
 
@@ -200,9 +202,9 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
-         int selectedRow = tblLocRequests.getSelectedRow();
+         int selectedRow = tblInfraRequests.getSelectedRow();
         if (selectedRow >= 0) {
-            HostLocWorkRequest request = (HostLocWorkRequest) tblLocRequests.getValueAt(selectedRow, 0);
+            HostLocWorkRequest request = (HostLocWorkRequest) tblInfraRequests.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
@@ -224,9 +226,9 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
 
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblLocRequests.getSelectedRow();
+        int selectedRow = tblInfraRequests.getSelectedRow();
         if (selectedRow >= 0) {
-            HostLocWorkRequest request = (HostLocWorkRequest) tblLocRequests.getValueAt(selectedRow, 0);
+            LocInfraWorkRequest request = (LocInfraWorkRequest) tblInfraRequests.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
@@ -234,12 +236,11 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
             }
             if (!request.getStatus().equals("Awaiting Govt Approval")) {
             if (!"Event Authorized".equals(request.getStatus())) {
-                request.setStatus("Location Authorized");
+                request.setStatus("Infrastructure Prepared");
                 request.setMessage(message);
-                JOptionPane.showMessageDialog(null, "Location is Authorized!");
+                JOptionPane.showMessageDialog(null, "Infrastructure Package is Prepared!");
                     account.setStatus("Booked");
                 populateInfraRequests();
-                bookInfra(request);
             } else {
                 JOptionPane.showMessageDialog(null, "Event is already Authorized!");
             }
@@ -258,7 +259,7 @@ public class InfraRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnReject;
     private javax.swing.JLabel lblRestWorkList;
     private javax.swing.JScrollPane scrollOrderList;
-    private javax.swing.JTable tblLocRequests;
+    private javax.swing.JTable tblInfraRequests;
     private javax.swing.JTextField txtAddMsg;
     // End of variables declaration//GEN-END:variables
 }
