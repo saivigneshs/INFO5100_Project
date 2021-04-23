@@ -399,7 +399,7 @@ private void disableEdit(){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceActionPerformed
 
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnableUpdate;
