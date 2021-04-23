@@ -94,7 +94,7 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         lbl_TeamDetails.setBackground(new java.awt.Color(204, 204, 255));
-        lbl_TeamDetails.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        lbl_TeamDetails.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lbl_TeamDetails.setText("Music Details");
         lbl_TeamDetails.setAutoscrolls(true);
         lbl_TeamDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -108,10 +108,10 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
         TeamDetailsPanel.setLayout(TeamDetailsPanelLayout);
         TeamDetailsPanelLayout.setHorizontalGroup(
             TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TeamDetailsPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lbl_TeamDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TeamDetailsPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_TeamDetails)
+                .addGap(69, 69, 69))
         );
         TeamDetailsPanelLayout.setVerticalGroup(
             TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +130,7 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         lblManageRequest.setBackground(new java.awt.Color(255, 213, 90));
-        lblManageRequest.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        lblManageRequest.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblManageRequest.setText("Manage User Requests");
         lblManageRequest.setPreferredSize(new java.awt.Dimension(115, 16));
         lblManageRequest.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -143,10 +143,10 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
         ManageRequestPanel.setLayout(ManageRequestPanelLayout);
         ManageRequestPanelLayout.setHorizontalGroup(
             ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ManageRequestPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(lblManageRequest, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageRequestPanelLayout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         ManageRequestPanelLayout.setVerticalGroup(
             ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,20 +166,20 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
             .addComponent(jSeparator1)
             .addComponent(jSeparator3)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TeamDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ManageRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 68, Short.MAX_VALUE))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(title2))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(admin)))
+                .addContainerGap(85, Short.MAX_VALUE))
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(admin))
-                    .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(title2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ManageRequestPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TeamDetailsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +195,8 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(13, 13, 13)
                 .addComponent(ManageRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(591, Short.MAX_VALUE))
         );
 
         rightPanel.setBackground(new java.awt.Color(204, 204, 255));
@@ -210,16 +211,12 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(LocPanelLayout.createSequentialGroup()
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE))
         );
         LocPanelLayout.setVerticalGroup(
             LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LocPanelLayout.createSequentialGroup()
-                .addGroup(LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 851, Short.MAX_VALUE)
+            .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         add(LocPanel, java.awt.BorderLayout.CENTER);
