@@ -87,6 +87,7 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageRequestPanel = new javax.swing.JPanel();
         manageRequestLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         jPanel4 = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(260);
@@ -107,7 +108,7 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         manageOrganization.setBackground(new java.awt.Color(215, 81, 81));
-        manageOrganization.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        manageOrganization.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         manageOrganization.setText("Manage Organization");
         manageOrganization.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -120,9 +121,9 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageOrgPanelLayout.setHorizontalGroup(
             manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrgPanelLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(manageOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addComponent(manageOrganization)
+                .addGap(50, 50, 50))
         );
         manageOrgPanelLayout.setVerticalGroup(
             manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +145,7 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         manageEmployeeLabel.setBackground(new java.awt.Color(215, 81, 81));
-        manageEmployeeLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        manageEmployeeLabel.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         manageEmployeeLabel.setText("Manage Team");
         manageEmployeeLabel.setAutoscrolls(true);
         manageEmployeeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -179,7 +180,7 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         manageUserAccountLabel.setBackground(new java.awt.Color(215, 81, 81));
-        manageUserAccountLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        manageUserAccountLabel.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         manageUserAccountLabel.setText("Manage Users");
         manageUserAccountLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageUserAccountLabel.setPreferredSize(new java.awt.Dimension(115, 16));
@@ -189,8 +190,8 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageUserAccLayout.setHorizontalGroup(
             manageUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageUserAccLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         manageUserAccLayout.setVerticalGroup(
@@ -208,7 +209,7 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         manageRequestLabel.setBackground(new java.awt.Color(255, 213, 90));
-        manageRequestLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        manageRequestLabel.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         manageRequestLabel.setText("Manage Requests");
         manageRequestLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageRequestLabel.setPreferredSize(new java.awt.Dimension(115, 16));
@@ -219,8 +220,8 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageRequestPanelLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         manageRequestPanelLayout.setVerticalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,20 +235,25 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addComponent(jSeparator2)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(manageOrgPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(manageRequestPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(manageUserAcc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(manageEmp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jLabel1)))
-                .addContainerGap(17, Short.MAX_VALUE))
-            .addComponent(jSeparator1)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 17, Short.MAX_VALUE)
+                        .addComponent(manageOrgPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(manageEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
+                    .addComponent(manageUserAcc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(manageRequestPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,15 +262,17 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(manageOrgPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(manageEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(manageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(manageRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(405, Short.MAX_VALUE))
         );
 
         jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {manageEmp, manageOrgPanel, manageRequestPanel, manageUserAcc});
@@ -319,6 +327,7 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel manageEmp;
     private javax.swing.JLabel manageEmployeeLabel;
