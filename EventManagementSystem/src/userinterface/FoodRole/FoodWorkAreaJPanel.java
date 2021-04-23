@@ -31,7 +31,7 @@ public class FoodWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form FoodWorkAreaJPanel
      */
-    public FoodWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
+    public FoodWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization org, Enterprise ent, Network net, EcoSystem system) {
         initComponents();
         jLabel2.setText(account.getUsername());
         jLabel1.setText(account.getEmployee().getName()+" 's Admin Page");
