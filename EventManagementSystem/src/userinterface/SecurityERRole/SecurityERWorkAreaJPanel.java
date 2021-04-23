@@ -47,7 +47,7 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     private void manageRequests(){
-        MusicRequestJPanel MusicRequestJPanel = new MusicRequestJPanel(rightPanel,userAccount,system);
+        SecurityERRequestJPanel MusicRequestJPanel = new SecurityERRequestJPanel(rightPanel,userAccount,system);
         rightPanel.add("MusicRequestJPanel",MusicRequestJPanel);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);
