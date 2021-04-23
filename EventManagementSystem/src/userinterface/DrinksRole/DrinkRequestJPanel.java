@@ -5,10 +5,13 @@
  */
 package userinterface.DrinksRole;
 
+import Business.APIforSMS.APIforSMS;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.BevDeliveryWorkRequest;
 import Business.WorkQueue.HostBeverageWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import javax.swing.JOptionPane;
@@ -33,6 +36,46 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
         this.account = account;
         this.business = business;
         populateDrinkRequests();
+    }
+    
+    public void goDelivery(HostBeverageWorkRequest request){
+                String comment = txtAddMsg.getText();
+                    for (Network n : business.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                            if(org.getType().equals(Organization.Type.Delivery)){
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if ( (account.getCity().equals(ua.getSpec1()) || 
+                                        account.getCity().equals(ua.getSpec2()) || 
+                                        account.getCity().equals(ua.getSpec3()) )&&
+                                        "Available".equals(ua.getStatus()) ) {
+                                    BevDeliveryWorkRequest bevRequest = new BevDeliveryWorkRequest();                                                           
+                                    bevRequest.setRequestID();
+                                    bevRequest.setSender(account);
+                                    bevRequest.setLocation(account);
+                                    bevRequest.setInfra(ua);
+                                    bevRequest.setStatus("Pending");
+                                    if (!comment.isEmpty()) bevRequest.setMessage(comment);
+                                    bevRequest.setAttendance(request.getAttendance());
+                                    bevRequest.setEventName(request.getEventName());
+                                    bevRequest.setEvenCat(request.getEvenCat());
+                                    bevRequest.setPlannedDate(request.getPlannedDate());
+                                    bevRequest.setOrgType(Organization.Type.Delivery);
+                                    
+                                    
+                                    e.getWorkQueue().getWorkRequestList().add(bevRequest);
+                                    System.out.println("Request"+bevRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Delivery Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(ua.getPhone(), "Hello "+ua.getName()+", Beverages Team:"+request.getLocation().getName()+" likes to book a Delivery package on "+String.valueOf(bevRequest.getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(ua.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                } else{
+                                JOptionPane.showMessageDialog(null, "No Delivery Teams Available in Cities : "+ua.getSpec1()+", "+ua.getSpec2()+" and "+ua.getSpec3()+" ");
+                                }
+                            }
+                        }
+                        }
+                    }
+                }
     }
 
     public void populateDrinkRequests() {
@@ -199,6 +242,7 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Beverage Order is Approved!");
                     account.setStatus("Beverage Order Approved");
                 populateDrinkRequests();
+                goDelivery(request);
             } else {
                 JOptionPane.showMessageDialog(null, "Beverage Order is already Approved!");
             }

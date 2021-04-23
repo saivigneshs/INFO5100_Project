@@ -102,6 +102,9 @@ public class LocationRequestJPanel extends javax.swing.JPanel {
                                     JOptionPane.showMessageDialog(null, "Infrastructure Request Sent Successfully!");
                                     APIforSMS sms = new APIforSMS(ua.getPhone(), "Hello "+ua.getName()+", Location Team:"+request.getLocation().getName()+" likes to book Infrastructure package on "+String.valueOf(infraRequest.getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
                                     //system.sendEmailMessage(ua.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                } else
+                                {
+                                    JOptionPane.showMessageDialog(null, "Currently No Infra Teams are Available.");
                                 }
                             }
                         }
