@@ -38,7 +38,7 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         //valueLabel.setText();
     }
     private void viewDetails(){
-        LocationOrgInfoJPanel locationOrgInfoJPanel = new LocationOrgInfoJPanel(rightPanel,userAccount,system);
+        LocationOrgInfoJPanel locationOrgInfoJPanel = new LocationOrgInfoJPanel(rightPanel,userAccount,system,network);
         rightPanel.add("locationOrgInfoJPanel",locationOrgInfoJPanel);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);
