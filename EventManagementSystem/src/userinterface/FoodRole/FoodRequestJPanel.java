@@ -81,13 +81,8 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFoodRequests = new javax.swing.JTable();
-<<<<<<< HEAD
         btnfoodapprovereq = new javax.swing.JButton();
         btnfoodrejectreq = new javax.swing.JButton();
-=======
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
->>>>>>> 407b03cc6224f01d05c2c81e85559e2bf8c197b0
         txtAddMsg = new javax.swing.JTextField();
         blAddMessage = new javax.swing.JLabel();
         txtAddMsg1 = new javax.swing.JTextField();
@@ -135,15 +130,12 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         blAddMessage.setForeground(new java.awt.Color(41, 50, 80));
         blAddMessage.setText("Additional Message:");
 
-<<<<<<< HEAD
         txtAddMsg1.setBackground(new java.awt.Color(204, 204, 255));
 
         blAddMessage1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         blAddMessage1.setForeground(new java.awt.Color(41, 50, 80));
         blAddMessage1.setText("Additional Message:");
 
-=======
->>>>>>> 407b03cc6224f01d05c2c81e85559e2bf8c197b0
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -174,11 +166,7 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-=======
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
->>>>>>> 407b03cc6224f01d05c2c81e85559e2bf8c197b0
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -186,14 +174,8 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                     .addComponent(txtAddMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-<<<<<<< HEAD
                     .addComponent(btnfoodapprovereq, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnfoodrejectreq, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-=======
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
->>>>>>> 407b03cc6224f01d05c2c81e85559e2bf8c197b0
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -208,15 +190,8 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGap(135, 135, 135)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-=======
-
-                .addContainerGap()
-
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> 407b03cc6224f01d05c2c81e85559e2bf8c197b0
                 .addGap(185, 185, 185))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -226,12 +201,8 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         
     }                                        
 
-<<<<<<< HEAD
 
     private void btnfoodapprovereqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfoodapprovereqActionPerformed
-=======
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
->>>>>>> 407b03cc6224f01d05c2c81e85559e2bf8c197b0
         // TODO add your handling code here:
         int selectedRow = tblFoodRequests.getSelectedRow();
         if (selectedRow >= 0) {
@@ -242,14 +213,9 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                 return;
             }
             if (!request.getStatus().equals("Awaiting Govt Approval")) {
-<<<<<<< HEAD
 
                 if (!"Order Approved".equals(request.getStatus())) {
                     request.setStatus("Food Order Approved");
-=======
-                if (!"Event Authorized".equals(request.getStatus())) {
-                    request.setStatus("Location Authorized");
->>>>>>> 407b03cc6224f01d05c2c81e85559e2bf8c197b0
                     request.setMessage(message);
                     JOptionPane.showMessageDialog(null, "Food Order is Approved!");
                     account.setStatus("Food Order Approved");
@@ -257,6 +223,7 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                 } else {
                     JOptionPane.showMessageDialog(null, "Food Order is already Approved!");
                 }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Select an appropriate Order!");
             }
@@ -265,7 +232,6 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnfoodapprovereqActionPerformed
 
-<<<<<<< HEAD
     private void btnfoodrejectreqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfoodrejectreqActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblFoodRequests.getSelectedRow();
@@ -290,8 +256,6 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnfoodrejectreqActionPerformed
 
-=======
->>>>>>> 407b03cc6224f01d05c2c81e85559e2bf8c197b0
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel blAddMessage;
