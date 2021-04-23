@@ -33,20 +33,21 @@ public class LocationOrgInfoJPanel extends javax.swing.JPanel {
      */
     private final JPanel container;
     private final EcoSystem system;
-    UserAccount useraccount = new UserAccount();
+    UserAccount useraccount;
    
     public LocationOrgInfoJPanel(JPanel container, UserAccount account, EcoSystem system) {
         initComponents();
          this.container = container;
          this.system = system;
+         this.useraccount = account;
          
-         lblTitle.setText(account.getUsername()+ "'s Details");
-         txtLocName.setText(account.getName());
-         txtLocContact.setText(account.getPhone());
-         txtLocEmail.setText(account.getEmail());
+         lblTitle.setText(useraccount.getUsername()+ "'s Details");
+         txtLocName.setText(useraccount.getName());
+         txtLocContact.setText(useraccount.getPhone());
+         txtLocEmail.setText(useraccount.getEmail());
          
-         txtLocstaddress.setText(account.getPhone());
-         txtLoczipcode.setText(account.getEmail());
+         txtLocstaddress.setText(useraccount.getPhone());
+         txtLoczipcode.setText(useraccount.getEmail());
          
          txtLocName.setEnabled(false);
         disableEdit();
@@ -67,7 +68,6 @@ private void disableEdit(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -95,7 +95,6 @@ private void disableEdit(){
         jPanel4 = new javax.swing.JPanel();
         btnEnableUpdate = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -252,6 +251,7 @@ private void disableEdit(){
         jLabel10.setText("Click here to update----------->");
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnEnableUpdate.setBackground(new java.awt.Color(204, 255, 255));
         btnEnableUpdate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -295,17 +295,6 @@ private void disableEdit(){
                 .addComponent(btnSaveChanges, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-
-        btnBack.setBackground(new java.awt.Color(204, 255, 255));
-        btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(0, 51, 51));
-        btnBack.setText("Back");
-        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
 
         jPanel6.setBackground(new java.awt.Color(204, 204, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -370,9 +359,7 @@ private void disableEdit(){
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(273, 273, 273)
+                .addGap(331, 331, 331)
                 .addComponent(lblTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -398,12 +385,8 @@ private void disableEdit(){
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(6, 6, 6))
-                    .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(12, 12, 12)
+                .addComponent(lblTitle)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -523,7 +506,6 @@ private void disableEdit(){
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
