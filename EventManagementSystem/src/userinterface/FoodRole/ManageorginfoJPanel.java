@@ -6,23 +6,15 @@
 package userinterface.FoodRole;
 
 import Business.EcoSystem;
-import Business.Enterprise.Enterprise;
-import Business.Network.Network;
-import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import java.awt.CardLayout;
-import java.awt.Component;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JPanel;
-import userinterface.InfraRole.InfraOrgInfoJPanel;
 
 /**
  *
@@ -63,6 +55,7 @@ public class ManageorginfoJPanel extends javax.swing.JPanel {
     txtfooditem1.setEditable(false);
     txtfooditem2.setEditable(false);
     txtfooditem3.setEditable(false);
+    txtfooditemprice.setEditable(false);
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -427,8 +420,12 @@ public class ManageorginfoJPanel extends javax.swing.JPanel {
         txtFoodContact.setEditable(true);
         txtFoodEmail.setEditable(true);
         txtFoodName.setEditable(true);
-        txtFoodstaddress.setEditable(false);
-        txtFoodzipcode.setEditable(false);
+        txtFoodstaddress.setEditable(true);
+        txtFoodzipcode.setEditable(true);
+        txtfooditem1.setEditable(true);
+        txtfooditem2.setEditable(true);
+        txtfooditem3.setEditable(true);
+        txtfooditemprice.setEditable(true);
         
         btnEnableUpdate.setEnabled(false);
     }//GEN-LAST:event_btnEnableUpdateActionPerformed
