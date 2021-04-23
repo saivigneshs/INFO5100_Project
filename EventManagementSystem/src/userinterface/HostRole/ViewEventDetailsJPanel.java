@@ -85,14 +85,14 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof LocationRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getEmployee().getName();
-                            row[1] = ua;
-                            row[2] = ua.getCity();
-                            row[3] = ua.getState();
-                            row[4] = ua.getStatus();
+                            row[0] = ua.getUsername();
+                            row[1] = ua.getSpec1();
+                            row[2] = ua.getSpec2();
+                            row[3] = ua.getSpec3();
+                            row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
-                            row[6] = ua.getName();
-                            row[7] = org.getType();
+                            row[6] = ua.getStatus();
+                            row[7] = ua.getMessage();
                             model.addRow(row);
                         }
                     }
@@ -110,14 +110,14 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof FoodRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getEmployee().getName();
-                            row[1] = ua;
-                            row[2] = ua.getCity();
-                            row[3] = ua.getState();
-                            row[4] = ua.getStatus();
+                            row[0] = ua.getUsername();
+                            row[1] = ua.getSpec1();
+                            row[2] = ua.getSpec2();
+                            row[3] = ua.getSpec3();
+                            row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
-                            row[6] = ua.getName();
-                            row[7] = org.getType();
+                            row[6] = ua.getStatus();
+                            row[7] = ua.getMessage();
                             model.addRow(row);
                         }
                     }
@@ -136,14 +136,14 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof BeveragesRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getEmployee().getId();
-                            row[1] = ua;
-                            row[2] = ua.getCity();
-                            row[3] = ua.getState();
-                            row[4] = ua.getStatus();
+                            row[0] = ua.getUsername();
+                            row[1] = ua.getSpec1();
+                            row[2] = ua.getSpec2();
+                            row[3] = ua.getSpec3();
+                            row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
-                            row[6] = ua.getName();
-                            row[7] = org.getType();
+                            row[6] = ua.getStatus();
+                            row[7] = ua.getMessage();
                             model.addRow(row);
                         }
                     }
@@ -162,13 +162,13 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof MusicianRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua;
-                            row[1] = ua;
-                            row[2] = ua.getCity();
-                            row[3] = ua.getState();
-                            row[4] = ua.getStatus();
+                            row[0] = ua.getUsername();
+                            row[1] = ua.getSpec1();
+                            row[2] = ua.getSpec2();
+                            row[3] = ua.getSpec3();
+                            row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
-                            row[6] = ua.getName();
+                            row[6] = ua.getStatus();
                             row[7] = ua.getMessage();
                             model.addRow(row);
                         }
@@ -188,13 +188,13 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof PhotographerRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getEmployee().getId();
-                            row[1] = ua;
-                            row[2] = ua.getCity();
-                            row[3] = ua.getState();
-                            row[4] = ua.getStatus();
+                            row[0] = ua.getUsername();
+                            row[1] = ua.getSpec1();
+                            row[2] = ua.getSpec2();
+                            row[3] = ua.getSpec3();
+                            row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
-                            row[6] = ua.getName();
+                            row[6] = ua.getStatus();
                             row[7] = ua.getMessage();
                             model.addRow(row);
                         }
@@ -703,7 +703,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     e.getWorkQueue().getWorkRequestList().add(photoRequest);
                                     System.out.println("Request"+photoRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Photo Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(photoTeam.getPhone(), "Hello "+photoTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    APIforSMS sms = new APIforSMS(photoTeam.getPhone(), "Hello "+photoTeam.getName()+",  A Host likes to book your Photographer package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
                                     //system.sendEmailMessage(photoTeam.getEmail(), "Hello! You have one new work request! Please login to know more!")
                                 break;
                                 }
@@ -753,7 +753,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     e.getWorkQueue().getWorkRequestList().add(musicRequest);
                                     System.out.println("Request"+musicRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Music Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(musicTeam.getPhone(), "Hello "+musicTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    APIforSMS sms = new APIforSMS(musicTeam.getPhone(), "Hello "+musicTeam.getName()+",  A Host likes to book your Music package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
                                     //system.sendEmailMessage(musicTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
                                 }
                             }
@@ -856,7 +856,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     e.getWorkQueue().getWorkRequestList().add(foodRequest);
                                     //                                   System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Order Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(foodTeam.getPhone(), "Hello "+foodTeam.getName()+",  A Location likes to book your Infra Package. Kindly login for more details.");
+                                    APIforSMS sms = new APIforSMS(foodTeam.getPhone(), "Hello "+foodTeam.getName()+",  A Guest likes to Order your food Package. Kindly login for more details.");
                                     //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
                                     break;
                                 }

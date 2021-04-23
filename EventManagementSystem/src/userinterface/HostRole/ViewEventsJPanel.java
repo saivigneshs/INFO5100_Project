@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.AuthRole;
+import Business.Role.SecurityERRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HostGovtWorkRequest;
 import Business.WorkQueue.WorkRequest;
@@ -228,50 +229,47 @@ public class ViewEventsJPanel extends javax.swing.JPanel {
 
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount locTeam = (UserAccount) tblEvents.getValueAt(selectedRow, 1);
+                HostGovtWorkRequest request = (HostGovtWorkRequest) tblEvents.getValueAt(selectedRow, 2);
 //                String comment = addnInfoLoc.getText();
                 
-                if (!locTeam.getStatus().equals("Available")) {
-                    JOptionPane.showMessageDialog(null, "Sorry! This Location is already Booked!");
-                    return;
-                }
-                for (Network n : system.getNetworkList()) {
-                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
-                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
-                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                if (locTeam.getUsername().equals(ua.getUsername())) {
-                                                                                                    
-                                    securityerRequest.setRequestID();
-                                    securityerRequest.setSender(userAccount);
-                                    securityerRequest.setHost(userAccount);
-                                    securityerRequest.setLocation(locTeam);
-                                    securityerRequest.setStatus("Pending");
-//                                    if (!comment.isEmpty()) locRequest.setMessage(comment);
-                                    securityerRequest.setAttendance(request.getAttendance());
-                                    securityerRequest.setEventName(request.getEventName());
-                                    securityerRequest.setEvenCat(request.getEvenCat());
-                                    securityerRequest.setPlannedDate(request.getPlannedDate());
-                                    securityerRequest.setOrgType(Organization.Type.Location);
-                                    
-                                    
-                                    e.getWorkQueue().getWorkRequestList().add(securityerRequest);
-                                    System.out.println("Request"+securityerRequest.toString()+"  >> Added to Enterprise "+e);
-                                    JOptionPane.showMessageDialog(null, "Location Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(locTeam.getPhone(), "Hello "+locTeam.getName()+",  A Host likes to notify on emergency request "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
-                                    //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
-                                }
-                            }
+//                HostGovtWorkRequest hostgovtwr = new HostGovtWorkRequest();
+        securityerRequest.setRequestID();
+        securityerRequest.setStatus("Awaiting Emergency Response");
+        securityerRequest.setHost(userAccount);
+        securityerRequest.setAttendance(request.getAttendance());
+        securityerRequest.setMessage("Required Help from Emergency Team");
+        securityerRequest.setEventName(request.getEventName());
+        securityerRequest.setEvenCat(request.getEvenCat());
+        securityerRequest.setPlannedDate(request.getPlannedDate());
+        securityerRequest.setLocation(request.getLocation());
+       
+        
+        for (Network n : system.getNetworkList()) {
+            System.out.println("network");
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                System.out.println("network1");
+                for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                    System.out.println("network2");
+                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                        System.out.println("network3");
+                        if (ua.getRole() instanceof SecurityERRole) {
+                            System.out.println("network4");
+                            ua.getWorkQueue().getWorkRequestList().add(securityerRequest);
+                            JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
+//                            disableFields();
                         }
                     }
                 }
-            }
+            }   
+        }
             
-        } else {
-            JOptionPane.showMessageDialog(null, "Please select one row!");
+        } 
+        }else {
+            JOptionPane.showMessageDialog(null, "Please select a event to send request!");
 
         }    
 //        populateEventsTable();
-        
+       
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
 
     private void lblViewMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblViewMousePressed
