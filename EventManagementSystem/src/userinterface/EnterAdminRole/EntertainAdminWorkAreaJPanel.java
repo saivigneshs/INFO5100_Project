@@ -64,8 +64,8 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     private void manageRequests() {
-        GeoInfraManageWorkReqsJPanel geoInfraManageWorkReqsJPanel = new GeoInfraManageWorkReqsJPanel(enterprise);
-        workAreaPanel.add("GeoInfraManageWorkReqsJPanel", geoInfraManageWorkReqsJPanel);
+        EntertainmentWorkReqsJPanel EntertainmentManageWorkReqsJPanel = new EntertainmentWorkReqsJPanel(enterprise);
+        workAreaPanel.add("EntertainmentWorkReqsJPanel", EntertainmentManageWorkReqsJPanel);
         CardLayout layout = (CardLayout) workAreaPanel.getLayout();
         layout.next(workAreaPanel);
     }

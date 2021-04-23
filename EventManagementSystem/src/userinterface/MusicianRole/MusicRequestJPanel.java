@@ -64,7 +64,7 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
                             row[6] = ((HostMusicWorkRequest) workRequest).getHost().getCity();
                             row[7] = ((HostMusicWorkRequest) workRequest).getStatus();
                             row[8] = ((HostMusicWorkRequest) workRequest).getMessage();
-                            row[9] = ((HostMusicWorkRequest) workRequest).getLocNote();
+                            row[9] = ((HostMusicWorkRequest) workRequest).getMessage();
                             model.addRow(row);
                         }
                     }
@@ -91,7 +91,7 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
         lblRestWorkList.setBackground(new java.awt.Color(204, 255, 255));
         lblRestWorkList.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestWorkList.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestWorkList.setText("Music  Requests");
+        lblRestWorkList.setText("Music Order  Requests");
         add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
 
         tblmusicRequests.setBackground(new java.awt.Color(204, 204, 255));
@@ -105,7 +105,7 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Host", "Host City", "Status", "Message from Host", "Loc Team Reply"
+                "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Host", "Host City", "Status", "Message from Host", "Music Team Response"
             }
         ) {
             Class[] types = new Class [] {
@@ -166,6 +166,7 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
         if (selectedRow >= 0) {
             HostMusicWorkRequest request = (HostMusicWorkRequest) tblmusicRequests.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
+            account.setApprovermesg(message);
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
                 return;

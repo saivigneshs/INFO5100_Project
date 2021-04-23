@@ -24,7 +24,11 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.CMYKColor;
 import java.io.IOException;
+import java.net.URL;
 import java.util.*;  
 import javax.mail.*;  
 import javax.mail.internet.*;  
@@ -208,73 +212,56 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 Document document = new Document();
+                Font blueFont = FontFactory.getFont(FontFactory.HELVETICA, 8, Font.NORMAL, new CMYKColor(255, 0, 0, 0));
+		Font redFont = FontFactory.getFont(FontFactory.COURIER, 12, Font.BOLD, new CMYKColor(0, 255, 0, 0));
+		Font yellowFont = FontFactory.getFont(FontFactory.COURIER, 14, Font.BOLD, new CMYKColor(0, 0, 255, 0));
+		
 		try
 		{
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("C:/Users/gowth/Downloads/JavaiTextPDFExamples/vignesh.pdf"));
-			                 System.out.println("Hello");
-                        document.open();
-
-                            Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,Font.BOLD);
-                           Paragraph preface = new Paragraph();
-                          
-        // We add one empty line
-        
-        // Lets write a big header
-        preface.add(new Paragraph("Title of the document", catFont));
-        document.add(preface);
-                        
-			PdfPTable table = new PdfPTable(3); // 3 columns.
-			table.setWidthPercentage(100); //Width 100%
-			table.setSpacingBefore(10f); //Space before table
-			table.setSpacingAfter(10f); //Space after table
-
-			//Set Column widths
-			float[] columnWidths = {1f, 1f, 1f};
-			table.setWidths(columnWidths);
-
-                     
-
-        for (Organization organization : directory.getOrganizationList()) {
-           
-
-        
-			PdfPCell cell1 = new PdfPCell(new Paragraph(organization.getType().getValue()));
-			cell1.setBorderColor(BaseColor.BLUE);
-			cell1.setPaddingLeft(10);
-			cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
-			cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
-
-			PdfPCell cell2 = new PdfPCell(new Paragraph(organization.getName()));
-			cell2.setBorderColor(BaseColor.GREEN);
-			cell2.setPaddingLeft(10);
-			cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
-			cell2.setVerticalAlignment(Element.ALIGN_MIDDLE);
-
-			PdfPCell cell3 = new PdfPCell(new Paragraph("Cell 3"));
-			cell3.setBorderColor(BaseColor.RED);
-			cell3.setPaddingLeft(10);
-			cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
-			cell3.setVerticalAlignment(Element.ALIGN_MIDDLE);
-        
-			//To avoid having the cell border and the content overlap, if you are having thick cell borders
-			//cell1.setUserBorderPadding(true);
-			//cell2.setUserBorderPadding(true);
-			//cell3.setUserBorderPadding(true);
-
-			table.addCell(cell1);
-			table.addCell(cell2);
-			table.addCell(cell3);
-
+//                    PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("C:/Users/gowth/Downloads/JavaiTextPDFExamples/vignesh.pdf"));
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("AddImageExample.pdf"));
+			document.open();
 			
-}
-                        document.add(table);
+                        System.out.println("pdf");
+			//Add Image
+			Image image1 = Image.getInstance("src/images/your_invited.jpg");
+			//For Fixed Positioning
+			//image1.setAbsolutePosition(100f, 550f);
+			//Scale to new height and new width of image
+			image1.scaleAbsolute(550, 200);
+			//Add to document
+			document.add(image1);
+                        document.add(new Paragraph("Dear Friend,"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("You are most cordially invited to be our guest at the dinner party we have arranged next week. It will be great having you among us!"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("We are going to arrange a dinner party at our sweet home . Your presence is what we are asking for to make it a memorable one!"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("Your company is all that we are asking for as we celebrate the night next week with our friends and relatives. Please join us to have a share in our happiness!"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("It’s always a pleasure to have you with us. Let’s have yet another occasion to sit together and share some delicious foods and desserts. You are cordially invited!"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("Nothing makes the bonds stronger than sharing the same food with our loved ones. We invite you to join us on next week as we have planned to throw a dinner party at our residence!"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("\n"));
+                        document.add(new Paragraph("Best Regards"));
+                      
+                        
+//			String imageUrl = "your_invited.jpg";
+//			Image image2 = Image.getInstance(new URL(imageUrl));
+//			document.add(image2);
+
 			document.close();
 			writer.close();
 		} catch (Exception e)
 		{
 			e.printStackTrace();
 		}// TODO add your handling code here:
-                String filepath = "C:/Users/gowth/Downloads/JavaiTextPDFExamples/vignesh.pdf";
+                String filepath = "AddImageExample.pdf";
                 sendemail(filepath);
                 volPopulate();
     }//GEN-LAST:event_jButton1ActionPerformed
