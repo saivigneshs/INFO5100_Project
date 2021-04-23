@@ -28,7 +28,6 @@
               <EmptySpace pref="100" max="32767" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-
           </Group>
       </Group>
     </DimensionLayout>
@@ -137,7 +136,6 @@
                           <Component id="txtLocContact" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
                           <Component id="txtLocEmail" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
                           <Component id="txtCity" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-
                       </Group>
                       <EmptySpace pref="49" max="32767" attributes="0"/>
                   </Group>
@@ -165,7 +163,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCity" alignment="3" min="-2" max="-2" attributes="0"/>
-
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -313,7 +310,6 @@
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Music Albums:"/>
-
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSpec1">
@@ -373,7 +369,6 @@
                       <EmptySpace pref="34" max="32767" attributes="0"/>
                       <Component id="btnSaveChanges" min="-2" pref="91" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-
                   </Group>
               </Group>
             </DimensionLayout>
@@ -386,7 +381,6 @@
                           <Component id="btnEnableUpdate" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="37" max="32767" attributes="0"/>
-
                   </Group>
               </Group>
             </DimensionLayout>
