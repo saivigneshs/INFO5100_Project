@@ -65,6 +65,9 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
             }
         }
     }
+    private void disableFields(){
+    txtAddMsg.setText("");
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -183,6 +186,7 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Event is Authorized!");
                     userAccount.setStatus("Available");
                 populateTable();
+                disableFields();
             } else {
                 JOptionPane.showMessageDialog(null, "Event is already Authorized!");
             }
@@ -204,7 +208,7 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
                 return;
             }
-            if (!"Completed".equals(request.getStatus()) && !"In Progress".equals(request.getStatus())) {
+            if (!"Completed".equals(request.getStatus()) || !"In Progress".equals(request.getStatus())) {
                 request.setStatus("Rejected");
                 request.setMessage(message);
                 JOptionPane.showMessageDialog(null, "Event Rejected!");

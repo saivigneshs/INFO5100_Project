@@ -40,7 +40,8 @@ public class LocationOrgInfoJPanel extends javax.swing.JPanel {
          this.container = container;
          this.system = system;
          
-         lblTitle.setText(account.getName()+ "'s Details");
+         lblTitle.setText(account.getUsername()+ "'s Details");
+         txtLocName.setText(account.getName());
          txtLocContact.setText(account.getPhone());
          txtLocEmail.setText(account.getEmail());
          
@@ -251,7 +252,6 @@ private void disableEdit(){
         jLabel10.setText("Click here to update----------->");
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnEnableUpdate.setBackground(new java.awt.Color(204, 255, 255));
         btnEnableUpdate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -442,17 +442,6 @@ private void disableEdit(){
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        
-       container.remove(this);
-        Component[] componentArray = container.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        CardLayout layout = (CardLayout) container.getLayout();
-        layout.previous(container);
-        
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void btnEnableUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnableUpdateActionPerformed
         // TODO add your handling code here:
        
@@ -512,7 +501,6 @@ private void disableEdit(){
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEnableUpdate;
     private javax.swing.JButton btnSaveChanges;
     private javax.swing.JButton jButton6;

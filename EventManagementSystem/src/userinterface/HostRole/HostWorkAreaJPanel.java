@@ -51,7 +51,7 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     private void viewHostProfile() {
-        ViewHostProfileJPanel viewHostProfileJPanel = new ViewHostProfileJPanel(rightHostPanel,system, account);
+        ViewHostProfileJPanel viewHostProfileJPanel = new ViewHostProfileJPanel(rightHostPanel,system, account,network,organization);
         rightHostPanel.add("viewHostProfileJPanel", viewHostProfileJPanel);
         CardLayout layout = (CardLayout) rightHostPanel.getLayout();
         layout.next(rightHostPanel);

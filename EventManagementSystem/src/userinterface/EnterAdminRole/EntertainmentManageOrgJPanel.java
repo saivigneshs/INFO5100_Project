@@ -8,8 +8,28 @@ package userinterface.EnterAdminRole;
 import Business.Organization.Organization;
 import Business.Organization.Organization.Type;
 import Business.Organization.OrganizationDirectory;
+import static Business.SendMailUsingAuthentication.SMTP_AUTH_USER;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+ 
+import java.io.FileOutputStream;
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Font;
+import java.io.IOException;
+import java.util.*;  
+import javax.mail.*;  
+import javax.mail.internet.*;  
+import javax.activation.*;  
+
 /**
  *
  * @author gowth
@@ -67,6 +87,7 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
         manageentorg = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         orgtypecombobox = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -110,6 +131,13 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
 
         orgtypecombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButton1.setText("generate PDF");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,7 +161,9 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
                             .addComponent(orgtypecombobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
-                        .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -152,7 +182,9 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
                     .addComponent(txt_entorgname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
-                .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -174,9 +206,83 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
     
     }//GEN-LAST:event_manageentorgMousePressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+Document document = new Document();
+		try
+		{
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("C:/Users/gowth/Downloads/JavaiTextPDFExamples/vignesh.pdf"));
+			                 System.out.println("Hello");
+                        document.open();
+
+                            Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,Font.BOLD);
+                           Paragraph preface = new Paragraph();
+                          
+        // We add one empty line
+        
+        // Lets write a big header
+        preface.add(new Paragraph("Title of the document", catFont));
+        document.add(preface);
+                        
+			PdfPTable table = new PdfPTable(3); // 3 columns.
+			table.setWidthPercentage(100); //Width 100%
+			table.setSpacingBefore(10f); //Space before table
+			table.setSpacingAfter(10f); //Space after table
+
+			//Set Column widths
+			float[] columnWidths = {1f, 1f, 1f};
+			table.setWidths(columnWidths);
+
+                     
+
+        for (Organization organization : directory.getOrganizationList()) {
+           
+
+        
+			PdfPCell cell1 = new PdfPCell(new Paragraph(organization.getType().getValue()));
+			cell1.setBorderColor(BaseColor.BLUE);
+			cell1.setPaddingLeft(10);
+			cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+			cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+			PdfPCell cell2 = new PdfPCell(new Paragraph(organization.getName()));
+			cell2.setBorderColor(BaseColor.GREEN);
+			cell2.setPaddingLeft(10);
+			cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+			cell2.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+			PdfPCell cell3 = new PdfPCell(new Paragraph("Cell 3"));
+			cell3.setBorderColor(BaseColor.RED);
+			cell3.setPaddingLeft(10);
+			cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+			cell3.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        
+			//To avoid having the cell border and the content overlap, if you are having thick cell borders
+			//cell1.setUserBorderPadding(true);
+			//cell2.setUserBorderPadding(true);
+			//cell3.setUserBorderPadding(true);
+
+			table.addCell(cell1);
+			table.addCell(cell2);
+			table.addCell(cell3);
+
+			
+}
+                        document.add(table);
+			document.close();
+			writer.close();
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}// TODO add your handling code here:
+                String filepath = "C:/Users/gowth/Downloads/JavaiTextPDFExamples/vignesh.pdf";
+                sendemail(filepath);
+                volPopulate();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ManageEntertainmenttbl;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
@@ -185,4 +291,91 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox orgtypecombobox;
     private javax.swing.JTextField txt_entorgname;
     // End of variables declaration//GEN-END:variables
+
+    public void sendemail(String filepath) {
+       String host = "smtp.gmail.com";
+        String port = "587";
+        String mailFrom = "eventura.usa@gmail.com";
+        String password = "eventura@123";
+ 
+        // message info
+        String mailTo = "saivignesh96@gmail.com";
+        String subject = "New email with attachments";
+        String message = "I have some attachments for you.";
+ 
+        // attachments
+        String[] attachFiles = new String[1];
+        attachFiles[0] = filepath;
+//        attachFiles[1] = "e:/Test/Music.mp3";
+//        attachFiles[2] = "e:/Test/Video.mp4";
+ 
+        try {
+            sendEmailWithAttachments(host, port, mailFrom, password, mailTo,
+                subject, message, attachFiles);
+            System.out.println("Email sent.");
+        } catch (Exception ex) {
+            System.out.println("Could not send email.");
+            ex.printStackTrace();
+        }
+    }
+    
+    public void sendEmailWithAttachments (String host, String port,
+            final String userName, final String password, String toAddress,
+            String subject, String message, String[] attachFiles) throws AddressException, MessagingException{
+        // sets SMTP server properties
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", port);
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.user", userName);
+        properties.put("mail.password", password);
+ 
+        // creates a new session with an authenticator
+        Authenticator auth = new Authenticator() {
+            public PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(userName, password);
+            }
+        };
+        Session session = Session.getInstance(properties, auth);
+ 
+        // creates a new e-mail message
+        Message msg = new MimeMessage(session);
+ 
+        msg.setFrom(new InternetAddress(userName));
+        InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
+        msg.setRecipients(Message.RecipientType.TO, toAddresses);
+        msg.setSubject(subject);
+        msg.setSentDate(new Date());
+ 
+        // creates message part
+        MimeBodyPart messageBodyPart = new MimeBodyPart();
+        messageBodyPart.setContent(message, "text/html");
+ 
+        // creates multi-part
+        Multipart multipart = new MimeMultipart();
+        multipart.addBodyPart(messageBodyPart);
+ 
+        // adds attachments
+        if (attachFiles != null && attachFiles.length > 0) {
+            for (String filePath : attachFiles) {
+                MimeBodyPart attachPart = new MimeBodyPart();
+ 
+                try {
+                    attachPart.attachFile(filePath);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+ 
+                multipart.addBodyPart(attachPart);
+            }
+        }
+ 
+        // sets the multi-part as e-mail's content
+        msg.setContent(multipart);
+ 
+        // sends the e-mail
+        Transport.send(msg);
+    }
 }
+

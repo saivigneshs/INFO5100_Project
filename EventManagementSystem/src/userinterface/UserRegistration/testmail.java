@@ -35,7 +35,7 @@ public class testmail {
           properties.put("mail.smtp.socketFactory.port", "465");    
           properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");    
           properties.put("mail.smtp.auth", "true");    
-          properties.put("mail.smtp.port", "465");
+          properties.put("mail.smtp.port", "587");
 
        Session session = Session.getDefaultInstance(properties,    
            new javax.mail.Authenticator() {    
