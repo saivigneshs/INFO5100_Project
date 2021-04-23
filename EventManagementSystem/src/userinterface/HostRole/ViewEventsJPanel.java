@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.AuthRole;
+import Business.Role.SecurityERRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HostGovtWorkRequest;
 import Business.WorkQueue.WorkRequest;
@@ -256,25 +257,41 @@ public class ViewEventsJPanel extends javax.swing.JPanel {
                                     e.getWorkQueue().getWorkRequestList().add(securityerRequest);
                                     System.out.println("Request"+securityerRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Location Request Sent Successfully to "+ua.getUsername()+" !");
-                                    //APIforSMS sms = new APIforSMS(locTeam.getPhone(), "Hello "+locTeam.getName()+",  A Host likes to notify on emergency request "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    
+                                    APIforSMS sms = new APIforSMS(ua.getPhone(), "Hello "+ua.getName()+",  A Host likes to notify on emergency request "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
                                     //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
                             }
-                        }
+                            }
                         }
                     }
-                }
-                }
+                    }
+                    
+                                    for (Network n : system.getNetworkList()) {
+                            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                                for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                        if (ua.getRole() instanceof AuthRole) {
+                                            for(WorkRequest wr : ua.getWorkQueue().getWorkRequestList()){
+                                             if ( wr instanceof HostGovtWorkRequest) {
+                                                 if(((HostGovtWorkRequest) wr).getHost().equals(userAccount)){
+                                                     wr.setStatus("Awaiting SOS Approval");
+                                                 }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }   
+                        }
+                 populateEventsTable();
+                }                   
                 else {
                   JOptionPane.showMessageDialog(null, "SOS already Issued for this Event!");
                 }        
+            }else {
+            JOptionPane.showMessageDialog(null, "Please select an Event to send SOS!");
+                 }    
             }
-            
-        } else {
-            JOptionPane.showMessageDialog(null, "Please select an Event!");
-
-        }    
-//        populateEventsTable();
-        
     }//GEN-LAST:event_btnSOSActionPerformed
 
     private void lblViewMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblViewMousePressed

@@ -177,7 +177,7 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(70, 70, 70)
                         .addComponent(admin))
                     .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(40, 40, 40)
                         .addComponent(title2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
