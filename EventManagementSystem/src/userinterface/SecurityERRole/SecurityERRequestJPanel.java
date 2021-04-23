@@ -92,7 +92,7 @@ public class SecurityERRequestJPanel extends javax.swing.JPanel {
         lblRestWorkList.setBackground(new java.awt.Color(204, 255, 255));
         lblRestWorkList.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestWorkList.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestWorkList.setText("Music  Requests");
+        lblRestWorkList.setText("SOS  Requests");
         add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
 
         tblmusicRequests.setBackground(new java.awt.Color(204, 204, 255));

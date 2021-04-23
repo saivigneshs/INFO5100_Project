@@ -85,7 +85,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof LocationRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getUsername();
+                            row[0] = ua;
                             row[1] = ua.getSpec1();
                             row[2] = ua.getSpec2();
                             row[3] = ua.getSpec3();
@@ -110,7 +110,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof FoodRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getUsername();
+                            row[0] = ua;
                             row[1] = ua.getSpec1();
                             row[2] = ua.getSpec2();
                             row[3] = ua.getSpec3();
@@ -136,7 +136,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof BeveragesRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getUsername();
+                            row[0] = ua;
                             row[1] = ua.getSpec1();
                             row[2] = ua.getSpec2();
                             row[3] = ua.getSpec3();
@@ -162,7 +162,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof MusicianRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getUsername();
+                            row[0] = ua;
                             row[1] = ua.getSpec1();
                             row[2] = ua.getSpec2();
                             row[3] = ua.getSpec3();
@@ -188,7 +188,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof PhotographerRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getUsername();
+                            row[0] = ua;
                             row[1] = ua.getSpec1();
                             row[2] = ua.getSpec2();
                             row[3] = ua.getSpec3();
@@ -271,6 +271,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         });
 
         locPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        locPanel.setPreferredSize(new java.awt.Dimension(750, 361));
 
         lblAddnInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblAddnInfo.setForeground(new java.awt.Color(41, 50, 80));
@@ -313,28 +314,29 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         locPanelLayout.setHorizontalGroup(
             locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locPanelLayout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1)
                     .addGroup(locPanelLayout.createSequentialGroup()
                         .addComponent(lblAddnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addnInfoLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnHireLoc))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39))
+                        .addGap(251, 251, 251)
+                        .addComponent(btnHireLoc)
+                        .addGap(8, 8, 8)))
+                .addGap(65, 65, 65))
         );
         locPanelLayout.setVerticalGroup(
             locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(locPanelLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(55, 55, 55)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addnInfoLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAddnInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnHireLoc))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabPane.addTab("Location", locPanel);
@@ -391,14 +393,14 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnOrderFood))
                     .addGroup(infraPanelLayout.createSequentialGroup()
-                        .addContainerGap(70, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         infraPanelLayout.setVerticalGroup(
             infraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infraPanelLayout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(infraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -463,7 +465,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 424, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
                         .addComponent(btnOrderBeverage)))
                 .addGap(29, 29, 29))
         );
@@ -477,7 +479,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOrderBeverage)
                     .addComponent(jLabel5))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         tabPane.addTab("Beverage", beveragesPanel);
@@ -533,7 +535,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(addnInfoMusic, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnHireMusic))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 914, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE))
                 .addContainerGap())
         );
         musicPanelLayout.setVerticalGroup(
@@ -541,7 +543,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, musicPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addnInfoMusic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHireMusic)
@@ -614,21 +616,21 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(addnInfoPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHirephoto))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         tabPane.addTab("Photo", photopanel);
 
-        lblEventName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblEventName.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblEventName.setForeground(new java.awt.Color(25, 56, 82));
-        lblEventName.setText("Event Name");
+        lblEventName.setText("Event Name ");
 
-        enterpriseLabel2.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
+        enterpriseLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         enterpriseLabel2.setForeground(new java.awt.Color(0, 51, 51));
         enterpriseLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         enterpriseLabel2.setText("Event Specifics");
 
-        lblEventDate.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblEventDate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblEventDate.setForeground(new java.awt.Color(25, 56, 82));
         lblEventDate.setText("Event Date");
 
@@ -646,8 +648,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(415, 415, 415)
                         .addComponent(enterpriseLabel2)))
-                .addContainerGap(425, Short.MAX_VALUE))
-            .addComponent(tabPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(442, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 959, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -658,9 +663,9 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEventName)
                     .addComponent(lblEventDate))
-                .addGap(26, 26, 26)
-                .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -674,7 +679,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount photoTeam = (UserAccount) tblPhoto.getValueAt(selectedRow, 1);
+                UserAccount photoTeam = (UserAccount) tblPhoto.getValueAt(selectedRow, 0);
                 String comment = addnInfoPhoto.getText();
 
                 if (!photoTeam.getStatus().equals("Available")) {
@@ -725,7 +730,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount musicTeam = (UserAccount) tblMusic.getValueAt(selectedRow, 1);
+                UserAccount musicTeam = (UserAccount) tblMusic.getValueAt(selectedRow, 0);
                 String comment = addnInfoMusic.getText();
 
                 if (!musicTeam.getStatus().equals("Available")) {
@@ -774,7 +779,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount beverageTeam = (UserAccount) tblBeverage.getValueAt(selectedRow, 1);
+                UserAccount beverageTeam = (UserAccount) tblBeverage.getValueAt(selectedRow, 0);
                 String comment = addnInfoBeverages.getText();
 
                 if (!beverageTeam.getStatus().equals("Available")) {
@@ -827,7 +832,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount foodTeam = (UserAccount) tblFood.getValueAt(selectedRow, 1);
+                UserAccount foodTeam = (UserAccount) tblFood.getValueAt(selectedRow, 0);
                 String comment = addInfoFood.getText();
 
                 if (!foodTeam.getStatus().equals("Available")) {
@@ -877,7 +882,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount locTeam = (UserAccount) tblLocation.getValueAt(selectedRow, 1);
+                UserAccount locTeam = (UserAccount) tblLocation.getValueAt(selectedRow, 0);
                 String comment = addnInfoLoc.getText();
 
                 if (!locTeam.getStatus().equals("Available")) {

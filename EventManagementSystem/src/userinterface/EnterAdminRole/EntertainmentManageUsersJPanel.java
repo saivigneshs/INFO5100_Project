@@ -69,7 +69,7 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(25, 56, 82));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("MANAGE GEO INFRA TEAM MEMBERS");
+        jLabel5.setText("Manage Entertainment Team Members");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 638, -1));
 
         jScrollPane1.setForeground(new java.awt.Color(0, 102, 255));
