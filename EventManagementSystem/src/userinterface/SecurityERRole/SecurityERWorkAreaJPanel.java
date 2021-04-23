@@ -45,14 +45,14 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
         //valueLabel.setText();
     }
      public void populateERRequests() {
-        DefaultTableModel model = (DefaultTableModel) tblmusicRequests.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblEventAuth.getModel();
         model.setRowCount(0);
-        for (Network n : business.getNetworkList()) {
+        for (Network n : system.getNetworkList()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (WorkRequest workRequest : e.getWorkQueue().getWorkRequestList()) {
                     if (workRequest instanceof HostSecurityERWorkRequest) {
                         if(((HostSecurityERWorkRequest) workRequest).getLocation()!=null){
-                        if (((HostSecurityERWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
+                        if (((HostSecurityERWorkRequest) workRequest).getLocation().getUsername().equals(userAccount.getUsername())) {
                             Object[] row = new Object[model.getColumnCount()];
                             row[0] = workRequest;
                             row[1] = ((HostSecurityERWorkRequest) workRequest).getEventName();
