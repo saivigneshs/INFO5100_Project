@@ -108,16 +108,13 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         TeamDetailsPanelLayout.setHorizontalGroup(
             TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TeamDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addComponent(lbl_TeamDetails)
-                .addGap(21, 21, 21))
+                .addGap(42, 42, 42))
         );
         TeamDetailsPanelLayout.setVerticalGroup(
             TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TeamDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_TeamDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(lbl_TeamDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
         admin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -146,9 +143,9 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         ManageRequestPanelLayout.setHorizontalGroup(
             ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageRequestPanelLayout.createSequentialGroup()
-                .addContainerGap(73, Short.MAX_VALUE)
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(28, 28, 28))
         );
         ManageRequestPanelLayout.setVerticalGroup(
             ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,17 +196,7 @@ public class LocationWorkAreaJPanel extends javax.swing.JPanel {
         rightPanel.setBackground(new java.awt.Color(204, 204, 255));
         rightPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rightPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
-
-        javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
-        rightPanel.setLayout(rightPanelLayout);
-        rightPanelLayout.setHorizontalGroup(
-            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1036, Short.MAX_VALUE)
-        );
-        rightPanelLayout.setVerticalGroup(
-            rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 836, Short.MAX_VALUE)
-        );
+        rightPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout LocPanelLayout = new javax.swing.GroupLayout(LocPanel);
         LocPanel.setLayout(LocPanelLayout);

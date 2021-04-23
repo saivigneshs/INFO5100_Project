@@ -33,20 +33,21 @@ public class LocationOrgInfoJPanel extends javax.swing.JPanel {
      */
     private final JPanel container;
     private final EcoSystem system;
-    UserAccount useraccount = new UserAccount();
+    UserAccount useraccount;
    
     public LocationOrgInfoJPanel(JPanel container, UserAccount account, EcoSystem system) {
         initComponents();
          this.container = container;
          this.system = system;
+         this.useraccount = account;
          
-         lblTitle.setText(account.getUsername()+ "'s Details");
-         txtLocName.setText(account.getName());
-         txtLocContact.setText(account.getPhone());
-         txtLocEmail.setText(account.getEmail());
+         lblTitle.setText(useraccount.getUsername()+ "'s Details");
+         txtLocName.setText(useraccount.getName());
+         txtLocContact.setText(useraccount.getPhone());
+         txtLocEmail.setText(useraccount.getEmail());
          
-         txtLocstaddress.setText(account.getPhone());
-         txtLoczipcode.setText(account.getEmail());
+         txtLocstaddress.setText(useraccount.getPhone());
+         txtLoczipcode.setText(useraccount.getEmail());
          
          txtLocName.setEnabled(false);
         disableEdit();
@@ -67,7 +68,6 @@ private void disableEdit(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -385,6 +385,7 @@ private void disableEdit(){
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addContainerGap()
                 .addComponent(lblTitle)
                 .addGap(18, 18, Short.MAX_VALUE)
@@ -506,7 +507,6 @@ private void disableEdit(){
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
