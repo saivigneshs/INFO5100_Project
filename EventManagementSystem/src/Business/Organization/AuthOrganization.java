@@ -30,9 +30,6 @@ public class AuthOrganization extends Organization{
        @Override
     public Organization.Type getType() {
         return Organization.Type.GovtAuth;
-
     }
-
-}
 
 }
