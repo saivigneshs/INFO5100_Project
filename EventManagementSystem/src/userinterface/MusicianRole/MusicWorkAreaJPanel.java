@@ -39,7 +39,7 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
         //valueLabel.setText();
     }
     private void viewDetails(){
-        MusicOrgInfoJPanel MusicOrgInfoJPanel = new MusicOrgInfoJPanel(rightPanel,userAccount,system);
+        MusicOrgInfoJPanel MusicOrgInfoJPanel = new MusicOrgInfoJPanel(rightPanel,userAccount,system,network);
         rightPanel.add("MusicOrgInfoJPanel",MusicOrgInfoJPanel);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);

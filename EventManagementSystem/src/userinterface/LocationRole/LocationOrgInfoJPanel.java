@@ -381,7 +381,7 @@ private void disableEdit(){
                                     ua.setFoodprice(Double.parseDouble(txtPrice.getText()));
                                                           
 
-                                    JOptionPane.showMessageDialog(null, "Updated Successfully!");
+                                    JOptionPane.showMessageDialog(null, "Details Updated Successfully!");
                                     
                                     //system.sendEmailMessage(ua.getEmail(), "Hello! You have one new work request! Please login to know more!");
                                 }
