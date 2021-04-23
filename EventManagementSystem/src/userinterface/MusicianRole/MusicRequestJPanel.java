@@ -190,6 +190,7 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
         if (selectedRow >= 0) {
             HostMusicWorkRequest request = (HostMusicWorkRequest) tblmusicRequests.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
+            account.setMessage(message);
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
                 return;

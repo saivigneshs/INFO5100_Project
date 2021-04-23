@@ -43,6 +43,15 @@ public class UserAccount {
     private String fooditem3;
     private double drinkprice;
     private double foodprice;
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public String getDrinkitem1() {
         return drinkitem1;
