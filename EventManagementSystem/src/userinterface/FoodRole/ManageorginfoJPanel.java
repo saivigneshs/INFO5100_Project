@@ -55,8 +55,7 @@ public class ManageorginfoJPanel extends javax.swing.JPanel {
     txtfooditem1.setEditable(false);
     txtfooditem2.setEditable(false);
     txtfooditem3.setEditable(false);
-
-
+    txtfooditemprice.setEditable(false);
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -398,14 +397,12 @@ public class ManageorginfoJPanel extends javax.swing.JPanel {
         txtFoodContact.setEditable(true);
         txtFoodEmail.setEditable(true);
         txtFoodName.setEditable(true);
-
         txtFoodstaddress.setEditable(true);
         txtFoodzipcode.setEditable(true);
         txtfooditem1.setEditable(true);
         txtfooditem2.setEditable(true);
         txtfooditem3.setEditable(true);
         txtfooditemprice.setEditable(true);
-
         
         btnEnableUpdate.setEnabled(false);
     }//GEN-LAST:event_btnEnableUpdateActionPerformed
