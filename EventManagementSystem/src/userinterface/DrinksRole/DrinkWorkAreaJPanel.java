@@ -42,7 +42,7 @@ public class DrinkWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     private void viewDetails(){
-        ManageDrinkOrgInfoJPanel drinkOrgInfoJPanel = new ManageDrinkOrgInfoJPanel(rightPanel,userAccount,system);
+        ManageDrinkOrgInfoJPanel drinkOrgInfoJPanel = new ManageDrinkOrgInfoJPanel(rightPanel,userAccount,system,network);
         rightPanel.add("ManageDrinkOrgInfoJPanel",drinkOrgInfoJPanel);
         CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);

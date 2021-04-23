@@ -11,6 +11,7 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.DeliveryRole.DeliveryWorkAreaJPanel;
 import userinterface.InfraRole.InfraWorkAreaJPanel;
 
 /**
@@ -20,7 +21,7 @@ import userinterface.InfraRole.InfraWorkAreaJPanel;
 public class DeliveryRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
-        return new InfraWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
+        return new DeliveryWorkAreaJPanel(userProcessContainer,account,organization,enterprise,network,business);
     }
     @Override
     public String toString(){
