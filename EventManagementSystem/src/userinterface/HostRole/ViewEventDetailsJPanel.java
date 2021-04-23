@@ -85,7 +85,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof LocationRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getEmployee().getId();
+                            row[0] = ua.getEmployee().getName();
                             row[1] = ua;
                             row[2] = ua.getCity();
                             row[3] = ua.getState();
@@ -110,7 +110,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof FoodRole) {
                             Object[] row = new Object[8];
-                            row[0] = ua.getEmployee().getId();
+                            row[0] = ua.getEmployee().getName();
                             row[1] = ua;
                             row[2] = ua.getCity();
                             row[3] = ua.getState();

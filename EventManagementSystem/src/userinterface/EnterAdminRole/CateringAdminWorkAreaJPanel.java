@@ -54,8 +54,8 @@ public class CateringAdminWorkAreaJPanel extends javax.swing.JPanel {
     }
 
     private void manageUsers() {
-        CateringManageusersJPanel cateringManageUsersJPanel = new CateringManageusersJPanel(enterprise, system, organization);
-        jPanel4.add("CateringManageUsersJPanel", cateringManageUsersJPanel);
+        CateringManageUsersJPanel CateringManageUsersJPanel = new CateringManageUsersJPanel(enterprise, system, organization);
+        jPanel4.add("CateringManageUsersJPanel", CateringManageUsersJPanel);
         CardLayout layout = (CardLayout) jPanel4.getLayout();
         layout.next(jPanel4);
     }
