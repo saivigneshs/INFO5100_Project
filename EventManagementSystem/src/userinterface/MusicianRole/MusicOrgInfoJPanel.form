@@ -66,8 +66,18 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD:EventManagementSystem/src/userinterface/MusicianRole/ManagemusicorginfoJPanel.form
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+=======
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+>>>>>>> main:EventManagementSystem/src/userinterface/MusicianRole/MusicOrgInfoJPanel.form
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -98,10 +108,17 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD:EventManagementSystem/src/userinterface/MusicianRole/ManagemusicorginfoJPanel.form
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+=======
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="32767" attributes="0"/>
+>>>>>>> main:EventManagementSystem/src/userinterface/MusicianRole/MusicOrgInfoJPanel.form
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>

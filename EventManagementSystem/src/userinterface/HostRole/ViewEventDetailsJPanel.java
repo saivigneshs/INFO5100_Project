@@ -763,6 +763,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+
                                 if (foodTeam.getUsername().equals(ua.getUsername())) {
                                     
                                    
@@ -778,12 +779,14 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     foodRequest.setEvenCat(request.getEvenCat());
                                     foodRequest.setPlannedDate(request.getPlannedDate());
                                     foodRequest.setOrgType(Organization.Type.Infrastructure);
+
                                     
                                     e.getWorkQueue().getWorkRequestList().add(foodRequest);
 //                                   System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Order Sent Successfully!");
                                     APIforSMS sms = new APIforSMS(foodTeam.getPhone(), "Hello "+foodTeam.getName()+",  A Location likes to book your Infra Package. Kindly login for more details.");
                                     //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                break;
                                 }
                             }
                         }
