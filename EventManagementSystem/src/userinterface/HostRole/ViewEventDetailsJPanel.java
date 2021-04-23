@@ -14,6 +14,7 @@ import Business.Role.FoodRole;
 import Business.Role.InfraRole;
 import Business.Role.LocationRole;
 import Business.Role.MusicianRole;
+import Business.Role.PhotographerRole;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.HostBeverageWorkRequest;
 import Business.WorkQueue.HostFoodWorkRequest;
@@ -66,6 +67,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
          populateLocationTable();
          populateFoodTable();
          populateMusicTable();
+         populatePhotoTable();
                 
     }
 
@@ -102,7 +104,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                        if (ua.getRole() instanceof InfraRole) {
+                        if (ua.getRole() instanceof FoodRole) {
                             Object[] row = new Object[8];
                             row[0] = ua.getEmployee().getId();
                             row[1] = ua;
@@ -119,6 +121,33 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             }
         }
     }
+    
+    public void populateBeverageTable() {
+    DefaultTableModel model = (DefaultTableModel) tblBeverage.getModel();
+    model.setRowCount(0);
+        
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                        if (ua.getRole() instanceof PhotographerRole) {
+                            Object[] row = new Object[8];
+                            row[0] = ua.getEmployee().getId();
+                            row[1] = ua;
+                            row[2] = ua.getCity();
+                            row[3] = ua.getState();
+                            row[4] = ua.getStatus();
+                            row[5] = ua.getPhone();
+                            row[6] = ua.getName();
+                            row[7] = org.getType();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     public void populateMusicTable() {
     DefaultTableModel model = (DefaultTableModel) tblMusic.getModel();
     model.setRowCount(0);
@@ -144,6 +173,34 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             }
         }
     }
+    
+    public void populatePhotoTable() {
+    DefaultTableModel model = (DefaultTableModel) tblPhoto.getModel();
+    model.setRowCount(0);
+        
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                        if (ua.getRole() instanceof PhotographerRole) {
+                            Object[] row = new Object[8];
+                            row[0] = ua.getEmployee().getId();
+                            row[1] = ua;
+                            row[2] = ua.getCity();
+                            row[3] = ua.getState();
+                            row[4] = ua.getStatus();
+                            row[5] = ua.getPhone();
+                            row[6] = ua.getName();
+                            row[7] = org.getType();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
     private void disableInfo(){
     btnHireLoc.setEnabled(false);
    addnInfoLoc.setVisible(false);
@@ -171,17 +228,31 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblFood = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        addInfoInfra = new javax.swing.JTextField();
-        btnHireInfra = new javax.swing.JButton();
+        addInfoFood = new javax.swing.JTextField();
+        btnOrderFood = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblBeverage = new javax.swing.JTable();
+        addnInfoBeverages = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        btnOrderBeverage = new javax.swing.JButton();
         musicPanel = new javax.swing.JPanel();
         btnHireMusic = new javax.swing.JButton();
         addnInfoMusic = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblMusic = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        photopanel = new javax.swing.JPanel();
+        btnHirephoto = new javax.swing.JButton();
+        addnInfoPhoto = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblPhoto = new javax.swing.JTable();
         lblEventName = new javax.swing.JLabel();
         enterpriseLabel2 = new javax.swing.JLabel();
         lblEventDate = new javax.swing.JLabel();
+        jProgressBar1 = new javax.swing.JProgressBar();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(1040, 760));
@@ -207,7 +278,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         btnHireLoc.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnHireLoc.setForeground(new java.awt.Color(41, 50, 80));
-        btnHireLoc.setText("Fix Location");
+        btnHireLoc.setText("Book Location");
         btnHireLoc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHireLoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,13 +311,13 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         locPanelLayout.setHorizontalGroup(
             locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locPanelLayout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
+                .addContainerGap(72, Short.MAX_VALUE)
                 .addComponent(lblAddnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(addnInfoLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(125, 125, 125)
                 .addComponent(btnHireLoc)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,15 +368,15 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(41, 50, 80));
         jLabel2.setText("Additional Info:");
 
-        addInfoInfra.setForeground(new java.awt.Color(41, 50, 80));
+        addInfoFood.setForeground(new java.awt.Color(41, 50, 80));
 
-        btnHireInfra.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnHireInfra.setForeground(new java.awt.Color(41, 50, 80));
-        btnHireInfra.setText("Hire");
-        btnHireInfra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnHireInfra.addActionListener(new java.awt.event.ActionListener() {
+        btnOrderFood.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnOrderFood.setForeground(new java.awt.Color(41, 50, 80));
+        btnOrderFood.setText("Order Food");
+        btnOrderFood.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOrderFood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHireInfraActionPerformed(evt);
+                btnOrderFoodActionPerformed(evt);
             }
         });
 
@@ -314,16 +385,18 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         infraPanelLayout.setHorizontalGroup(
             infraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infraPanelLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(infraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(infraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(infraPanelLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addInfoInfra, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addInfoFood, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnHireInfra)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnOrderFood))
+                    .addGroup(infraPanelLayout.createSequentialGroup()
+                        .addContainerGap(41, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         infraPanelLayout.setVerticalGroup(
             infraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,17 +405,91 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(infraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnHireInfra)
+                    .addComponent(btnOrderFood)
                     .addComponent(jLabel2)
-                    .addComponent(addInfoInfra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addInfoFood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69))
         );
 
         tabPane.addTab("Food", infraPanel);
 
+        jScrollPane5.setForeground(new java.awt.Color(41, 50, 80));
+
+        tblBeverage.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name", "City", "State", "Status", "Phone", "Charge", "OrganizationName"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tblBeverage);
+
+        addnInfoBeverages.setForeground(new java.awt.Color(41, 50, 80));
+        addnInfoBeverages.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addnInfoBeveragesActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(41, 50, 80));
+        jLabel5.setText("Additional Info:");
+
+        btnOrderBeverage.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnOrderBeverage.setForeground(new java.awt.Color(41, 50, 80));
+        btnOrderBeverage.setText("Order Beverages");
+        btnOrderBeverage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOrderBeverage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderBeverageActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnOrderBeverage))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(33, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOrderBeverage)
+                    .addComponent(jLabel5))
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
+
+        tabPane.addTab("Beverage", jPanel2);
+
         btnHireMusic.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnHireMusic.setForeground(new java.awt.Color(41, 50, 80));
-        btnHireMusic.setText("Hire");
+        btnHireMusic.setText("Book Musician");
         btnHireMusic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHireMusic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -381,23 +528,25 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         musicPanelLayout.setHorizontalGroup(
             musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(musicPanelLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(musicPanelLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(addnInfoMusic, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(249, 249, 249)
-                        .addComponent(btnHireMusic)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnHireMusic))
+                    .addGroup(musicPanelLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         musicPanelLayout.setVerticalGroup(
             musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, musicPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnHireMusic)
                     .addComponent(jLabel3)
@@ -406,6 +555,94 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         );
 
         tabPane.addTab("Music", musicPanel);
+
+        btnHirephoto.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnHirephoto.setForeground(new java.awt.Color(41, 50, 80));
+        btnHirephoto.setText("Book Photographer");
+        btnHirephoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHirephoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHirephotoActionPerformed(evt);
+            }
+        });
+
+        addnInfoPhoto.setForeground(new java.awt.Color(41, 50, 80));
+
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(41, 50, 80));
+        jLabel4.setText("Additional Info:");
+
+        jScrollPane4.setForeground(new java.awt.Color(41, 50, 80));
+
+        tblPhoto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name", "City", "State", "Status", "Phone", "Charge", "OrganizationName"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tblPhoto);
+
+        javax.swing.GroupLayout photopanelLayout = new javax.swing.GroupLayout(photopanel);
+        photopanel.setLayout(photopanelLayout);
+        photopanelLayout.setHorizontalGroup(
+            photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(photopanelLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addGroup(photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(photopanelLayout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(addnInfoPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126)
+                        .addComponent(btnHirephoto, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+        photopanelLayout.setVerticalGroup(
+            photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, photopanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGroup(photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnHirephoto)
+                    .addComponent(jLabel4)
+                    .addComponent(addnInfoPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 730, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(photopanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 366, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(photopanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        tabPane.addTab("Photo", jPanel1);
 
         lblEventName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblEventName.setForeground(new java.awt.Color(25, 56, 82));
@@ -432,25 +669,30 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addGap(124, 124, 124)
                         .addComponent(lblEventDate))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
+                        .addGap(415, 415, 415)
+                        .addComponent(enterpriseLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
                         .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(415, 415, 415)
-                        .addComponent(enterpriseLabel2)))
-                .addContainerGap(145, Short.MAX_VALUE))
+                        .addGap(152, 152, 152)
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(21, 21, 21)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(enterpriseLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEventName)
                     .addComponent(lblEventDate))
-                .addGap(47, 47, 47)
+                .addGap(18, 18, 18)
                 .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -504,44 +746,47 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         }      
     }//GEN-LAST:event_btnHireLocActionPerformed
 
-    private void btnHireInfraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHireInfraActionPerformed
+    private void btnOrderFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderFoodActionPerformed
     int selectedRow =tblFood.getSelectedRow();
         int count = tblFood.getSelectedRowCount();
 
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount infraTeam = (UserAccount) tblFood.getValueAt(selectedRow, 1);
-                String comment = addInfoInfra.getText();
+                UserAccount foodTeam = (UserAccount) tblFood.getValueAt(selectedRow, 1);
+                String comment = addInfoFood.getText();
                 
-                if (!infraTeam.getStatus().equals("Available")) {
-                    JOptionPane.showMessageDialog(null, "Sorry! This Package is already booked!");
+                if (!foodTeam.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Order is Out of Stock!");
                     return;
                 }
                 for (Network n : system.getNetworkList()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                if (infraTeam.getUsername().equals(ua.getUsername())) {
+
+                                if (foodTeam.getUsername().equals(ua.getUsername())) {
                                     
                                    
                                                                                                     
-                                    infraRequest.setRequestID();
-                                    infraRequest.setSender(userAccount);
-                                    infraRequest.setHost(userAccount);
-                                    infraRequest.setInfra(infraTeam);
-                                    infraRequest.setStatus("Pending");
-                                    if (comment.isEmpty()) locRequest.setLocNote(comment);
-                                    infraRequest.setAttendance(request.getAttendance());
-                                    infraRequest.setEventName(request.getEventName());
-                                    infraRequest.setEvenCat(request.getEvenCat());
-                                    infraRequest.setPlannedDate(request.getPlannedDate());
-                                    infraRequest.setOrgType(Organization.Type.Infrastructure);
+                                    foodRequest.setRequestID();
+                                    foodRequest.setSender(userAccount);
+                                    foodRequest.setHost(userAccount);
+                                    foodRequest.setInfra(foodTeam);
+                                    foodRequest.setStatus("Pending");
+                                    if (comment.isEmpty()) foodRequest.setFoodNote(comment);
+                                    foodRequest.setAttendance(request.getAttendance());
+                                    foodRequest.setEventName(request.getEventName());
+                                    foodRequest.setEvenCat(request.getEvenCat());
+                                    foodRequest.setPlannedDate(request.getPlannedDate());
+                                    foodRequest.setOrgType(Organization.Type.Infrastructure);
+
                                     
-                                    e.getWorkQueue().getWorkRequestList().add(infraRequest);
-                                   System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
-                                    JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(infraTeam.getPhone(), "Hello "+infraTeam.getName()+",  A Location likes to book your Infra Package. Kindly login for more details.");
+                                    e.getWorkQueue().getWorkRequestList().add(foodRequest);
+//                                   System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Order Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(foodTeam.getPhone(), "Hello "+foodTeam.getName()+",  A Location likes to book your Infra Package. Kindly login for more details.");
                                     //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                break;
                                 }
                             }
                         }
@@ -552,7 +797,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select one row!");
 
         }  
-    }//GEN-LAST:event_btnHireInfraActionPerformed
+    }//GEN-LAST:event_btnOrderFoodActionPerformed
 
     private void tabPaneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPaneMousePressed
         // TODO add your handling code here:
@@ -565,25 +810,25 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount locTeam = (UserAccount) tblMusic.getValueAt(selectedRow, 1);
+                UserAccount musicTeam = (UserAccount) tblMusic.getValueAt(selectedRow, 1);
                 String comment = addnInfoMusic.getText();
                 
-                if (!locTeam.getStatus().equals("Available")) {
-                    JOptionPane.showMessageDialog(null, "Sorry! This Location is already Booked!");
+                if (!musicTeam.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Band is already Booked!");
                     return;
                 }
                 for (Network n : system.getNetworkList()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                if (locTeam.getUsername().equals(ua.getUsername())) {
+                                if (musicTeam.getUsername().equals(ua.getUsername())) {
                                                                                                     
                                     musicRequest.setRequestID();
                                     musicRequest.setSender(userAccount);
                                     musicRequest.setHost(userAccount);
-                                    musicRequest.setLocation(locTeam);
+                                    musicRequest.setLocation(musicTeam);
                                     musicRequest.setStatus("Pending");
-                                    if (comment.isEmpty()) musicRequest.setMessage(comment);
+                                    if (comment.isEmpty()) musicRequest.setMusicNote(comment);
                                     musicRequest.setAttendance(request.getAttendance());
                                     musicRequest.setEventName(request.getEventName());
                                     musicRequest.setEvenCat(request.getEvenCat());
@@ -594,8 +839,8 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     e.getWorkQueue().getWorkRequestList().add(musicRequest);
                                     System.out.println("Request"+musicRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Music Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(locTeam.getPhone(), "Hello "+locTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
-                                    //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                    APIforSMS sms = new APIforSMS(musicTeam.getPhone(), "Hello "+musicTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(musicTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
                                 }
                             }
                         }
@@ -609,29 +854,147 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         }  
     }//GEN-LAST:event_btnHireMusicActionPerformed
 
+    private void btnHirephotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHirephotoActionPerformed
+        int selectedRow =tblPhoto.getSelectedRow();
+        int count = tblPhoto.getSelectedRowCount();
+
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount photoTeam = (UserAccount) tblPhoto.getValueAt(selectedRow, 1);
+                String comment = addnInfoPhoto.getText();
+                
+                if (!photoTeam.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Photographer is already Booked!");
+                    return;
+                }
+                for (Network n : system.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if (photoTeam.getUsername().equals(ua.getUsername())) {
+                                                                                                    
+                                    photoRequest.setRequestID();
+                                    photoRequest.setSender(userAccount);
+                                    photoRequest.setHost(userAccount);
+                                    photoRequest.setLocation(photoTeam);
+                                    photoRequest.setStatus("Pending");
+                                    if (comment.isEmpty()) photoRequest.setMessage(comment);
+                                    photoRequest.setAttendance(request.getAttendance());
+                                    photoRequest.setEventName(request.getEventName());
+                                    photoRequest.setEvenCat(request.getEvenCat());
+                                    photoRequest.setPlannedDate(request.getPlannedDate());
+                                    photoRequest.setOrgType(Organization.Type.Photographer);
+                                    
+                                    
+                                    e.getWorkQueue().getWorkRequestList().add(photoRequest);
+                                    System.out.println("Request"+photoRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Photo Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(photoTeam.getPhone(), "Hello "+photoTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(photoTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            disableInfo();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+
+        }  
+    }//GEN-LAST:event_btnHirephotoActionPerformed
+
+    private void btnOrderBeverageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderBeverageActionPerformed
+    int selectedRow =tblBeverage.getSelectedRow();
+        int count = tblBeverage.getSelectedRowCount();
+
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount beverageTeam = (UserAccount) tblBeverage.getValueAt(selectedRow, 1);
+                String comment = addnInfoBeverages.getText();
+                
+                if (!beverageTeam.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Beverage is out of stock!");
+                    return;
+                }
+                for (Network n : system.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if (beverageTeam.getUsername().equals(ua.getUsername())) {
+                                                                                                    
+                                    beverageRequest.setRequestID();
+                                    beverageRequest.setSender(userAccount);
+                                    beverageRequest.setHost(userAccount);
+                                    beverageRequest.setLocation(beverageTeam);
+                                    beverageRequest.setStatus("Pending");
+                                    if (comment.isEmpty()) beverageRequest.setMessage(comment);
+                                    beverageRequest.setAttendance(request.getAttendance());
+                                    beverageRequest.setEventName(request.getEventName());
+                                    beverageRequest.setEvenCat(request.getEvenCat());
+                                    beverageRequest.setPlannedDate(request.getPlannedDate());
+                                    beverageRequest.setOrgType(Organization.Type.Beverages);
+                                    
+                                    
+                                    e.getWorkQueue().getWorkRequestList().add(beverageRequest);
+                                    System.out.println("Request"+beverageRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Photo Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(beverageTeam.getPhone(), "Hello "+beverageTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(beverageTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            disableInfo();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+
+        }  
+    }//GEN-LAST:event_btnOrderBeverageActionPerformed
+
+    private void addnInfoBeveragesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addnInfoBeveragesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addnInfoBeveragesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField addInfoInfra;
+    private javax.swing.JTextField addInfoFood;
+    private javax.swing.JTextField addnInfoBeverages;
     private javax.swing.JTextField addnInfoLoc;
     private javax.swing.JTextField addnInfoMusic;
-    private javax.swing.JButton btnHireInfra;
+    private javax.swing.JTextField addnInfoPhoto;
     private javax.swing.JButton btnHireLoc;
     private javax.swing.JButton btnHireMusic;
+    private javax.swing.JButton btnHirephoto;
+    private javax.swing.JButton btnOrderBeverage;
+    private javax.swing.JButton btnOrderFood;
     private javax.swing.JLabel enterpriseLabel2;
     private javax.swing.JPanel infraPanel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel lblAddnInfo;
     private javax.swing.JLabel lblEventDate;
     private javax.swing.JLabel lblEventName;
     private javax.swing.JPanel locPanel;
     private javax.swing.JPanel musicPanel;
+    private javax.swing.JPanel photopanel;
     private javax.swing.JTabbedPane tabPane;
+    private javax.swing.JTable tblBeverage;
     private javax.swing.JTable tblFood;
     private javax.swing.JTable tblLocation;
     private javax.swing.JTable tblMusic;
+    private javax.swing.JTable tblPhoto;
     // End of variables declaration//GEN-END:variables
 }

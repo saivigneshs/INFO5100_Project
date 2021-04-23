@@ -81,6 +81,7 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         tblFoodRequests = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+
         txtAddMsg = new javax.swing.JTextField();
         blAddMessage = new javax.swing.JLabel();
 
@@ -126,6 +127,12 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         blAddMessage.setForeground(new java.awt.Color(41, 50, 80));
         blAddMessage.setText("Additional Message:");
 
+        txtAddMsg.setBackground(new java.awt.Color(204, 204, 255));
+
+        blAddMessage.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        blAddMessage.setForeground(new java.awt.Color(41, 50, 80));
+        blAddMessage.setText("Additional Message:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -133,12 +140,15 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                 .addContainerGap(20, Short.MAX_VALUE))
+
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(blAddMessage)
                 .addGap(18, 18, 18)
@@ -150,12 +160,14 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(449, 449, 449))
+
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
@@ -167,6 +179,7 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -181,7 +194,9 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+
                 .addGap(135, 135, 135)
+
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(185, 185, 185))
         );
@@ -211,6 +226,7 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblFoodRequests.getSelectedRow();
@@ -222,6 +238,7 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                 return;
             }
             if (!request.getStatus().equals("Awaiting Govt Approval")) {
+
                 if (!"Event Authorized".equals(request.getStatus())) {
                     request.setStatus("Location Authorized");
                     request.setMessage(message);
@@ -231,6 +248,7 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                 } else {
                     JOptionPane.showMessageDialog(null, "Event is already Authorized!");
                 }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Select an appropriate Event!");
             }
@@ -238,6 +256,30 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblFoodRequests.getSelectedRow();
+        if (selectedRow >= 0) {
+            HostLocWorkRequest request = (HostLocWorkRequest) tblFoodRequests.getValueAt(selectedRow, 0);
+            String message = txtAddMsg.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
+                return;
+            }
+            if (!"Completed".equals(request.getStatus()) && !"In Progress".equals(request.getStatus())) {
+                request.setStatus("Rejected");
+                request.setMessage(message);
+                JOptionPane.showMessageDialog(null, "Event Rejected!");
+                    account.setStatus("Available");
+                populateFoodRequests();
+            } else {
+                JOptionPane.showMessageDialog(null, "Event is already " + request.getStatus());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Kindly select a row.");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

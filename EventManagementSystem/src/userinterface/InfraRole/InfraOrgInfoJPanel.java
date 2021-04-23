@@ -26,7 +26,7 @@ import javax.swing.JPanel;
  */
 public class InfraOrgInfoJPanel extends javax.swing.JPanel {
 
-    UserAccount useraccount = new UserAccount();
+    UserAccount useraccount;
     /**
      * Creates new form ViewUpdateRestJPanel
      */
@@ -38,6 +38,7 @@ public class InfraOrgInfoJPanel extends javax.swing.JPanel {
         initComponents();
          this.container = container;
          this.system = system;
+         this.useraccount=account;
          txtRestNo.setEnabled(false);
         disableEdit();
         
