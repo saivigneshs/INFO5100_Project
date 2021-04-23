@@ -1,15 +1,13 @@
-
-
 package userinterface.MusicianRole;
 
 
-import userinterface.InfraRole.*;
+import userinterface.LocationRole.*;
+import userinterface.LocationRole.LocationOrgInfoJPanel;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import Business.Entertainment.MusicianDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -25,26 +23,34 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
     private final Organization organization;
     private final Network network;
     private final Enterprise enterprise;
-//    private final MusicianDirectory musicianDirectory;
     
     /** Creates new form AdminWorkAreaJPanel */
-//    public MusicWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization org, Enterprise ent, Network net, EcoSystem system,MusicianDirectory musicianDirectory) {
     public MusicWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization org, Enterprise ent, Network net, EcoSystem system) {
         initComponents();
-        lblRestName.setText(account.getUsername());
-        lblRestAdmin.setText(account.getEmployee().getName()+" 's Admin Page");
+//        admin.setText(account.getUsername());
+        title2.setText(account.getEmployee().getName()+"'s Admin Page");
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = account;
         this.organization = org;
         this.enterprise = ent;
         this.network = net;
-//        this.musicianDirectory = musicianDirectory;
-
-      
+        manageRequests();
         //valueLabel.setText();
     }
+    private void viewDetails(){
+        MusicOrgInfoJPanel MusicOrgInfoJPanel = new MusicOrgInfoJPanel(rightPanel,userAccount,system);
+        rightPanel.add("MusicOrgInfoJPanel",MusicOrgInfoJPanel);
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
+        layout.next(rightPanel);
+    }
     
+    private void manageRequests(){
+        MusicRequestJPanel MusicRequestJPanel = new MusicRequestJPanel(rightPanel,userAccount,system);
+        rightPanel.add("MusicRequestJPanel",MusicRequestJPanel);
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
+        layout.next(rightPanel);
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -53,160 +59,205 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lblRestAdmin = new javax.swing.JLabel();
-        lblRestName = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        LocPanel = new javax.swing.JPanel();
+        menuPanel = new javax.swing.JPanel();
+        TeamDetailsPanel = new javax.swing.JPanel();
+        lbl_TeamDetails = new javax.swing.JLabel();
+        admin = new javax.swing.JLabel();
+        ManageRequestPanel = new javax.swing.JPanel();
+        lblManageRequest = new javax.swing.JLabel();
+        title2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
+        rightPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setForeground(new java.awt.Color(0, 51, 51));
         setToolTipText("");
+        setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        LocPanel.setBackground(new java.awt.Color(241, 241, 242));
+        LocPanel.setMinimumSize(new java.awt.Dimension(1338, 840));
 
-        lblRestAdmin.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestAdmin.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
-        lblRestAdmin.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestAdmin.setText("Music Administration Page");
+        menuPanel.setBackground(new java.awt.Color(204, 204, 255));
+        menuPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        menuPanel.setMinimumSize(new java.awt.Dimension(280, 840));
+        menuPanel.setPreferredSize(new java.awt.Dimension(280, 840));
 
-        lblRestName.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblRestName.setForeground(new java.awt.Color(0, 51, 51));
-        lblRestName.setText("Admin Page");
+        TeamDetailsPanel.setBackground(new java.awt.Color(204, 204, 255));
+        TeamDetailsPanel.setToolTipText("");
+        TeamDetailsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TeamDetailsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TeamDetailsPanelMousePressed(evt);
+            }
+        });
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        lbl_TeamDetails.setBackground(new java.awt.Color(204, 204, 255));
+        lbl_TeamDetails.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        lbl_TeamDetails.setText("Music Details");
+        lbl_TeamDetails.setAutoscrolls(true);
+        lbl_TeamDetails.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbl_TeamDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lbl_TeamDetailsMousePressed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
-        jLabel1.setText("Package Details");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(22, 22, 22))
+        javax.swing.GroupLayout TeamDetailsPanelLayout = new javax.swing.GroupLayout(TeamDetailsPanel);
+        TeamDetailsPanel.setLayout(TeamDetailsPanelLayout);
+        TeamDetailsPanelLayout.setHorizontalGroup(
+            TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TeamDetailsPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(lbl_TeamDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        TeamDetailsPanelLayout.setVerticalGroup(
+            TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_TeamDetails, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+        );
+
+        admin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        admin.setText("Admin Page");
+
+        ManageRequestPanel.setBackground(new java.awt.Color(204, 204, 255));
+        ManageRequestPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ManageRequestPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ManageRequestPanelMousePressed(evt);
+            }
+        });
+
+        lblManageRequest.setBackground(new java.awt.Color(255, 213, 90));
+        lblManageRequest.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        lblManageRequest.setText("Manage User Requests");
+        lblManageRequest.setPreferredSize(new java.awt.Dimension(115, 16));
+        lblManageRequest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageRequestMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ManageRequestPanelLayout = new javax.swing.GroupLayout(ManageRequestPanel);
+        ManageRequestPanel.setLayout(ManageRequestPanelLayout);
+        ManageRequestPanelLayout.setHorizontalGroup(
+            ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageRequestPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblManageRequest, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        ManageRequestPanelLayout.setVerticalGroup(
+            ManageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageRequestPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblManageRequest, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        title2.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
+        title2.setText("Music Team Details");
+
+        javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
+        menuPanel.setLayout(menuPanelLayout);
+        menuPanelLayout.setHorizontalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addComponent(jSeparator3)
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TeamDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ManageRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 68, Short.MAX_VALUE))
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(admin))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(title2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
-        jLabel2.setText("Manage Requests");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        jSeparator1.setForeground(new java.awt.Color(255, 0, 102));
-
-        jSeparator2.setForeground(new java.awt.Color(255, 0, 102));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47))
-            .addComponent(jSeparator2)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(lblRestName))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(lblRestAdmin)))
-                .addGap(0, 16, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+        menuPanelLayout.setVerticalGroup(
+            menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuPanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(title2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator3))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(admin)
+                .addGap(14, 14, 14)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lblRestAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblRestName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(419, Short.MAX_VALUE))
+                .addComponent(TeamDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(ManageRequestPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        rightPanel.setBackground(new java.awt.Color(204, 204, 255));
+        rightPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        rightPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
+        rightPanel.setLayout(new java.awt.CardLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout LocPanelLayout = new javax.swing.GroupLayout(LocPanel);
+        LocPanel.setLayout(LocPanelLayout);
+        LocPanelLayout.setHorizontalGroup(
+            LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LocPanelLayout.createSequentialGroup()
+                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 757, Short.MAX_VALUE))
+                .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1040, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        LocPanelLayout.setVerticalGroup(
+            LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LocPanelLayout.createSequentialGroup()
+                .addGroup(LocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        add(LocPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lbl_TeamDetailsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_TeamDetailsMousePressed
+
+        viewDetails();
+    }//GEN-LAST:event_lbl_TeamDetailsMousePressed
+
+    private void TeamDetailsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TeamDetailsPanelMousePressed
+        // TODO add your handling code here:
+       viewDetails();
+    }//GEN-LAST:event_TeamDetailsPanelMousePressed
+
+    private void lblManageRequestMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageRequestMousePressed
+        // TODO add your handling code here:
+       manageRequests();
+    }//GEN-LAST:event_lblManageRequestMousePressed
+
+    private void ManageRequestPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageRequestPanelMousePressed
+        // TODO add your handling code here:
+        manageRequests();
+    }//GEN-LAST:event_ManageRequestPanelMousePressed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel LocPanel;
+    private javax.swing.JPanel ManageRequestPanel;
+    private javax.swing.JPanel TeamDetailsPanel;
+    private javax.swing.JLabel admin;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JLabel lblRestAdmin;
-    private javax.swing.JLabel lblRestName;
+    private javax.swing.JLabel lblManageRequest;
+    private javax.swing.JLabel lbl_TeamDetails;
+    private javax.swing.JPanel menuPanel;
+    private javax.swing.JPanel rightPanel;
+    private javax.swing.JLabel title2;
     // End of variables declaration//GEN-END:variables
     
 }

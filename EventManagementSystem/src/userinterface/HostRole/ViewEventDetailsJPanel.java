@@ -15,9 +15,13 @@ import Business.Role.InfraRole;
 import Business.Role.LocationRole;
 import Business.Role.MusicianRole;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HostBeverageWorkRequest;
+import Business.WorkQueue.HostFoodWorkRequest;
 import Business.WorkQueue.HostGovtWorkRequest;
 import Business.WorkQueue.HostInfraWorkRequest;
 import Business.WorkQueue.HostLocWorkRequest;
+import Business.WorkQueue.HostMusicWorkRequest;
+import Business.WorkQueue.HostPhotoWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -36,6 +40,14 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     
      HostLocWorkRequest locRequest = new HostLocWorkRequest();
      HostInfraWorkRequest infraRequest = new HostInfraWorkRequest();
+     HostMusicWorkRequest musicRequest = new HostMusicWorkRequest();
+     HostPhotoWorkRequest photoRequest = new HostPhotoWorkRequest();
+     HostFoodWorkRequest  foodRequest = new  HostFoodWorkRequest();
+     HostBeverageWorkRequest beverageRequest = new HostBeverageWorkRequest();
+     
+     
+    
+     
   
     /**
      * Creates new form ViewEventDetailsJPanel
@@ -332,6 +344,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         btnHireMusic.setForeground(new java.awt.Color(41, 50, 80));
         btnHireMusic.setText("Hire");
         btnHireMusic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHireMusic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHireMusicActionPerformed(evt);
+            }
+        });
 
         addnInfoMusic.setForeground(new java.awt.Color(41, 50, 80));
 
@@ -541,6 +558,56 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
        
     }//GEN-LAST:event_tabPaneMousePressed
+
+    private void btnHireMusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHireMusicActionPerformed
+       int selectedRow =tblMusic.getSelectedRow();
+        int count = tblMusic.getSelectedRowCount();
+
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount locTeam = (UserAccount) tblMusic.getValueAt(selectedRow, 1);
+                String comment = addnInfoMusic.getText();
+                
+                if (!locTeam.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Location is already Booked!");
+                    return;
+                }
+                for (Network n : system.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if (locTeam.getUsername().equals(ua.getUsername())) {
+                                                                                                    
+                                    musicRequest.setRequestID();
+                                    musicRequest.setSender(userAccount);
+                                    musicRequest.setHost(userAccount);
+                                    musicRequest.setLocation(locTeam);
+                                    musicRequest.setStatus("Pending");
+                                    if (comment.isEmpty()) musicRequest.setMessage(comment);
+                                    musicRequest.setAttendance(request.getAttendance());
+                                    musicRequest.setEventName(request.getEventName());
+                                    musicRequest.setEvenCat(request.getEvenCat());
+                                    musicRequest.setPlannedDate(request.getPlannedDate());
+                                    musicRequest.setOrgType(Organization.Type.Musician);
+                                    
+                                    
+                                    e.getWorkQueue().getWorkRequestList().add(musicRequest);
+                                    System.out.println("Request"+musicRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Music Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(locTeam.getPhone(), "Hello "+locTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            disableInfo();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+
+        }  
+    }//GEN-LAST:event_btnHireMusicActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
