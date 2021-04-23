@@ -3,62 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.DrinksRole;
-
-import Business.EcoSystem;
-import Business.UserAccount.UserAccount;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
+package userinterface.DeliveryRole;
 
 /**
  *
  * @author VIGNESH
  */
-public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
+public class ManageDeliveryOrgInfoJPanel extends javax.swing.JPanel {
 
-    private final JPanel container;
-    private final EcoSystem system;
-    UserAccount useraccount = new UserAccount();
     /**
-     * Creates new form ManageOrgInfoJPanel
+     * Creates new form ManageDeliveryOrgInfoJPanel
      */
-    public ManageDrinkOrgInfoJPanel(JPanel container, UserAccount account, EcoSystem system) {
+    public ManageDeliveryOrgInfoJPanel() {
         initComponents();
-         this.container = container;
-         this.system = system;
-         lblTitle.setText(account.getUsername()+ "'s Details");
-         txtdrinkName.setText(account.getName());
-         txtdrinkContact.setText(account.getPhone());
-         txtdrinkEmail.setText(account.getEmail());
-         
-         txtdrinkstaddress.setText(account.getStreet());
-         txtdrinkzipcode.setText(account.getZipcode());
-         txtdrinkitem1.setText(account.getDrinkitem1());
-         txtdrinkitem2.setText(account.getDrinkitem2());
-         txtdrinkitem3.setText(account.getDrinkitem3());
-         txtdrinkitemprice.setText(String.valueOf(account.getDrinkprice()));
-         txtdrinkName.setEnabled(false);
-         
-         disableEdit();
     }
 
-    private void disableEdit(){
-    txtdrinkName.setEditable(false);
-    txtdrinkContact.setEditable(false);
-    txtdrinkEmail.setEditable(false);
-    txtdrinkstaddress.setEditable(false);
-    txtdrinkzipcode.setEditable(false);
-    txtdrinkitem1.setEditable(false);
-    txtdrinkitem2.setEditable(false);
-    txtdrinkitem3.setEditable(false);
-    txtdrinkitemprice.setEditable(false);
-}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,26 +31,27 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        txtdrinkzipcode = new javax.swing.JTextField();
-        txtdrinkstaddress = new javax.swing.JTextField();
+        txtdeliveryzipcode = new javax.swing.JTextField();
+        txtdeliverystaddress = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtdrinkEmail = new javax.swing.JTextField();
-        txtdrinkContact = new javax.swing.JTextField();
+        txtdeliveryEmail = new javax.swing.JTextField();
+        txtdeliveryContact = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtdrinkName = new javax.swing.JTextField();
+        txtdeliveryName = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        txtdrinkitem1 = new javax.swing.JTextField();
-        txtdrinkitem2 = new javax.swing.JTextField();
-        txtdrinkitem3 = new javax.swing.JTextField();
+        txtdeliveryitem1 = new javax.swing.JTextField();
+        txtdeliveryitem2 = new javax.swing.JTextField();
+        txtdeliveryitem3 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtdrinkitemprice = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        txtdeliveryitemprice = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        btnsave = new javax.swing.JButton();
         btnEnableUpdate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
@@ -134,11 +94,11 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtdrinkzipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdrinkName, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdrinkContact, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdrinkEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdrinkstaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdeliveryzipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdeliveryName, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdeliveryContact, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdeliveryEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdeliverystaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43))
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,23 +107,23 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(txtdrinkName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdeliveryName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtdrinkContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdeliveryContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtdrinkEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdeliveryEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtdrinkstaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdeliverystaddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtdrinkzipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdeliveryzipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56))
         );
 
@@ -172,7 +132,7 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
         jPanel3.setDoubleBuffered(false);
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel9.setText("Drink Specialities:");
+        jLabel9.setText("Locations Covered:");
 
         jLabel8.setText("1)");
 
@@ -183,9 +143,9 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel11.setText("Price:");
 
-        txtdrinkitemprice.addActionListener(new java.awt.event.ActionListener() {
+        txtdeliveryitemprice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtdrinkitempriceActionPerformed(evt);
+                txtdeliveryitempriceActionPerformed(evt);
             }
         });
 
@@ -199,21 +159,21 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtdrinkitemprice, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtdeliveryitemprice, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel9)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel12)
                             .addGap(18, 18, 18)
-                            .addComponent(txtdrinkitem2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtdeliveryitem2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel8)
                             .addGap(18, 18, 18)
-                            .addComponent(txtdrinkitem1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtdeliveryitem1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel13)
                             .addGap(18, 18, 18)
-                            .addComponent(txtdrinkitem3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtdeliveryitem3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -223,29 +183,32 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtdrinkitem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdeliveryitem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtdrinkitem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdeliveryitem2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtdrinkitem3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtdeliveryitem3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtdrinkitemprice, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdeliveryitemprice, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton3.setText("SAVE");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btnsave.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnsave.setText("SAVE");
+        btnsave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnsave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnsaveActionPerformed(evt);
             }
         });
 
@@ -258,16 +221,31 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
             }
         });
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnsave, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(48, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnsave, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(348, 348, 348))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -279,6 +257,10 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
                         .addGap(351, 351, 351)
                         .addComponent(lblTitle)))
                 .addContainerGap(64, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(312, 312, 312))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,11 +271,9 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(94, 94, 94)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEnableUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -314,33 +294,33 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void txtdeliveryitempriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdeliveryitempriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_txtdeliveryitempriceActionPerformed
 
-    private void txtdrinkitempriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdrinkitempriceActionPerformed
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtdrinkitempriceActionPerformed
+    }//GEN-LAST:event_btnsaveActionPerformed
 
     private void btnEnableUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnableUpdateActionPerformed
         // TODO add your handling code here:
-        txtdrinkContact.setEditable(true);
-        txtdrinkEmail.setEditable(true);
-        txtdrinkName.setEditable(true);
-        txtdrinkstaddress.setEditable(true);
-        txtdrinkzipcode.setEditable(true);
-        txtdrinkitem1.setEditable(true);
-        txtdrinkitem2.setEditable(true);
-        txtdrinkitem3.setEditable(true);
-        txtdrinkitemprice.setEditable(true);
-        
+        txtdeliveryContact.setEditable(true);
+        txtdeliveryEmail.setEditable(true);
+        txtdeliveryName.setEditable(true);
+        txtdeliverystaddress.setEditable(true);
+        txtdeliveryzipcode.setEditable(true);
+        txtdeliveryitem1.setEditable(true);
+        txtdeliveryitem2.setEditable(true);
+        txtdeliveryitem3.setEditable(true);
+        txtdeliveryitemprice.setEditable(true);
+
         btnEnableUpdate.setEnabled(false);
     }//GEN-LAST:event_btnEnableUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnableUpdate;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnsave;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -354,15 +334,16 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField txtdrinkContact;
-    private javax.swing.JTextField txtdrinkEmail;
-    private javax.swing.JTextField txtdrinkName;
-    private javax.swing.JTextField txtdrinkitem1;
-    private javax.swing.JTextField txtdrinkitem2;
-    private javax.swing.JTextField txtdrinkitem3;
-    private javax.swing.JTextField txtdrinkitemprice;
-    private javax.swing.JTextField txtdrinkstaddress;
-    private javax.swing.JTextField txtdrinkzipcode;
+    private javax.swing.JTextField txtdeliveryContact;
+    private javax.swing.JTextField txtdeliveryEmail;
+    private javax.swing.JTextField txtdeliveryName;
+    private javax.swing.JTextField txtdeliveryitem1;
+    private javax.swing.JTextField txtdeliveryitem2;
+    private javax.swing.JTextField txtdeliveryitem3;
+    private javax.swing.JTextField txtdeliveryitemprice;
+    private javax.swing.JTextField txtdeliverystaddress;
+    private javax.swing.JTextField txtdeliveryzipcode;
     // End of variables declaration//GEN-END:variables
 }

@@ -49,13 +49,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="btnEnableUpdate" min="-2" pref="77" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" pref="78" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="348" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -71,6 +64,11 @@
                   </Group>
                   <EmptySpace pref="64" max="32767" attributes="0"/>
               </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="312" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -83,12 +81,9 @@
                       <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
                       <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnEnableUpdate" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="jButton3" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="117" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="62" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -129,11 +124,11 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtdrinkzipcode" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                          <Component id="txtdrinkName" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                          <Component id="txtdrinkContact" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                          <Component id="txtdrinkEmail" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
-                          <Component id="txtdrinkstaddress" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryzipcode" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryName" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryContact" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryEmail" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
+                          <Component id="txtdeliverystaddress" alignment="0" min="-2" pref="142" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
@@ -145,27 +140,27 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtdrinkName" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryName" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtdrinkContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryContact" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtdrinkEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtdrinkstaddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdeliverystaddress" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtdrinkzipcode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryzipcode" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
@@ -181,9 +176,9 @@
                 <Property name="text" type="java.lang.String" value="Zip Code:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdrinkzipcode">
+            <Component class="javax.swing.JTextField" name="txtdeliveryzipcode">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdrinkstaddress">
+            <Component class="javax.swing.JTextField" name="txtdeliverystaddress">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -201,9 +196,9 @@
                 <Property name="text" type="java.lang.String" value="Email Id:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdrinkEmail">
+            <Component class="javax.swing.JTextField" name="txtdeliveryEmail">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdrinkContact">
+            <Component class="javax.swing.JTextField" name="txtdeliveryContact">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
@@ -221,7 +216,7 @@
                 <Property name="text" type="java.lang.String" value="Organization Name:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdrinkName">
+            <Component class="javax.swing.JTextField" name="txtdeliveryName">
             </Component>
           </SubComponents>
         </Container>
@@ -244,27 +239,27 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtdrinkitemprice" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="txtdeliveryitemprice" min="-2" pref="110" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                               <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtdrinkitem2" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <Component id="txtdeliveryitem2" min="-2" pref="210" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtdrinkitem1" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <Component id="txtdeliveryitem1" min="-2" pref="210" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtdrinkitem3" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <Component id="txtdeliveryitem3" min="-2" pref="210" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -279,23 +274,23 @@
                       <Component id="jLabel9" min="-2" pref="22" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtdrinkitem1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryitem1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtdrinkitem2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryitem2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel12" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtdrinkitem3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryitem3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel13" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel11" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="txtdrinkitemprice" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="txtdeliveryitemprice" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="48" max="32767" attributes="0"/>
                   </Group>
@@ -308,14 +303,14 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Drink Specialities:"/>
+                <Property name="text" type="java.lang.String" value="Locations Covered:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdrinkitem1">
+            <Component class="javax.swing.JTextField" name="txtdeliveryitem1">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdrinkitem2">
+            <Component class="javax.swing.JTextField" name="txtdeliveryitem2">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdrinkitem3">
+            <Component class="javax.swing.JTextField" name="txtdeliveryitem3">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
@@ -340,45 +335,85 @@
                 <Property name="text" type="java.lang.String" value="Price:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtdrinkitemprice">
+            <Component class="javax.swing.JTextField" name="txtdeliveryitemprice">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdrinkitempriceActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtdeliveryitempriceActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Container class="javax.swing.JPanel" name="jPanel4">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="1"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="cc" red="cc" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="SAVE"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnEnableUpdate">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="UPDATE"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                <BevelBorder/>
-              </Border>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnableUpdateActionPerformed"/>
-          </Events>
-        </Component>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="btnEnableUpdate" min="-2" pref="77" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnsave" min="-2" pref="78" max="-2" attributes="0"/>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnEnableUpdate" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="btnsave" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="btnsave">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="SAVE"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                    <BevelBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsaveActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnEnableUpdate">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="UPDATE"/>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                    <BevelBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnableUpdateActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
