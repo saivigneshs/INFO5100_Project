@@ -48,15 +48,15 @@ public class ManageDrinkOrgInfoJPanel extends javax.swing.JPanel {
         
     }
 private void disableEdit(){
-       txtLocContact.setEditable(true);
-        txtLocEmail.setEditable(true);
-        txtLocName.setEditable(true);
-        txtCity.setEditable(true);
-        txtState.setEditable(true);
-        txtPrice.setEditable(true);
-        txtSpec1.setEditable(true);
-        txtSpec2.setEditable(true);
-        txtSpec3.setEditable(true);
+       txtLocContact.setEditable(false);
+        txtLocEmail.setEditable(false);
+        txtLocName.setEditable(false);
+        txtCity.setEditable(false);
+        txtState.setEditable(false);
+        txtPrice.setEditable(false);
+        txtSpec1.setEditable(false);
+        txtSpec2.setEditable(false);
+        txtSpec3.setEditable(false);
 }
     /**
      * This method is called from within the constructor to initialize the form.

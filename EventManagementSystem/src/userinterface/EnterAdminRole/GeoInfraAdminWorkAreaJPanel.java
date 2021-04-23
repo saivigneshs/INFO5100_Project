@@ -90,6 +90,7 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         manageRequestPanel = new javax.swing.JPanel();
         manageRequestLabel = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         workAreaPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(241, 241, 242));
@@ -101,6 +102,7 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         systemAdminPanel.setPreferredSize(new java.awt.Dimension(1338, 840));
 
         menuPanel.setBackground(new java.awt.Color(204, 204, 255));
+        menuPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menuPanel.setMinimumSize(new java.awt.Dimension(280, 840));
         menuPanel.setPreferredSize(new java.awt.Dimension(280, 840));
         menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -115,7 +117,7 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         manageOrganization.setBackground(new java.awt.Color(215, 81, 81));
-        manageOrganization.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageOrganization.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageOrganization.setText("Manage Organization");
         manageOrganization.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -127,10 +129,10 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageOrgPanel.setLayout(manageOrgPanelLayout);
         manageOrgPanelLayout.setHorizontalGroup(
             manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageOrgPanelLayout.createSequentialGroup()
+            .addGroup(manageOrgPanelLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(manageOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(manageOrganization)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         manageOrgPanelLayout.setVerticalGroup(
             manageOrgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +142,7 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        menuPanel.add(manageOrgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 40));
+        menuPanel.add(manageOrgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 240, 40));
 
         manageEmp.setBackground(new java.awt.Color(204, 204, 255));
         manageEmp.setToolTipText("");
@@ -153,7 +155,7 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         manageEmployeeLabel.setBackground(new java.awt.Color(215, 81, 81));
-        manageEmployeeLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        manageEmployeeLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageEmployeeLabel.setText("Manage Team");
         manageEmployeeLabel.setAutoscrolls(true);
         manageEmployeeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -167,9 +169,9 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageEmpLayout.setHorizontalGroup(
             manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageEmpLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(manageEmployeeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(60, 60, 60)
+                .addComponent(manageEmployeeLabel)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         manageEmpLayout.setVerticalGroup(
             manageEmpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +180,7 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        menuPanel.add(manageEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 280, 40));
+        menuPanel.add(manageEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 240, 40));
 
         manageUserAcc.setBackground(new java.awt.Color(204, 204, 255));
         manageUserAcc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -189,7 +191,7 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         manageUserAccountLabel.setBackground(new java.awt.Color(215, 81, 81));
-        manageUserAccountLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        manageUserAccountLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageUserAccountLabel.setText("Manage Users");
         manageUserAccountLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageUserAccountLabel.setPreferredSize(new java.awt.Dimension(115, 16));
@@ -199,23 +201,20 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageUserAccLayout.setHorizontalGroup(
             manageUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageUserAccLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(67, 67, 67)
+                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         manageUserAccLayout.setVerticalGroup(
             manageUserAccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageUserAccLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(manageUserAccountLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        menuPanel.add(manageUserAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, 40));
+        menuPanel.add(manageUserAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, 40));
 
         lblHeading.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblHeading.setText("Geographical Infrastructure Enterprise");
-        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 20, -1, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
@@ -230,7 +229,7 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         manageRequestLabel.setBackground(new java.awt.Color(255, 213, 90));
-        manageRequestLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        manageRequestLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         manageRequestLabel.setText("Manage Requests");
         manageRequestLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageRequestLabel.setPreferredSize(new java.awt.Dimension(115, 16));
@@ -240,21 +239,23 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageRequestPanelLayout.setHorizontalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(manageRequestPanelLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(48, 48, 48)
+                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         manageRequestPanelLayout.setVerticalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageRequestPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(manageRequestLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addComponent(manageRequestLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        menuPanel.add(manageRequestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 40));
+        menuPanel.add(manageRequestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 240, 40));
+        menuPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 280, 10));
 
         workAreaPanel.setBackground(new java.awt.Color(204, 204, 255));
+        workAreaPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         workAreaPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
         workAreaPanel.setLayout(new java.awt.CardLayout());
 
@@ -265,14 +266,15 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(systemAdminPanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(workAreaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(workAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1052, Short.MAX_VALUE))
         );
         systemAdminPanelLayout.setVerticalGroup(
             systemAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(workAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(systemAdminPanelLayout.createSequentialGroup()
-                .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, systemAdminPanelLayout.createSequentialGroup()
+                .addGroup(systemAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(workAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -308,6 +310,7 @@ public class GeoInfraAdminWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JPanel manageEmp;
