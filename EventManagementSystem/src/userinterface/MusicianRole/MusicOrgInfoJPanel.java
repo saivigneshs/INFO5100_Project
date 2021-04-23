@@ -95,7 +95,6 @@ private void disableEdit(){
         jPanel4 = new javax.swing.JPanel();
         btnEnableUpdate = new javax.swing.JButton();
         btnSaveChanges = new javax.swing.JButton();
-  
 
         setBackground(new java.awt.Color(204, 204, 255));
         setForeground(new java.awt.Color(0, 51, 51));
@@ -398,15 +397,6 @@ private void disableEdit(){
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-    }//GEN-LAST:event_jButton7ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnableUpdate;

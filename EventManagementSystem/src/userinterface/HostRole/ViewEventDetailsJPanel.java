@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Role.BeveragesRole;
 import Business.Role.FoodRole;
 import Business.Role.InfraRole;
 import Business.Role.LocationRole;
@@ -70,6 +71,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
          populateFoodTable();
          populateMusicTable();
          populatePhotoTable();
+         populateBeverageTable();
                 
     }
 
@@ -132,7 +134,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                        if (ua.getRole() instanceof PhotographerRole) {
+                        if (ua.getRole() instanceof BeveragesRole) {
                             Object[] row = new Object[8];
                             row[0] = ua.getEmployee().getId();
                             row[1] = ua;
@@ -232,7 +234,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addInfoFood = new javax.swing.JTextField();
         btnOrderFood = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        beveragesPanel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblBeverage = new javax.swing.JTable();
         addnInfoBeverages = new javax.swing.JTextField();
@@ -244,7 +246,6 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblMusic = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
         photopanel = new javax.swing.JPanel();
         addnInfoPhoto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -312,7 +313,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         locPanelLayout.setHorizontalGroup(
             locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locPanelLayout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addGroup(locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(locPanelLayout.createSequentialGroup()
                         .addComponent(lblAddnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,9 +391,9 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnOrderFood))
                     .addGroup(infraPanelLayout.createSequentialGroup()
-                        .addContainerGap(26, Short.MAX_VALUE)
+                        .addContainerGap(70, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         infraPanelLayout.setVerticalGroup(
             infraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,36 +451,36 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout beveragesPanelLayout = new javax.swing.GroupLayout(beveragesPanel);
+        beveragesPanel.setLayout(beveragesPanelLayout);
+        beveragesPanelLayout.setHorizontalGroup(
+            beveragesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(beveragesPanelLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(beveragesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGroup(beveragesPanelLayout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 424, Short.MAX_VALUE)
                         .addComponent(btnOrderBeverage)))
                 .addGap(29, 29, 29))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        beveragesPanelLayout.setVerticalGroup(
+            beveragesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(beveragesPanelLayout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(beveragesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOrderBeverage)
                     .addComponent(jLabel5))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
 
-        tabPane.addTab("Beverage", jPanel2);
+        tabPane.addTab("Beverage", beveragesPanel);
 
         musicPanel.setPreferredSize(new java.awt.Dimension(728, 450));
 
@@ -532,7 +533,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(addnInfoMusic, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnHireMusic))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 826, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 914, Short.MAX_VALUE))
                 .addContainerGap())
         );
         musicPanelLayout.setVerticalGroup(
@@ -576,33 +577,6 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(tblPhoto);
 
-        javax.swing.GroupLayout photopanelLayout = new javax.swing.GroupLayout(photopanel);
-        photopanel.setLayout(photopanelLayout);
-        photopanelLayout.setHorizontalGroup(
-            photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(photopanelLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(addnInfoPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, photopanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 873, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-        );
-        photopanelLayout.setVerticalGroup(
-            photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, photopanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addGroup(photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(addnInfoPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-
         btnHirephoto.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnHirephoto.setForeground(new java.awt.Color(41, 50, 80));
         btnHirephoto.setText("Book Photographer");
@@ -613,34 +587,37 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(687, Short.MAX_VALUE)
+        javax.swing.GroupLayout photopanelLayout = new javax.swing.GroupLayout(photopanel);
+        photopanel.setLayout(photopanelLayout);
+        photopanelLayout.setHorizontalGroup(
+            photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(photopanelLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(addnInfoPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnHirephoto, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(29, Short.MAX_VALUE)
-                    .addComponent(photopanel, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                .addGap(102, 102, 102))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, photopanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 873, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(293, Short.MAX_VALUE)
-                .addComponent(btnHirephoto)
-                .addGap(81, 81, 81))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(photopanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(18, Short.MAX_VALUE)))
+        photopanelLayout.setVerticalGroup(
+            photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, photopanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addGroup(photopanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(addnInfoPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHirephoto))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
-        tabPane.addTab("Photo", jPanel1);
+        tabPane.addTab("Photo", photopanel);
 
         lblEventName.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblEventName.setForeground(new java.awt.Color(25, 56, 82));
@@ -668,11 +645,9 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(lblEventDate))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(415, 415, 415)
-                        .addComponent(enterpriseLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 952, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                        .addComponent(enterpriseLabel2)))
+                .addContainerGap(425, Short.MAX_VALUE))
+            .addComponent(tabPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -683,51 +658,54 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEventName)
                     .addComponent(lblEventDate))
-                .addGap(18, 18, 18)
-
+                .addGap(26, 26, 26)
                 .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
-
+                .addContainerGap(201, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHireLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHireLocActionPerformed
-       int selectedRow =tblLocation.getSelectedRow();
-        int count = tblLocation.getSelectedRowCount();
+    private void tabPaneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPaneMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabPaneMousePressed
+
+    private void btnHirephotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHirephotoActionPerformed
+        int selectedRow =tblPhoto.getSelectedRow();
+        int count = tblPhoto.getSelectedRowCount();
 
         if (count == 1) {
             if (selectedRow >= 0) {
-                UserAccount locTeam = (UserAccount) tblLocation.getValueAt(selectedRow, 1);
-                String comment = addnInfoLoc.getText();
-                
-                if (!locTeam.getStatus().equals("Available")) {
-                    JOptionPane.showMessageDialog(null, "Sorry! This Location is already Booked!");
+                UserAccount photoTeam = (UserAccount) tblPhoto.getValueAt(selectedRow, 1);
+                String comment = addnInfoPhoto.getText();
+
+                if (!photoTeam.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Photographer is already Booked!");
                     return;
                 }
                 for (Network n : system.getNetworkList()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                if (locTeam.getUsername().equals(ua.getUsername())) {
-                                                                                                    
-                                    locRequest.setRequestID();
-                                    locRequest.setSender(userAccount);
-                                    locRequest.setHost(userAccount);
-                                    locRequest.setLocation(locTeam);
-                                    locRequest.setStatus("Pending");
-                                    if (!comment.isEmpty()) locRequest.setMessage(comment);
-                                    locRequest.setAttendance(request.getAttendance());
-                                    locRequest.setEventName(request.getEventName());
-                                    locRequest.setEvenCat(request.getEvenCat());
-                                    locRequest.setPlannedDate(request.getPlannedDate());
-                                    locRequest.setOrgType(Organization.Type.Location);
-                                    
-                                    
-                                    e.getWorkQueue().getWorkRequestList().add(locRequest);
-                                    System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
-                                    JOptionPane.showMessageDialog(null, "Location Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(locTeam.getPhone(), "Hello "+locTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
-                                    //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                if (photoTeam.getUsername().equals(ua.getUsername())) {
+
+
+                                    photoRequest.setRequestID();
+                                    photoRequest.setSender(userAccount);
+                                    photoRequest.setHost(userAccount);
+                                    photoRequest.setLocation(photoTeam);
+                                    photoRequest.setStatus("Pending");
+                                    if (comment.isEmpty()) photoRequest.setMessage(comment);
+                                    photoRequest.setAttendance(request.getAttendance());
+                                    photoRequest.setEventName(request.getEventName());
+                                    photoRequest.setEvenCat(request.getEvenCat());
+                                    photoRequest.setPlannedDate(request.getPlannedDate());
+                                    photoRequest.setOrgType(Organization.Type.Photographer);
+
+                                    e.getWorkQueue().getWorkRequestList().add(photoRequest);
+                                    System.out.println("Request"+photoRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Photo Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(photoTeam.getPhone(), "Hello "+photoTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(photoTeam.getEmail(), "Hello! You have one new work request! Please login to know more!")
+                                break;
                                 }
                             }
                         }
@@ -738,76 +716,18 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
 
-        }      
-    }//GEN-LAST:event_btnHireLocActionPerformed
-
-    private void btnOrderFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderFoodActionPerformed
-    int selectedRow =tblFood.getSelectedRow();
-        int count = tblFood.getSelectedRowCount();
-
-        if (count == 1) {
-            if (selectedRow >= 0) {
-                UserAccount foodTeam = (UserAccount) tblFood.getValueAt(selectedRow, 1);
-                String comment = addInfoFood.getText();
-                
-                if (!foodTeam.getStatus().equals("Available")) {
-                    JOptionPane.showMessageDialog(null, "Sorry! This Order is Out of Stock!");
-                    return;
-                }
-                for (Network n : system.getNetworkList()) {
-                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
-                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
-                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-
-                                if (foodTeam.getUsername().equals(ua.getUsername())) {
-                                    
-                                   
-                                                                                                    
-                                    foodRequest.setRequestID();
-                                    foodRequest.setSender(userAccount);
-                                    foodRequest.setHost(userAccount);
-                                    foodRequest.setInfra(foodTeam);
-                                    foodRequest.setStatus("Pending");
-                                    if (comment.isEmpty()) foodRequest.setFoodNote(comment);
-                                    foodRequest.setAttendance(request.getAttendance());
-                                    foodRequest.setEventName(request.getEventName());
-                                    foodRequest.setEvenCat(request.getEvenCat());
-                                    foodRequest.setPlannedDate(request.getPlannedDate());
-                                    foodRequest.setOrgType(Organization.Type.Infrastructure);
-
-                                    
-                                    e.getWorkQueue().getWorkRequestList().add(foodRequest);
-//                                   System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
-                                    JOptionPane.showMessageDialog(null, "Order Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(foodTeam.getPhone(), "Hello "+foodTeam.getName()+",  A Location likes to book your Infra Package. Kindly login for more details.");
-                                    //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
-                                break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Please select one row!");
-
-        }  
-    }//GEN-LAST:event_btnOrderFoodActionPerformed
-
-    private void tabPaneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPaneMousePressed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_tabPaneMousePressed
+        }
+    }//GEN-LAST:event_btnHirephotoActionPerformed
 
     private void btnHireMusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHireMusicActionPerformed
-       int selectedRow =tblMusic.getSelectedRow();
+        int selectedRow =tblMusic.getSelectedRow();
         int count = tblMusic.getSelectedRowCount();
 
         if (count == 1) {
             if (selectedRow >= 0) {
                 UserAccount musicTeam = (UserAccount) tblMusic.getValueAt(selectedRow, 1);
                 String comment = addnInfoMusic.getText();
-                
+
                 if (!musicTeam.getStatus().equals("Available")) {
                     JOptionPane.showMessageDialog(null, "Sorry! This Band is already Booked!");
                     return;
@@ -817,7 +737,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                                 if (musicTeam.getUsername().equals(ua.getUsername())) {
-                                                                                                    
+
                                     musicRequest.setRequestID();
                                     musicRequest.setSender(userAccount);
                                     musicRequest.setHost(userAccount);
@@ -829,8 +749,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     musicRequest.setEvenCat(request.getEvenCat());
                                     musicRequest.setPlannedDate(request.getPlannedDate());
                                     musicRequest.setOrgType(Organization.Type.Musician);
-                                    
-                                    
+
                                     e.getWorkQueue().getWorkRequestList().add(musicRequest);
                                     System.out.println("Request"+musicRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Music Request Sent Successfully!");
@@ -846,68 +765,18 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
 
-        }  
+        }
     }//GEN-LAST:event_btnHireMusicActionPerformed
 
-    private void btnHirephotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHirephotoActionPerformed
-        int selectedRow =tblPhoto.getSelectedRow();
-        int count = tblPhoto.getSelectedRowCount();
-
-        if (count == 1) {
-            if (selectedRow >= 0) {
-                UserAccount photoTeam = (UserAccount) tblPhoto.getValueAt(selectedRow, 1);
-                String comment = addnInfoPhoto.getText();
-                
-                if (!photoTeam.getStatus().equals("Available")) {
-                    JOptionPane.showMessageDialog(null, "Sorry! This Photographer is already Booked!");
-                    return;
-                }
-                for (Network n : system.getNetworkList()) {
-                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
-                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
-                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                if (photoTeam.getUsername().equals(ua.getUsername())) {
-                                                                                                    
-                                    photoRequest.setRequestID();
-                                    photoRequest.setSender(userAccount);
-                                    photoRequest.setHost(userAccount);
-                                    photoRequest.setLocation(photoTeam);
-                                    photoRequest.setStatus("Pending");
-                                    if (comment.isEmpty()) photoRequest.setMessage(comment);
-                                    photoRequest.setAttendance(request.getAttendance());
-                                    photoRequest.setEventName(request.getEventName());
-                                    photoRequest.setEvenCat(request.getEvenCat());
-                                    photoRequest.setPlannedDate(request.getPlannedDate());
-                                    photoRequest.setOrgType(Organization.Type.Photographer);
-                                    
-                                    
-                                    e.getWorkQueue().getWorkRequestList().add(photoRequest);
-                                    System.out.println("Request"+photoRequest.toString()+"  >> Added to Enterprise "+e);
-                                    JOptionPane.showMessageDialog(null, "Photo Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(photoTeam.getPhone(), "Hello "+photoTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
-                                    //system.sendEmailMessage(photoTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            disableInfo();
-        } else {
-            JOptionPane.showMessageDialog(null, "Please select one row!");
-
-        }  
-    }//GEN-LAST:event_btnHirephotoActionPerformed
-
     private void btnOrderBeverageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderBeverageActionPerformed
-    int selectedRow =tblBeverage.getSelectedRow();
+        int selectedRow =tblBeverage.getSelectedRow();
         int count = tblBeverage.getSelectedRowCount();
 
         if (count == 1) {
             if (selectedRow >= 0) {
                 UserAccount beverageTeam = (UserAccount) tblBeverage.getValueAt(selectedRow, 1);
                 String comment = addnInfoBeverages.getText();
-                
+
                 if (!beverageTeam.getStatus().equals("Available")) {
                     JOptionPane.showMessageDialog(null, "Sorry! This Beverage is out of stock!");
                     return;
@@ -917,7 +786,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                                 if (beverageTeam.getUsername().equals(ua.getUsername())) {
-                                                                                                    
+
                                     beverageRequest.setRequestID();
                                     beverageRequest.setSender(userAccount);
                                     beverageRequest.setHost(userAccount);
@@ -929,12 +798,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     beverageRequest.setEvenCat(request.getEvenCat());
                                     beverageRequest.setPlannedDate(request.getPlannedDate());
                                     beverageRequest.setOrgType(Organization.Type.Beverages);
-                                    
-                                    
+
                                     e.getWorkQueue().getWorkRequestList().add(beverageRequest);
                                     System.out.println("Request"+beverageRequest.toString()+"  >> Added to Enterprise "+e);
-                                    JOptionPane.showMessageDialog(null, "Photo Request Sent Successfully!");
-                                    APIforSMS sms = new APIforSMS(beverageTeam.getPhone(), "Hello "+beverageTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    JOptionPane.showMessageDialog(null, "Beverage Order Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(beverageTeam.getPhone(), "Hello "+beverageTeam.getName()+",  A Host likes to book your Beverages package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
                                     //system.sendEmailMessage(beverageTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
                                 }
                             }
@@ -946,12 +814,111 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
 
-        }  
+        }
     }//GEN-LAST:event_btnOrderBeverageActionPerformed
 
     private void addnInfoBeveragesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addnInfoBeveragesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addnInfoBeveragesActionPerformed
+
+    private void btnOrderFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderFoodActionPerformed
+        int selectedRow =tblFood.getSelectedRow();
+        int count = tblFood.getSelectedRowCount();
+
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount foodTeam = (UserAccount) tblFood.getValueAt(selectedRow, 1);
+                String comment = addInfoFood.getText();
+
+                if (!foodTeam.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Order is Out of Stock!");
+                    return;
+                }
+                for (Network n : system.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+
+                                if (foodTeam.getUsername().equals(ua.getUsername())) {
+
+                                    foodRequest.setRequestID();
+                                    foodRequest.setSender(userAccount);
+                                    foodRequest.setHost(userAccount);
+                                    foodRequest.setInfra(foodTeam);
+                                    foodRequest.setStatus("Pending");
+                                    if (comment.isEmpty()) foodRequest.setFoodNote(comment);
+                                    foodRequest.setAttendance(request.getAttendance());
+                                    foodRequest.setEventName(request.getEventName());
+                                    foodRequest.setEvenCat(request.getEvenCat());
+                                    foodRequest.setPlannedDate(request.getPlannedDate());
+                                    foodRequest.setOrgType(Organization.Type.Infrastructure);
+
+                                    e.getWorkQueue().getWorkRequestList().add(foodRequest);
+                                    //                                   System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Order Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(foodTeam.getPhone(), "Hello "+foodTeam.getName()+",  A Location likes to book your Infra Package. Kindly login for more details.");
+                                    //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+
+        }
+    }//GEN-LAST:event_btnOrderFoodActionPerformed
+
+    private void btnHireLocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHireLocActionPerformed
+        int selectedRow =tblLocation.getSelectedRow();
+        int count = tblLocation.getSelectedRowCount();
+
+        if (count == 1) {
+            if (selectedRow >= 0) {
+                UserAccount locTeam = (UserAccount) tblLocation.getValueAt(selectedRow, 1);
+                String comment = addnInfoLoc.getText();
+
+                if (!locTeam.getStatus().equals("Available")) {
+                    JOptionPane.showMessageDialog(null, "Sorry! This Location is already Booked!");
+                    return;
+                }
+                for (Network n : system.getNetworkList()) {
+                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if (locTeam.getUsername().equals(ua.getUsername())) {
+
+                                    locRequest.setRequestID();
+                                    locRequest.setSender(userAccount);
+                                    locRequest.setHost(userAccount);
+                                    locRequest.setLocation(locTeam);
+                                    locRequest.setStatus("Pending");
+                                    if (!comment.isEmpty()) locRequest.setMessage(comment);
+                                    locRequest.setAttendance(request.getAttendance());
+                                    locRequest.setEventName(request.getEventName());
+                                    locRequest.setEvenCat(request.getEvenCat());
+                                    locRequest.setPlannedDate(request.getPlannedDate());
+                                    locRequest.setOrgType(Organization.Type.Location);
+
+                                    e.getWorkQueue().getWorkRequestList().add(locRequest);
+                                    System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Location Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(locTeam.getPhone(), "Hello "+locTeam.getName()+",  A Host likes to book your Location package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(locTeam.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            disableInfo();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+
+        }
+    }//GEN-LAST:event_btnHireLocActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -960,6 +927,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField addnInfoLoc;
     private javax.swing.JTextField addnInfoMusic;
     private javax.swing.JTextField addnInfoPhoto;
+    private javax.swing.JPanel beveragesPanel;
     private javax.swing.JButton btnHireLoc;
     private javax.swing.JButton btnHireMusic;
     private javax.swing.JButton btnHirephoto;
@@ -971,8 +939,6 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
