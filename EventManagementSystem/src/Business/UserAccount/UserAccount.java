@@ -35,7 +35,79 @@ public class UserAccount {
     private Image userPhoto;
     private Image package1Photo;
     private Image package2Photo;
+    private String drinkitem1;
+    private String drinkitem2;
+    private String drinkitem3;
+    private String fooditem1;
+    private String fooditem2;
+    private String fooditem3;
+    private double drinkprice;
+    private double foodprice;
 
+    public String getDrinkitem1() {
+        return drinkitem1;
+    }
+
+    public void setDrinkitem1(String drinkitem1) {
+        this.drinkitem1 = drinkitem1;
+    }
+
+    public String getDrinkitem2() {
+        return drinkitem2;
+    }
+
+    public void setDrinkitem2(String drinkitem2) {
+        this.drinkitem2 = drinkitem2;
+    }
+
+    public String getDrinkitem3() {
+        return drinkitem3;
+    }
+
+    public void setDrinkitem3(String drinkitem3) {
+        this.drinkitem3 = drinkitem3;
+    }
+
+    public String getFooditem1() {
+        return fooditem1;
+    }
+
+    public void setFooditem1(String fooditem1) {
+        this.fooditem1 = fooditem1;
+    }
+
+    public String getFooditem2() {
+        return fooditem2;
+    }
+
+    public void setFooditem2(String fooditem2) {
+        this.fooditem2 = fooditem2;
+    }
+
+    public String getFooditem3() {
+        return fooditem3;
+    }
+
+    public void setFooditem3(String fooditem3) {
+        this.fooditem3 = fooditem3;
+    }
+
+    public double getDrinkprice() {
+        return drinkprice;
+    }
+
+    public void setDrinkprice(double drinkprice) {
+        this.drinkprice = drinkprice;
+    }
+
+    public double getFoodprice() {
+        return foodprice;
+    }
+
+    public void setFoodprice(double foodprice) {
+        this.foodprice = foodprice;
+    }  
+    
     public Image getPackage1Photo() {
         return package1Photo;
     }

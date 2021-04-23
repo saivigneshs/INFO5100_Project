@@ -10,9 +10,13 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HostLocWorkRequest;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -21,26 +25,47 @@ import javax.swing.JPanel;
  */
 public class FoodRequestJPanel extends javax.swing.JPanel {
 
-    JPanel userProcessContainer;
-    Enterprise enterprise;
-    EcoSystem system;
-    Network network;
-    UserAccount account;
-    Organization organization;
-    public JPanel container;
+    private final JPanel userProcessContainer;
+    private final UserAccount account;
+    private final EcoSystem business;
     /**
      * Creates new form FoodRequestJPanel
      */
-    public FoodRequestJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
+    public FoodRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         initComponents();
-        this.container = userProcessContainer;
+        this.userProcessContainer = userProcessContainer;
         this.account = account;
-        this.system = business;
-        this.network = network;
-        this.enterprise = enterprise;
-        this.organization = organization;
+        this.business = business;
+        populateFoodRequests();
     }
 
+    public void populateFoodRequests() {
+        DefaultTableModel model = (DefaultTableModel) tblFoodRequests.getModel();
+        model.setRowCount(0);
+        for (Network n : business.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (WorkRequest workRequest : e.getWorkQueue().getWorkRequestList()) {
+                    if (workRequest instanceof HostLocWorkRequest) {
+                        if (((HostLocWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((HostLocWorkRequest) workRequest).getEventName();
+                            row[2] = ((HostLocWorkRequest) workRequest).getEvenCat();
+                            row[3] = ((HostLocWorkRequest) workRequest).getAttendance();
+                            row[4] = ((HostLocWorkRequest) workRequest).getPlannedDate();
+                            row[5] = ((HostLocWorkRequest) workRequest).getHost();
+                            row[6] = ((HostLocWorkRequest) workRequest).getHost().getCity();
+                            row[7] = ((HostLocWorkRequest) workRequest).getStatus();
+                            row[8] = ((HostLocWorkRequest) workRequest).getMessage();
+                            row[9] = ((HostLocWorkRequest) workRequest).getLocNote();
+                            model.addRow(row);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,11 +78,12 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblFoodRequests = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        txtAddMsg = new javax.swing.JTextField();
+        blAddMessage = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -67,16 +93,16 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Manage Food Requests");
 
-        jTable1.setBackground(new java.awt.Color(51, 255, 51));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblFoodRequests.setBackground(new java.awt.Color(51, 255, 51));
+        tblFoodRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Order Id", "Org Name", "Food Name", "Quantity", "Order Status", "Deliver to", "Location Team Message", "Order By", "Total Cost"
+                "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Host", "Host City", "Status", "Message from Host", "Loc Team Reply"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblFoodRequests);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setText("Approve Request");
@@ -90,18 +116,20 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton2.setText("Reject Request");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jButton3.setText("Back");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
         jLabel2.setBackground(new java.awt.Color(255, 153, 153));
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Haribalakrishnan\\Downloads\\information-request-vector-image-isolated-260nw-1294152517 (2).jpg")); // NOI18N
+
+        txtAddMsg.setBackground(new java.awt.Color(204, 204, 255));
+
+        blAddMessage.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        blAddMessage.setForeground(new java.awt.Color(41, 50, 80));
+        blAddMessage.setText("Additional Message:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,16 +137,18 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(68, 68, 68)
+                .addComponent(blAddMessage)
+                .addGap(18, 18, 18)
+                .addComponent(txtAddMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -130,20 +160,25 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(blAddMessage)
+                            .addComponent(txtAddMsg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -158,35 +193,74 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(108, Short.MAX_VALUE)
+                .addContainerGap(127, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        container.remove(this);
-        Component[] componentArray = container.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        CardLayout layout = (CardLayout) container.getLayout();
-        layout.previous(container);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = tblFoodRequests.getSelectedRow();
+        if (selectedRow >= 0) {
+            HostLocWorkRequest request = (HostLocWorkRequest) tblFoodRequests.getValueAt(selectedRow, 0);
+            String message = txtAddMsg.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
+                return;
+            }
+            if (!request.getStatus().equals("Awaiting Govt Approval")) {
+            if (!"Event Authorized".equals(request.getStatus())) {
+                request.setStatus("Location Authorized");
+                request.setMessage(message);
+                JOptionPane.showMessageDialog(null, "Location is Authorized!");
+                    account.setStatus("Booked");
+                populateFoodRequests();
+            } else {
+                JOptionPane.showMessageDialog(null, "Event is already Authorized!");
+            }
+            } else {
+                JOptionPane.showMessageDialog(null, "Select an appropriate Event!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select one row!");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblFoodRequests.getSelectedRow();
+        if (selectedRow >= 0) {
+            HostLocWorkRequest request = (HostLocWorkRequest) tblFoodRequests.getValueAt(selectedRow, 0);
+            String message = txtAddMsg.getText();
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
+                return;
+            }
+            if (!"Completed".equals(request.getStatus()) && !"In Progress".equals(request.getStatus())) {
+                request.setStatus("Rejected");
+                request.setMessage(message);
+                JOptionPane.showMessageDialog(null, "Event Rejected!");
+                    account.setStatus("Available");
+                populateFoodRequests();
+            } else {
+                JOptionPane.showMessageDialog(null, "Event is already " + request.getStatus());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Kindly select a row.");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel blAddMessage;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblFoodRequests;
+    private javax.swing.JTextField txtAddMsg;
     // End of variables declaration//GEN-END:variables
 }
