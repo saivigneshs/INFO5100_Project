@@ -1,6 +1,7 @@
 package userinterface.SecurityERRole;
 
 
+import Business.APIforSMS.APIforSMS;
 import userinterface.GovtAuthRole.*;
 import userinterface.LocationRole.*;
 import userinterface.InfraRole.*;
@@ -9,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.HostGovtWorkRequest;
 import Business.WorkQueue.HostSecurityERWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
@@ -40,29 +42,34 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
         this.organization = org;
         this.enterprise = ent;
         this.network = net;
-        populateTable();
+        populateERRequests();
       
         //valueLabel.setText();
     }
-    public void populateTable() {
+     public void populateERRequests() {
         DefaultTableModel model = (DefaultTableModel) tblEventAuth.getModel();
-
         model.setRowCount(0);
-        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
-            if (request instanceof HostSecurityERWorkRequest) {
-          //  if (request.getStatus().equals("Awaiting Govt Approval")) {
-                Object[] row = new Object[8];
-                row[0] = request;
-                row[1] = ((HostSecurityERWorkRequest) request).getEventName();
-                row[2] = ((HostSecurityERWorkRequest) request).getEvenCat();
-                row[3] = request.getStatus();
-                row[4] = request.getSender();
-                row[5] = ((HostSecurityERWorkRequest) request).getAttendance();
-                row[6] = ((HostSecurityERWorkRequest) request).getPlannedDate();
-                row[7] = ((HostSecurityERWorkRequest) request).getLocation();
-
-                model.addRow(row);
-            //}
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (WorkRequest workRequest : e.getWorkQueue().getWorkRequestList()) {
+                    if (workRequest instanceof HostSecurityERWorkRequest) {
+                        if(((HostSecurityERWorkRequest) workRequest).getLocation()!=null){
+                        if (((HostSecurityERWorkRequest) workRequest).getLocation().getUsername().equals(userAccount.getUsername())) {
+                            Object[] row = new Object[model.getColumnCount()];
+                            row[0] = workRequest;
+                            row[1] = ((HostSecurityERWorkRequest) workRequest).getEventName();
+                            row[2] = ((HostSecurityERWorkRequest) workRequest).getEvenCat();
+                            row[3] = ((HostSecurityERWorkRequest) workRequest).getStatus();
+                            row[4] = ((HostSecurityERWorkRequest) workRequest).getHost();
+                            row[5] = ((HostSecurityERWorkRequest) workRequest).getAttendance();
+                            row[6] = ((HostSecurityERWorkRequest) workRequest).getPlannedDate();
+                            row[7] = ((HostSecurityERWorkRequest) workRequest).getLocNote();
+                                                     
+                            model.addRow(row);
+                        }
+                    }
+                }
+                }
             }
         }
     }
@@ -81,7 +88,6 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
         scrollOrderList = new javax.swing.JScrollPane();
         tblEventAuth = new javax.swing.JTable();
         btnApprove = new javax.swing.JButton();
-        btnReject = new javax.swing.JButton();
         blAddMessage = new javax.swing.JLabel();
         txtAddMsg = new javax.swing.JTextField();
 
@@ -132,26 +138,14 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
         btnApprove.setBackground(new java.awt.Color(204, 255, 255));
         btnApprove.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         btnApprove.setForeground(new java.awt.Color(0, 51, 51));
-        btnApprove.setText("Approve Request");
+        btnApprove.setText("Dispatch Team");
         btnApprove.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnApprove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApproveActionPerformed(evt);
             }
         });
-        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 130, 30));
-
-        btnReject.setBackground(new java.awt.Color(204, 255, 255));
-        btnReject.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        btnReject.setForeground(new java.awt.Color(0, 51, 51));
-        btnReject.setText("Reject Request");
-        btnReject.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnReject.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRejectActionPerformed(evt);
-            }
-        });
-        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 130, 30));
+        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 130, 30));
 
         blAddMessage.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         blAddMessage.setForeground(new java.awt.Color(41, 50, 80));
@@ -173,54 +167,31 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
                 return;
             }
-            if (request.getStatus().equals("Awaiting SOS Approval")) {
-            if (!"Event Authorized".equals(request.getStatus())) {
-                request.setStatus("Event Authorized");
+            if (request.getStatus().equals("SOS Issued")) {
+                
+            if (!"ER Team Dispatched".equals(request.getStatus())) {
+                request.setStatus("ER Team Dispatched");
                 request.setMessage(message);
-                JOptionPane.showMessageDialog(null, "Event is Authorized!");
+                JOptionPane.showMessageDialog(null, "ER Team Dispatched!");
                     userAccount.setStatus("Available");
-                populateTable();
+               APIforSMS sms = new APIforSMS(request.getHost().getPhone(), "Hello "+request.getHost().getName()+", Don't Worry! Help is on the way to "+request.getLocNote()+". We will be there in 15 minutes.");
+                populateERRequests();
                 disableFields();
             } else {
-                JOptionPane.showMessageDialog(null, "Event is already Authorized!");
+                JOptionPane.showMessageDialog(null, "ER Team already Dispatched!");
             }
             } else {
-                JOptionPane.showMessageDialog(null, "Select an appropriate Event!");
+                JOptionPane.showMessageDialog(null, "Select an appropriate row!");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
         }
     }//GEN-LAST:event_btnApproveActionPerformed
-
-    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = tblEventAuth.getSelectedRow();
-        if (selectedRow >= 0) {
-            HostSecurityERWorkRequest request = (HostSecurityERWorkRequest) tblEventAuth.getValueAt(selectedRow, 0);
-            String message = txtAddMsg.getText();
-            if (message.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");
-                return;
-            }
-            if (!"Completed".equals(request.getStatus()) || !"In Progress".equals(request.getStatus())) {
-                request.setStatus("Rejected");
-                request.setMessage(message);
-                JOptionPane.showMessageDialog(null, "Event Rejected!");
-                    userAccount.setStatus("Available");
-                populateTable();
-            } else {
-                JOptionPane.showMessageDialog(null, "Event is already " + request.getStatus());
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Kindly select a row.");
-        }
-    }//GEN-LAST:event_btnRejectActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel blAddMessage;
     private javax.swing.JButton btnApprove;
-    private javax.swing.JButton btnReject;
     private javax.swing.JLabel lblRestAdmin;
     private javax.swing.JScrollPane scrollOrderList;
     private javax.swing.JTable tblEventAuth;
