@@ -108,10 +108,10 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
         TeamDetailsPanel.setLayout(TeamDetailsPanelLayout);
         TeamDetailsPanelLayout.setHorizontalGroup(
             TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TeamDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(TeamDetailsPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addComponent(lbl_TeamDetails)
-                .addGap(69, 69, 69))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TeamDetailsPanelLayout.setVerticalGroup(
             TeamDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +173,7 @@ public class MusicWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(menuPanelLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addComponent(admin)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
