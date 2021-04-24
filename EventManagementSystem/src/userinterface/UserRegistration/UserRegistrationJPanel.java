@@ -87,6 +87,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         cbOrg = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(1338, 900));
@@ -272,7 +273,10 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 140));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/welcomehi.gif"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/baloons.gif"))); // NOI18N
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 270, 310, 220));
     }// </editor-fold>//GEN-END:initComponents
 
     private void stateComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateComboActionPerformed
@@ -477,6 +481,7 @@ public class UserRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblPhone;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JProgressBar pbPwdStr;

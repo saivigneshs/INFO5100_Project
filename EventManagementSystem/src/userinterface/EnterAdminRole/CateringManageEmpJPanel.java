@@ -80,8 +80,6 @@ public class CateringManageEmpJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("MANAGE CATERING TEAMS");
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 255));
-        jTable1.setForeground(new java.awt.Color(204, 255, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
