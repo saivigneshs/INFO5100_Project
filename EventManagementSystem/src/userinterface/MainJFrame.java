@@ -79,7 +79,7 @@ public class MainJFrame extends javax.swing.JFrame {
         lbl_content2 = new javax.swing.JLabel();
         lbl_logo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
         lbl_uName = new javax.swing.JPanel();
         un_img = new javax.swing.JLabel();
         userNameJTextField = new javax.swing.JTextField();
@@ -164,10 +164,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/confetti_1_349x135.gif"))); // NOI18N
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/kisspng-computer-icons-icon-design-encapsulated-postscript-more-info-icon-5b4fcee4e70c74.9013090315319569649464-removebg-preview.jpg"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/kisspng-computer-icons-icon-design-encapsulated-postscript-more-info-icon-5b4fcee4e70c74.9013090315319569649464-removebg-preview.jpg"))); // NOI18N
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInfoActionPerformed(evt);
             }
         });
 
@@ -194,7 +194,7 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(lbl_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -210,7 +210,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_content2)
                 .addGap(26, 26, 26)
-                .addComponent(jButton1)
+                .addComponent(btnInfo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(lbl_logo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1110, Short.MAX_VALUE)
         );
@@ -443,13 +443,13 @@ public class MainJFrame extends javax.swing.JFrame {
         topPanel.setVisible(false);
     }//GEN-LAST:event_btnBackLabelMousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
         // TODO add your handling code here:
         AboutUsJPanel aboutUsJPanel = new AboutUsJPanel(container, system);
         container.add("AboutUsJPanel", aboutUsJPanel);
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -488,11 +488,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnBackLabel;
+    private javax.swing.JButton btnInfo;
     private javax.swing.JLabel btnLogoutLabel;
     private javax.swing.JLabel btnRegister;
     private javax.swing.JLabel cancelButton;
     private javax.swing.JPanel container;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_Greetings;
