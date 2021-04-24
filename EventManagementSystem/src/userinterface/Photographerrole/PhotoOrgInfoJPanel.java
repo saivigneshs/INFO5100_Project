@@ -39,10 +39,13 @@ public class PhotoOrgInfoJPanel extends javax.swing.JPanel {
          lblTitle.setText(useraccount.getUsername()+ " Package  Details");
          txtLocName.setText(useraccount.getName());
          txtLocContact.setText(useraccount.getPhone());
-         txtLocEmail.setText(useraccount.getEmail());
          
+         txtLocEmail.setText(useraccount.getEmail());
          txtCity.setText(useraccount.getCity());
          txtState.setText(network.getName());
+         txtSpec1.setText(useraccount.getSpec1());
+         txtSpec2.setText(useraccount.getSpec2());
+         txtSpec3.setText(useraccount.getSpec3());
          
          txtLocName.setEnabled(false);
         disableEdit();
@@ -373,13 +376,14 @@ private void disableEdit(){
                             if(org.getType().equals(Organization.Type.Photographer)){
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                                 if(ua.getUsername().equals(useraccount.getUsername())) {
-                                    ua.setPhone(txtLocContact.getText());
+//                                    ua.setPhone(txtLocContact.getText());
                                     ua.setEmail(txtLocEmail.getText());
                                     ua.setCity(txtCity.getText());
                                     ua.setSpec1(txtSpec1.getText());
                                     ua.setSpec2(txtSpec2.getText());
                                     ua.setSpec3(txtSpec3.getText());
                                     ua.setFoodprice(Double.parseDouble(txtPrice.getText()));
+                                    ua.setPhone(txtLocContact.getText());
                                                           
 
                                     JOptionPane.showMessageDialog(null, "Details Updated Successfully!");

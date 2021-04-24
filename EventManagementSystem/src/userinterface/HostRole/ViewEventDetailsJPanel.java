@@ -26,6 +26,7 @@ import Business.WorkQueue.HostMusicWorkRequest;
 import Business.WorkQueue.HostPhotoWorkRequest;
 import Business.WorkQueue.HostSecurityERWorkRequest;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -38,7 +39,6 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     private final JPanel userProcessContainer;
     private final EcoSystem system;
     private final UserAccount userAccount;
-    private final Network network;
     private HostGovtWorkRequest request;
     
      HostLocWorkRequest locRequest = new HostLocWorkRequest();
@@ -65,7 +65,6 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = account;
-        this.network = net;
         this.request=  request;
         
        
@@ -1037,7 +1036,10 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHireLocActionPerformed
 
     private void btnAddAttendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAttendActionPerformed
-        // TODO add your handling code here:
+     ViewEventAttendeesJPanel ViewEventAttendeesJPanel = new ViewEventAttendeesJPanel(userProcessContainer, userAccount,system);
+        userProcessContainer.add("ViewEventAttendeesJPanel", ViewEventAttendeesJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddAttendActionPerformed
 
 

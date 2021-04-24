@@ -202,6 +202,7 @@ public class UserAccount {
     }
     public UserAccount() {
         workQueue = new WorkQueue();
+        attendees = new Attendees();
     }
     
     
