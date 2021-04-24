@@ -49,7 +49,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
      HostBeverageWorkRequest beverageRequest = new HostBeverageWorkRequest();
      HostSecurityERWorkRequest securityerRequest = new HostSecurityERWorkRequest();
      
-     
+        boolean loc = false;
+        boolean photo = false;
+        boolean food = false;
+        boolean drinks = false;
+        boolean music = false;
     
      
   
@@ -64,17 +68,30 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         this.network = net;
         this.request=  request;
         
+       
         lblEventName.setText(request.getEventName());
         lblEventDate.setText(String.valueOf((request).getPlannedDate() ).substring(0,10));
+        
+        lblLoc.setVisible(false);
+        lblBev.setVisible(false);
+        lblFood.setVisible(false);
+        lblMus.setVisible(false);
+        lblPhoto.setVisible(false);
+        
         
          populateLocationTable();
          populateFoodTable();
          populateMusicTable();
          populatePhotoTable();
          populateBeverageTable();
-                
+         loadButtons();
     }
 
+    private void loadButtons(){
+        if(loc == true && photo == true && food == true && drinks == true && music == true){
+        btnAddAttend.setEnabled(true);
+        }
+    }
     public void populateLocationTable() {
     DefaultTableModel model = (DefaultTableModel) tblLocation.getModel();
     model.setRowCount(0);
@@ -92,6 +109,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
                             row[6] = ua.getStatus();
+                            if(ua.getStatus().equals("Booked") 
+                                    && ua.getHostName().equals(userAccount.getUsername()) ){ 
+                                lblLoc.setVisible(true);
+                                loc = true;
+                            }
                             row[7] = ua.getMessage();
                             row[8] = ua.getUsername();
                             model.addRow(row);
@@ -118,6 +140,12 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
                             row[6] = ua.getStatus();
+                             if(ua.getStatus().equals("Booked") 
+                                    && ua.getHostName().equals(userAccount.getUsername()) ){ 
+                                lblFood.setVisible(true);
+                                food = true;
+                             }
+                         
                             row[7] = ua.getMessage();
                             row[8] = ua.getUsername();
                             model.addRow(row);
@@ -145,6 +173,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
                             row[6] = ua.getStatus();
+                             if(ua.getStatus().equals("Booked") 
+                                    && ua.getHostName().equals(userAccount.getUsername()) ){ 
+                                lblBev.setVisible(true);
+                                drinks = true;
+                            }
                             row[7] = ua.getMessage();
                             row[8] = ua.getUsername();
                             model.addRow(row);
@@ -172,6 +205,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
                             row[6] = ua.getStatus();
+                             if(ua.getStatus().equals("Booked") 
+                                    && ua.getHostName().equals(userAccount.getUsername()) ){ 
+                                lblMus.setVisible(true);
+                                music = true;
+                            }
                             row[7] = ua.getMessage();
                             model.addRow(row);
                         }
@@ -198,6 +236,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             row[4] = ua.getFoodprice();
                             row[5] = ua.getPhone();
                             row[6] = ua.getStatus();
+                             if(ua.getStatus().equals("Booked") 
+                                    && ua.getHostName().equals(userAccount.getUsername()) ){ 
+                                lblPhoto.setVisible(true);
+                                photo = true;
+                            }
                             row[7] = ua.getMessage();
                             model.addRow(row);
                         }
@@ -223,12 +266,12 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tabPane = new javax.swing.JTabbedPane();
-        locPanel = new javax.swing.JPanel();
+        tabPane3 = new javax.swing.JTabbedPane();
+        locPanel3 = new javax.swing.JPanel();
         lblAddnInfo = new javax.swing.JLabel();
         addnInfoLoc = new javax.swing.JTextField();
         btnHireLoc = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane8 = new javax.swing.JScrollPane();
         tblLocation = new javax.swing.JTable();
         infraPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -257,23 +300,28 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         lblEventName = new javax.swing.JLabel();
         enterpriseLabel2 = new javax.swing.JLabel();
         lblEventDate = new javax.swing.JLabel();
+        lblLoc = new javax.swing.JLabel();
+        lblFood = new javax.swing.JLabel();
+        lblBev = new javax.swing.JLabel();
+        lblMus = new javax.swing.JLabel();
+        lblPhoto = new javax.swing.JLabel();
+        btnAddAttend = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(1040, 760));
         setPreferredSize(new java.awt.Dimension(1040, 760));
 
-        tabPane.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 51)));
-        tabPane.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-        tabPane.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        tabPane.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
-        tabPane.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabPane3.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 51)));
+        tabPane3.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        tabPane3.setFont(new java.awt.Font("Ebrima", 0, 12)); // NOI18N
+        tabPane3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 tabPaneMousePressed(evt);
             }
         });
 
-        locPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        locPanel.setPreferredSize(new java.awt.Dimension(750, 361));
+        locPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        locPanel3.setPreferredSize(new java.awt.Dimension(750, 361));
 
         lblAddnInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblAddnInfo.setForeground(new java.awt.Color(41, 50, 80));
@@ -291,7 +339,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
-        jScrollPane1.setForeground(new java.awt.Color(41, 50, 80));
+        jScrollPane8.setForeground(new java.awt.Color(41, 50, 80));
 
         tblLocation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -309,17 +357,17 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblLocation);
+        jScrollPane8.setViewportView(tblLocation);
 
-        javax.swing.GroupLayout locPanelLayout = new javax.swing.GroupLayout(locPanel);
-        locPanel.setLayout(locPanelLayout);
-        locPanelLayout.setHorizontalGroup(
-            locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locPanelLayout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addGroup(locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(locPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout locPanel3Layout = new javax.swing.GroupLayout(locPanel3);
+        locPanel3.setLayout(locPanel3Layout);
+        locPanel3Layout.setHorizontalGroup(
+            locPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locPanel3Layout.createSequentialGroup()
+                .addContainerGap(118, Short.MAX_VALUE)
+                .addGroup(locPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(locPanel3Layout.createSequentialGroup()
                         .addComponent(lblAddnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addnInfoLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,20 +375,20 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(btnHireLoc)))
                 .addGap(73, 73, 73))
         );
-        locPanelLayout.setVerticalGroup(
-            locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(locPanelLayout.createSequentialGroup()
+        locPanel3Layout.setVerticalGroup(
+            locPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(locPanel3Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addGroup(locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(locPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addnInfoLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAddnInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnHireLoc))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabPane.addTab("Location", locPanel);
+        tabPane3.addTab("Location", locPanel3);
 
         infraPanel.setPreferredSize(new java.awt.Dimension(785, 391));
 
@@ -385,9 +433,9 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         infraPanelLayout.setHorizontalGroup(
             infraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(infraPanelLayout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infraPanelLayout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -410,7 +458,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 .addGap(69, 69, 69))
         );
 
-        tabPane.addTab("Food", infraPanel);
+        tabPane3.addTab("Food", infraPanel);
 
         jScrollPane5.setForeground(new java.awt.Color(41, 50, 80));
 
@@ -465,7 +513,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 407, Short.MAX_VALUE)
                         .addComponent(btnOrderBeverage)))
                 .addGap(29, 29, 29))
         );
@@ -479,10 +527,10 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOrderBeverage)
                     .addComponent(jLabel5))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabPane.addTab("Beverage", beveragesPanel);
+        tabPane3.addTab("Beverage", beveragesPanel);
 
         musicPanel.setPreferredSize(new java.awt.Dimension(728, 450));
 
@@ -530,35 +578,28 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 .addGap(43, 43, 43)
                 .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(musicPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(musicPanelLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(addnInfoMusic, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnHireMusic)
-                        .addGap(25, 25, 25))))
+                        .addComponent(btnHireMusic))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 897, Short.MAX_VALUE))
+                .addContainerGap())
         );
         musicPanelLayout.setVerticalGroup(
             musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, musicPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(musicPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                        .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addnInfoMusic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(89, 89, 89))
-                    .addGroup(musicPanelLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(btnHireMusic)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addnInfoMusic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHireMusic)
+                    .addComponent(jLabel3))
+                .addGap(87, 87, 87))
         );
 
-        tabPane.addTab("Music", musicPanel);
+        tabPane3.addTab("Music", musicPanel);
 
         addnInfoPhoto.setForeground(new java.awt.Color(41, 50, 80));
 
@@ -623,10 +664,10 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(addnInfoPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHirephoto))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabPane.addTab("Photo", photopanel);
+        tabPane3.addTab("Photo", photopanel);
 
         lblEventName.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblEventName.setForeground(new java.awt.Color(25, 56, 82));
@@ -641,6 +682,41 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         lblEventDate.setForeground(new java.awt.Color(25, 56, 82));
         lblEventDate.setText("Event Date");
 
+        lblLoc.setBackground(new java.awt.Color(204, 204, 255));
+        lblLoc.setForeground(new java.awt.Color(255, 255, 255));
+        lblLoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
+        lblLoc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lblFood.setBackground(new java.awt.Color(204, 204, 255));
+        lblFood.setForeground(new java.awt.Color(255, 255, 255));
+        lblFood.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
+        lblFood.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lblBev.setBackground(new java.awt.Color(204, 204, 255));
+        lblBev.setForeground(new java.awt.Color(255, 255, 255));
+        lblBev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
+        lblBev.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lblMus.setBackground(new java.awt.Color(204, 204, 255));
+        lblMus.setForeground(new java.awt.Color(255, 255, 255));
+        lblMus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
+        lblMus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lblPhoto.setBackground(new java.awt.Color(204, 204, 255));
+        lblPhoto.setForeground(new java.awt.Color(255, 255, 255));
+        lblPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
+        lblPhoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btnAddAttend.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnAddAttend.setForeground(new java.awt.Color(41, 50, 80));
+        btnAddAttend.setText("Add Attendees");
+        btnAddAttend.setBorder(new javax.swing.border.MatteBorder(null));
+        btnAddAttend.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddAttendActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -654,12 +730,25 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(lblEventDate))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(415, 415, 415)
-                        .addComponent(enterpriseLabel2)))
-                .addContainerGap(442, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 959, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                        .addComponent(enterpriseLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(tabPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 959, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(lblLoc)
+                .addGap(18, 18, 18)
+                .addComponent(lblFood)
+                .addGap(18, 18, 18)
+                .addComponent(lblBev)
+                .addGap(35, 35, 35)
+                .addComponent(lblMus)
+                .addGap(18, 18, 18)
+                .addComponent(lblPhoto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAddAttend, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -670,9 +759,21 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEventName)
                     .addComponent(lblEventDate))
-                .addGap(39, 39, 39)
-                .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblLoc)
+                            .addComponent(lblBev)
+                            .addComponent(lblMus)
+                            .addComponent(lblPhoto)
+                            .addComponent(lblFood))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tabPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(btnAddAttend, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -699,7 +800,6 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                                 if (photoTeam.getUsername().equals(ua.getUsername())) {
 
-
                                     photoRequest.setRequestID();
                                     photoRequest.setSender(userAccount);
                                     photoRequest.setHost(userAccount);
@@ -711,13 +811,13 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     photoRequest.setEvenCat(request.getEvenCat());
                                     photoRequest.setPlannedDate(request.getPlannedDate());
                                     photoRequest.setOrgType(Organization.Type.Photographer);
-
+                                    ua.setHostName(userAccount.getUsername());
                                     e.getWorkQueue().getWorkRequestList().add(photoRequest);
                                     System.out.println("Request"+photoRequest.toString()+"  >> Added to Enterprise "+e);
                                     JOptionPane.showMessageDialog(null, "Photo Request Sent Successfully!");
                                     APIforSMS sms = new APIforSMS(photoTeam.getPhone(), "Hello "+photoTeam.getName()+",  A Host likes to book your Photographer package on "+String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
                                     //system.sendEmailMessage(photoTeam.getEmail(), "Hello! You have one new work request! Please login to know more!")
-                                break;
+                                    break;
                                 }
                             }
                         }
@@ -761,6 +861,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     musicRequest.setEvenCat(request.getEvenCat());
                                     musicRequest.setPlannedDate(request.getPlannedDate());
                                     musicRequest.setOrgType(Organization.Type.Musician);
+                                    ua.setHostName(userAccount.getUsername());
 
                                     e.getWorkQueue().getWorkRequestList().add(musicRequest);
                                     System.out.println("Request"+musicRequest.toString()+"  >> Added to Enterprise "+e);
@@ -810,6 +911,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     beverageRequest.setEvenCat(request.getEvenCat());
                                     beverageRequest.setPlannedDate(request.getPlannedDate());
                                     beverageRequest.setOrgType(Organization.Type.Beverages);
+                                    ua.setHostName(userAccount.getUsername());
 
                                     e.getWorkQueue().getWorkRequestList().add(beverageRequest);
                                     System.out.println("Request"+beverageRequest.toString()+"  >> Added to Enterprise "+e);
@@ -864,6 +966,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     foodRequest.setEvenCat(request.getEvenCat());
                                     foodRequest.setPlannedDate(request.getPlannedDate());
                                     foodRequest.setOrgType(Organization.Type.Infrastructure);
+                                    ua.setHostName(userAccount.getUsername());
 
                                     e.getWorkQueue().getWorkRequestList().add(foodRequest);
                                     //                                   System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
@@ -913,6 +1016,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     locRequest.setEvenCat(request.getEvenCat());
                                     locRequest.setPlannedDate(request.getPlannedDate());
                                     locRequest.setOrgType(Organization.Type.Location);
+                                    ua.setHostName(userAccount.getUsername());
 
                                     e.getWorkQueue().getWorkRequestList().add(locRequest);
                                     System.out.println("Request"+locRequest.toString()+"  >> Added to Enterprise "+e);
@@ -932,6 +1036,10 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnHireLocActionPerformed
 
+    private void btnAddAttendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAttendActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddAttendActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addInfoFood;
@@ -940,6 +1048,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField addnInfoMusic;
     private javax.swing.JTextField addnInfoPhoto;
     private javax.swing.JPanel beveragesPanel;
+    private javax.swing.JButton btnAddAttend;
     private javax.swing.JButton btnHireLoc;
     private javax.swing.JButton btnHireMusic;
     private javax.swing.JButton btnHirephoto;
@@ -951,18 +1060,23 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JLabel lblAddnInfo;
+    private javax.swing.JLabel lblBev;
     private javax.swing.JLabel lblEventDate;
     private javax.swing.JLabel lblEventName;
-    private javax.swing.JPanel locPanel;
+    private javax.swing.JLabel lblFood;
+    private javax.swing.JLabel lblLoc;
+    private javax.swing.JLabel lblMus;
+    private javax.swing.JLabel lblPhoto;
+    private javax.swing.JPanel locPanel3;
     private javax.swing.JPanel musicPanel;
     private javax.swing.JPanel photopanel;
-    private javax.swing.JTabbedPane tabPane;
+    private javax.swing.JTabbedPane tabPane3;
     private javax.swing.JTable tblBeverage;
     private javax.swing.JTable tblFood;
     private javax.swing.JTable tblLocation;
