@@ -83,10 +83,7 @@ public class GovtManageWorkReqsJPanel extends javax.swing.JPanel {
         workRequestJTable.setForeground(new java.awt.Color(25, 56, 82));
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Request #", "Status", "UserName", "Name", "Email ID", "City", "Organization Type", "Network"
@@ -110,7 +107,7 @@ public class GovtManageWorkReqsJPanel extends javax.swing.JPanel {
         workRequestJTable.setSelectionBackground(new java.awt.Color(56, 90, 174));
         jScrollPane1.setViewportView(workRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 854, 270));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 854, 270));
 
         btnAccept.setBackground(new java.awt.Color(204, 204, 255));
         btnAccept.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -122,7 +119,7 @@ public class GovtManageWorkReqsJPanel extends javax.swing.JPanel {
                 btnAcceptActionPerformed(evt);
             }
         });
-        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, -1, -1));
+        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, -1, -1));
 
         btnReject.setBackground(new java.awt.Color(204, 204, 255));
         btnReject.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -134,13 +131,13 @@ public class GovtManageWorkReqsJPanel extends javax.swing.JPanel {
                 btnRejectActionPerformed(evt);
             }
         });
-        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
+        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(25, 56, 82));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE GOVT OFFICIAL MEMBER REQUEST");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 460, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 460, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed

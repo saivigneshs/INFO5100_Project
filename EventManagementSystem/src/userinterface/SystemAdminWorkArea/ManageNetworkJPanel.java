@@ -76,10 +76,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         networkJTable.setForeground(new java.awt.Color(25, 56, 82));
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
                 "Name"
@@ -106,19 +103,19 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             networkJTable.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 480, 240));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 510, 170));
 
         lbl_StateView.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lbl_StateView.setForeground(new java.awt.Color(25, 56, 82));
         lbl_StateView.setText("Kindly select a State and Hit View");
-        add(lbl_StateView, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, 310, 20));
+        add(lbl_StateView, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 310, 20));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(25, 56, 82));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("VIEW STATE DETAILS AND NORMS");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 586, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 586, -1));
 
         lblView.setBackground(new java.awt.Color(255, 255, 255));
         lblView.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -132,7 +129,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 lblViewMousePressed(evt);
             }
         });
-        add(lblView, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 450, 80, 30));
+        add(lblView, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, 80, 30));
 
         lblState.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lblState.setForeground(new java.awt.Color(25, 56, 82));
@@ -169,7 +166,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 lblDeleteMousePressed(evt);
             }
         });
-        add(lblDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 500, 80, 30));
+        add(lblDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 420, 80, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAddMousePressed

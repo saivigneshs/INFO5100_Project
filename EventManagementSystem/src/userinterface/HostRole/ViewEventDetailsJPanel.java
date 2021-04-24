@@ -309,6 +309,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(1040, 760));
         setPreferredSize(new java.awt.Dimension(1040, 760));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabPane3.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 51)));
         tabPane3.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
@@ -349,7 +350,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -668,43 +669,53 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
         tabPane3.addTab("Photo", photopanel);
 
+        add(tabPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 214, -1, 414));
+
         lblEventName.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblEventName.setForeground(new java.awt.Color(25, 56, 82));
         lblEventName.setText("Event Name ");
+        add(lblEventName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 101, -1, -1));
 
         enterpriseLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         enterpriseLabel2.setForeground(new java.awt.Color(0, 51, 51));
         enterpriseLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         enterpriseLabel2.setText("Event Specifics");
+        add(enterpriseLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 62, -1, -1));
 
         lblEventDate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblEventDate.setForeground(new java.awt.Color(25, 56, 82));
         lblEventDate.setText("Event Date");
+        add(lblEventDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 101, -1, -1));
 
         lblLoc.setBackground(new java.awt.Color(204, 204, 255));
         lblLoc.setForeground(new java.awt.Color(255, 255, 255));
         lblLoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
         lblLoc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(lblLoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 184, -1, -1));
 
         lblFood.setBackground(new java.awt.Color(204, 204, 255));
         lblFood.setForeground(new java.awt.Color(255, 255, 255));
         lblFood.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
         lblFood.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(lblFood, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 184, -1, -1));
 
         lblBev.setBackground(new java.awt.Color(204, 204, 255));
         lblBev.setForeground(new java.awt.Color(255, 255, 255));
         lblBev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
         lblBev.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(lblBev, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 184, -1, -1));
 
         lblMus.setBackground(new java.awt.Color(204, 204, 255));
         lblMus.setForeground(new java.awt.Color(255, 255, 255));
         lblMus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
         lblMus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(lblMus, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 184, -1, -1));
 
         lblPhoto.setBackground(new java.awt.Color(204, 204, 255));
         lblPhoto.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/greentick.png"))); // NOI18N
         lblPhoto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        add(lblPhoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 184, -1, -1));
 
         btnAddAttend.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnAddAttend.setForeground(new java.awt.Color(41, 50, 80));
@@ -715,65 +726,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 btnAddAttendActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(330, 330, 330)
-                        .addComponent(lblEventName)
-                        .addGap(124, 124, 124)
-                        .addComponent(lblEventDate))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(415, 415, 415)
-                        .addComponent(enterpriseLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(tabPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 959, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(53, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(lblLoc)
-                .addGap(18, 18, 18)
-                .addComponent(lblFood)
-                .addGap(18, 18, 18)
-                .addComponent(lblBev)
-                .addGap(35, 35, 35)
-                .addComponent(lblMus)
-                .addGap(18, 18, 18)
-                .addComponent(lblPhoto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddAttend, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(149, 149, 149))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(enterpriseLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEventName)
-                    .addComponent(lblEventDate))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLoc)
-                            .addComponent(lblBev)
-                            .addComponent(lblMus)
-                            .addComponent(lblPhoto)
-                            .addComponent(lblFood))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tabPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(btnAddAttend, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(131, Short.MAX_VALUE))
-        );
+        add(btnAddAttend, new org.netbeans.lib.awtextra.AbsoluteConstraints(727, 164, 164, 34));
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabPaneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabPaneMousePressed

@@ -74,6 +74,8 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
         title = new javax.swing.JLabel();
         HostProfilePanel = new javax.swing.JPanel();
         lbl_hostProfile = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         rightHostPanel = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1338, 840));
@@ -121,12 +123,12 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
         ViewEventsPanelLayout.setVerticalGroup(
             ViewEventsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ViewEventsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_ViewEvents, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addComponent(lbl_ViewEvents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3.add(ViewEventsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 230, -1));
+        jPanel3.add(ViewEventsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 230, 40));
 
         addEventPanel.setBackground(new java.awt.Color(204, 204, 255));
         addEventPanel.setToolTipText("");
@@ -164,11 +166,11 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 4, Short.MAX_VALUE))
         );
 
-        jPanel3.add(addEventPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, 40));
+        jPanel3.add(addEventPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 230, 40));
 
         title.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         title.setText("Event Management Area");
-        jPanel3.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 40));
+        jPanel3.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 40));
 
         HostProfilePanel.setBackground(new java.awt.Color(204, 204, 255));
         HostProfilePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -202,10 +204,12 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(HostProfilePanelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(lbl_hostProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.add(HostProfilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 220, 60));
+        jPanel3.add(HostProfilePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 220, 40));
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 270, 10));
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 270, 10));
 
         rightHostPanel.setBackground(new java.awt.Color(204, 204, 255));
         rightHostPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -268,6 +272,8 @@ public class HostWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel ViewEventsPanel;
     private javax.swing.JPanel addEventPanel;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lbl_ViewEvents;
     private javax.swing.JLabel lbl_addEvent;
     private javax.swing.JLabel lbl_hostProfile;
