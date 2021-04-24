@@ -49,6 +49,15 @@ public class UserAccount {
     private String spec1;
     private String spec2;
     private String spec3;
+    private String hostName;
+
+    public String getHostName() {
+        return hostName;
+    }
+
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
+    }
     private Attendees attendees;
 
     public Attendees getAttendees() {
