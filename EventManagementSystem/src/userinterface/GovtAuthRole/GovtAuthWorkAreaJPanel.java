@@ -94,23 +94,20 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
         lblRestAdmin.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestAdmin.setForeground(new java.awt.Color(0, 51, 51));
         lblRestAdmin.setText("Event Authorization Area");
-        add(lblRestAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
+        add(lblRestAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
 
         lblRestName.setBackground(new java.awt.Color(204, 255, 255));
         lblRestName.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestName.setForeground(new java.awt.Color(0, 51, 51));
         lblRestName.setText("Govt Official Name");
-        add(lblRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 180, 30));
+        add(lblRestName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 180, 30));
 
         tblEventAuth.setBackground(new java.awt.Color(204, 204, 255));
         tblEventAuth.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         tblEventAuth.setForeground(new java.awt.Color(0, 51, 51));
         tblEventAuth.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Request ID", "Event Name", "Event Category", "Status", "Host Name", "Attendance", "Planned Date", "Message"
@@ -120,7 +117,7 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
                 java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -133,7 +130,7 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
         });
         scrollOrderList.setViewportView(tblEventAuth);
 
-        add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 780, 110));
+        add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 780, 110));
 
         btnApprove.setBackground(new java.awt.Color(204, 255, 255));
         btnApprove.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -145,7 +142,7 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
                 btnApproveActionPerformed(evt);
             }
         });
-        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 130, 30));
+        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 130, 30));
 
         btnReject.setBackground(new java.awt.Color(204, 255, 255));
         btnReject.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -157,15 +154,15 @@ public class GovtAuthWorkAreaJPanel extends javax.swing.JPanel {
                 btnRejectActionPerformed(evt);
             }
         });
-        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 130, 30));
+        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 130, 30));
 
         blAddMessage.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         blAddMessage.setForeground(new java.awt.Color(41, 50, 80));
         blAddMessage.setText("Additional Message:");
-        add(blAddMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        add(blAddMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, -1, -1));
 
         txtAddMsg.setBackground(new java.awt.Color(204, 204, 255));
-        add(txtAddMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 200, -1));
+        add(txtAddMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 200, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed

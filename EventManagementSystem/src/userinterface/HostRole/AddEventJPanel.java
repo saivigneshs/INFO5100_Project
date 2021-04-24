@@ -87,14 +87,17 @@ public class AddEventJPanel extends javax.swing.JPanel {
         btnHost = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(25, 56, 82));
         jLabel1.setText("Host an Event");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Event Name");
         jLabel2.setToolTipText("");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
 
         txtEventName.setToolTipText("");
         txtEventName.addActionListener(new java.awt.event.ActionListener() {
@@ -102,28 +105,36 @@ public class AddEventJPanel extends javax.swing.JPanel {
                 txtEventNameActionPerformed(evt);
             }
         });
+        add(txtEventName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 393, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Planned Date");
         jLabel5.setToolTipText("");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
 
         street.setToolTipText("");
+        add(street, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 393, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Street Address");
         jLabel11.setToolTipText("");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("City");
         jLabel12.setToolTipText("");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, -1, -1));
 
         dpEventDate.setToolTipText("");
+        add(dpEventDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 246, 26));
 
         city.setToolTipText("");
+        add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 393, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setText("State");
         jLabel13.setToolTipText("");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
 
         state.setEditable(false);
         state.setToolTipText("");
@@ -132,10 +143,12 @@ public class AddEventJPanel extends javax.swing.JPanel {
                 stateActionPerformed(evt);
             }
         });
+        add(state, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 393, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Event Category");
         jLabel3.setToolTipText("");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
 
         cbEventCat.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         cbEventCat.setForeground(new java.awt.Color(25, 56, 82));
@@ -155,6 +168,7 @@ public class AddEventJPanel extends javax.swing.JPanel {
                 cbEventCatKeyReleased(evt);
             }
         });
+        add(cbEventCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 230, -1));
 
         slAttendance.setBackground(new java.awt.Color(204, 204, 255));
         slAttendance.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -169,23 +183,28 @@ public class AddEventJPanel extends javax.swing.JPanel {
                 slAttendanceStateChanged(evt);
             }
         });
+        add(slAttendance, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, 133, 34));
 
         lblAtt.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         lblAtt.setForeground(new java.awt.Color(0, 102, 102));
         lblAtt.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblAtt.setToolTipText("");
+        add(lblAtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 74, 34));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Planned Attendance");
         jLabel6.setToolTipText("");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
 
         lblIndoors.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblIndoors.setText("Indoor Limit XXX");
         lblIndoors.setToolTipText("");
+        add(lblIndoors, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, -1, -1));
 
         lblOutdoors.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblOutdoors.setText("Outdoor Limit XXX");
         lblOutdoors.setToolTipText("");
+        add(lblOutdoors, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 250, -1, -1));
 
         btnHost.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnHost.setForeground(new java.awt.Color(25, 56, 82));
@@ -195,107 +214,7 @@ public class AddEventJPanel extends javax.swing.JPanel {
                 btnHostActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12)
-                                .addComponent(jLabel13))
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(state)
-                    .addComponent(city)
-                    .addComponent(street)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dpEventDate, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cbEventCat, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(slAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblIndoors)
-                                    .addComponent(lblOutdoors))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtEventName))
-                .addGap(292, 292, 292))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(368, 368, 368)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(430, 430, 430)
-                        .addComponent(btnHost, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtEventName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(cbEventCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(slAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblAtt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6)))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblIndoors)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblOutdoors)
-                        .addGap(21, 21, 21)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(dpEventDate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(street, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnHost)
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
+        add(btnHost, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 75, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEventNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEventNameActionPerformed
@@ -396,9 +315,6 @@ public class AddEventJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblIndoors;
     private javax.swing.JLabel lblOutdoors;
     private javax.swing.JSlider slAttendance;
-    private javax.swing.JSlider slHeight;
-    private javax.swing.JSlider slHeight1;
-    private javax.swing.JSlider slHeight2;
     private javax.swing.JTextField state;
     private javax.swing.JTextField street;
     private javax.swing.JTextField txtEventName;

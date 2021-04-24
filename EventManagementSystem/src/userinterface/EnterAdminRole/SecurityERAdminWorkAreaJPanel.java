@@ -212,7 +212,7 @@ public class SecurityERAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         lblHeading.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         lblHeading.setText("Security ER Enterprise");
-        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 220, -1));
+        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 170, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));

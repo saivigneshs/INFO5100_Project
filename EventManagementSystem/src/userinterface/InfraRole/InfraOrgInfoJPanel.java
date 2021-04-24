@@ -59,15 +59,15 @@ public class InfraOrgInfoJPanel extends javax.swing.JPanel {
         
     }
 private void disableEdit(){
-       txtLocContact.setEditable(true);
-        txtLocEmail.setEditable(true);
-        txtLocName.setEditable(true);
-        txtCity.setEditable(true);
-        txtState.setEditable(true);
-        txtPrice.setEditable(true);
-        txtSpec1.setEditable(true);
-        txtSpec2.setEditable(true);
-        txtSpec3.setEditable(true);
+       txtLocContact.setEditable(false);
+        txtLocEmail.setEditable(false);
+        txtLocName.setEditable(false);
+        txtCity.setEditable(false);
+        txtState.setEditable(false);
+        txtPrice.setEditable(false);
+        txtSpec1.setEditable(false);
+        txtSpec2.setEditable(false);
+        txtSpec3.setEditable(false);
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,6 +107,7 @@ private void disableEdit(){
 
         setBackground(new java.awt.Color(204, 204, 255));
         setForeground(new java.awt.Color(0, 51, 51));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -331,22 +332,7 @@ private void disableEdit(){
                 .addGap(98, 98, 98))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnableUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnableUpdateActionPerformed
