@@ -279,7 +279,7 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
                 request.setStatus("Beverage Order Approved");
                 request.setMessage(message);
                 JOptionPane.showMessageDialog(null, "Beverage Order is Approved!");
-                    account.setStatus("Beverage Order Approved");
+                    account.setStatus("Booked");
                 populateDrinkRequests();
                 goDelivery(request);
             } else {
