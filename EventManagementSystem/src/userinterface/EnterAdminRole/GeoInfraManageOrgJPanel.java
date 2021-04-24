@@ -108,31 +108,31 @@ public class GeoInfraManageOrgJPanel extends javax.swing.JPanel {
         tblOrgList.setSelectionBackground(new java.awt.Color(56, 90, 174));
         jScrollPane1.setViewportView(tblOrgList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 595, 250));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 595, 250));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(25, 56, 82));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("MANAGE GEO INFRA ORGANIZATIONS");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 595, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 595, -1));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(25, 56, 82));
         jLabel1.setText("Organization Type ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, -1, -1));
 
         OrganizationTypeComboBox.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         OrganizationTypeComboBox.setForeground(new java.awt.Color(25, 56, 82));
-        add(OrganizationTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 450, 171, -1));
+        add(OrganizationTypeComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 530, 171, -1));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(25, 56, 82));
         jLabel3.setText("Organization Name");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
 
         organizationName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         organizationName.setForeground(new java.awt.Color(25, 56, 82));
-        add(organizationName, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 171, -1));
+        add(organizationName, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, 171, -1));
 
         addJButton.setBackground(new java.awt.Color(255, 255, 255));
         addJButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -144,7 +144,7 @@ public class GeoInfraManageOrgJPanel extends javax.swing.JPanel {
                 addJButtonActionPerformed(evt);
             }
         });
-        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, -1, -1));
+        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 590, 160, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed

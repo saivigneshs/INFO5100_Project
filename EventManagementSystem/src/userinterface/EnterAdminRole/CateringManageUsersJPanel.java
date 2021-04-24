@@ -46,31 +46,90 @@ public class CateringManageUsersJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        createUserJButton = new javax.swing.JButton();
+        selectOrganization = new javax.swing.JComboBox();
+        selectEmployee = new javax.swing.JComboBox();
+        selectRole = new javax.swing.JComboBox();
+        createUsername = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        createPassword = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUserDetails = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        createUsername = new javax.swing.JTextField();
-        selectRole = new javax.swing.JComboBox();
-        selectEmployee = new javax.swing.JComboBox();
-        selectOrganization = new javax.swing.JComboBox();
-        createUserJButton = new javax.swing.JButton();
-        createPassword = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setMinimumSize(new java.awt.Dimension(1058, 840));
         setPreferredSize(new java.awt.Dimension(1058, 840));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(25, 56, 82));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("MANAGE CATERING TEAM MEMBERS");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 638, -1));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        createUserJButton.setBackground(new java.awt.Color(255, 255, 255));
+        createUserJButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        createUserJButton.setForeground(new java.awt.Color(25, 56, 82));
+        createUserJButton.setText("Create User");
+        createUserJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createUserJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createUserJButtonActionPerformed(evt);
+            }
+        });
+
+        selectOrganization.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        selectOrganization.setForeground(new java.awt.Color(25, 56, 82));
+        selectOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectOrganizationActionPerformed(evt);
+            }
+        });
+
+        selectEmployee.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        selectEmployee.setForeground(new java.awt.Color(25, 56, 82));
+        selectEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectEmployeeActionPerformed(evt);
+            }
+        });
+
+        selectRole.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        selectRole.setForeground(new java.awt.Color(25, 56, 82));
+        selectRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectRoleActionPerformed(evt);
+            }
+        });
+
+        createUsername.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        createUsername.setForeground(new java.awt.Color(25, 56, 82));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(25, 56, 82));
+        jLabel2.setText("Password");
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(25, 56, 82));
+        jLabel1.setText("User Name");
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(25, 56, 82));
+        jLabel4.setText("Role");
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(25, 56, 82));
+        jLabel3.setText("Employee");
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(25, 56, 82));
+        jLabel6.setText("Organization");
+
+        createPassword.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        createPassword.setForeground(new java.awt.Color(25, 56, 82));
 
         jScrollPane1.setForeground(new java.awt.Color(0, 102, 255));
 
@@ -103,79 +162,73 @@ public class CateringManageUsersJPanel extends javax.swing.JPanel {
         tblUserDetails.setSelectionBackground(new java.awt.Color(56, 90, 174));
         jScrollPane1.setViewportView(tblUserDetails);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 638, 179));
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(25, 56, 82));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("MANAGE CATERING TEAM MEMBERS");
 
-        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(25, 56, 82));
-        jLabel6.setText("Organization");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(88, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(createUserJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(selectEmployee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(selectRole, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(createUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(createPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(selectOrganization, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(221, 221, 221))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(selectOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(selectEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(selectRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(36, 36, 36)
+                .addComponent(createUserJButton)
+                .addGap(69, 69, 69))
+        );
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(25, 56, 82));
-        jLabel3.setText("Employee");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(25, 56, 82));
-        jLabel4.setText("Role");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(25, 56, 82));
-        jLabel1.setText("User Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(25, 56, 82));
-        jLabel2.setText("Password");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, -1, -1));
-
-        createUsername.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        createUsername.setForeground(new java.awt.Color(25, 56, 82));
-        add(createUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, 260, -1));
-
-        selectRole.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        selectRole.setForeground(new java.awt.Color(25, 56, 82));
-        selectRole.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectRoleActionPerformed(evt);
-            }
-        });
-        add(selectRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 260, -1));
-
-        selectEmployee.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        selectEmployee.setForeground(new java.awt.Color(25, 56, 82));
-        selectEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectEmployeeActionPerformed(evt);
-            }
-        });
-        add(selectEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 260, -1));
-
-        selectOrganization.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        selectOrganization.setForeground(new java.awt.Color(25, 56, 82));
-        selectOrganization.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectOrganizationActionPerformed(evt);
-            }
-        });
-        add(selectOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 260, -1));
-
-        createUserJButton.setBackground(new java.awt.Color(255, 255, 255));
-        createUserJButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        createUserJButton.setForeground(new java.awt.Color(25, 56, 82));
-        createUserJButton.setText("Create User");
-        createUserJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        createUserJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createUserJButtonActionPerformed(evt);
-            }
-        });
-        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, 145, -1));
-
-        createPassword.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
-        createPassword.setForeground(new java.awt.Color(25, 56, 82));
-        add(createPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 510, 260, 30));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectRoleActionPerformed
@@ -265,6 +318,7 @@ public class CateringManageUsersJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox selectEmployee;
     private javax.swing.JComboBox selectOrganization;

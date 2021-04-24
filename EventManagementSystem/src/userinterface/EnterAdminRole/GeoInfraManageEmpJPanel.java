@@ -84,17 +84,14 @@ public class GeoInfraManageEmpJPanel extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(25, 56, 82));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("MANAGE GEO INFRA TEAMS");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 492, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 492, -1));
 
         organizationJTable.setBackground(new java.awt.Color(204, 204, 255));
         organizationJTable.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         organizationJTable.setForeground(new java.awt.Color(25, 56, 82));
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "Name"
@@ -118,27 +115,27 @@ public class GeoInfraManageEmpJPanel extends javax.swing.JPanel {
         organizationJTable.setSelectionBackground(new java.awt.Color(56, 90, 174));
         jScrollPane1.setViewportView(organizationJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 560, 200));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 560, 170));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(25, 56, 82));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("CREATE A TEAM");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 465, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 465, -1));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(25, 56, 82));
         jLabel3.setText("Organization");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, -1, 27));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, -1, 27));
 
         organizationEmpJComboBox.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         organizationEmpJComboBox.setForeground(new java.awt.Color(25, 56, 82));
-        add(organizationEmpJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 163, -1));
+        add(organizationEmpJComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 163, -1));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(25, 56, 82));
         jLabel2.setText("Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, -1, -1));
 
         employeeName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         employeeName.setForeground(new java.awt.Color(25, 56, 82));
@@ -147,7 +144,7 @@ public class GeoInfraManageEmpJPanel extends javax.swing.JPanel {
                 employeeNameKeyPressed(evt);
             }
         });
-        add(employeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 163, -1));
+        add(employeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, 163, -1));
 
         addJButton.setBackground(new java.awt.Color(255, 255, 255));
         addJButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -159,7 +156,7 @@ public class GeoInfraManageEmpJPanel extends javax.swing.JPanel {
                 addJButtonActionPerformed(evt);
             }
         });
-        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 480, -1, -1));
+        add(addJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 130, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void employeeNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_employeeNameKeyPressed

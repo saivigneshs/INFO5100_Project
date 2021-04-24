@@ -178,7 +178,15 @@ public class DrinkRequestJPanel extends javax.swing.JPanel {
             new String [] {
                 "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Host", "Host City", "Status", "Message from Host", "Location Team Reply"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tbldrinkRequests);
 
         btndrinkapprovereq.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
