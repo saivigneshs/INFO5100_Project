@@ -118,6 +118,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
         jSeparator2 = new javax.swing.JSeparator();
+        viewnetwrokcrowd = new javax.swing.JLabel();
         rightSystemAdminPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 229, 180));
@@ -250,6 +251,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         leftSystemAdminPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 280, -1));
 
+        viewnetwrokcrowd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        viewnetwrokcrowd.setText("View Network Graph");
+        viewnetwrokcrowd.setPreferredSize(new java.awt.Dimension(115, 16));
+        viewnetwrokcrowd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                viewnetwrokcrowdMousePressed(evt);
+            }
+        });
+        leftSystemAdminPanel.add(viewnetwrokcrowd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 201, 19));
+
         rightSystemAdminPanel.setBackground(new java.awt.Color(241, 241, 242));
         rightSystemAdminPanel.setPreferredSize(new java.awt.Dimension(1058, 840));
         rightSystemAdminPanel.setLayout(new java.awt.CardLayout());
@@ -288,7 +299,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void jTree1ValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTree1ValueChanged
         // TODO add your handling code here:
          DefaultMutableTreeNode selectedNode= (DefaultMutableTreeNode)jTree1.getLastSelectedPathComponent();
-        if(selectedNode!=null){
+         if(selectedNode!=null){
             lblSelectedNode1.setText(selectedNode.toString());
         }
     }//GEN-LAST:event_jTree1ValueChanged
@@ -301,6 +312,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void manageNetworkMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageNetworkMousePressed
         manageNetwork();
     }//GEN-LAST:event_manageNetworkMousePressed
+
+    private void viewnetwrokcrowdMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewnetwrokcrowdMousePressed
+        userinterface.SystemAdminWorkArea.PieGraphforNumofUsers managechartAdmin = new userinterface.SystemAdminWorkArea.PieGraphforNumofUsers(userProcessContainer,ecosystem);
+        rightSystemAdminPanel.add("PieGraphforNumofUsers",managechartAdmin);
+        CardLayout layout = (CardLayout) rightSystemAdminPanel.getLayout();
+        layout.next(rightSystemAdminPanel);
+    }//GEN-LAST:event_viewnetwrokcrowdMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -318,5 +336,6 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel manageNetworkPanel;
     private javax.swing.JPanel rightSystemAdminPanel;
     private javax.swing.JPanel systemAdminPanel;
+    private javax.swing.JLabel viewnetwrokcrowd;
     // End of variables declaration//GEN-END:variables
 }
