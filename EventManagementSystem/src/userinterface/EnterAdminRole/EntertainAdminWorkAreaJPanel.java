@@ -89,7 +89,7 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
         lblHeading = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         manageRequestPanel = new javax.swing.JPanel();
-        manageRequestLabel = new javax.swing.JLabel();
+        manageRequestLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         workAreaPanel = new javax.swing.JPanel();
 
@@ -228,27 +228,31 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageRequestLabel.setBackground(new java.awt.Color(255, 213, 90));
-        manageRequestLabel.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        manageRequestLabel.setText("Manage Requests");
-        manageRequestLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manageRequestLabel.setPreferredSize(new java.awt.Dimension(115, 16));
+        manageRequestLabel1.setBackground(new java.awt.Color(255, 213, 90));
+        manageRequestLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        manageRequestLabel1.setText("Manage Requests");
+        manageRequestLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageRequestLabel1.setPreferredSize(new java.awt.Dimension(115, 16));
 
         javax.swing.GroupLayout manageRequestPanelLayout = new javax.swing.GroupLayout(manageRequestPanel);
         manageRequestPanel.setLayout(manageRequestPanelLayout);
         manageRequestPanelLayout.setHorizontalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageRequestPanelLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(manageRequestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+            .addGap(0, 240, Short.MAX_VALUE)
+            .addGroup(manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageRequestPanelLayout.createSequentialGroup()
+                    .addContainerGap(61, Short.MAX_VALUE)
+                    .addComponent(manageRequestLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(47, 47, 47)))
         );
         manageRequestPanelLayout.setVerticalGroup(
             manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manageRequestPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(manageRequestLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 41, Short.MAX_VALUE)
+            .addGroup(manageRequestPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(manageRequestPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(manageRequestLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         menuPanel.add(manageRequestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 240, 40));
@@ -318,7 +322,7 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel manageEmployeeLabel;
     private javax.swing.JPanel manageOrgPanel;
     private javax.swing.JLabel manageOrganization;
-    private javax.swing.JLabel manageRequestLabel;
+    private javax.swing.JLabel manageRequestLabel1;
     private javax.swing.JPanel manageRequestPanel;
     private javax.swing.JPanel manageUserAcc;
     private javax.swing.JLabel manageUserAccountLabel;
