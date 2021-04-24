@@ -112,7 +112,7 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
         workRequestJTable.setSelectionBackground(new java.awt.Color(56, 90, 174));
         jScrollPane1.setViewportView(workRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 854, 270));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 854, 270));
 
         btnAccept.setBackground(new java.awt.Color(204, 204, 255));
         btnAccept.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -124,7 +124,7 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
                 btnAcceptActionPerformed(evt);
             }
         });
-        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, -1, -1));
+        add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 550, -1, -1));
 
         btnReject.setBackground(new java.awt.Color(204, 204, 255));
         btnReject.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -136,13 +136,13 @@ public class GeoInfraManageWorkReqsJPanel extends javax.swing.JPanel {
                 btnRejectActionPerformed(evt);
             }
         });
-        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 480, -1, -1));
+        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 550, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(25, 56, 82));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MANAGE GEO INFRA TEAM MEMBER REQUEST");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 460, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 460, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
