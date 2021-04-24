@@ -39,9 +39,12 @@ public class MusicOrgInfoJPanel extends javax.swing.JPanel {
          txtLocName.setText(useraccount.getName());
          txtLocContact.setText(useraccount.getPhone());
          txtLocEmail.setText(useraccount.getEmail());
-         System.out.println(useraccount.getPhone());
          txtCity.setText(useraccount.getCity());
          txtState.setText(network.getName());
+         txtSpec1.setText(useraccount.getSpec1());
+         txtSpec2.setText(useraccount.getSpec2());
+         txtSpec3.setText(useraccount.getSpec3());
+         
          
          txtLocName.setEnabled(false);
         disableEdit();
