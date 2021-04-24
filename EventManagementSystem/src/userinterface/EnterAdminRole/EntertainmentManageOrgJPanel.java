@@ -85,7 +85,6 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         orgtypecombobox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         manageentorg = new javax.swing.JLabel();
@@ -102,13 +101,6 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Manage Entertainment Organisation");
-
-        jButton1.setText("generate PDF");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         orgtypecombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -175,9 +167,7 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
                         .addGap(204, 204, 204))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78))))
+                        .addGap(268, 268, 268))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,9 +185,7 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_entorgname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(104, Short.MAX_VALUE))
         );
 
@@ -221,66 +209,9 @@ public class EntertainmentManageOrgJPanel extends javax.swing.JPanel {
     
     }//GEN-LAST:event_manageentorgMousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-Document document = new Document();
-                Font blueFont = FontFactory.getFont(FontFactory.HELVETICA, 8, Font.NORMAL, new CMYKColor(255, 0, 0, 0));
-		Font redFont = FontFactory.getFont(FontFactory.COURIER, 12, Font.BOLD, new CMYKColor(0, 255, 0, 0));
-		Font yellowFont = FontFactory.getFont(FontFactory.COURIER, 14, Font.BOLD, new CMYKColor(0, 0, 255, 0));
-		
-		try
-		{
-//                    PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("C:/Users/gowth/Downloads/JavaiTextPDFExamples/vignesh.pdf"));
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("AddImageExample.pdf"));
-			document.open();
-			
-                        System.out.println("pdf");
-			//Add Image
-			Image image1 = Image.getInstance("src/images/your_invited.jpg");
-			//For Fixed Positioning
-			//image1.setAbsolutePosition(100f, 550f);
-			//Scale to new height and new width of image
-			image1.scaleAbsolute(550, 200);
-			//Add to document
-			document.add(image1);
-                        document.add(new Paragraph("Dear Friend,"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("You are most cordially invited to be our guest at the dinner party we have arranged next week. It will be great having you among us!"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("We are going to arrange a dinner party at our sweet home . Your presence is what we are asking for to make it a memorable one!"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("Your company is all that we are asking for as we celebrate the night next week with our friends and relatives. Please join us to have a share in our happiness!"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("It’s always a pleasure to have you with us. Let’s have yet another occasion to sit together and share some delicious foods and desserts. You are cordially invited!"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("Nothing makes the bonds stronger than sharing the same food with our loved ones. We invite you to join us on next week as we have planned to throw a dinner party at our residence!"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("\n"));
-                        document.add(new Paragraph("Best Regards"));
-                      
-                        
-//			String imageUrl = "your_invited.jpg";
-//			Image image2 = Image.getInstance(new URL(imageUrl));
-//			document.add(image2);
-
-			document.close();
-			writer.close();
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}// TODO add your handling code here:
-                String filepath = "AddImageExample.pdf";
-                sendemail(filepath);
-                volPopulate();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ManageEntertainmenttbl;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
