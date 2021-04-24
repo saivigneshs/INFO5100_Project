@@ -84,7 +84,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof LocationRole) {
-                            Object[] row = new Object[8];
+                            Object[] row = new Object[9];
                             row[0] = ua;
                             row[1] = ua.getSpec1();
                             row[2] = ua.getSpec2();
@@ -93,6 +93,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             row[5] = ua.getPhone();
                             row[6] = ua.getStatus();
                             row[7] = ua.getMessage();
+                            row[8] = ua.getUsername();
                             model.addRow(row);
                         }
                     }
@@ -109,7 +110,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof FoodRole) {
-                            Object[] row = new Object[8];
+                            Object[] row = new Object[9];
                             row[0] = ua;
                             row[1] = ua.getSpec1();
                             row[2] = ua.getSpec2();
@@ -118,6 +119,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             row[5] = ua.getPhone();
                             row[6] = ua.getStatus();
                             row[7] = ua.getMessage();
+                            row[8] = ua.getUsername();
                             model.addRow(row);
                         }
                     }
@@ -135,7 +137,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                 for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof BeveragesRole) {
-                            Object[] row = new Object[8];
+                            Object[] row = new Object[9];
                             row[0] = ua;
                             row[1] = ua.getSpec1();
                             row[2] = ua.getSpec2();
@@ -144,6 +146,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                             row[5] = ua.getPhone();
                             row[6] = ua.getStatus();
                             row[7] = ua.getMessage();
+                            row[8] = ua.getUsername();
                             model.addRow(row);
                         }
                     }
@@ -210,7 +213,6 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
    addnInfoLoc.setVisible(false);
    addnInfoLoc.setText("");
    lblAddnInfo.setVisible(false);
-   locPanel.setVisible(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -296,11 +298,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Specialities 1", "Specialities 2", "Specialities 3", "Price in $", "Contact No", "Status", "Vendor Message"
+                "Name", "Specialities 1", "Specialities 2", "Specialities 3", "Price in $", "Contact No", "Status", "Vendor Message", "User Name"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -314,24 +316,23 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
         locPanelLayout.setHorizontalGroup(
             locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, locPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addGroup(locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(locPanelLayout.createSequentialGroup()
                         .addComponent(lblAddnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addnInfoLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(251, 251, 251)
-                        .addComponent(btnHireLoc)
-                        .addGap(8, 8, 8)))
-                .addGap(65, 65, 65))
+                        .addComponent(btnHireLoc)))
+                .addGap(73, 73, 73))
         );
         locPanelLayout.setVerticalGroup(
             locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(locPanelLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(53, 53, 53)
                 .addGroup(locPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addnInfoLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAddnInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -350,11 +351,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Specialities 1", "Specialities 2", "Specialities 3", "Price in $", "Contact No", "Status", "Vendor Message"
+                "Name", "Specialities 1", "Specialities 2", "Specialities 3", "Price in $", "Contact No", "Status", "Vendor Message", "User Name"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -419,11 +420,11 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Specialities 1", "Specialities 2", "Specialities 3", "Price in $", "Contact No", "Status", "Vendor Message"
+                "User Name", "Name", "Specialities 1", "Specialities 2", "Specialities 3", "Price in $", "Contact No", "Status", "Vendor Message"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -465,7 +466,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 351, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
                         .addComponent(btnOrderBeverage)))
                 .addGap(29, 29, 29))
         );
@@ -479,7 +480,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(addnInfoBeverages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnOrderBeverage)
                     .addComponent(jLabel5))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         tabPane.addTab("Beverage", beveragesPanel);
@@ -535,7 +536,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                         .addComponent(addnInfoMusic, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnHireMusic))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE))
                 .addContainerGap())
         );
         musicPanelLayout.setVerticalGroup(
@@ -616,7 +617,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(addnInfoPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnHirephoto))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         tabPane.addTab("Photo", photopanel);
@@ -849,7 +850,7 @@ public class ViewEventDetailsJPanel extends javax.swing.JPanel {
                                     foodRequest.setRequestID();
                                     foodRequest.setSender(userAccount);
                                     foodRequest.setHost(userAccount);
-                                    foodRequest.setInfra(foodTeam);
+                                    foodRequest.setLocation(foodTeam);
                                     foodRequest.setStatus("Pending");
                                     if (comment.isEmpty()) foodRequest.setFoodNote(comment);
                                     foodRequest.setAttendance(request.getAttendance());
