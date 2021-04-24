@@ -69,6 +69,8 @@ public class AboutUsJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(204, 204, 255));
         setBorder(new javax.swing.border.MatteBorder(null));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(imageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 12, 333, -1));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,33 +98,12 @@ public class AboutUsJPanel extends javax.swing.JPanel {
                 backbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 40));
+        jPanel1.add(backbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 40, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/colourful-balloons-vector-4681508-removebg-preview.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 480, 670));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(522, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 995, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(imageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 716, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 995, 716));
     }// </editor-fold>//GEN-END:initComponents
 
     private void backbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backbtnActionPerformed

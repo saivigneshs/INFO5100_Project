@@ -70,7 +70,7 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(25, 56, 82));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Manage Entertainment Team Members");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 638, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 638, -1));
 
         jScrollPane1.setForeground(new java.awt.Color(0, 102, 255));
 
@@ -89,7 +89,7 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
                 java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -105,34 +105,34 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 638, 179));
 
-        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(25, 56, 82));
         jLabel6.setText("Organization");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 330, 90, -1));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(25, 56, 82));
         jLabel3.setText("Employee");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 70, -1));
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(25, 56, 82));
         jLabel4.setText("Role");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 40, -1));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(25, 56, 82));
         jLabel1.setText("User Name");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, 80, -1));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(25, 56, 82));
         jLabel2.setText("Password");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 510, 70, -1));
 
         createUsername.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         createUsername.setForeground(new java.awt.Color(25, 56, 82));
-        add(createUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, 260, -1));
+        add(createUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 470, 240, -1));
 
         selectRole.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         selectRole.setForeground(new java.awt.Color(25, 56, 82));
@@ -141,7 +141,7 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
                 selectRoleActionPerformed(evt);
             }
         });
-        add(selectRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 260, -1));
+        add(selectRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 240, -1));
 
         selectEmployee.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         selectEmployee.setForeground(new java.awt.Color(25, 56, 82));
@@ -150,7 +150,7 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
                 selectEmployeeActionPerformed(evt);
             }
         });
-        add(selectEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 260, -1));
+        add(selectEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 380, 240, -1));
 
         selectOrganization.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         selectOrganization.setForeground(new java.awt.Color(25, 56, 82));
@@ -159,7 +159,7 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
                 selectOrganizationActionPerformed(evt);
             }
         });
-        add(selectOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 260, -1));
+        add(selectOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 240, -1));
 
         createUserJButton.setBackground(new java.awt.Color(255, 255, 255));
         createUserJButton.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -171,11 +171,16 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
                 createUserJButtonActionPerformed(evt);
             }
         });
-        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, 145, -1));
+        add(createUserJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 570, 120, 40));
 
         createPassword.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         createPassword.setForeground(new java.awt.Color(25, 56, 82));
-        add(createPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 510, 260, 30));
+        createPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createPasswordActionPerformed(evt);
+            }
+        });
+        add(createPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, 240, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void selectRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectRoleActionPerformed
@@ -217,6 +222,10 @@ public class EntertainmentManageUsersJPanel extends javax.swing.JPanel {
         createPassword.setText("");
         JOptionPane.showMessageDialog(null, "User created successfully");
     }//GEN-LAST:event_createUserJButtonActionPerformed
+
+    private void createPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_createPasswordActionPerformed
 
     public void populateOrganizationComboBox() {
         selectOrganization.removeAllItems();

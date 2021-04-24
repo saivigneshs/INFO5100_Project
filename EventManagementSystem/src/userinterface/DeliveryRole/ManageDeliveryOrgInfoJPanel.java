@@ -60,15 +60,15 @@ public class ManageDeliveryOrgInfoJPanel extends javax.swing.JPanel {
         
     }
 private void disableEdit(){
-       txtLocContact.setEditable(true);
-        txtLocEmail.setEditable(true);
-        txtLocName.setEditable(true);
-        txtCity.setEditable(true);
-        txtState.setEditable(true);
-        txtPrice.setEditable(true);
-        txtSpec1.setEditable(true);
-        txtSpec2.setEditable(true);
-        txtSpec3.setEditable(true);
+       txtLocContact.setEditable(false);
+        txtLocEmail.setEditable(false);
+        txtLocName.setEditable(false);
+        txtCity.setEditable(false);
+        txtState.setEditable(false);
+        txtPrice.setEditable(false);
+        txtSpec1.setEditable(false);
+        txtSpec2.setEditable(false);
+        txtSpec3.setEditable(false);
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -309,14 +309,13 @@ private void disableEdit(){
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
-                        .addComponent(lblTitle))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(264, 264, 264)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(331, 331, 331)
+                .addComponent(lblTitle)
+                .addContainerGap(326, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(277, 277, 277))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,9 +326,9 @@ private void disableEdit(){
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(44, 44, 44)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98))
+                .addGap(83, 83, 83))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

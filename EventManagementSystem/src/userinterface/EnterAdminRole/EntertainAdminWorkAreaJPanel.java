@@ -212,9 +212,9 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         menuPanel.add(manageUserAcc, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 240, 40));
 
-        lblHeading.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblHeading.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeading.setText("Entertainment  Enterprise");
-        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 220, -1));
+        menuPanel.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 210, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
@@ -271,8 +271,7 @@ public class EntertainAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(workAreaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1052, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(workAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1052, Short.MAX_VALUE))
         );
         systemAdminPanelLayout.setVerticalGroup(
             systemAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
