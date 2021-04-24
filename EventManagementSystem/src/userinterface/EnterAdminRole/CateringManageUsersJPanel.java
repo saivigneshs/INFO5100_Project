@@ -133,7 +133,6 @@ public class CateringManageUsersJPanel extends javax.swing.JPanel {
 
         jScrollPane1.setForeground(new java.awt.Color(0, 102, 255));
 
-        tblUserDetails.setBackground(new java.awt.Color(204, 204, 255));
         tblUserDetails.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         tblUserDetails.setForeground(new java.awt.Color(25, 56, 82));
         tblUserDetails.setModel(new javax.swing.table.DefaultTableModel(
