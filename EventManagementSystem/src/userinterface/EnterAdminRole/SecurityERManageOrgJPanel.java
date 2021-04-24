@@ -89,9 +89,11 @@ public class SecurityERManageOrgJPanel extends javax.swing.JPanel {
         orgtypecombobox = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Manage Entertainment Organisation");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 290, 38));
 
         ManageSecurityERtbl.setBackground(new java.awt.Color(204, 204, 255));
         ManageSecurityERtbl.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -113,7 +115,12 @@ public class SecurityERManageOrgJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(ManageSecurityERtbl);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 523, 168));
+
+        orgtype_lbl.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         orgtype_lbl.setText("Organisation Type:");
+        add(orgtype_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 140, 27));
+        add(txt_entorgname, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 150, 20));
 
         manageentorg.setBackground(new java.awt.Color(204, 204, 204));
         manageentorg.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -125,56 +132,14 @@ public class SecurityERManageOrgJPanel extends javax.swing.JPanel {
                 manageentorgMousePressed(evt);
             }
         });
+        add(manageentorg, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 127, 27));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel4.setText("Organisation Name:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 140, 27));
 
         orgtypecombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(orgtype_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_entorgname, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
-                            .addComponent(orgtypecombobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(orgtype_lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(orgtypecombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_entorgname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(manageentorg, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
+        add(orgtypecombobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 150, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageentorgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageentorgMousePressed

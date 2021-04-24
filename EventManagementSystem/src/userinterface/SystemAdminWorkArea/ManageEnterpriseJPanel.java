@@ -86,17 +86,14 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jTableEnterprise.setForeground(new java.awt.Color(25, 56, 82));
         jTableEnterprise.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Enterprise", "State", "Type"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -106,12 +103,12 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jTableEnterprise.setSelectionBackground(new java.awt.Color(56, 90, 174));
         jScrollPane1.setViewportView(jTableEnterprise);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 610, 240));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 610, 240));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(25, 56, 82));
         jLabel1.setText("State");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, -1, -1));
 
         JComboBoxNetwork.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         JComboBoxNetwork.setForeground(new java.awt.Color(25, 56, 82));
@@ -121,32 +118,32 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 JComboBoxNetworkActionPerformed(evt);
             }
         });
-        add(JComboBoxNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 210, -1));
+        add(JComboBoxNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 210, -1));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(25, 56, 82));
         jLabel2.setText("Enterprise Name");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 530, -1, -1));
 
         nameJTextField.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         nameJTextField.setForeground(new java.awt.Color(25, 56, 82));
-        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 200, -1));
+        add(nameJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 530, 200, -1));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(25, 56, 82));
         jLabel3.setText("Enterprise Type");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, -1, -1));
 
         JComboBoxEnterpriseType.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         JComboBoxEnterpriseType.setForeground(new java.awt.Color(25, 56, 82));
         JComboBoxEnterpriseType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(JComboBoxEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 210, -1));
+        add(JComboBoxEnterpriseType, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 210, -1));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(25, 56, 82));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Enterprise Details");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 523, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 523, -1));
 
         btnSubmit.setBackground(new java.awt.Color(255, 255, 255));
         btnSubmit.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -160,7 +157,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 btnSubmitMousePressed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 540, 123, 30));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 590, 123, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void JComboBoxNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxNetworkActionPerformed

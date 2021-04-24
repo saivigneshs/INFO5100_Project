@@ -100,17 +100,14 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
         lblRestAdmin.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestAdmin.setForeground(new java.awt.Color(0, 51, 51));
         lblRestAdmin.setText("Security SOS Area");
-        add(lblRestAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
+        add(lblRestAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
         tblEventAuth.setBackground(new java.awt.Color(204, 204, 255));
         tblEventAuth.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         tblEventAuth.setForeground(new java.awt.Color(0, 51, 51));
         tblEventAuth.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Request ID", "Event Name", "Event Category", "Status", "Host Name", "Attendance", "Planned Date", "Location"
@@ -120,7 +117,7 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
                 java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -133,7 +130,7 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
         });
         scrollOrderList.setViewportView(tblEventAuth);
 
-        add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 780, 110));
+        add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 780, 110));
 
         btnApprove.setBackground(new java.awt.Color(204, 255, 255));
         btnApprove.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -145,15 +142,15 @@ public class SecurityERWorkAreaJPanel extends javax.swing.JPanel {
                 btnApproveActionPerformed(evt);
             }
         });
-        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 130, 30));
+        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 130, 30));
 
         blAddMessage.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         blAddMessage.setForeground(new java.awt.Color(41, 50, 80));
         blAddMessage.setText("Additional Message:");
-        add(blAddMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        add(blAddMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, -1, -1));
 
         txtAddMsg.setBackground(new java.awt.Color(204, 204, 255));
-        add(txtAddMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 200, -1));
+        add(txtAddMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 200, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed

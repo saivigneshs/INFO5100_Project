@@ -80,59 +80,59 @@ private void disableEdit(){
 
         txtRestEmail1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtRestEmail1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 227, 127, -1));
+        add(txtRestEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 127, -1));
 
         lblRestEmail1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestEmail1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestEmail1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         lblRestEmail1.setForeground(new java.awt.Color(0, 51, 51));
         lblRestEmail1.setText(" Email ID :");
-        add(lblRestEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 230, -1, -1));
+        add(lblRestEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
 
         txtRestName1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtRestName1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 121, 127, -1));
+        add(txtRestName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 127, -1));
 
         lblRestContact1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestContact1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestContact1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         lblRestContact1.setForeground(new java.awt.Color(0, 51, 51));
         lblRestContact1.setText("Contact No :");
-        add(lblRestContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 201, -1, -1));
+        add(lblRestContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, -1, -1));
 
         txtRestZip1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtRestZip1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestZip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 285, 127, -1));
+        add(txtRestZip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 127, -1));
 
         lblRestZip1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestZip1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestZip1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         lblRestZip1.setForeground(new java.awt.Color(0, 51, 51));
         lblRestZip1.setText("Zip Code :");
-        add(lblRestZip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 288, -1, -1));
+        add(lblRestZip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, -1, -1));
 
         lblRestName1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestName1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestName1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         lblRestName1.setForeground(new java.awt.Color(0, 51, 51));
         lblRestName1.setText("Organization Name :");
-        add(lblRestName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 124, -1, -1));
+        add(lblRestName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
         txtRestAddr1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtRestAddr1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestAddr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 256, 127, -1));
+        add(txtRestAddr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 127, -1));
 
         lblAddRest1.setBackground(new java.awt.Color(204, 255, 255));
         lblAddRest1.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblAddRest1.setForeground(new java.awt.Color(0, 51, 51));
         lblAddRest1.setText("Organization Details");
-        add(lblAddRest1, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 33, -1, -1));
+        add(lblAddRest1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
         lblRestAddr1.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestAddr1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestAddr1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         lblRestAddr1.setForeground(new java.awt.Color(0, 51, 51));
         lblRestAddr1.setText("Street Address :");
-        add(lblRestAddr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 259, -1, -1));
+        add(lblRestAddr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, -1, -1));
 
         txtRestContact1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtRestContact1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 198, 127, -1));
+        add(txtRestContact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 127, -1));
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -144,27 +144,27 @@ private void disableEdit(){
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 372, 48, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 48, -1));
 
         txtMgrName1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtMgrName1.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtMgrName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 314, 127, -1));
+        add(txtMgrName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, 127, -1));
 
         lblMgrName1.setBackground(new java.awt.Color(204, 255, 255));
-        lblMgrName1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblMgrName1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         lblMgrName1.setForeground(new java.awt.Color(0, 51, 51));
         lblMgrName1.setText("Manager's Name :");
-        add(lblMgrName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 314, -1, -1));
+        add(lblMgrName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
 
         txtRestNo.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         txtRestNo.setForeground(new java.awt.Color(0, 51, 51));
-        add(txtRestNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 92, 127, -1));
+        add(txtRestNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 127, -1));
 
         lblRestNo.setBackground(new java.awt.Color(204, 255, 255));
-        lblRestNo.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        lblRestNo.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         lblRestNo.setForeground(new java.awt.Color(0, 51, 51));
         lblRestNo.setText("Organization No :");
-        add(lblRestNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 95, -1, -1));
+        add(lblRestNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, -1));
 
         btnEnableUpdate.setBackground(new java.awt.Color(204, 255, 255));
         btnEnableUpdate.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -176,7 +176,7 @@ private void disableEdit(){
                 btnEnableUpdateActionPerformed(evt);
             }
         });
-        add(btnEnableUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 354, 106, -1));
+        add(btnEnableUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, 106, -1));
 
         btnSaveChanges.setBackground(new java.awt.Color(204, 255, 255));
         btnSaveChanges.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -188,7 +188,7 @@ private void disableEdit(){
                 btnSaveChangesActionPerformed(evt);
             }
         });
-        add(btnSaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 383, 106, -1));
+        add(btnSaveChanges, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 490, 106, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

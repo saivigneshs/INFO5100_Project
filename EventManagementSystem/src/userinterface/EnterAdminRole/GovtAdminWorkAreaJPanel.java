@@ -90,6 +90,7 @@ public class GovtAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         manageRequestPanel = new javax.swing.JPanel();
         manageRequestLabel = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         workAreaPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(241, 241, 242));
@@ -251,6 +252,7 @@ public class GovtAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
 
         menuPanel.add(manageRequestPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 240, 40));
+        menuPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 280, 10));
 
         workAreaPanel.setBackground(new java.awt.Color(204, 204, 255));
         workAreaPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -265,8 +267,7 @@ public class GovtAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(workAreaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1052, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(workAreaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1085, Short.MAX_VALUE))
         );
         systemAdminPanelLayout.setVerticalGroup(
             systemAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,6 +310,7 @@ public class GovtAdminWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JPanel manageEmp;

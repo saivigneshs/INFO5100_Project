@@ -92,17 +92,14 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
         lblRestWorkList.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestWorkList.setForeground(new java.awt.Color(0, 51, 51));
         lblRestWorkList.setText("Music Order  Requests");
-        add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
+        add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 100, -1, -1));
 
         tblmusicRequests.setBackground(new java.awt.Color(204, 204, 255));
         tblmusicRequests.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         tblmusicRequests.setForeground(new java.awt.Color(0, 51, 51));
         tblmusicRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Host", "Host City", "Status", "Message from Host", "Music Team Response"
@@ -112,7 +109,7 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -125,7 +122,7 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
         });
         scrollOrderList.setViewportView(tblmusicRequests);
 
-        add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 880, 110));
+        add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 880, 130));
 
         btnReject.setBackground(new java.awt.Color(204, 255, 255));
         btnReject.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -137,7 +134,7 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
                 btnRejectActionPerformed(evt);
             }
         });
-        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 110, 30));
+        add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 110, 30));
 
         btnApprove.setBackground(new java.awt.Color(204, 255, 255));
         btnApprove.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -149,15 +146,15 @@ public class MusicRequestJPanel extends javax.swing.JPanel {
                 btnApproveActionPerformed(evt);
             }
         });
-        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 110, 30));
+        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 110, 30));
 
         blAddMessage.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         blAddMessage.setForeground(new java.awt.Color(41, 50, 80));
         blAddMessage.setText("Additional Message:");
-        add(blAddMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
+        add(blAddMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
 
         txtAddMsg.setBackground(new java.awt.Color(204, 204, 255));
-        add(txtAddMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 200, -1));
+        add(txtAddMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 200, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed

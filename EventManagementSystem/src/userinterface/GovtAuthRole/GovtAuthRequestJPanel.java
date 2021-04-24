@@ -65,17 +65,14 @@ public class GovtAuthRequestJPanel extends javax.swing.JPanel {
         lblRestWorkList.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         lblRestWorkList.setForeground(new java.awt.Color(0, 51, 51));
         lblRestWorkList.setText("Event Authorization Requests");
-        add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 24, -1, -1));
+        add(lblRestWorkList, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, -1));
 
         tblOrderList.setBackground(new java.awt.Color(204, 204, 255));
         tblOrderList.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         tblOrderList.setForeground(new java.awt.Color(0, 51, 51));
         tblOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Order No", "Org Name", "Equipment Name", "Quantity", "Order Status", "Deliver To", "Location Team Messageg", "Order By", "Total Cost"
@@ -98,7 +95,7 @@ public class GovtAuthRequestJPanel extends javax.swing.JPanel {
         });
         scrollOrderList.setViewportView(tblOrderList);
 
-        add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 843, 110));
+        add(scrollOrderList, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 843, 110));
 
         brnConfirmOrder.setBackground(new java.awt.Color(204, 255, 255));
         brnConfirmOrder.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -110,7 +107,7 @@ public class GovtAuthRequestJPanel extends javax.swing.JPanel {
                 brnConfirmOrderActionPerformed(evt);
             }
         });
-        add(brnConfirmOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 110, 30));
+        add(brnConfirmOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 110, 30));
 
         btnBack.setBackground(new java.awt.Color(204, 255, 255));
         btnBack.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -122,7 +119,7 @@ public class GovtAuthRequestJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 50, 30));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 50, 30));
 
         brnConfirmOrder1.setBackground(new java.awt.Color(204, 255, 255));
         brnConfirmOrder1.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
@@ -134,7 +131,7 @@ public class GovtAuthRequestJPanel extends javax.swing.JPanel {
                 brnConfirmOrder1ActionPerformed(evt);
             }
         });
-        add(brnConfirmOrder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 110, 30));
+        add(brnConfirmOrder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 110, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void brnConfirmOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnConfirmOrderActionPerformed
