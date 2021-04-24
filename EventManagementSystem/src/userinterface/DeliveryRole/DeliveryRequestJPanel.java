@@ -44,14 +44,15 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (WorkRequest workRequest : e.getWorkQueue().getWorkRequestList()) {
                     if (workRequest instanceof FoodDeliveryWorkRequest) {
-                        if (((FoodDeliveryWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
+                        if(((FoodDeliveryWorkRequest) workRequest).getInfra()!=null){
+                        if (((FoodDeliveryWorkRequest) workRequest).getInfra().getUsername().equals(account.getUsername())) {
                             Object[] row = new Object[model.getColumnCount()];
                             row[0] = workRequest;
                             row[1] = ((FoodDeliveryWorkRequest) workRequest).getEventName();
                             row[2] = ((FoodDeliveryWorkRequest) workRequest).getEvenCat();
                             row[3] = ((FoodDeliveryWorkRequest) workRequest).getAttendance();
                             row[4] = ((FoodDeliveryWorkRequest) workRequest).getPlannedDate();
-                            row[5] = ((FoodDeliveryWorkRequest) workRequest).getLocation();
+                            row[5] = ((FoodDeliveryWorkRequest) workRequest).getInfra();
                             if(((FoodDeliveryWorkRequest) workRequest).getHost()!=null){
                             row[6] = ((FoodDeliveryWorkRequest) workRequest).getHost().getCity();
                             }
@@ -61,15 +62,17 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
                             model.addRow(row);
                         }
                     }
+                    }
                     else if (workRequest instanceof BevDeliveryWorkRequest) {
-                        if (((BevDeliveryWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
+                        if(((BevDeliveryWorkRequest) workRequest).getInfra()!=null){
+                        if (((BevDeliveryWorkRequest) workRequest).getInfra().getUsername().equals(account.getUsername())) {
                             Object[] row = new Object[model.getColumnCount()];
                             row[0] = workRequest;
                             row[1] = ((BevDeliveryWorkRequest) workRequest).getEventName();
                             row[2] = ((BevDeliveryWorkRequest) workRequest).getEvenCat();
                             row[3] = ((BevDeliveryWorkRequest) workRequest).getAttendance();
                             row[4] = ((BevDeliveryWorkRequest) workRequest).getPlannedDate();
-                            row[5] = ((BevDeliveryWorkRequest) workRequest).getLocation();
+                            row[5] = ((BevDeliveryWorkRequest) workRequest).getInfra();
                             if(((BevDeliveryWorkRequest) workRequest).getHost()!=null){
                             row[6] = ((BevDeliveryWorkRequest) workRequest).getHost().getCity();
                             }
@@ -78,6 +81,7 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
                             row[9] = ((BevDeliveryWorkRequest) workRequest).getInfraNote();
                             model.addRow(row);
                         }
+                    }
                     }
                 }
             }
@@ -93,29 +97,34 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDeliveryReq = new javax.swing.JTable();
         btndrinkapprovereq = new javax.swing.JButton();
         btndrinkrejectreq = new javax.swing.JButton();
         txtAddMsg = new javax.swing.JTextField();
         blAddMessage = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("Manage Delivery Requests");
 
         tblDeliveryReq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Host", "Host City", "Status", "Message from Host", "Location Team Reply"
+                "Request Type", "Event Name", "Event Category", "Attendance", "Planned Date", "Assigned to", "Host City", "Status", "Message from Host", "Location Team Reply"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblDeliveryReq);
 
         btndrinkapprovereq.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -147,31 +156,24 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(102, 102, 102)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(243, 243, 243)
                         .addComponent(blAddMessage)
-                        .addGap(18, 18, 18)
+                        .addGap(47, 47, 47)
                         .addComponent(txtAddMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(35, 35, 35)
                         .addComponent(btndrinkapprovereq)
-                        .addGap(54, 54, 54)
-                        .addComponent(btndrinkrejectreq)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(425, 425, 425))
+                        .addGap(34, 34, 34)
+                        .addComponent(btndrinkrejectreq)
+                        .addGap(20, 20, 20)))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,19 +186,29 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
                 .addGap(27, 27, 27))
         );
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setText("Manage Delivery Requests");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(486, 486, 486)
+                        .addComponent(jLabel1)))
                 .addGap(210, 210, 210))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
+                .addGap(80, 80, 80)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(169, 169, 169))
         );
@@ -206,7 +218,7 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
          int selectedRow = tblDeliveryReq.getSelectedRow();
         if (selectedRow >= 0) {
-            LocInfraWorkRequest request = (LocInfraWorkRequest) tblDeliveryReq.getValueAt(selectedRow, 0);
+            WorkRequest request = (WorkRequest) tblDeliveryReq.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter additional details to the Host.");
@@ -214,16 +226,16 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
             }
             if (!request.getStatus().equals("Awaiting Govt Approval")) {
             if (!"Event Authorized".equals(request.getStatus())) {
-                request.setStatus("Infrastructure Prepared");
+                request.setStatus("Delivery Team Booked");
                 request.setMessage(message);
-                JOptionPane.showMessageDialog(null, "Infrastructure Package is Prepared!");
+                JOptionPane.showMessageDialog(null, "Delivery Team is Booked!");
                     account.setStatus("Booked");
                 populateDeliveryRequests();
             } else {
-                JOptionPane.showMessageDialog(null, "Event is already Authorized!");
+                JOptionPane.showMessageDialog(null, "Team is already booked!");
             }
             } else {
-                JOptionPane.showMessageDialog(null, "Select an appropriate Event!");
+                JOptionPane.showMessageDialog(null, "Select an appropriate Request!");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Please select one row!");
@@ -235,7 +247,7 @@ public class DeliveryRequestJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRow = tblDeliveryReq.getSelectedRow();
         if (selectedRow >= 0) {
-            HostLocWorkRequest request = (HostLocWorkRequest) tblDeliveryReq.getValueAt(selectedRow, 0);
+            WorkRequest request = (WorkRequest) tblDeliveryReq.getValueAt(selectedRow, 0);
             String message = txtAddMsg.getText();
             if (message.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Kindly enter the reason for Rejection");

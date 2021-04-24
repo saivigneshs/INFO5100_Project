@@ -56,8 +56,6 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnRestInfo = new javax.swing.JButton();
-        btnmanagerequests = new javax.swing.JButton();
         lblRestName = new javax.swing.JLabel();
         lblRestAdmin = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -74,26 +72,6 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        btnRestInfo.setBackground(new java.awt.Color(204, 255, 255));
-        btnRestInfo.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        btnRestInfo.setForeground(new java.awt.Color(0, 51, 51));
-        btnRestInfo.setText("Package Details");
-        btnRestInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestInfoActionPerformed(evt);
-            }
-        });
-
-        btnmanagerequests.setBackground(new java.awt.Color(204, 204, 255));
-        btnmanagerequests.setFont(new java.awt.Font("Ebrima", 1, 14)); // NOI18N
-        btnmanagerequests.setForeground(new java.awt.Color(0, 51, 51));
-        btnmanagerequests.setText("Manage Requests");
-        btnmanagerequests.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmanagerequestsActionPerformed(evt);
-            }
-        });
 
         lblRestName.setBackground(new java.awt.Color(204, 255, 255));
         lblRestName.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -147,8 +125,8 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(81, 81, 81)
-                .addComponent(lblmanagerqst)
+                .addGap(73, 73, 73)
+                .addComponent(lblmanagerqst, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -166,18 +144,10 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnmanagerequests, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRestInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -205,11 +175,7 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(283, 283, 283)
-                .addComponent(btnmanagerequests)
-                .addGap(53, 53, 53)
-                .addComponent(btnRestInfo)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(502, Short.MAX_VALUE))
         );
 
         rightPanel.setBackground(new java.awt.Color(204, 204, 255));
@@ -233,15 +199,6 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRestInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestInfoActionPerformed
-        // TODO add your handling code here:
-    
-    }//GEN-LAST:event_btnRestInfoActionPerformed
-
-    private void btnmanagerequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmanagerequestsActionPerformed
-        manageRequests();
-    }//GEN-LAST:event_btnmanagerequestsActionPerformed
-
     private void lblmanagerqstMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblmanagerqstMousePressed
         manageRequests();
     }//GEN-LAST:event_lblmanagerqstMousePressed
@@ -254,8 +211,6 @@ public class PhotographerWorkAreaJPanel extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRestInfo;
-    private javax.swing.JButton btnmanagerequests;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

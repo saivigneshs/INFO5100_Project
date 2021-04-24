@@ -87,7 +87,7 @@ public class MainJFrame extends javax.swing.JFrame {
         loginButton = new javax.swing.JLabel();
         cancelButton = new javax.swing.JLabel();
         btnRegister = new javax.swing.JLabel();
-        lbl_logo2 = new javax.swing.JLabel();
+        lbl_logo3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -166,16 +166,15 @@ public class MainJFrame extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(36, Short.MAX_VALUE)
-                        .addComponent(lbl_content2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 23, Short.MAX_VALUE)
+                        .addComponent(lbl_heading, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(lbl_content1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lbl_heading, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_content2)
+                            .addComponent(lbl_content1))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbl_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -302,9 +301,9 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         loginJPanel.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(848, 316, 304, 33));
 
-        lbl_logo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/welcome.png"))); // NOI18N
-        loginJPanel.add(lbl_logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(848, 397, -1, -1));
+        lbl_logo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_logo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/welcome.png"))); // NOI18N
+        loginJPanel.add(lbl_logo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, 340, 340));
 
         getContentPane().add(loginJPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1390, 1110));
 
@@ -467,7 +466,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_content2;
     private javax.swing.JLabel lbl_heading;
     private javax.swing.JLabel lbl_logo;
-    private javax.swing.JLabel lbl_logo2;
+    private javax.swing.JLabel lbl_logo3;
     private javax.swing.JPanel lbl_pwd;
     private javax.swing.JPanel lbl_uName;
     private javax.swing.JLabel loginButton;

@@ -11,8 +11,11 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.BevDeliveryWorkRequest;
 import Business.WorkQueue.FoodDeliveryWorkRequest;
+import Business.WorkQueue.HostBeverageWorkRequest;
 import Business.WorkQueue.HostFoodWorkRequest;
+import Business.WorkQueue.LocInfraWorkRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -41,13 +44,14 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
         populateFoodRequests();
     }
     
-   public void goDelivery(HostFoodWorkRequest request){
+       public void goDelivery(HostFoodWorkRequest request){
                 String comment = txtAddMsg.getText();
                     for (Network n : business.getNetworkList()) {
                     for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                         for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                             if(org.getType().equals(Organization.Type.Delivery)){
                             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                                if(ua.getSpec1()!=null && account.getCity()!=null){
                                 if ( (account.getCity().equals(ua.getSpec1()) || 
                                         account.getCity().equals(ua.getSpec2()) || 
                                         account.getCity().equals(ua.getSpec3()) )&&
@@ -74,6 +78,43 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
                                 } else{
                                 JOptionPane.showMessageDialog(null, "No Delivery Teams Available in Cities : "+ua.getSpec1()+", "+ua.getSpec2()+" and "+ua.getSpec3()+" ");
                                 }
+                                }else{
+                                
+                                    for (Network network : business.getNetworkList()) {
+                                    for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+                                     for (Organization orga : enter.getOrganizationDirectory().getOrganizationList()) {
+                                    if(orga.getType().equals(Organization.Type.Delivery)){
+                                    for (UserAccount uaa : org.getUserAccountDirectory().getUserAccountList()) {
+                                   if ("Available".equals(uaa.getStatus()) ) {
+                                   FoodDeliveryWorkRequest foodRequest = new FoodDeliveryWorkRequest();                                                          
+                                    foodRequest.setRequestID();
+                                    foodRequest.setSender(account);
+                                    foodRequest.setHost(account);
+                                    foodRequest.setInfra(uaa);
+                                    foodRequest.setLocation(account);
+                                    foodRequest.setStatus("Pending");
+                                    if (!comment.isEmpty()) foodRequest.setMessage(comment);
+                                    foodRequest.setAttendance(request.getAttendance());
+                                    foodRequest.setEventName(request.getEventName());
+                                    foodRequest.setEvenCat(request.getEvenCat());
+                                    foodRequest.setPlannedDate(request.getPlannedDate());
+                                    foodRequest.setOrgType(Organization.Type.Delivery);
+                                    
+                                    
+                                    e.getWorkQueue().getWorkRequestList().add(foodRequest);
+                                    System.out.println("Request"+foodRequest.toString()+"  >> Added to Enterprise "+e);
+                                    JOptionPane.showMessageDialog(null, "Delivery Request Sent Successfully!");
+                                    APIforSMS sms = new APIforSMS(uaa.getPhone(), "Hello "+uaa.getName()+", Food Team:"+request.getLocation().getName()+" likes to book a Delivery package on "+String.valueOf(foodRequest.getPlannedDate() ).substring(0,10)+". Kindly login for more details.");
+                                    //system.sendEmailMessage(ua.getEmail(), "Hello! You have one new work request! Please login to know more!");
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "No Delivery Teams Available Currently!");
+                                   }
+                            }
+                        }
+                        }
+                    }
+                }
+                                }
                             }
                         }
                         }
@@ -88,8 +129,8 @@ public class FoodRequestJPanel extends javax.swing.JPanel {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (WorkRequest workRequest : e.getWorkQueue().getWorkRequestList()) {
                     if (workRequest instanceof HostFoodWorkRequest) {
-                        if(((HostFoodWorkRequest) workRequest).getFood()!=null){
-                        if (((HostFoodWorkRequest) workRequest).getFood().getUsername().equals(account.getUsername())) {
+                        if(((HostFoodWorkRequest) workRequest).getLocation()!=null){
+                        if (((HostFoodWorkRequest) workRequest).getLocation().getUsername().equals(account.getUsername())) {
                             Object[] row = new Object[model.getColumnCount()];
                             row[0] = workRequest;
                             row[1] = ((HostFoodWorkRequest) workRequest).getEventName();

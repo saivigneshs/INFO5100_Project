@@ -349,6 +349,7 @@ public class AddEventJPanel extends javax.swing.JPanel {
         hostgovtwr.setEventName(txtEventName.getText());
         hostgovtwr.setEvenCat(String.valueOf(cbEventCat.getSelectedItem()));
         hostgovtwr.setPlannedDate(eventDate); 
+        hostgovtwr.setLocNote(userAccount.getCity());
         hostgovtwr.setHost(userAccount);
         
         for (Network n : system.getNetworkList()) {
