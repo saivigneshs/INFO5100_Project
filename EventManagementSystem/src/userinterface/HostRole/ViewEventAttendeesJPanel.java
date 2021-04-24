@@ -7,6 +7,7 @@ package userinterface.HostRole;
 import Business.APIforSMS.APIforSMS;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Host.Attendant;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.AuthRole;
@@ -50,9 +51,9 @@ public class ViewEventAttendeesJPanel extends javax.swing.JPanel {
         this.enterprise = ent;
         this.network = net;
 
-        populateEventsTable();
+        popAttendeesTable();
     }
-    public void populateEventsTable() {
+    public void popAttendeesTable() {
         DefaultTableModel model = (DefaultTableModel) tblEventAttendees.getModel();
         model.setRowCount(0);
         for (Network n : system.getNetworkList()) {
@@ -60,21 +61,15 @@ public class ViewEventAttendeesJPanel extends javax.swing.JPanel {
                 for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
                     for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
                         if (ua.getRole() instanceof HostRole) {
-                            for(WorkRequest request : ua.getWorkQueue().getWorkRequestList()){
-                             if ( request instanceof HostGovtWorkRequest) {
-                                 if(((HostGovtWorkRequest) request).getHost().equals(userAccount)){
-                Object[] row = new Object[8];
-                row[0] = ((HostGovtWorkRequest) request).getEventName();
-                row[1] = ((HostGovtWorkRequest) request).getEvenCat();
-                row[2] = request;
-                row[3] = ((HostGovtWorkRequest) request).getAttendance();
-                row[4] = String.valueOf(((HostGovtWorkRequest) request).getPlannedDate() ).substring(0,10);
-                row[5] = request.getStatus();
-
-                model.addRow(row);
-                                 }
+                            if(ua.equals(userAccount)){
+                                for(Attendant att : ua.getAttendees().getAttendeeList()){
+                                Object[] row = new Object[3];
+                                row[0] = att.getName();
+                                row[1] = att.getEmail();
+                                row[2] = att.getPhone();
+                                model.addRow(row);
                                 }
-                            }
+                               }                         
                         }
                     }
                 }
@@ -96,14 +91,14 @@ public class ViewEventAttendeesJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEventAttendees = new javax.swing.JTable();
-        refreshTestJButton = new javax.swing.JButton();
+        btnSendMail = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtAttMail = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtAttName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        btnaddattendee = new javax.swing.JButton();
+        txtAttPhone = new javax.swing.JTextField();
+        btnAdd = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -112,32 +107,25 @@ public class ViewEventAttendeesJPanel extends javax.swing.JPanel {
 
         enterpriseLabel.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
         enterpriseLabel.setForeground(new java.awt.Color(0, 51, 51));
-        enterpriseLabel.setText("Event Attendees");
+        enterpriseLabel.setText("Attendees List");
 
         tblEventAttendees.setBackground(new java.awt.Color(204, 204, 255));
         tblEventAttendees.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
         tblEventAttendees.setForeground(new java.awt.Color(0, 51, 51));
         tblEventAttendees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Event Name", "Planned Date", "Attendees Name", "Email ID", "Phone No"
+                "Name", "Email ID", "Phone No"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, true
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -145,14 +133,14 @@ public class ViewEventAttendeesJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblEventAttendees);
 
-        refreshTestJButton.setBackground(new java.awt.Color(204, 255, 255));
-        refreshTestJButton.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
-        refreshTestJButton.setForeground(new java.awt.Color(255, 0, 0));
-        refreshTestJButton.setText("Send Email");
-        refreshTestJButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnSendMail.setBackground(new java.awt.Color(204, 255, 255));
+        btnSendMail.setFont(new java.awt.Font("Ebrima", 1, 12)); // NOI18N
+        btnSendMail.setForeground(new java.awt.Color(255, 0, 0));
+        btnSendMail.setText("Send Email");
+        btnSendMail.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSendMail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshTestJButtonActionPerformed(evt);
+                btnSendMailActionPerformed(evt);
             }
         });
 
@@ -162,10 +150,10 @@ public class ViewEventAttendeesJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Phone Number:");
 
-        btnaddattendee.setText("Add Attendee");
-        btnaddattendee.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("Add Attendee");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnaddattendeeActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -173,64 +161,65 @@ public class ViewEventAttendeesJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(326, 326, 326))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
-                        .addComponent(refreshTestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSendMail, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(145, 145, 145)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                                    .addComponent(jTextField1)))
+                                .addGap(5, 5, 5)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtAttMail, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAttPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(29, 29, 29)
+                                .addComponent(txtAttName, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(334, 334, 334)
-                        .addComponent(btnaddattendee)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                        .addGap(73, 73, 73)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(352, 352, 352)
+                        .addComponent(btnAdd)))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtAttName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16))
+                            .addComponent(txtAttMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(refreshTestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSendMail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addComponent(btnaddattendee)
-                .addGap(25, 25, 25))
+                    .addComponent(txtAttPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(btnAdd)
+                .addGap(27, 27, 27))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -245,76 +234,59 @@ public class ViewEventAttendeesJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnaddattendeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddattendeeActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnaddattendeeActionPerformed
-
-    private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
-        int selectedRow =tblEventAttendees.getSelectedRow();
-        int count = tblEventAttendees.getSelectedRowCount();
-
-        if (count == 1) {
-            if (selectedRow >= 0) {
-                HostGovtWorkRequest request = (HostGovtWorkRequest) tblEventAttendees.getValueAt(selectedRow, 2);
-                //                String comment = addnInfoLoc.getText();
-
-                //                HostGovtWorkRequest hostgovtwr = new HostGovtWorkRequest();
-                securityerRequest.setRequestID();
-                securityerRequest.setStatus("Awaiting Emergency Response");
-                securityerRequest.setHost(userAccount);
-                securityerRequest.setAttendance(request.getAttendance());
-                securityerRequest.setMessage("Required Help from Emergency Team");
-                securityerRequest.setEventName(request.getEventName());
-                securityerRequest.setEvenCat(request.getEvenCat());
-                securityerRequest.setPlannedDate(request.getPlannedDate());
-                securityerRequest.setLocation(request.getLocation());
-
-                for (Network n : system.getNetworkList()) {
-                    System.out.println("network");
-                    for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
-                        System.out.println("network1");
-                        for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
-                            System.out.println("network2");
-                            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
-                                System.out.println("network3");
-                                if (ua.getRole() instanceof SecurityERRole) {
-                                    System.out.println("network4");
-                                    ua.getWorkQueue().getWorkRequestList().add(securityerRequest);
-                                    JOptionPane.showMessageDialog(null, "Request Sent Successfully!");
-                                    //                            disableFields();
+        String attName = txtAttName.getText().trim();
+        String attMail = txtAttMail.getText().trim();
+        String attPhone = txtAttPhone.getText().trim();
+        
+        for (Network n : system.getNetworkList()) {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                        if (ua.getRole() instanceof HostRole) {
+                            if(ua.equals(userAccount)){
+                                Attendant att = new Attendant();
+                                att.setName(attName);
+                                att.setPhone(attPhone);
+                                att.setEmail(attMail);
+                                ua.getAttendees().getAttendeeList().add(att);
+                                JOptionPane.showMessageDialog(null, "Attendant Added Successfully!");
+                                txtAttMail.setText("");
+                                txtAttName.setText("");
+                                txtAttPhone.setText("");
+                                popAttendeesTable();
+                                
                                 }
-                            }
+                               }                         
                         }
                     }
                 }
+            }           
+    }//GEN-LAST:event_btnAddActionPerformed
 
-            }
-        }else {
-            JOptionPane.showMessageDialog(null, "Please select a event to send request!");
-
-        }
-        //        populateEventsTable();
-
-    }//GEN-LAST:event_refreshTestJButtonActionPerformed
+    private void btnSendMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendMailActionPerformed
+        
+    }//GEN-LAST:event_btnSendMailActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnaddattendee;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnSendMail;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JButton refreshTestJButton;
     private javax.swing.JTable tblEventAttendees;
+    private javax.swing.JTextField txtAttMail;
+    private javax.swing.JTextField txtAttName;
+    private javax.swing.JTextField txtAttPhone;
     // End of variables declaration//GEN-END:variables
 }
