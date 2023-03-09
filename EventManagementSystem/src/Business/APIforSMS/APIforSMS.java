@@ -13,9 +13,9 @@ import com.twilio.type.PhoneNumber;
  */
 public class APIforSMS {
     
-    public static final String ACCOUNT_SID = "ACb58703f172a26aff558eed1e726994fe";
-    public static final String AUTH_TOKEN = "96b00320fc18a6aef176ae10c71ee582";
-    public static final String fromNo = "+12542782596";
+    public static final String ACCOUNT_SID = "";
+    public static final String AUTH_TOKEN = "";
+    public static final String fromNo = ""
     public String toNo;
     public String content;
      public APIforSMS(String toNo, String content) {
@@ -24,7 +24,7 @@ public class APIforSMS {
          Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
     Message message = Message.creator(
 //                new PhoneNumber(toNo),
-                new PhoneNumber("+19253365683"),
+                new PhoneNumber(""),
                 new PhoneNumber(fromNo),
                 content)
             .create();
